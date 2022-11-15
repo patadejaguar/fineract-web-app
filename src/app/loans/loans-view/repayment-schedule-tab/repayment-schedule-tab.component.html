@@ -9,19 +9,22 @@
     </ng-container>
 
     <ng-container matColumnDef="days">
-      <th mat-header-cell class="center" *matHeaderCellDef> Days </th>
+      <th mat-header-cell class="center" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.applicabledate'"> Days </span></th>
       <td mat-cell class="center" *matCellDef="let ele"> {{ ele.daysInPeriod }} </td>
       <td mat-footer-cell class="center" *matFooterCellDef> <b> Total</b> </td>
     </ng-container>
 
     <ng-container matColumnDef="date">
-      <th mat-header-cell class="center" *matHeaderCellDef> Date </th>
+      <th mat-header-cell class="center" *matHeaderCellDef> 
+        <span [translate]="'modulo.loans.header.date'">Date </span></th>
       <td mat-cell class="center" *matCellDef="let ele"> {{ ele.dueDate  | dateFormat}} </td>
       <td mat-footer-cell *matFooterCellDef>  </td>
     </ng-container>
 
     <ng-container matColumnDef="paiddate">
-      <th mat-header-cell class="center" *matHeaderCellDef> Paid Date </th>
+      <th mat-header-cell class="center" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.paiddate'"> Paid Date</span> </th>
       <td mat-cell class="center" *matCellDef="let ele"> {{ ele.obligationsMetOnDate  | dateFormat}} </td>
       <td mat-footer-cell *matFooterCellDef>  </td>
     </ng-container>
@@ -35,62 +38,72 @@
     </ng-container>
 
     <ng-container matColumnDef="principalDue">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Principal Due </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.principaldue'"> Principal Due </span></th>
       <td mat-cell class="check r-amount" *matCellDef="let ele"> {{ ele.principalDue | number }} </td>
       <td mat-footer-cell class="check r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalPrincipalExpected | currency }}</b>  </td>
     </ng-container>
 
     <ng-container matColumnDef="balanceOfLoan">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Balance Of Loan </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.balanceloan'"> Balance Of Loan </span></th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.principalLoanBalanceOutstanding | number }} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> &nbsp; </td>
     </ng-container>
 
     <ng-container matColumnDef="interest">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Interest </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.labels.interest'"> Interest</span> </th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.interestOriginalDue | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalInterestCharged | currency }} </b> </td>
     </ng-container>
 
     <ng-container matColumnDef="fees">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Fees </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.fees'"> Fees</span> </th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.feeChargesDue | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalFeeChargesCharged | currency }} </b> </td>
     </ng-container>
 
     <ng-container matColumnDef="penalties">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Penalties </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.penalties'"> Penalties </span></th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.penaltyChargesDue | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalPenaltyChargesCharged | currency }} </b> </td>
     </ng-container>
 
     <ng-container matColumnDef="due">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Due </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.due'"> Due</span> </th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.totalDueForPeriod | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalRepaymentExpected | currency }} </b> </td>
     </ng-container>
 
     <ng-container matColumnDef="paid">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Paid </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.paid'"> Paid</span> </th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.totalPaidForPeriod | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalRepayment | currency }} </b> </td>
     </ng-container>
 
     <ng-container matColumnDef="inadvance">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> In advance </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.inadvance'"> In advance</span> </th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.totalPaidInAdvanceForPeriod | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalPaidInAdvance | currency }} </b> </td>
     </ng-container>
 
     <ng-container matColumnDef="late">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Late </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.late'"> Late</span> </th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.totalPaidLateForPeriod | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalPaidLate | currency }} </b> </td>
     </ng-container>
 
     <ng-container *ngIf="isWaived">
       <ng-container matColumnDef="waived">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Waived </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.waived'"> Waived </span></th>
         <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.totalWaivedForPeriod | number}} </td>
         <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalWaived | currency }} </b> </td>
       </ng-container>
@@ -105,7 +118,8 @@
     </ng-container>
 
     <ng-container matColumnDef="outstanding">
-      <th mat-header-cell class="r-amount" *matHeaderCellDef> Outstanding </th>
+      <th mat-header-cell class="r-amount" *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.outstandig'"> Outstanding </span></th>
       <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.totalOutstandingForPeriod | number}} </td>
       <td mat-footer-cell class="r-amount" *matFooterCellDef> <b> {{ repaymentScheduleDetails.totalOutstanding | currency }} </b> </td>
     </ng-container>
@@ -115,15 +129,18 @@
     </ng-container>
 
     <ng-container matColumnDef="header-amount">
-      <th mat-header-cell class="center" *matHeaderCellDef [attr.colspan]="2"> Loan Amount and Balance </th>
+      <th mat-header-cell class="center" *matHeaderCellDef [attr.colspan]="2">
+        <span [translate]="'modulo.loans.header.loanamountbalance'"> Loan Amount and Balance</span> </th>
     </ng-container>
 
     <ng-container matColumnDef="header-total-cost">
-      <th mat-header-cell class="center" *matHeaderCellDef [attr.colspan]="3"> Total Cost of Loan </th>
+      <th mat-header-cell class="center" *matHeaderCellDef [attr.colspan]="3">
+        <span [translate]="'modulo.loans.header.totalcostloan'"> Total Cost of Loan </span></th>
     </ng-container>
 
     <ng-container matColumnDef="header-installment-totals">
-      <th mat-header-cell class="center" *matHeaderCellDef [attr.colspan]="6"> Installment Totals </th>
+      <th mat-header-cell class="center" *matHeaderCellDef [attr.colspan]="6">
+        <span [translate]="'modulo.loans.header.installmenttotal'"> Installment Totals</span> </th>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="['header', 'header-amount', 'header-total-cost', 'header-installment-totals']"></tr>

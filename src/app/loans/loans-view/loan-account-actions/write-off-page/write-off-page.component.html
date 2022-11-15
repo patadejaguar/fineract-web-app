@@ -9,23 +9,23 @@
         <div fxLayout="column">
 
           <mat-form-field (click)="writeOffDatePicker.open()">
-            <mat-label>Write off on</mat-label>
+            <mat-label><span [translate]="'modulo.loans.labels.writeoff'">Write off on</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="writeOffDatePicker" required
               formControlName="transactionDate">
             <mat-datepicker-toggle matSuffix [for]="writeOffDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #writeOffDatePicker></mat-datepicker>
             <mat-error *ngIf="writeOffForm.controls.transactionDate.hasError('required')">
-              Write Off Date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.writeoffdaterequired' | translate">Write Off Date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Amount</mat-label>
+            <mat-label><span [translate]="'modulo.loans.header.amount'">Amount</span></mat-label>
             <input matInput formControlName="amount">
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Note</mat-label>
+            <mat-label><span [translate]="'modulo.loans.labels.note'">Note</span></mat-label>
             <textarea matInput formControlName="note"></textarea>
           </mat-form-field>
 
@@ -34,9 +34,11 @@
       </form>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../general']">Cancel</button>
+        <button type="button" mat-raised-button [routerLink]="['../../general']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
         <button mat-raised-button color="primary" (click)="submit()"
-          *mifosxHasPermission="'WRITEOFF_LOAN'">Submit</button>
+          *mifosxHasPermission="'WRITEOFF_LOAN'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </mat-card-content>

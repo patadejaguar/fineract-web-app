@@ -2,11 +2,11 @@
   fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
     <button mat-raised-button color="accent" *mifosxHasPermission="'PAY_SAVINGSACCOUNTCHARGE'" (click)="payCharge()">
       <fa-icon icon="dollar-sign"></fa-icon>&nbsp;&nbsp;
-      Pay
+      <span [translate]="'labels.buttons.Pay'">Pay</span>
     </button>
     <button mat-raised-button color="primary" *mifosxHasPermission="'WAIVE_SAVINGSACCOUNTCHARGE'" (click)="waiveCharge()">
       <fa-icon icon="flag"></fa-icon>&nbsp;&nbsp;
-      Waive
+      <span [translate]="'labels.buttons.Waive'">Waive</span>
     </button>
 </div>
 
@@ -14,11 +14,11 @@
   fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
     <button mat-raised-button color="primary" *mifosxHasPermission="'UPDATE_SAVINGSACCOUNTCHARGE'" (click)="editCharge()">
       <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-      Edit
+      <span [translate]="'labels.buttons.Edit'">Edit</span>
     </button>
     <button mat-raised-button color="warn" *mifosxHasPermission="'DELETE_SAVINGSACCOUNTCHARGE'" (click)="deleteCharge()">
       <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-      Delete
+      <span [translate]="'labels.buttons.Delete'">Delete</span>
     </button>
 </div>
 
@@ -31,7 +31,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Name
+          <span [translate]="'modulo.loans.header.name'">Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -39,7 +39,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Charge Type
+          <span [translate]="'modulo.loans.header.chargetype'">Charge Type</span>
         </div>
 
         <div fxFlex="50%">
@@ -47,7 +47,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Currency
+          <span [translate]="'modulo.loans.labels.currency'">Currency</span>
         </div>
 
         <div fxFlex="50%">
@@ -55,7 +55,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Payment due at
+          <span [translate]="'modulo.loans.header.paymentdue'">Payment due at</span>
         </div>
 
         <div fxFlex="50%">
@@ -63,7 +63,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Payment due as of
+          <span [translate]="'modulo.loans.header.paydueof'">Payment due as of</span>
         </div>
 
         <div fxFlex="50%">
@@ -71,7 +71,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Calculation Type
+          <span [translate]="'modulo.loans.header.calculationtype'">Calculation Type</span>
         </div>
 
         <div fxFlex="50%">
@@ -79,7 +79,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Due
+          <span [translate]="'modulo.loans.header.due'">Due</span>
         </div>
 
         <div fxFlex="50%">
@@ -87,7 +87,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Paid
+          <span [translate]="'modulo.loans.header.paid'">Paid</span>
         </div>
 
         <div fxFlex="50%">
@@ -95,7 +95,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Waived
+          <span [translate]="'modulo.loans.header.waived'">Waived</span>
         </div>
 
         <div fxFlex="50%">
@@ -103,7 +103,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Outstanding
+          <span [translate]="'modulo.loans.header.outstanding'">Outstanding</span>
         </div>
 
         <div fxFlex="50%">
@@ -113,7 +113,8 @@
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="2%" fxLayout.lt-md="column">
-        <button type="button" mat-raised-button color="primary" [routerLink]="['../']">{{ 'Back' | translate }}</button>
+        <button type="button" mat-raised-button color="primary" [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Back'">Back</span></button>
       </div>
     </mat-card-content>
 
