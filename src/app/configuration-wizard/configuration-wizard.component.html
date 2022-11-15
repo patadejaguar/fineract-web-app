@@ -1,39 +1,40 @@
-<h1 mat-dialog-title>Welcome to Mifos</h1>
+<h1 mat-dialog-title>{{ 'modulo.configurationwizard.title' | translate }}</h1>
 
 <mat-dialog-content>
 
-<h3 class="mw600">Following guide tour will help you configure Mifos according to your organization needs.</h3>
+<h3 class="mw600">{{ 'modulo.configurationwizard.description' | translate }}</h3>
 
 
 <mat-grid-list cols="3" rowHeight="50px">
 
       <mat-grid-tile>
-		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 1 }">Home Screen Tour</button>
+		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 1 }">{{ 'modulo.configurationwizard.buttons.home' | translate }}</button>
 	  </mat-grid-tile>
 	  <mat-grid-tile>
-		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 2 }">Setup Organization</button>
+		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 2 }">{{ 'modulo.configurationwizard.buttons.organization' | translate }}</button>
 	  </mat-grid-tile>
 	  <mat-grid-tile>
-		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 3 }">Setup System</button>
+		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 3 }">{{ 'modulo.configurationwizard.buttons.system' | translate }}</button>
 	  </mat-grid-tile>
 	  <mat-grid-tile>
-		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 4 }">Setup Accounting</button>
+		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 4 }">{{ 'modulo.configurationwizard.buttons.account' | translate }}</button>
 	  </mat-grid-tile>
 	  <mat-grid-tile>
-		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 5 }">Setup Products</button>
+		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 5 }">{{ 'modulo.configurationwizard.buttons.products' | translate }}</button>
 	  </mat-grid-tile>
 	  <mat-grid-tile>
-		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 6 }">Setup Funds and Reports</button>
+		   <button mat-raised-button color="primary" [mat-dialog-close]="{ show: 6 }">{{ 'modulo.configurationwizard.buttons.funds' | translate }}</button>
 	  </mat-grid-tile>
 
 </mat-grid-list>
 
-<h3>Progress Bar : 0%</h3>
+<h3 [translate]="'modulo.configurationwizard.progress'" [translateParams]="{ porcent: '0%' }"></h3>
 
 <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-raised-button color="warn" [mat-dialog-close]="{ show: 0 }">Close Config. Wizard</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="{ show: 0 }">
+		<span [innerHTML]="'modulo.configurationwizard.buttons.close' | translate" ></span></button>
 </mat-dialog-actions>

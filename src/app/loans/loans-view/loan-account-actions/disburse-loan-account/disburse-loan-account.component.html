@@ -9,43 +9,45 @@
         <div fxLayout="column">
     
           <mat-form-field (click)="disbursementDatePicker.open()">
-            <mat-label>Disbursement On</mat-label>
+            <mat-label><span [translate]="'modulo.loans.labels.disbursement'">Disbursement On</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="disbursementDatePicker" required
               formControlName="actualDisbursementDate">
             <mat-datepicker-toggle matSuffix [for]="disbursementDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #disbursementDatePicker></mat-datepicker>
             <mat-error *ngIf="disbursementForm.controls.actualDisbursementDate.hasError('required')">
-              Disbursement Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.disbursementdrequired' | translate">Disbursement Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
     
           <mat-form-field>
-            <mat-label>Transaction amount</mat-label>
+            <mat-label><span [translate]="'modulo.loans.labels.transactionamount'">Transaction amount</span></mat-label>
             <input matInput required formControlName="transactionAmount">
             <mat-error *ngIf="disbursementForm.controls.transactionAmount.hasError('required')">
-              Transaction Amount is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.transactionamountrequired' | translate">Transaction Amount is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
     
           <mat-form-field *ngIf="dataObject.fixedEmiAmount !== null || dataObject.fixedEmiAmount !== undefined">
-            <mat-label>Fixed EMI amount</mat-label>
+            <mat-label><span [translate]="'modulo.loans.labels.fixedamount'">Fixed EMI amount</span></mat-label>
             <input matInput required formControlName="fixedEmiAmount">
             <mat-error *ngIf="disbursementForm.controls.fixedEmiAmount.hasError('required')">
-              Fixed EMI Amount is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.fixedamountrequired' | translate">Fixed EMI Amount is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
     
           <mat-form-field>
-            <mat-label>Note</mat-label>
+            <mat-label><span [translate]="'modulo.loans.labels.note'">Note</span></mat-label>
             <textarea matInput formControlName="note"></textarea>
           </mat-form-field>
     
         </div>
     
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-          <button type="button" mat-raised-button [routerLink]="['../../general']">Cancel</button>
+          <button type="button" mat-raised-button [routerLink]="['../../general']">
+            <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
           <button mat-raised-button color="primary" [disabled]="!disbursementForm.valid"
-            *mifosxHasPermission="'DISBURSETOSAVINGS_LOAN'">Submit</button>
+            *mifosxHasPermission="'DISBURSETOSAVINGS_LOAN'">
+            <span [translate]="'labels.buttons.Submit'">Submit</span></button>
         </mat-card-actions>
     
       </mat-card-content>
