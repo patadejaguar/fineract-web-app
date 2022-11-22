@@ -2,11 +2,12 @@
 
   <router-outlet>
 
-    <h3>Family Members</h3>
+    <h3><span [translate]="'modulo.labels.familymembers'">Family Members</span></h3>
 
     <div fxLayout="row" fxLayoutAlign="flex-end">
       <button mat-raised-button color="primary" [routerLink]="['./add']">
-        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;Add
+        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Add'">Add</span>
       </button>
     </div>
 
@@ -35,17 +36,17 @@
         </div>
 
         <p>
-          First Name : {{member.firstName}}<br />
-          Middle Name : {{member.middleName}}<br />
-          Last Name : {{member.lastName}}<br />
-          Qualification : {{member.qualification}}<br />
-          Mobile Number : {{member.mobileNumber}}<br />
-          Age : {{member.age}}<br />
-          Is Dependent : {{member.isDependent}}<br />
-          Martial Status : {{member.maritalStatus}}<br />
-          Gender : {{member.gender}}<br />
-          Profession : {{member.profession}}<br />
-          Date Of Birth : {{member.dateOfBirth  | dateFormat}}<br />
+          <span [translate]="'modulo.labels.firstname'">First Name </span>: {{member.firstName}}<br />
+          <span [translate]="'modulo.labels.middlename'">Middle Name </span>: {{member.middleName}}<br />
+          <span [translate]="'modulo.labels.lastname'">Last Name </span>: {{member.lastName}}<br />
+          <span [translate]="'modulo.labels.qualification'">Qualification </span>: {{member.qualification}}<br />
+          <span [translate]="'modulo.labels.mobilenum'">Mobile Number </span>: {{member.mobileNumber}}<br />
+          <span [translate]="'modulo.labels.age'">Age </span>: {{member.age}}<br />
+          <span [translate]="'modulo.labels.isdependent'">Is Dependent </span>: {{member.isDependent}}<br />
+          <span [translate]="'modulo.labels.maritalstatus'">Martial Status </span>: {{member.maritalStatus}}<br />
+          <span [translate]="'modulo.labels.gender'">Gender </span>: {{member.gender}}<br />
+          <span [translate]="'modulo.labels.profession'">Profession </span>: {{member.profession}}<br />
+          <span [translate]="'modulo.labels.birthdate'">Date Of Birth </span>: {{member.dateOfBirth  | dateFormat}}<br />
         </p>
 
       </mat-expansion-panel>
