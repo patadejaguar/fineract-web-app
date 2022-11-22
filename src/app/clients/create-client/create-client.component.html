@@ -27,7 +27,7 @@
       <ng-template matStepLabel>
         <span [translate]="'modulo.labels.general'">GENERAL</span></ng-template>
 
-      <mifosx-client-general-step [clientTemplate]="clientTemplate"></mifosx-client-general-step>
+      <mifosx-client-general-step [clientTemplate]="clientTemplate" (legalFormChangeEvent)="legalFormChange($event)"></mifosx-client-general-step>
 
     </mat-step>
 
@@ -53,7 +53,7 @@
 
     </mat-step>
 
-    <mat-step *ngFor="let datatable of clientTemplate.datatables">
+    <mat-step *ngFor="let datatable of datatables">
 
       <ng-template matStepLabel>{{datatable.registeredTableName}}</ng-template>
 

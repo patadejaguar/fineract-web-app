@@ -957,6 +957,7 @@
   "modulo.validations.withdrawaldaterequired":"Withdrawal Date is <strong>required</strong>",
   "modulo.validations.withdrawalreasonrequired":"Withdrawal Reason is <strong>required</strong>",
   "modulo.validations.submittedonrequired":"Submitted Date is <strong>required</strong>",
+  "modulo.validations.agemin":"Age cannot be <strong>negative</strong>",
   "modulo.links.general":"General",
   "modulo.links.accountdetail":"Account Details",
   "modulo.links.originalschedule":"Original Schedule",

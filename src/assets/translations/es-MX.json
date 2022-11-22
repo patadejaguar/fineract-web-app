@@ -4,7 +4,7 @@
   "Remember me": "Recordarme ",
   "languages": {
     "en-US": "Inglés",
-    "fr-FR": "Frances",
+    "fr-FR": "Francés",
     "es-MX": "Español"
   },
   "labels": {
@@ -114,7 +114,7 @@
       "Url": "Url",
       "Login": "Inciar Sesión",
       "Logout": "Salir",
-      "Username": "Nombre de usuario",
+      "Username": "Nombre de Usuario",
       "Password": "Contraseña",
       "Remember me": "Recordarme"
     },
@@ -136,7 +136,7 @@
     "menus": {
       "Institution": "Institución",
       "Accounting": "Contabilidad",
-      "Breadcrumbs": "Breadcrumbs",
+      "Breadcrumbs": "Navegación",
       "Reports": "Reportes",
       "Admin": "Administrador",
       "Self Service": "Auto Servicio",
@@ -154,9 +154,9 @@
       "System": "Sistema",
       "Products": "Productos",
       "Templates": "Plantillas",
-      "User Management": "Admin. de Usuarios",
-      "App Configuration": "Configuración Aplicación",
-      "Task Management": "Admin. de Tareas",
+      "User Management": "Administración de Usuarios",
+      "App Configuration": "Configuración de Aplicación",
+      "Task Management": "Administración de Tareas",
       "Help": "Ayuda",
       "Profile": "Perfil",
       "Settings": "Configuración",
@@ -164,7 +164,7 @@
       "Global Search": "Búsqueda",
       "Language Selector": "Seleccionador de Idioma",
       "Theme Picker": "Seleccionador de Tema",
-      "Application Menu": "Menu de Aplicación",
+      "Application Menu": "Menú de Aplicación",
       "User Panel": "Panel de Usuario",
       "Frequently Accessed": "Accessos Frecuentes",
       "Dashboard": "Gráficos",
@@ -173,10 +173,10 @@
       "Create Journal Entry": "Crear Entrada Manual",
       "Chart of Accounts": "Cuentas Contables",
       "Notifications": "Notificaciones",
-      "Main Items": "Principales",
+      "Main Items": "Elementos principales",
       "Checker Inbox and Tasks": "Panel de Tareas",
-      "Individual Collection Sheet": "Hoja de cobranza",
-      "Keyboard Shortcuts": "Accesos"
+      "Individual Collection Sheet": "Hoja de Cobro Individual",
+      "Keyboard Shortcuts": "Accesos Rápidos"
     },
     "placeholders": {
       "Add new server": "Agregar nuevo servidor",
@@ -957,6 +957,7 @@
   "modulo.validations.withdrawaldaterequired":"Fecha de retiro es <strong>requerido</strong>",
   "modulo.validations.withdrawalreasonrequired":"Razón de retiroes <strong>requerido</strong>",
   "modulo.validations.submittedonrequired":"Fecha de envío es <strong>requerido</strong>",
+  "modulo.validations.agemin":"La edad no puede ser <strong>negativa</strong>",
   "modulo.links.general":"General",
   "modulo.links.accountdetail":"Detalles de la cuenta",
   "modulo.links.originalschedule":"Horario Original",
