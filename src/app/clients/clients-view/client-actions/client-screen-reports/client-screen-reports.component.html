@@ -9,14 +9,15 @@
         <div>
 
           <mat-form-field fxFlex>
-            <mat-label>Client Screen Reports</mat-label>
+            <mat-label><span [translate]="'modulo.labels.clientscreenreport'">Client Screen Reports</span></mat-label>
             <mat-select formControlName="templateId">
               <mat-option *ngFor="let template of templatesData" [value]="template.id">
                 {{ template.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="clientScreenReportForm.controls.templateId.hasError('required')">
-              Screen Report is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.screenreportrequired' | translate">
+                Screen Report is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -25,9 +26,11 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
         <button mat-raised-button color="primary" [disabled]="!clientScreenReportForm.valid">
-          <fa-icon icon="cogs" size="sm"></fa-icon>&nbsp;&nbsp;Generate Report</button>
+          <fa-icon icon="cogs" size="sm"></fa-icon>&nbsp;&nbsp;
+          <span [translate]="'labels.buttons.GenerateReport'">Generate Report</span></button>
       </mat-card-actions>
 
     </form>
@@ -43,12 +46,12 @@
     <div fxLayoutAlign="end">
       <button mat-stroked-button color="primary" [disabled]="!template" (click)="print()">
         <fa-icon icon="file"></fa-icon>&nbsp;&nbsp;
-        Print
+        <span [translate]="'labels.buttons.Print'">Print</span>
       </button>
     </div>
 
     <div #screenReport fxLayoutAlign="center">
-      <p>Please select a screen report.</p>
+      <p><span [translate]="'modulo.description.pleaseselectscreen'">Please select a screen report.</span></p>
     </div>
 
   </mat-card>

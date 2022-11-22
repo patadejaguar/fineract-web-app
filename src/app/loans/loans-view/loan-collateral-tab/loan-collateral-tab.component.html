@@ -3,22 +3,26 @@
   <table mat-table [dataSource]="loanDetails.collateral">
 
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.loans.labels.id'"> ID</span> </th>
       <td mat-cell *matCellDef="let ele"> {{ ele.clientCollateralId }} </td>
     </ng-container>
 
     <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef> Quantity </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.quantity'"> Quantity</span> </th>
       <td mat-cell *matCellDef="let ele"> {{ ele.quantity }} </td>
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef> Total Value </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.totalValue'"> Total Value </span></th>
       <td mat-cell *matCellDef="let ele"> {{ ele.total }} </td>
     </ng-container>
 
     <ng-container matColumnDef="totalCollateral">
-      <th mat-header-cell *matHeaderCellDef> Total Collateral Value </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.loans.header.totalCollateral'"> Total Collateral Value</span> </th>
       <td mat-cell *matCellDef="let ele"> {{ ele.totalCollateral }} </td>
     </ng-container>
 

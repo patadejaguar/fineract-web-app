@@ -3,22 +3,26 @@
   <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.loans.header.name'">Name</span> </th>
       <td mat-cell *matCellDef="let charge"> {{ charge.name }},{{ charge.currency.displaySymbol }} </td>
     </ng-container>
 
     <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.loans.header.type'"> Type</span> </th>
       <td mat-cell *matCellDef="let charge"> {{ charge.chargeCalculationType.value }} </td>
     </ng-container>
 
     <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.loans.header.amount'"> Amount </span></th>
       <td mat-cell *matCellDef="let charge"> {{ charge.amount| number }} </td>
     </ng-container>
 
     <ng-container matColumnDef="collectedon">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Collected On </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.loans.header.collectedon'"> Collected On </span></th>
       <td mat-cell *matCellDef="let charge"> {{ charge.chargeTimeType.value }} </td>
     </ng-container>
 

@@ -3,55 +3,65 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.loans.header.name'"> Name</span> 
+        </th>
         <td mat-cell *matCellDef="let charge"> {{ charge.name }} </td>
       </ng-container>
 
       <ng-container matColumnDef="feepenalty">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fee/Penalty </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><span [translate]="'modulo.loans.header.feepenal'"> Fee/Penalty</span> </th>
         <td mat-cell *matCellDef="let charge"> 
-          <span *ngIf="charge.penalty">Penalty</span>  
-          <span *ngIf="!charge.penalty">Fee</span>
+          <span *ngIf="charge.penalty"> <span [translate]="'modulo.type.penalty'">Penalty</span></span>  
+          <span *ngIf="!charge.penalty"><span [translate]="'modulo.type.fee'">Fee</span></span>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="paymentdueat">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment due at </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.loans.header.paymentdue'"> Payment due at </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.chargeTimeType.value }} </td>
       </ng-container>
 
       <ng-container matColumnDef="dueasof">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due as of </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.loans.header.dueof'">Due as of </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.dueDate | dateFormat }} </td>
       </ng-container>
 
       <ng-container matColumnDef="calculationtype">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Calculation Type </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.loans.header.calculationtype'">Calculation Type </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.chargeCalculationType.value }} </td>
       </ng-container>
 
       <ng-container matColumnDef="due">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.loans.header.due'"> Due </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amount| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="paid">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Paid </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.loans.header.paid'"> Paid </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountPaid| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="waived">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Waived </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.loans.header.waived'"> Waived </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountWaived| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="outstanding">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Outstanding </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.loans.header.outstandig'"> Outstanding </span></th>
         <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountOutstanding| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'header.actions'"> Actions </span></th>
         <td mat-cell *matCellDef="let charge">
           <span *ngIf="status === 'Submitted and pending approval'">
             <button class="account-action-button" mat-raised-button color="primary" matTooltip="Edit Charge"

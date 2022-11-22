@@ -1,15 +1,16 @@
-<h1 mat-dialog-title>View Client Signature</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.viewclientsignature'">View Client Signature</span></h1>
 
 <div *ngIf="signatureId" mat-dialog-content>
   <img [src]="signatureImage" alt="Signature">
 </div>
 
 <div *ngIf="!signatureId" mat-dialog-content>
-  <p>Client Signature is not provided.</p>
+  <p><span [translate]="'modulo.description.clientsignaturenoprovided'">Client Signature is not provided.</span></p>
 </div>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Close</button>
-  <button mat-raised-button *ngIf="signatureId" color="warn" [mat-dialog-close]="{ delete: true }">Delete</button>
+  <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Close</span></button>
+  <button mat-raised-button *ngIf="signatureId" color="warn" [mat-dialog-close]="{ delete: true }">
+    <span [translate]="'labels.buttons.Cancel'">Delete</span></button>
   <button mat-raised-button color="primary" [mat-dialog-close]="{ upload: true }">{{ signatureId ? 'Reupload' : 'Upload'}}</button>
 </mat-dialog-actions>

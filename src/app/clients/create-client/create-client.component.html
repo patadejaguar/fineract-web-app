@@ -24,7 +24,8 @@
 
     <mat-step [stepControl]="clientGeneralForm">
 
-      <ng-template matStepLabel>GENERAL</ng-template>
+      <ng-template matStepLabel>
+        <span [translate]="'modulo.labels.general'">GENERAL</span></ng-template>
 
       <mifosx-client-general-step [clientTemplate]="clientTemplate" (legalFormChangeEvent)="legalFormChange($event)"></mifosx-client-general-step>
 
@@ -32,7 +33,8 @@
 
     <mat-step>
 
-      <ng-template matStepLabel>FAMILY MEMBERS</ng-template>
+      <ng-template matStepLabel>
+        <span [translate]="'modulo.labels.familymembers'">FAMILY MEMBERS</span></ng-template>
 
       <mifosx-client-family-members-step [clientTemplate]="clientTemplate"></mifosx-client-family-members-step>
 
@@ -40,7 +42,8 @@
 
     <mat-step *ngIf="clientTemplate.isAddressEnabled">
 
-      <ng-template matStepLabel>ADDRESS</ng-template>
+      <ng-template matStepLabel>
+        <span [translate]="'modulo.labels.address'">ADDRESS</span></ng-template>
 
       <mifosx-client-address-step
         [clientTemplate]="clientTemplate"
@@ -60,7 +63,8 @@
 
     <mat-step *ngIf="areFormvalids()" completed>
 
-      <ng-template matStepLabel>PREVIEW</ng-template>
+      <ng-template matStepLabel>
+        <span [translate]="'modulo.labels.preview'">PREVIEW</span></ng-template>
 
       <mifosx-client-preview-step
         [clientTemplate]="clientTemplate"

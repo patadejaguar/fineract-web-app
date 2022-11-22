@@ -1,7 +1,8 @@
 <div fxLayout="row" fxLayoutAlign="end" class="container m-b-20">
   <div #buttonDefineMapping>
     <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_FINANCIALACTIVITYACCOUNT'">
-      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;Define New Mapping
+      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.DefineMapping'">Define New Mapping</span>
     </button>
   </div>
 </div>
@@ -11,17 +12,20 @@
   <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="financialActivity">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Financial Activity </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.labels.financialactivity'"> Financial Activity </span></th>
       <td mat-cell *matCellDef="let financialActivityAccount"> {{ financialActivityAccount.financialActivityData.name }} </td>
     </ng-container>
 
     <ng-container matColumnDef="glAccountName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Account Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.labels.accountname'"> Account Name </span></th>
       <td mat-cell *matCellDef="let financialActivityAccount"> {{ financialActivityAccount.glAccountData.name }} </td>
     </ng-container>
 
     <ng-container matColumnDef="glAccountCode">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Account Code </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.labels.accountcode'"> Account Code </span></th>
       <td mat-cell *matCellDef="let financialActivityAccount"> {{ financialActivityAccount.glAccountData.glCode }} </td>
     </ng-container>
 
@@ -35,20 +39,27 @@
 </div>
 
 <ng-template #templateButtonDefineMapping let-popover="popover">
-  <h2>Define New Mapping</h2>
-  <p class="mw300">To define new mapping.</p>
+  <h2><span [translate]="'modulo.labels.definemapping'">Define New Mapping</span></h2>
+  <p class="mw300"><span [translate]="'modulo.description.todefinemapping'">To define new mapping.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateActivitiesTable, activitiesTable, 'top', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateActivitiesTable, activitiesTable, 'top', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateActivitiesTable let-popover="popover">
-  <h4 class="mw300">List of accounts linked to different financial activities. To know more click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/106430472/Accounts+linked+to+Financial+Activities" target="_blank">Accounts linked to Financial Activities</a> </h4>
+  <h4 class="mw300">
+    <span [translate]="'modulo.description.listaccountdifferent'">List of accounts linked to different financial activities. To know more click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/106430472/Accounts+linked+to+Financial+Activities" target="_blank">Accounts linked to Financial Activities</a> </span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonDefineMapping, buttonDefineMapping , 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonDefineMapping, buttonDefineMapping , 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

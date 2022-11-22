@@ -1,5 +1,5 @@
 <div class="tab-container mat-typography">
-  <h3>Notes</h3>
+  <h3><span [translate]="'modulo.links.notes'">Notes</span></h3>
   <div>
     <form #formRef="ngForm" [formGroup]="noteForm" fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="20px"
       (ngSubmit)="submit()">
@@ -7,7 +7,8 @@
         <textarea formControlName="note" matInput placeholder="Write a note ...."></textarea>
       </mat-form-field>
       <button mat-raised-button fxFlex color="primary" [disabled]="!noteForm.valid">
-        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp; Add
+        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Add'"> Add</span>
       </button>
     </form>
   </div>
@@ -16,7 +17,7 @@
       <fa-icon icon="sticky-note" matListIcon></fa-icon>
       <h3 matLine>{{loanNote.note}} </h3>
       <p matLine>
-        <span>Created by: {{loanNote.createdByUsername}}</span><br />
+        <span ><span [translate]="'modulo.loans.labels.createdby'">Created by</span>: {{loanNote.createdByUsername}}</span><br />
         <span>Date: {{loanNote.createdOn  | dateFormat}}</span>
       </p>
       <div fxLayout="row" fxLayoutAlign="flex-start">
