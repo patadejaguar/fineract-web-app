@@ -4,7 +4,7 @@
 
     <div class="surveySelect" fxLayout="row">
 
-      <mat-label class="nameLabel">Survey Name</mat-label>
+      <mat-label class="nameLabel"><span [translate]="'modulo.labels.surveyname'">Survey Name</span></mat-label>
       <mat-select class="surveyOption" (selectionChange)="onSurveyChange($event)">
         <mat-option *ngFor="let surveyData of allSurveyData" [value]="surveyData">
           {{surveyData.name}}
@@ -42,7 +42,8 @@
 
             </div>
 
-            <div *ngIf="question.answer">Your answer is: {{question.answer.text}}</div>
+            <div *ngIf="question.answer">
+              <span [translate]="'modulo.description.yournameis'">Your answer is</span>: {{question.answer.text}}</div>
 
           </ng-container>
 
@@ -52,8 +53,10 @@
 
     </div>
 
-    <button mat-raised-button class="button-cancel" color="danger" [routerLink]="['../']">Cancel</button>
-    <button mat-raised-button class="button-submit" color="primary" (click)=submit()>Submit</button>
+    <button mat-raised-button class="button-cancel" color="danger" [routerLink]="['../']">
+      <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+    <button mat-raised-button class="button-submit" color="primary" (click)=submit()>
+      <span [translate]="'labels.buttons.Submit'">Submit</span></button>
 
   </div>
 

@@ -7,28 +7,30 @@
       <div fxLayout="column">
 
         <mat-form-field>
-          <mat-label> Amount </mat-label>
+          <mat-label><span [translate]="'modulo.labels.amount'"> Amount</span> </mat-label>
           <input matInput required autofocus formControlName="amount">
           <mat-error *ngIf="transactionForm.controls.amount.hasError('required')">
-            Amount <strong>is required</strong>
+            <span [innerHTML]="'modulo.validations.amountrequired' | translate">Amount <strong>is required</strong></span>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field (click)="transactionDatePicker.open()">
-          <mat-label> Transaction date </mat-label>
+          <mat-label><span [translate]="'modulo.labels.transactiondate'"> Transaction date </span></mat-label>
           <input matInput [min]="minDate" [matDatepicker]="transactionDatePicker" required formControlName="transactionDate">
           <mat-datepicker-toggle matSuffix [for]="transactionDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #transactionDatePicker></mat-datepicker>
           <mat-error *ngIf="transactionForm.controls.transactionDate.hasError('required')">
-            Transaction date <strong>is required</strong>
+            <span [innerHTML]="'modulo.validations.transactiondaterequired' | translate">Transaction date <strong>is required</strong></span>
           </mat-error>
         </mat-form-field>
 
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../..','general']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!transactionForm.valid">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../../..','general']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!transactionForm.valid">
+          <span [translate]="'labels.buttons.submit'">Submit</span></button>
       </div>
 
     </form>

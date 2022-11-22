@@ -1,31 +1,41 @@
 <div *ngIf="!data.reverted; else reverted">
 
-  <h1 mat-dialog-title>Revert Transaction</h1>
+  <h1 mat-dialog-title>
+    <span [translate]="'modulo.labels.reverttransaction'">Revert Transaction</span></h1>
   <div mat-dialog-content>
-    <p>Are you sure you want to revert this transaction?</p>
+    <p>
+      <span [translate]="'modulo.description.arewantreverttransaction'">Are you sure you want to revert this transaction?</span></p>
     <mat-form-field fxFlexFill>
-      <mat-label>Comments</mat-label>
+      <mat-label><span [translate]="'modulo.labels.comments'">Comments</span></mat-label>
       <textarea matInput [formControl]="comments"></textarea>
     </mat-form-field>
   </div>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>No</button>
-    <button mat-button [mat-dialog-close]="{ revert: true, comments: comments.value }">Yes</button>
+    <button mat-button mat-dialog-close>
+       <span [translate]="'labels.buttons.No'">No</span></button>
+    <button mat-button [mat-dialog-close]="{ revert: true, comments: comments.value }">
+       <span [translate]="'labels.buttons.Yes'">Yes</span></button>
   </mat-dialog-actions>
 
 </div>
 
 <ng-template #reverted>
 
-    <h1 mat-dialog-title>Transaction Reverted</h1>
+    <h1 mat-dialog-title>
+      <span [translate]="'modulo.labels.transactionreverted'">Transaction Reverted</span></h1>
     <div mat-dialog-content>
-      <h4>Success!</h4>
-      <p>A new journal entry has been created to reverse this transaction:</p>
-      <p>Transaction ID: {{ data.transactionId }}</p>
+      <h4><span [translate]="'modulo.labels.succesex'">Success!</span></h4>
+      <p>
+        <span [translate]="'modulo.description.journalcreatedreverse'">
+          A new journal entry has been created to reverse this transaction</span>
+      :</p>
+      <p><span [translate]="'modulo.labels.transactionid'">Transaction ID</span>: {{ data.transactionId }}</p>
     </div>
     <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Close</button>
-      <button mat-button [mat-dialog-close]="{ redirect: true }">Redirect to New Transaction</button>
+      <button mat-button mat-dialog-close>
+         <span [translate]="'labels.buttons.Close'">Close</span></button>
+      <button mat-button [mat-dialog-close]="{ redirect: true }">
+         <span [translate]="'labels.buttons.RedirectTransaction'">Redirect to New Transaction</span></button>
     </mat-dialog-actions>
 
 </ng-template>

@@ -9,47 +9,51 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Account Type</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accounttype'">Account Type</span></mat-label>
             <mat-select required formControlName="type">
               <mat-option *ngFor="let accountType of accountTypeData" [value]="accountType.id">
                 {{ accountType.value }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="glAccountForm.controls.type.hasError('required')">
-              Account Type is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.accounttyperequired' | translate">
+                Account Type is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Account Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accountname'">Account Name</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="glAccountForm.controls.name.hasError('required')">
-              Account Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.accountnamerequired' | translate">
+                Account Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Account Usage</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accountusage'">Account Usage</span></mat-label>
             <mat-select required formControlName="usage">
               <mat-option *ngFor="let accountUsage of accountUsageData" [value]="accountUsage.id">
                 {{ accountUsage.value }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="glAccountForm.controls.usage.hasError('required')">
-              Account Usage is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.accountusagerequired' | translate">
+                Account Usage is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>GL Code</mat-label>
+            <mat-label><span [translate]="'modulo.labels.glcode'">GL Code</span></mat-label>
             <input matInput required formControlName="glCode">
             <mat-error *ngIf="glAccountForm.controls.glCode.hasError('required')">
-              GL Code is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.glcoderequired' | translate">
+                GL Code is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Parent</mat-label>
+            <mat-label><span [translate]="'modulo.labels.parent'">Parent</span></mat-label>
             <mat-select formControlName="parentId">
               <mat-option *ngFor="let parent of parentData" [value]="parent.id">
                 ({{ parent.glCode }}) {{ parent.name }}
@@ -58,7 +62,7 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="28%">
-            <mat-label>Tag</mat-label>
+            <mat-label><span [translate]="'modulo.labels.tag'">Tag</span></mat-label>
             <mat-select formControlName="tagId">
               <mat-option *ngFor="let tag of tagData" [value]="tag.id">
                 {{ tag.name }}
@@ -68,12 +72,12 @@
 
           <div fxFlex="18%" class="manual-entries-allowed-wrapper">
             <mat-checkbox labelPosition="before" required formControlName="manualEntriesAllowed" class="manual-entries-allowed">
-              Manual Entries Allowed
+              <span [translate]="'modulo.labels.manualallowed'">Manual Entries Allowed</span>
             </mat-checkbox>
           </div>
 
           <mat-form-field fxFlex="98%">
-            <mat-label>Description</mat-label>
+            <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
             <textarea matInput formControlName="description"></textarea>
           </mat-form-field>
 
@@ -82,8 +86,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="glAccountForm.pristine" *mifosxHasPermission="'UPDATE_GLACCOUNT'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="glAccountForm.pristine" *mifosxHasPermission="'UPDATE_GLACCOUNT'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
