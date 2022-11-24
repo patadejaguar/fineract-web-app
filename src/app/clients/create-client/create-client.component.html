@@ -36,7 +36,7 @@
       <ng-template matStepLabel>
         <span [translate]="'modulo.labels.familymembers'">FAMILY MEMBERS</span></ng-template>
 
-      <mifosx-client-family-members-step [clientTemplate]="clientTemplate"></mifosx-client-family-members-step>
+      <mifosx-client-family-members-step #clientFamily [clientTemplate]="clientTemplate"></mifosx-client-family-members-step>
 
     </mat-step>
 
@@ -45,10 +45,8 @@
       <ng-template matStepLabel>
         <span [translate]="'modulo.labels.address'">ADDRESS</span></ng-template>
 
-      <mifosx-client-address-step
-        [clientTemplate]="clientTemplate"
-        [clientAddressFieldConfig]="clientAddressFieldConfig"
-      >
+      <mifosx-client-address-step #clientAddress [clientTemplate]="clientTemplate"
+        [clientAddressFieldConfig]="clientAddressFieldConfig">
       </mifosx-client-address-step>
 
     </mat-step>

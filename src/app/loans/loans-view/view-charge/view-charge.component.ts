@@ -32,6 +32,8 @@ export class ViewChargeComponent {
   chargeData: any;
   /** Loans Account Data */
   loansAccountData: any;
+  allowPayCharge = true;
+  allowWaive = true;
 
   /**
    * Retrieves the Charge data from `resolve`.
@@ -50,6 +52,8 @@ export class ViewChargeComponent {
               private settingsService: SettingsService) {
     this.route.data.subscribe((data: { loansAccountCharge: any, loanDetailsData: any }) => {
       this.chargeData = data.loansAccountCharge;
+      this.allowPayCharge = (this.chargeData.chargePayable && !this.chargeData.paid);
+      this.allowWaive = !this.chargeData.chargeTimeType.waived;
       this.loansAccountData = data.loanDetailsData;
     });
   }
@@ -59,15 +63,8 @@ export class ViewChargeComponent {
    */
   payCharge() {
     const formfields: FormfieldBase[] = [
-      new InputBase({
-        controlName: 'amount',
-        label: 'Amount',
-        value: '',
-        type: 'number',
-        required: true
-      }),
       new DatepickerBase({
-        controlName: 'dueDate',
+        controlName: 'transactionDate',
         label: 'Payment Date',
         value: '',
         type: 'date',
@@ -75,7 +72,7 @@ export class ViewChargeComponent {
       })
     ];
     const data = {
-      title: 'Pay Charge',
+      title: `Pay Charge ${this.chargeData.id}`,
       layout: { addButtonText: 'Confirm' },
       formfields: formfields
     };
@@ -84,13 +81,13 @@ export class ViewChargeComponent {
       if (response.data) {
         const locale = this.settingsService.language.code;
         const dateFormat = this.settingsService.dateFormat;
+        const prevTransactionDate: Date = response.data.value.transactionDate;
         const dataObject = {
-          ...response.data.value,
-          dueDate: this.dateUtils.formatDate(response.data.value.dueDate, dateFormat),
+          transactionDate: this.dateUtils.formatDate(prevTransactionDate, dateFormat),
           dateFormat,
           locale
         };
-        this.loansService.executeLoansAccountChargesCommand(this.chargeData.loanId, 'paycharge', dataObject, this.chargeData.id)
+        this.loansService.executeLoansAccountChargesCommand(this.chargeData.loanId, 'pay', dataObject, this.chargeData.id)
           .subscribe(() => {
             this.reload();
           });
@@ -124,6 +121,14 @@ export class ViewChargeComponent {
         value: this.chargeData.amount || this.chargeData.amountOrPercentage,
         type: 'number',
         required: true
+      }),
+      new DatepickerBase({
+        controlName: 'dueDate',
+        label: 'Due Date',
+        value: new Date(this.chargeData.dueDate),
+        type: 'date',
+        maxDate: this.settingsService.maxAllowedDate,
+        required: true
       })
     ];
     const data = {
@@ -136,8 +141,11 @@ export class ViewChargeComponent {
       if (response.data) {
         const locale = this.settingsService.language.code;
         const dateFormat = this.settingsService.dateFormat;
+        const dueDate = this.dateUtils.formatDate(response.data.value.dueDate, dateFormat);
+        const amount = response.data.value.amount;
         const dataObject = {
-          ...response.data.value,
+          amount,
+          dueDate,
           dateFormat,
           locale
         };
@@ -164,6 +172,10 @@ export class ViewChargeComponent {
           });
       }
     });
+  }
+
+  loanChargeColor(): string {
+    return this.chargeData.paid ? 'paid' : 'not-paid';
   }
 
   /**

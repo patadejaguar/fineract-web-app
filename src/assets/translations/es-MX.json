@@ -18,6 +18,7 @@
       "Close": "Cerrar",
       "Next": "Siguiente",
       "Login": "Inciar Sesión",
+      "Create User": "Crear Usuario",
       "Previous": "Previo",
       "Cancel": "Cancelar",
       "Submit": "Enviar",
@@ -109,6 +110,7 @@
       "is required": "es requerido"
     },
     "inputs": {
+      "Tenant": "Entidad",
       "Language": "Lenguaje",
       "Server": "Servidor",
       "Url": "Url",
@@ -116,7 +118,18 @@
       "Logout": "Salir",
       "Username": "Nombre de Usuario",
       "Password": "Contraseña",
-      "Remember me": "Recordarme"
+      "Remember me": "Recordarme",
+      "Filter": "Filtrar",
+      "products": {
+        "loan": {
+          "Amortization": "Amortización",
+          "amortizationType": {
+            "Equal installments": "Cuotas Iguales",
+            "Equal principal payments": "Pagos de Capital Iguales"
+          }
+        },
+        "Is Equal Amortization?": "¿Es Amortización Igual?"
+      }
     },
     "links": {
       "Contribute": "Contribuir",
@@ -189,6 +202,7 @@
       "Welcome": "Bienvenido",
       "Version": "Versión",
       "by": "por",
+      "Login into Tenant": "Iniciar sesión en",
       "home": {
         "navigate": "Esto llevará al usuario al componente del tablero.",
         "search": "Esto llevará al usuario a la actividad buscada."
@@ -303,6 +317,7 @@
   "modulo.labels.migrateopeningbalance": "Migrar saldos de apertura (a nivel de oficina)",
   "modulo.labels.accruedate": "Acumular hasta la fecha",
   "modulo.labels.date": "Fecha",
+  "modulo.labels.datetime": "Fecha y Hora",
   "modulo.labels.createjournal": "Crear entradas de diario",
   "modulo.labels.createon": "Creado en",
   "modulo.labels.amountreserved": "Importe a reservar",
@@ -509,6 +524,9 @@
   "modulo.labels.activatedon": "Activado en",
   "modulo.labels.showclosedaccounts": "Mostrar cuentas cerradas",
   "modulo.labels.staffname": "Nombre del personal",
+  "modulo.labels.graceonprincipal": "Grace On Principal Payment",
+  "modulo.labels.graceoninterest": "Grace On Interest Payment",
+  "modulo.labels.graceonarrears": "Grace On Arreas Aging",
   "modulo.configurationwizard.buttons.account": "Config. Contabilidad",
 	"modulo.configurationwizard.buttons.close": "Cerrar <strong>Asistente</strong>",
 	"modulo.configurationwizard.buttons.funds": "Config. Fondos & Reportes",

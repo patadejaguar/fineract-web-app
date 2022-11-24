@@ -125,11 +125,11 @@ export class BreadcrumbComponent implements OnInit, AfterViewInit {
               } else if (routeData.breadcrumb === 'Centers') {
                 breadcrumbLabel = routeData.centerViewData.name;
               } else if (routeData.breadcrumb === 'Loans') {
-                breadcrumbLabel = routeData.loanDetailsData.loanProductName + '(' + routeData.loanDetailsData.accountNo + ')';
+                breadcrumbLabel = routeData.loanDetailsData.loanProductName + ' (' + routeData.loanDetailsData.accountNo + ')';
               } else if (routeData.breadcrumb === 'Savings') {
-                breadcrumbLabel = routeData.savingsAccountData.savingsProductName + '(' + routeData.savingsAccountData.accountNo + ')';
+                breadcrumbLabel = routeData.savingsAccountData.savingsProductName + ' (' + routeData.savingsAccountData.accountNo + ')';
               } else if (routeData.breadcrumb === 'Fixed Deposits') {
-                breadcrumbLabel = routeData.fixedDepositsAccountData.depositProductName + '(' + routeData.fixedDepositsAccountData.accountNo + ')';
+                breadcrumbLabel = routeData.fixedDepositsAccountData.depositProductName + ' (' + routeData.fixedDepositsAccountData.accountNo + ')';
               } else if (routeData.breadcrumb === 'Loan Products') {
                 breadcrumbLabel = routeData.loanProduct.name;
               } else if (routeData.breadcrumb === 'Charges') {
@@ -157,6 +157,17 @@ export class BreadcrumbComponent implements OnInit, AfterViewInit {
               url = route.snapshot.data[routeAddBreadcrumbLink];
             } else {
               url = currentUrl;
+            }
+          }
+          if (url !== undefined) {
+            if (url.length > 8 && url.search(`/clients/`) > 0 ) {
+              const replaceGeneral = `/general/`;
+              let currentUrlTemp = url.replace(replaceGeneral, `/`);
+              currentUrlTemp = currentUrlTemp.replace(`//`, `/`);
+              currentUrlTemp += `/general`;
+              const replaceDoubleSlash = `/general/general`;
+              currentUrlTemp = currentUrlTemp.replace(replaceDoubleSlash, `/general`);
+              url = currentUrlTemp;
             }
           }
 

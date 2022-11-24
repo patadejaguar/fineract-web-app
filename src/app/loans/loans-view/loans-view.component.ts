@@ -28,12 +28,15 @@ export class LoansViewComponent implements OnInit {
   recalculateInterest: any;
   /** Status */
   status: string;
+  entityType: string;
   /** Loan Id */
   loanId: number;
   /** Client Id */
-  clientId: any;
+  clientId: number;
   /** Button Configuration */
   buttonConfig: LoansAccountButtonConfiguration;
+  /** Disburse Transaction number */
+  disburseTransactionNo = 0;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -48,10 +51,25 @@ export class LoansViewComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.recalculateInterest = this.loanDetailsData.recalculateInterest || true;
     this.status = this.loanDetailsData.status.value;
+    if (this.loanDetailsData.status.active && this.loanDetailsData.multiDisburseLoan) {
+      if (this.loanDetailsData && this.loanDetailsData.transactions) {
+        this.loanDetailsData.transactions.forEach((transaction: any) => {
+          if (transaction.type.disbursement) {
+            this.disburseTransactionNo++;
+          }
+        });
+      }
+    }
     this.setConditionalButtons();
+    if (this.router.url.includes('clients')) {
+      this.entityType = 'Client';
+    } else if (this.router.url.includes('groups')) {
+      this.entityType = 'Group';
+    } else if (this.router.url.includes('centers')) {
+      this.entityType = 'Center';
+    }
   }
 
   // Defines the buttons based on the status of the loan account
@@ -62,12 +80,14 @@ export class LoansViewComponent implements OnInit {
 
       this.buttonConfig.addOption({
         name: (this.loanDetailsData.loanOfficerName ? 'Change Loan Officer' : 'Assign Loan Officer'),
+        icon: 'user-tie',
         taskPermissionName: 'DISBURSE_LOAN'
       });
 
       if (this.loanDetailsData.isVariableInstallmentsAllowed) {
         this.buttonConfig.addOption({
           name: 'Edit Repayment Schedule',
+          icon: 'edit',
           taskPermissionName: 'ADJUST_REPAYMENT_SCHEDULE'
         });
       }
@@ -76,31 +96,38 @@ export class LoansViewComponent implements OnInit {
 
       this.buttonConfig.addButton({
         name: (this.loanDetailsData.loanOfficerName ? 'Change Loan Officer' : 'Assign Loan Officer'),
-        icon: 'fa fa-user',
+        icon: 'user-tie',
         taskPermissionName: 'DISBURSE_LOAN'
       });
 
     } else if (this.status === 'Active') {
-
-      if (this.loanDetailsData.canDisburse) {
+      if (this.loanDetailsData.canDisburse || this.loanDetailsData.multiDisburseLoan) {
         this.buttonConfig.addButton({
           name: 'Disburse',
-          icon: 'fa fa-flag',
+          icon: 'hand-holding-usd',
           taskPermissionName: 'DISBURSE_LOAN'
         });
+      }
+      if (this.loanDetailsData.canDisburse) {
         this.buttonConfig.addButton({
-          name: 'Disburse To Savings',
-          icon: 'fa fa-flag',
+          name: 'Disburse to Savings',
+          icon: 'piggy-bank',
           taskPermissionName: 'DISBURSETOSAVINGS_LOAN'
         });
       }
-
+      if (this.loanDetailsData.multiDisburseLoan && this.disburseTransactionNo > 1) {
+        this.buttonConfig.addButton({
+          name: 'Undo Last Disbursal',
+          icon: 'undo',
+          taskPermissionName: 'DISBURSALLASTUNDO_LOAN'
+        });
+      }
       // loan officer not assigned to loan, below logic
       // helps to display otherwise not
       if (!this.loanDetailsData.loanOfficerName) {
         this.buttonConfig.addButton({
           name: 'Assign Loan Officer',
-          icon: 'fa fa-user',
+          icon: 'user-tie',
           taskPermissionName: 'UPDATELOANOFFICER_LOAN'
         });
       }
@@ -108,7 +135,7 @@ export class LoansViewComponent implements OnInit {
       if (this.recalculateInterest) {
         this.buttonConfig.addButton({
           name: 'Prepay Loan',
-          icon: 'fa fa-money',
+          icon: 'coins',
           taskPermissionName: 'REPAYMENT_LOAN'
         });
       }

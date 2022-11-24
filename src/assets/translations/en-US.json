@@ -18,6 +18,7 @@
       "Close": "Close",
       "Next": "Next",
       "Login": "Login",
+      "Create User": "Create User",
       "Previous": "Previous",
       "Cancel": "Cancel",
       "Submit": "Submit",
@@ -114,6 +115,7 @@
       "is required": "is required"
     },
     "inputs": {
+      "Tenant": "Tenant",
       "Language": "Language",
       "Server": "Server",
       "Url": "Url",
@@ -121,7 +123,18 @@
       "Logout": "Logout",
       "Username": "Username",
       "Password": "Password",
-      "Remember me": "Remember me"
+      "Remember me": "Remember me",
+      "Filter": "Filter",
+      "products": {
+        "loan": {
+          "Amortization": "Amortization",
+          "amortizationType": {
+            "Equal installments": "Equal installments",
+            "Equal principal payments": "Equal principal payments"
+          },
+          "Is Equal Amortization?": "Is Equal Amortization?"
+        }
+      }
     },
     "links": {
       "Contribute": "Contribute",
@@ -194,6 +207,7 @@
       "Welcome": "Welcome",
       "Version": "Version",
       "by": "by",
+      "Login into Tenant": "Login into Tenant",
       "home": {
         "navigate": "This will navigate the user to the dashboard component.",
         "search": "This will navigate the user to the searched activity."
@@ -308,6 +322,7 @@
   "modulo.labels.migrateopeningbalance": "Migrate opening balances (Office-wise)",
   "modulo.labels.accruedate": "Accrue Till Date",
   "modulo.labels.date": "Date",
+  "modulo.labels.datetime": "DateTime",
   "modulo.labels.createjournal": "Create Journal Entries",
   "modulo.labels.createon": "Create On",
   "modulo.labels.amountreserved": "Amount to be Reserved",
@@ -639,7 +654,9 @@
   "modulo.labels.iswithholdtaxq": "Action",
   "modulo.labels.note": "Action",
   "modulo.labels.note": "Action",
-
+  "modulo.labels.graceonprincipal": "Grace On Principal Payment",
+  "modulo.labels.graceoninterest": "Grace On Interest Payment",
+  "modulo.labels.graceonarrears": "Grace On Arreas Aging",
   "modulo.configurationwizard.buttons.account": "Setup Accounting",
 	"modulo.configurationwizard.buttons.close": "Close Config. Wizard",
 	"modulo.configurationwizard.buttons.funds": "Setup Funds and Reports",

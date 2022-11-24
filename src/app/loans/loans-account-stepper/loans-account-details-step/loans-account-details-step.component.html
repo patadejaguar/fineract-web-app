@@ -14,7 +14,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="48%">
+    <mat-form-field fxFlex="48%" *ngIf="loanProductSelected">
       <mat-label><span [translate]="'modulo.loans.labels.officer'">Loan officer</span></mat-label>
       <mat-select formControlName="loanOfficerId">
         <mat-option *ngFor="let loanOfficer of loanOfficerOptions" [value]="loanOfficer.id">
@@ -22,6 +22,9 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" *ngIf="loanProductSelected">
 
     <mat-form-field fxFlex="48%">
       <mat-label><span [translate]="'modulo.loans.labels.loanpurpose'">Loan purpose</span></mat-label>
@@ -76,7 +79,7 @@
       <mat-label><span [translate]="'modulo.loans.labels.link'">Link savings</span></mat-label>
       <mat-select formControlName="linkAccountId">
         <mat-option *ngFor="let savingaccount of accountLinkingOptions" [value]="savingaccount.id">
-          {{ savingaccount.productName }}
+          ({{ savingaccount.accountNo }}) {{ savingaccount.productName }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -84,7 +87,6 @@
     <mat-checkbox fxFlex="48%" formControlName="createStandingInstructionAtDisbursement">
       <p><span [translate]="'modulo.loans.description.disbursement'">Create standing instructions at disbursement</span></p>
     </mat-checkbox>
-
   </div>
 
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
