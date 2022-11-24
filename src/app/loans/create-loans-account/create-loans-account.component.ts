@@ -1,5 +1,5 @@
 /** Angular Imports */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 /** Custom Services */
@@ -11,7 +11,7 @@ import { ClientsService } from 'app/clients/clients.service';
 import { LoansAccountDetailsStepComponent } from '../loans-account-stepper/loans-account-details-step/loans-account-details-step.component';
 import { LoansAccountTermsStepComponent } from '../loans-account-stepper/loans-account-terms-step/loans-account-terms-step.component';
 import { LoansAccountChargesStepComponent } from '../loans-account-stepper/loans-account-charges-step/loans-account-charges-step.component';
-import { Dates } from 'app/core/utils/dates';
+import { LoansAccountDatatableStepComponent } from '../loans-account-stepper/loans-account-datatable-step/loans-account-datatable-step.component';
 
 /**
  * Create loans account
@@ -27,6 +27,8 @@ export class CreateLoansAccountComponent implements OnInit {
   @ViewChild(LoansAccountDetailsStepComponent, { static: true }) loansAccountDetailsStep: LoansAccountDetailsStepComponent;
   @ViewChild(LoansAccountTermsStepComponent, { static: true }) loansAccountTermsStep: LoansAccountTermsStepComponent;
   @ViewChild(LoansAccountChargesStepComponent, { static: true }) loansAccountChargesStep: LoansAccountChargesStepComponent;
+  /** Get handle on dtloan tags in the template */
+  @ViewChildren('dtloan') loanDatatables: QueryList<LoansAccountDatatableStepComponent>;
 
   /** Loans Account Template */
   loansAccountTemplate: any;
@@ -38,19 +40,18 @@ export class CreateLoansAccountComponent implements OnInit {
   multiDisburseLoan: any;
   /** Principal Amount */
   principal: any;
+  datatables: any = [];
 
   /**
    * Sets loans account create form.
    * @param {route} ActivatedRoute Activated Route.
    * @param {router} Router Router.
-   * @param {Dates} dateUtils Date Utils
    * @param {loansService} LoansService Loans Service
    * @param {SettingsService} settingsService Settings Service
    * @param {ClientsService} clientService Client Service
    */
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private dateUtils: Dates,
     private loansService: LoansService,
     private settingsService: SettingsService,
     private clientService: ClientsService
@@ -79,6 +80,17 @@ export class CreateLoansAccountComponent implements OnInit {
     this.loansService.getLoansAccountTemplateResource(entityId, isGroup, productId).subscribe((response: any) => {
       this.multiDisburseLoan = response.multiDisburseLoan;
     });
+    this.setDatatables();
+  }
+
+  setDatatables(): void {
+    this.datatables = [];
+
+    if (this.loansAccountProductTemplate.datatables) {
+      this.loansAccountProductTemplate.datatables.forEach((datatable: any) => {
+        this.datatables.push(datatable);
+      });
+    }
   }
 
   /** Get Loans Account Details Form Data */
@@ -121,59 +133,18 @@ export class CreateLoansAccountComponent implements OnInit {
   submit() {
     const locale = this.settingsService.language.code;
     const dateFormat = this.settingsService.dateFormat;
-    const loansAccountData = {
-      ...this.loansAccount,
-      charges: this.loansAccount.charges.map((charge: any) => ({
-        chargeId: charge.id,
-        amount: charge.amount,
-        dueDate: charge.dueDate && this.dateUtils.formatDate(charge.dueDate, dateFormat),
-      })),
-      collateral: this.loansAccount.collateral.map((collateralEle: any) => ({
-        clientCollateralId: collateralEle.type.collateralId,
-        quantity: collateralEle.value,
-      })),
-      disbursementData: this.loansAccount.disbursementData.map((item: any) => ({
-        expectedDisbursementDate: this.dateUtils.formatDate(item.expectedDisbursementDate, dateFormat),
-        principal: item.principal
-      })),
-      interestChargedFromDate: this.dateUtils.formatDate(this.loansAccount.interestChargedFromDate, dateFormat),
-      repaymentsStartingFromDate: this.dateUtils.formatDate(this.loansAccount.repaymentsStartingFromDate, dateFormat),
-      submittedOnDate: this.dateUtils.formatDate(this.loansAccount.submittedOnDate, dateFormat),
-      expectedDisbursementDate: this.dateUtils.formatDate(this.loansAccount.expectedDisbursementDate, dateFormat),
-      dateFormat,
-      locale,
-    };
-    if (this.loansAccountTemplate.clientId) {
-      loansAccountData.clientId = this.loansAccountTemplate.clientId;
-      loansAccountData.loanType = 'individual';
-    } else {
-      loansAccountData.groupId = this.loansAccountTemplate.group.id;
-      loansAccountData.loanType = 'group';
+    const payload = this.loansService.buildLoanRequestPayload(this.loansAccount, this.loansAccountTemplate,
+      this.loansAccountProductTemplate.calendarOptions, locale, dateFormat);
+
+    if (this.loansAccountProductTemplate.datatables && this.loansAccountProductTemplate.datatables.length > 0) {
+      const datatables: any[] = [];
+      this.loanDatatables.forEach((loanDatatable: LoansAccountDatatableStepComponent) => {
+        datatables.push(loanDatatable.payload);
+      });
+      payload['datatables'] = datatables;
     }
 
-    if (loansAccountData.syncRepaymentsWithMeeting) {
-      loansAccountData.calendarId = this.loansAccountProductTemplate.calendarOptions[0].id;
-      delete loansAccountData.syncRepaymentsWithMeeting;
-    }
-
-    if (loansAccountData.recalculationRestFrequencyDate) {
-      loansAccountData.recalculationRestFrequencyDate = this.dateUtils.formatDate(this.loansAccount.recalculationRestFrequencyDate, dateFormat);
-    }
-
-    if (loansAccountData.interestCalculationPeriodType === 0) {
-      loansAccountData.allowPartialPeriodInterestCalcualtion = false;
-    }
-    if (!(loansAccountData.isFloatingInterestRate === false)) {
-      delete loansAccountData.isFloatingInterestRate;
-    }
-    if (!(this.multiDisburseLoan)) {
-      delete loansAccountData.disbursementData;
-    }
-    delete loansAccountData.isValid;
-    loansAccountData.principal = loansAccountData.principalAmount;
-    delete loansAccountData.principalAmount;
-
-    this.loansService.createLoansAccount(loansAccountData).subscribe((response: any) => {
+    this.loansService.createLoansAccount(payload).subscribe((response: any) => {
       this.router.navigate(['../', response.resourceId, 'general'], { relativeTo: this.route });
     });
   }

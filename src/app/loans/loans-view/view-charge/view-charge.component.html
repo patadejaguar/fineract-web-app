@@ -1,25 +1,33 @@
-<div *ngIf="loansAccountData.status.value === 'Active' && chargeData.amountOutstanding !== 0"
-  fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
+<div *ngIf="loansAccountData.status.value === 'Active' && chargeData.amountOutstanding !== 0" fxLayout="row"
+  fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
+  <button mat-raised-button color="primary" *mifosxHasPermission="'WAIVE_SAVINGSACCOUNTCHARGE'" (click)="editCharge()">
+    <fa-icon icon="flag" class="m-r-10"></fa-icon>
+    Edit
+  </button>
+  <span *ngIf="allowPayCharge">
     <button mat-raised-button color="accent" *mifosxHasPermission="'PAY_SAVINGSACCOUNTCHARGE'" (click)="payCharge()">
-      <fa-icon icon="dollar-sign"></fa-icon>&nbsp;&nbsp;
+      <fa-icon icon="dollar-sign" class="m-r-10"></fa-icon>
       <span [translate]="'labels.buttons.Pay'">Pay</span>
     </button>
+  </span>
+  <span *ngIf="allowWaive">
     <button mat-raised-button color="primary" *mifosxHasPermission="'WAIVE_SAVINGSACCOUNTCHARGE'" (click)="waiveCharge()">
-      <fa-icon icon="flag"></fa-icon>&nbsp;&nbsp;
+      <fa-icon icon="flag" class="m-r-10"></fa-icon>
       <span [translate]="'labels.buttons.Waive'">Waive</span>
     </button>
+  </span>
 </div>
 
-<div *ngIf="loansAccountData.status.value === 'Submitted and pending approval'"
-  fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
-    <button mat-raised-button color="primary" *mifosxHasPermission="'UPDATE_SAVINGSACCOUNTCHARGE'" (click)="editCharge()">
-      <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.Edit'">Edit</span>
-    </button>
-    <button mat-raised-button color="warn" *mifosxHasPermission="'DELETE_SAVINGSACCOUNTCHARGE'" (click)="deleteCharge()">
-      <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.Delete'">Delete</span>
-    </button>
+<div *ngIf="loansAccountData.status.value === 'Submitted and pending approval'" fxLayout="row" fxLayoutAlign="end"
+  fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
+  <button mat-raised-button color="primary" *mifosxHasPermission="'UPDATE_SAVINGSACCOUNTCHARGE'" (click)="editCharge()">
+    <fa-icon icon="edit" class="m-r-10"></fa-icon>
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
+  </button>
+  <button mat-raised-button color="warn" *mifosxHasPermission="'DELETE_SAVINGSACCOUNTCHARGE'" (click)="deleteCharge()">
+    <fa-icon icon="trash" class="m-r-10"></fa-icon>
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
+  </button>
 </div>
 
 <div class="container">
@@ -29,6 +37,8 @@
     <mat-card-content>
 
       <div fxLayout="row wrap" class="content">
+        <div fxFlex="100%" [ngClass]="loanChargeColor()">
+        </div>
 
         <div fxFlex="50%" class="mat-body-strong">
           <span [translate]="'modulo.loans.header.name'">Name</span>
@@ -67,7 +77,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ chargeData.dueDate  | dateFormat }}
+          {{ chargeData.dueDate | dateFormat }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -83,7 +93,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ chargeData.amount }}
+          {{ chargeData.amount | number }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -91,7 +101,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ chargeData.amountPaid }}
+          {{ chargeData.amountPaid | number }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -99,7 +109,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ chargeData.amountWaived }}
+          {{ chargeData.amountWaived | number }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -107,7 +117,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ chargeData.amountOutstanding }}
+          {{ chargeData.amountOutstanding | number }}
         </div>
 
       </div>

@@ -12,9 +12,9 @@ export class SavingsButtonsConfiguration {
     taskPermissionName: string,
   }[];
 
-  constructor(status: string) {
+  constructor(status: string, substatus: any) {
     this.setOptions(status);
-    this.setButtons(status);
+    this.setButtons(status, substatus);
   }
 
   get singleButtons() {
@@ -25,42 +25,71 @@ export class SavingsButtonsConfiguration {
     return this.optionArray;
   }
 
-  setButtons(status: string) {
+  setButtons(status: string, substatus: any) {
     switch (status) {
       case 'Active':
-        this.buttonsArray = [
-          {
-            name: 'Post Interest As On',
-            icon: 'fa fa-arrow-right',
-            taskPermissionName: 'POSTINTEREST_SAVINGSACCOUNT',
-          },
-          {
-            name: 'Deposit',
-            icon: 'fa fa-arrow-up',
-            taskPermissionName: 'DEPOSIT_SAVINGSACCOUNT'
-          },
-          {
-            name: 'Withdraw',
-            icon: 'fa fa-arrow-down',
-            taskPermissionName: 'WITHDRAW_SAVINGSACCOUNT'
-          },
-          {
-            name: 'Calculate Interest',
-            icon: 'fa fa-table',
-            taskPermissionName: 'CALCULATEINTEREST_SAVINGSACCOUNT'
+        this.buttonsArray = [];
+        if (!substatus.block) {
+          if (!substatus.blockCredit) {
+            this.buttonsArray.push(
+              {
+                name: 'Deposit',
+                icon: 'arrow-up',
+                taskPermissionName: 'DEPOSIT_SAVINGSACCOUNT'
+              }
+            );
           }
-        ];
+          if (!substatus.blockDebit) {
+            this.buttonsArray.push(
+              {
+                name: 'Withdrawal',
+                icon: 'arrow-down',
+                taskPermissionName: 'WITHDRAWAL_SAVINGSACCOUNT'
+              }
+            );
+          }
+          this.buttonsArray = this.buttonsArray.concat([
+            {
+              name: 'Block Account',
+              icon: 'lock',
+              taskPermissionName: 'BLOCK_SAVINGSACCOUNT'
+            },
+            {
+              name: 'Hold Amount',
+              icon: 'lock',
+              taskPermissionName: 'HOLDAMOUNT_SAVINGSACCOUNT'
+            },
+            {
+              name: 'Calculate Interest',
+              icon: 'table',
+              taskPermissionName: 'CALCULATEINTEREST_SAVINGSACCOUNT'
+            },
+            {
+              name: 'Post Interest As On',
+              icon: 'arrow-right',
+              taskPermissionName: 'POSTINTEREST_SAVINGSACCOUNT',
+            },
+          ]);
+        } else {
+          this.buttonsArray = [
+          {
+            name: 'Unblock Account',
+            icon: 'lock-open',
+            taskPermissionName: 'UNBLOCK_SAVINGSACCOUNT'
+          }
+          ];
+        }
         break;
       case 'Submitted and pending approval':
         this.buttonsArray = [
           {
             name: 'Modify Application',
-            icon: 'fa fa-pencil ',
+            icon: 'pen',
             taskPermissionName: 'UPDATE_SAVINGSACCOUNT'
           },
           {
             name: 'Approve',
-            icon: 'fa fa-check',
+            icon: 'check',
             taskPermissionName: 'APPROVE_SAVINGSACCOUNT'
           }
         ];
@@ -69,17 +98,17 @@ export class SavingsButtonsConfiguration {
         this.buttonsArray = [
           {
             name: 'Undo Approval',
-            icon: 'fa fa-undo',
+            icon: 'undo',
             taskPermissionName: 'APPROVALUNDO_SAVINGSACCOUNT'
           },
           {
             name: 'Activate',
-            icon: 'fa fa-check',
+            icon: 'check',
             taskPermissionName: 'ACTIVATE_SAVINGSACCOUNT'
           },
           {
             name: 'Add Charge',
-            icon: 'fa fa-plus',
+            icon: 'plus',
             taskPermissionName: 'CREATE_SAVINGSACCOUNTCHARGE'
           }
         ];

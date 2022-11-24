@@ -41,6 +41,8 @@ export class LoansAccountDetailsStepComponent implements OnInit {
 
   loanId: any = null;
 
+  loanProductSelected = false;
+
   /** Loans Account Template with product data  */
   @Output() loansAccountProductTemplate = new EventEmitter();
   /**
@@ -54,10 +56,10 @@ export class LoansAccountDetailsStepComponent implements OnInit {
     private route: ActivatedRoute,
     private settingsService: SettingsService) {
     this.loanId = this.route.snapshot.params['loanId'];
-    this.createLoansAccountDetailsForm();
   }
 
   ngOnInit() {
+    this.createLoansAccountDetailsForm();
     this.maxDate = this.settingsService.maxFutureDate;
     this.buildDependencies();
     if (this.loansAccountTemplate) {
@@ -85,7 +87,7 @@ export class LoansAccountDetailsStepComponent implements OnInit {
       'loanOfficerId': [''],
       'loanPurposeId': [''],
       'fundId': [''],
-      'submittedOnDate': [new Date(), Validators.required],
+      'submittedOnDate': [this.settingsService.businessDate, Validators.required],
       'expectedDisbursementDate': ['', Validators.required],
       'externalId': [''],
       'linkAccountId': [''],
@@ -106,6 +108,7 @@ export class LoansAccountDetailsStepComponent implements OnInit {
         this.loanPurposeOptions = response.loanPurposeOptions;
         this.fundOptions = response.fundOptions;
         this.accountLinkingOptions = response.accountLinkingOptions;
+        this.loanProductSelected = true;
         if (response.createStandingInstructionAtDisbursement) {
           this.loansAccountDetailsForm.get('createStandingInstructionAtDisbursement').patchValue(response.createStandingInstructionAtDisbursement);
         }

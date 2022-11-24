@@ -2,19 +2,19 @@
   <h3>{{datatableName}}</h3>
   <div fxLayout="row" fxLayoutAlign="flex-end">
     <button mat-raised-button color="primary" (click)="add()" *ngIf="!dataObject.data[0]">
-      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.Add'">Add</span>
+      <fa-icon icon="plus" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Add'">Add</span>
     </button>
     <button mat-raised-button color="primary" (click)="edit()" *ngIf="dataObject.data[0]">
-      <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.Edit'">Edit</span>
+      <fa-icon icon="edit" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Edit'">Edit</span>
     </button>
     <button class="delete-button" mat-raised-button color="warn" (click)="delete()" *ngIf="dataObject.data[0]">
-      <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.DeleteAll'">Delete All</span>
+      <fa-icon icon="trash" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.DeleteAll'">Delete All</span>
     </button>
   </div>
-  <ng-container>
+
+  <mat-divider></mat-divider>
+
+  <ng-container *ngIf="dataObject.data.length > 0">
 
     <div *ngFor="let columnHeader of dataObject.columnHeaders;let i = index" class="table-data">
 

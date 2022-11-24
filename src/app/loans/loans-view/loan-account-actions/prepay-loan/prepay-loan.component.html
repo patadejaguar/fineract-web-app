@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mat-elevation-z8">
 
   <mat-card>
 
@@ -19,25 +19,51 @@
             </mat-error>
           </mat-form-field>
 
+          <div fxLayout="row wrap" class="content">
+            <div fxFlex="50%" class="mat-body-strong">
+              {{ 'Principal' | translate }}
+            </div>
+
+            <div fxFlex="50%" class="r-amount">
+              {{ dataObject.principalPortion | number }}
+            </div>
+
+            <div fxFlex="50%" class="mat-body-strong">
+              {{ 'Interest' | translate }}
+            </div>
+
+            <div fxFlex="50%" class="r-amount">
+              {{ dataObject.interestPortion | number }}
+            </div>
+
+            <div fxFlex="50%" class="mat-body-strong">
+              {{ 'Fees' | translate }}
+            </div>
+
+            <div fxFlex="50%" class="r-amount">
+              {{ dataObject.feeChargesPortion | number }}
+            </div>
+
+            <div fxFlex="50%" class="mat-body-strong">
+              {{ 'Penalties' | translate }}
+            </div>
+
+            <div fxFlex="50%" class="r-amount">
+              {{ dataObject.penaltyChargesPortion | number }}
+            </div>
+          </div>
+
           <mat-form-field>
             <mat-label><span [translate]="'modulo.loans.labels.transactionamount'">Transaction Amount</span></mat-label>
-            <input matInput required formControlName="transactionAmount">
+            <input type="number" matInput required formControlName="transactionAmount">
             <mat-error *ngIf="prepayLoanForm.controls.transactionAmount.hasError('required')">
               <span [innerHTML]="'modulo.validations.transactionamountrequired' | translate">Transaction Amount <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label><span [translate]="'modulo.loans.tittle.principal'">Principal</span></mat-label>
-            <input matInput formControlName="principal">
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label><span [translate]="'modulo.loans.labels.interestamount'">Interest Amount</span></mat-label>
-            <input matInput required formControlName="interestAmount">
-            <mat-error *ngIf="prepayLoanForm.controls.interestAmount.hasError('required')">
-              <span [innerHTML]="'modulo.validations.interestamountrequired' | translate">Interest Amount <strong>is required</strong></span>
-            </mat-error>
+            <mat-label><span [translate]="'modulo.labels.externalid'">External Id</span></mat-label>
+            <input matInput formControlName="externalId">
           </mat-form-field>
 
           <mat-form-field>
@@ -50,14 +76,12 @@
           </mat-form-field>
 
           <div fxFlexFill>
-            <span fxFlex="25%"><span [translate]="'modulo.loans.labels.paymentdetail'">Show Payment Details</span></span>
-            <span fxFlex="75%" class="expandcollapsebutton" (click)="addPaymentDetails()">
-              <button mat-raised-button color="primary" *ngIf="showPaymentDetails">
-                <i class="fa fa-minus"></i>
-              </button>
-              <button mat-raised-button color="primary" *ngIf="!showPaymentDetails">
-                <i class="fa fa-plus"></i>
-              </button>
+            <span fxFlex="75%" class="expandcollapsebutton m-l-10 m-t-40" (click)="addPaymentDetails()">
+              <mat-slide-toggle [(ngModel)]="showPaymentDetails" [ngModelOptions]="{standalone: true}">
+                <div [className]="showPaymentDetails ? 'enabled' : 'disabled'">
+                  <span class="m-l-10"><span [translate]="'modulo.loans.labels.paymentdetail'">Show Payment Details</span></span>
+                </div>
+              </mat-slide-toggle>
             </span>
           </div>
 
@@ -90,7 +114,7 @@
 
           <mat-form-field>
             <mat-label><span [translate]="'modulo.loans.labels.note'">Note</span></mat-label>
-            <textarea matInput formControlName="note"></textarea>
+            <textarea matInput formControlName="note" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>
 
         </div>

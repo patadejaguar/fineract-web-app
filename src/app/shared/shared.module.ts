@@ -21,11 +21,17 @@ import { NotificationsTrayComponent } from './notifications-tray/notifications-t
 import { SearchToolComponent } from './search-tool/search-tool.component';
 import { KeyboardShortcutsDialogComponent } from './keyboard-shortcuts-dialog/keyboard-shortcuts-dialog.component';
 import { ServerSelectorComponent } from './server-selector/server-selector.component';
+import { TenantSelectorComponent } from './tenant-selector/tenant-selector.component';
 
 /** Custom Modules */
 import { IconsModule } from './icons.module';
 import { MaterialModule } from './material.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ExternalIdentifierComponent } from './external-identifier/external-identifier.component';
+import { PipesModule } from 'app/pipes/pipes.module';
+import { EntityNotesTabComponent } from './tabs/entity-notes-tab/entity-notes-tab.component';
+import { EntityDocumentsTabComponent } from './tabs/entity-documents-tab/entity-documents-tab.component';
+import { DirectivesModule } from 'app/directives/directives.module';
 
 /**
  * Shared Module
@@ -39,6 +45,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MaterialModule,
     ReactiveFormsModule,
     TranslateModule.forRoot(),
+    PipesModule,
+    DirectivesModule
   ],
   declarations: [
     FormfieldComponent,
@@ -57,7 +65,11 @@ import { TranslateModule } from '@ngx-translate/core';
     ErrorDialogComponent,
     NotificationsTrayComponent,
     SearchToolComponent,
-    ServerSelectorComponent
+    ServerSelectorComponent,
+    TenantSelectorComponent,
+    ExternalIdentifierComponent,
+    EntityNotesTabComponent,
+    EntityDocumentsTabComponent
   ],
   exports: [
     FileUploadComponent,
@@ -73,7 +85,11 @@ import { TranslateModule } from '@ngx-translate/core';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    TenantSelectorComponent,
+    ExternalIdentifierComponent,
+    EntityNotesTabComponent,
+    EntityDocumentsTabComponent
   ]
 })
 export class SharedModule { }

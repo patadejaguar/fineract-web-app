@@ -118,7 +118,7 @@
 
             <mat-form-field fxFlex="98%">
               <mat-label><span [translate]="'modulo.labels.remarks'">Remarks</span></mat-label>
-              <textarea matInput formControlName="remarks"></textarea>
+              <textarea matInput formControlName="remarks" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
             </mat-form-field>
           </div>
 
@@ -195,10 +195,8 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">
-          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
-        <button mat-raised-button color="primary" [disabled]="!editClientForm.valid" (click)="submit()">
-          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
+        <button type="button" mat-raised-button [routerLink]="['../general']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!editClientForm.valid" (click)="submit()"><span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

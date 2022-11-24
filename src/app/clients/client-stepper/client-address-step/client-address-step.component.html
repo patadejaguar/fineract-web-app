@@ -4,19 +4,18 @@
 
   <div fxLayout="row" fxLayoutAlign="flex-end" class="m-b-20">
     <button mat-raised-button color="primary" (click)="addAddress()">
-      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.Add'">Add</span>
+      <fa-icon icon="plus" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Add'">Add</span>
     </button>
   </div>
 
-  <mat-accordion>
+  <mat-accordion *ngIf="clientAddressData.length > 0">
 
     <mat-expansion-panel *ngFor="let address of clientAddressData; index as i" class="address">
 
       <mat-expansion-panel-header>
 
         <mat-panel-title>
-          {{ getSelectedValue('addressTypeIdOptions',address.addressTypeId)?.name }}
+          {{ getSelectedValue('addressTypeIdOptions', address.addressTypeId)?.name }}
         </mat-panel-title>
 
         <mat-panel-description>
@@ -67,12 +66,12 @@
 
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
-      <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
+      <fa-icon icon="arrow-left" class="m-r-10"></fa-icon>
       <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext>
-      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
-      <fa-icon icon="arrow-right"></fa-icon>
+      <span [translate]="'labels.buttons.Next'">Next</span>
+      <fa-icon icon="arrow-right" class="m-l-10"></fa-icon>
     </button>
   </div>
 

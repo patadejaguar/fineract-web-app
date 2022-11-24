@@ -20,7 +20,7 @@ The latest code is continuously deployed at https://openmf.github.io/web-app/ wh
 
 2. Install [angular-cli](https://github.com/angular/angular-cli) globally.
 ```
-npm install -g @angular/cli@9.1.12
+npm install -g @angular/cli@13.3.10
 ```
 
 3. Clone the project locally into your system.
@@ -133,10 +133,16 @@ https://localhost:8443
 ```
 FINERACT_PLATFORM_TENANT_IDENTIFIER
 ```
-Fineract Tenant identifier to be used, It must be aligned with the Fineract `tenants` table. Default value:
+Fineract Tenant identifier to be used by default, It must be aligned with the Fineract `tenants` table. Default value:
 ```
 default
 ```
+
+```
+FINERACT_PLATFORM_TENANTS_IDENTIFIER
+```
+Fineract Tenant identifier list to be used, Those must be aligned with the Fineract `tenants` table. 
+
 
 Setting for Languages (i18n) still under development
 ```

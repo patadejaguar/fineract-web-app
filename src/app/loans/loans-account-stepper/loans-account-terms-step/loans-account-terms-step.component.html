@@ -14,7 +14,7 @@
 
     <mat-form-field fxFlex="48%">
       <mat-label><span [translate]="'modulo.loans.labels.loanterm'">Loan Term</span></mat-label>
-      <input matInput required formControlName="loanTermFrequency">
+      <input type="number" matInput required formControlName="loanTermFrequency">
       <mat-error *ngIf="loansAccountTermsForm.controls.loanTermFrequency.hasError('required')">
         <span [innerHTML]="'modulo.validations.loantermrequired'">Loan Term is <strong>required</strong></span>
       </mat-error>
@@ -112,13 +112,13 @@
       </mat-form-field>
 
       <mat-checkbox fxFlex="48%" formControlName="isEqualAmortization"
-        [checked]="loansAccountTemplate?.isEqualAmortization">
+        [checked]="loansAccountTermsData?.isEqualAmortization">
         <p><span [translate]="'modulo.loans.title.equalamortization'">Is Equal Amortization</span></p>
       </mat-checkbox>
 
     </ng-container>
 
-    <ng-container *ngIf="loansAccountTemplate?.isLoanProductLinkedToFloatingRate">
+    <ng-container *ngIf="loansAccountTermsData?.isLoanProductLinkedToFloatingRate">
 
       <div fxFlex="48%" fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
@@ -163,7 +163,6 @@
       </mat-select>
     </mat-form-field>
 
-    <!-- <mat-checkbox *ngIf="interestCalculationPeriodType != 0" fxFlex="48%" -->
     <mat-checkbox fxFlex="48%" formControlName="allowPartialPeriodInterestCalcualtion">
       <p><span [translate]="'modulo.loans.title.calculateinterest'">Calculate interest for exact days in partial period</span></p>
     </mat-checkbox>
@@ -192,24 +191,27 @@
 
     <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.loans.title.moratorium'">Moratorium</span></h4>
 
-    <mat-checkbox fxFlex="23%" labelPosition="before" formControlName="graceOnPrincipalPayment" class="margin-v">
-      <span [translate]="'modulo.loans.title.onprincipal'">On Principal Payment</span>
-    </mat-checkbox>
+    <mat-form-field fxFlex="23%">
+      <mat-label><span [translate]="'modulo.loans.title.graceonprincipal'">Grace On Principal Payment</span></mat-label>
+      <input type="number" matInput formControlName="graceOnPrincipalPayment">
+    </mat-form-field>
 
-    <mat-checkbox fxFlex="23%" labelPosition="before" formControlName="graceOnInterestPayment" class="margin-v">
-      <span [translate]="'modulo.loans.title.oninterest'">On Interest Payment</span>
-    </mat-checkbox>
+    <mat-form-field fxFlex="23%">
+      <mat-label><span [translate]="'modulo.loans.title.graceoninterest'">Grace On Interest Payment</span></mat-label>
+      <input type="number" matInput formControlName="graceOnInterestPayment">
+    </mat-form-field>
 
-    <mat-checkbox fxFlex="23%" labelPosition="before" formControlName="graceOnArrearsAgeing" class="margin-v">
-      <span [translate]="'modulo.loans.title.onarrears'">On Arreas Aging</span>
-    </mat-checkbox>
+    <mat-form-field fxFlex="48%">
+      <mat-label><span [translate]="'modulo.loans.title.graceonarrears'">Grace On Arreas Aging</span></mat-label>
+      <input type="number" matInput formControlName="graceOnArrearsAgeing">
+    </mat-form-field>
 
-    <mat-form-field fxFlex="48%" *ngIf="loansAccountTemplate?.canDefineInstallmentAmount">
+    <mat-form-field fxFlex="48%" *ngIf="loansAccountTermsData?.canDefineInstallmentAmount">
       <mat-label><span [translate]="'modulo.loans.labels.installmentamount'">Installment Amount</span></mat-label>
       <input type="number" matInput formControlName="fixedEmiAmount">
     </mat-form-field>
 
-    <ng-container *ngIf="loansAccountTemplate?.canUseForTopup">
+    <ng-container *ngIf="loansAccountTermsData?.canUseForTopup">
 
       <mat-checkbox fxFlex="48%" formControlName="isTopup">
         <p><span [translate]="'modulo.loans.title.topup'">Is Topup Loan?</span></p>
@@ -230,60 +232,59 @@
 
     <div fxFlexFill>
       <span fxFlex="40%"><span [translate]="'modulo.loans.title.recalculateinterest'">Recalculate Interest</span></span>
-      <span fxFlex="60%">{{ loansAccountTemplate?.isInterestRecalculationEnabled? 'Yes' : 'No' }}</span>
+      <span fxFlex="60%">{{ loansAccountTermsData?.isInterestRecalculationEnabled? 'Yes' : 'No' }}</span>
     </div>
 
-    <div fxFlexFill *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled">
-      <span fxFlex="40%" [translate]="'modulo.loans.labels.daysinyear'">Days in year</span>
-      <span fxFlex="60%">{{ loansAccountTemplate?.daysInYearType.value}}</span>
+    <div fxFlexFill *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled">
+      <span fxFlex="40%"><span [translate]="'modulo.loans.labels.daysinyear'">Days in year</span></span>
+      <span fxFlex="60%">{{ loansAccountTermsData.daysInYearType.value}}</span>
     </div>
 
-    <ng-container *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled">
-
-      <div fxFlexFill *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled">
-        <span fxFlex="40%"  [translate]="'modulo.loans.labels.advancepayments'">Advance payments adjustment type</span>
-        <span fxFlex="60%">{{ loansAccountTemplate?.interestRecalculationData.rescheduleStrategyType.value }}</span>
+    <ng-container *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled">
+      <div fxFlexFill *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled">
+        <span fxFlex="40%"><span [translate]="'modulo.loans.labels.advancepayments'">Advance payments adjustment type</span></span>
+        <span fxFlex="60%">{{ loansAccountTermsData.interestRecalculationData.rescheduleStrategyType.value }}</span>
       </div>
 
-      <div fxFlexFill *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled">
-        <span fxFlex="40%" [translate]="'modulo.loans.title.daysinmonth'">Days in month</span>
-        <span fxFlex="60%">{{ loansAccountTemplate?.daysInMonthType.value }}</span>
+      <div fxFlexFill *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled">
+        <span fxFlex="40%"><span [translate]="'modulo.loans.labels.advancepayments'">Days in month</span></span>
+        <span fxFlex="60%">{{ loansAccountTermsData.daysInMonthType.value }}</span>
       </div>
 
     </ng-container>
 
-    <ng-container *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled">
+    <ng-container *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled">
 
       <div fxFlexFill>
-        <span fxFlex="40%" [translate]="'modulo.loans.labels.interestrecalculation'">Interest recalculation compounding on</span>
-        <span fxFlex="60%">{{ loansAccountTemplate?.interestRecalculationData.interestRecalculationCompoundingType.value
+        <span fxFlex="40%"><span [translate]="'modulo.loans.labels.interestrecalculation'">Interest recalculation compounding on</span></span>
+        <span fxFlex="60%">{{ loansAccountTermsData.interestRecalculationData.interestRecalculationCompoundingType.value
           }}</span>
       </div>
 
       <div fxFlexFill>
         <span fxFlex="40%" [translate]="'modulo.loans.labels.frecuencyrecalculation'">Frequency Interval for recalculation</span>
         <span fxFlex="60%">
-          <span>{{ loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyType.value}}</span>
-          <span *ngIf="loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyType.id == 3 &&
-                loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyWeekday != null">
-            on {{ loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyWeekday.value}}</span>
-          <span *ngIf="loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyType.id == 4 &&
-                loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyOnDay != null">on day
-            {{ loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyOnDay}}</span>
-          <span *ngIf="loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyType.id == 4 &&
-                loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyOnDay == null &&
-                loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyNthDay != null">on
-            {{ loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyNthDay.value}}
-            {{ loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyWeekday.value}}</span>
+          <span>{{ loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyType.value}}</span>
+          <span *ngIf="loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyType.id == 3 &&
+                loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyWeekday != null">
+            on {{ loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyWeekday.value}}</span>
+          <span *ngIf="loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyType.id == 4 &&
+                loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyOnDay != null">on day
+            {{ loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyOnDay}}</span>
+          <span *ngIf="loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyType.id == 4 &&
+                loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyOnDay == null &&
+                loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyNthDay != null">on
+            {{ loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyNthDay.value}}
+            {{ loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyWeekday.value}}</span>
         </span>
       </div>
 
     </ng-container>
 
     <div fxFlexFill
-      *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled && loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyType.id != 1">
-      <span fxFlex="40%" [translate]="'modulo.loans.labels.frecuencyrecalculation'">Frequency Interval for recalculation</span>
-      <span fxFlex="60%">{{ loansAccountTemplate?.interestRecalculationData.recalculationRestFrequencyInterval}}</span>
+      *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled && loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyType.id != 1">
+      <span fxFlex="40%"><span [translate]="'modulo.loans.labels.frecuencyrecalculation'">Frequency Interval for recalculation</span></span>
+      <span fxFlex="60%">{{ loansAccountTermsData.interestRecalculationData.recalculationRestFrequencyInterval}}</span>
     </div>
 
     <ng-container *ngIf="multiDisburseLoan">
@@ -338,36 +339,35 @@
     </ng-container>
 
     <ng-container
-      *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled  && loansAccountTemplate?.interestRecalculationData.interestRecalculationCompoundingType.id != 0">
+      *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled  && loansAccountTermsData.interestRecalculationData.interestRecalculationCompoundingType.id != 0">
 
       <div fxFlexFill>
         <span fxFlex="40%" [translate]="'modulo.loans.labels.frecuencycompounding'">Frequency for compounding</span>
         <span fxFlex="60%">{{
-          loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyType.value}}
-          <span *ngIf="loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyType.id == 3 &&
-            loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyWeekday != null">
-            on {{ loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyWeekday.value}}
+          loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyType.value}}
+          <span *ngIf="loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyType.id == 3 &&
+            loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyWeekday != null">
+            on {{ loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyWeekday.value}}
           </span>
-          <span *ngIf="loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyType.id == 4 &&
-            loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyOnDay != null">on day
-            {{ loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyOnDay}}
+          <span *ngIf="loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyType.id == 4 &&
+            loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyOnDay != null">on day
+            {{ loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyOnDay}}
           </span>
-          <span *ngIf="loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyType.id == 4 &&
-            loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyOnDay == null &&
-            loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyNthDay != null">on
-            {{ loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyNthDay.value}}
-            {{ loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyWeekday.value}}
+          <span *ngIf="loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyType.id == 4 &&
+            loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyOnDay == null &&
+            loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyNthDay != null">on
+            {{ loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyNthDay.value}}
+            {{ loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyWeekday.value}}
           </span>
         </span>
       </div>
-
     </ng-container>
 
     <div fxFlexFill
-      *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled && loansAccountTemplate?.interestRecalculationData.interestRecalculationCompoundingType.id != 0 && loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyType.id != 1">
-      <span fxFlex="40%" [translate]="'modulo.loans.labels.frecuencyinterval'">Frequency Interval for compounding</span>
+      *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled && loansAccountTermsData.interestRecalculationData.interestRecalculationCompoundingType.id != 0 && loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyType.id != 1">
+      <span fxFlex="40%"><span [translate]="'modulo.loans.labels.frecuencyinterval'">Frequency Interval for compounding</span></span>
       <span fxFlex="60%">{{
-        loansAccountTemplate?.interestRecalculationData.recalculationCompoundingFrequencyInterval}}</span>
+        loansAccountTermsData.interestRecalculationData.recalculationCompoundingFrequencyInterval}}</span>
     </div>
 
     <mat-divider fxFlex="98%"></mat-divider>
@@ -420,8 +420,8 @@
       <tr mat-header-row *matHeaderRowDef="loanCollateralDisplayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: loanCollateralDisplayedColumns;"></tr>
     </table>
-
   </div>
+
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;

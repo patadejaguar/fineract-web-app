@@ -15,68 +15,90 @@
         <mat-card-title>
           <div fxLayout="row" fxLayout.lt-md="column">
 
-            <div fxFlex="50%">
+            <div fxFlex="60%">
               <h3>
                 <i class="fa fa-stop" matTooltip="{{ loanDetailsData.status.value }}"
                   [ngClass]="loanDetailsData.inArrears?'status-active-overdue':(loanDetailsData.status.code|statusLookup)"></i>
-                  <span [translate]="'modulo.loans.labels.loanproduct'">Loan Product</span>: {{loanDetailsData.loanProductName}}(#{{loanDetailsData.accountNo}})
-                <br />
-                <span *ngIf="loanDetailsData.clientName"><span [translate]="'modulo.loans.header.clientname'">Client Name</span>: {{loanDetailsData.clientName}} </span> <br />
-                <span *ngIf="loanDetailsData.group"><span [translate]="'modulo.loans.header.groupname'"> Group Name</span>: {{loanDetailsData.group.name}} </span>
-                <span *ngIf="loanDetailsData.delinquencyRange">
-                  <span [translate]="'modulo.loans.labels.loanclassifi'">Loan Account Classification </span>: {{loanDetailsData?.delinquencyRange.classification}}
-                </span>
+                <span [translate]="'modulo.loans.labels.loanproduct'">Loan Product</span>: {{loanDetailsData.loanProductName}}<span class="m-l-10">({{loanDetailsData.accountNo}})</span>
               </h3>
+              <span class="loans-overview">
+                {{entityType}} Name: {{loanDetailsData.clientName ||
+                  loanDetailsData.groupName}}<span class="m-l-10">({{loanDetailsData.clientAccountNo}})</span><br />
+              </span>
+              <span class="loans-overview" *ngIf="loanDetailsData.delinquencyRange">
+                Loan Account Classification : {{loanDetailsData?.delinquencyRange.classification}}<br />
+              </span>
+              <span class="loans-overview"
+                *ngIf="loanDetailsData.delinquent && loanDetailsData.delinquent.pastDueDays > 0">
+                Past Due Days : {{loanDetailsData?.delinquent.pastDueDays | number}}<br />
+              </span>
+              <span class="loans-overview" *ngIf="loanDetailsData.delinquent && loanDetailsData.delinquent.delinquentDays > 0
+                && loanDetailsData.delinquent.pastDueDays != loanDetailsData.delinquent.delinquentDays">
+                Delinquent Days : {{loanDetailsData?.delinquent.delinquentDays | number}}
+              </span>
             </div>
 
-            <div *ngIf="loanDetailsData.summary" class="loans-overview mat-typography" fxFlex="50%">
+            <div *ngIf="loanDetailsData.summary" class="loans-overview mat-typography" fxFlex="40%">
               <h3><span [translate]="'modulo.loans.title.loanoverview'"> Loan Account OverView </span></h3>
               <span><span [translate]="'modulo.loans.labels.currentbalance'">Current Balance</span>: {{loanDetailsData.currency.displaySymbol}}
                 {{loanDetailsData.summary.totalOutstanding | number}}</span><br>
-              <span><span [translate]="'modulo.loans.labels.arrearby'">Arrears By</span>: {{loanDetailsData.summary.totalOverdue | number}}
-                <span *ngIf="!(loanDetailsData.summary.totalOverdue>=0)">
-                  <span [translate]="'modulo.validation.noprovided'">Not Provided</span>
-                </span>
+              <span *ngIf="loanDetailsData.inArrears"><span [translate]="'modulo.loans.labels.arrearby'">Arrears By</span>: {{loanDetailsData.summary.totalOverdue | number}}
+                <span *ngIf="!(loanDetailsData.summary.totalOverdue>=0)"><span [translate]="'modulo.validation.noprovided'">Not Provided</span></span>
               </span><br>
+              <span *ngIf="loanDetailsData.inArrears">Arrears Since: {{loanDetailsData.summary.overdueSinceDate |
+                dateFormat}}
+              </span>
+              <span *ngIf="loanDetailsData.totalOverpaid && loanDetailsData.totalOverpaid > 0">
+                Overpaid By: {{loanDetailsData.currency.displaySymbol}} {{loanDetailsData.totalOverpaid | number}}
+              </span>
+            </div>
+
+            <span fxFlex="auto"></span>
+
+            <div fxFlex="4%">
+              <button mat-icon-button [matMenuTriggerFor]="accountMenu" aria-label="Loan account actions"
+                yPosition="below">
+                <mat-icon matListIcon class="actions-menu">
+                  <fa-icon icon="bars" size="sm"></fa-icon>
+                </mat-icon>
+              </button>
             </div>
 
           </div>
         </mat-card-title>
       </div>
+
+      <mat-menu #accountMenu="matMenu">
+        <ng-container *ngFor="let item of buttonConfig.singleButtons">
+          <button mat-menu-item *mifosxHasPermission="item.taskPermissionName" (click)="loanAction(item.name)">
+            <mat-icon matListIcon>
+              <fa-icon icon="{{item.icon}}" size="sm"></fa-icon>
+            </mat-icon>
+            <span> {{item.name}} </span>
+          </button>
+        </ng-container>
+
+        <ng-container *ngIf="buttonConfig.optionsPayment.length" class="loan-span">
+          <button mat-menu-item [matMenuTriggerFor]="Payments">Payments</button>
+          <mat-menu #Payments="matMenu">
+            <span *ngFor="let item of buttonConfig.optionsPayment">
+              <button mat-menu-item *mifosxHasPermission="item.taskPermissionName"
+                (click)="loanAction(item.name)">{{item.name}}</button>
+            </span>
+          </mat-menu>
+        </ng-container>
+        <ng-container *ngIf="buttonConfig.options.length" class="loan-span">
+          <button mat-menu-item [matMenuTriggerFor]="More"><span [translate]="'labels.buttons.More'">More</span></button>
+          <mat-menu #More="matMenu">
+            <span *ngFor="let item of buttonConfig.options">
+              <button mat-menu-item *mifosxHasPermission="item.taskPermissionName"
+                (click)="loanAction(item.name)">{{item.name}}</button>
+            </span>
+          </mat-menu>
+        </ng-container>
+      </mat-menu>
+
     </mat-card-title-group>
-
-    <mat-card-actions class="loan-actions">
-
-      <ng-container *ngFor="let item of buttonConfig.singleButtons" class="loan-span">
-        <button mat-raised-button *mifosxHasPermission="item.taskPermissionName" (click)="loanAction(item.name)">
-          <i ng-class="{{item.icon}}"></i> {{item.name}} </button>
-      </ng-container>
-
-      <ng-container *ngIf="buttonConfig.optionsPayment.length" class="loan-span">
-        <button mat-raised-button [matMenuTriggerFor]="Payments">
-          <span [translate]="'labels.buttons.Payments'">Payments</span>
-        </button>
-        <mat-menu #Payments="matMenu">
-          <span *ngFor="let item of buttonConfig.optionsPayment">
-            <button mat-menu-item *mifosxHasPermission="item.taskPermissionName"
-              (click)="loanAction(item.name)">{{item.name}}</button>
-          </span>
-        </mat-menu>
-      </ng-container>
-
-      <ng-container *ngIf="buttonConfig.options.length" class="loan-span">
-        <button mat-raised-button [matMenuTriggerFor]="More">
-          <span [translate]="'labels.buttons.More'">More</span>
-        </button>
-        <mat-menu #More="matMenu">
-          <span *ngFor="let item of buttonConfig.options">
-            <button mat-menu-item *mifosxHasPermission="item.taskPermissionName"
-              (click)="loanAction(item.name)">{{item.name}}</button>
-          </span>
-        </mat-menu>
-      </ng-container>
-
-    </mat-card-actions>
 
   </mat-card-header>
 

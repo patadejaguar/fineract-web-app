@@ -16,7 +16,7 @@
 
     <mat-form-field fxFlex="48%">
       <mat-label><span [translate]="'modulo.labels.legalform'">Legal Form</span></mat-label>
-      <mat-select formControlName="legalFormId">
+      <mat-select required formControlName="legalFormId">
         <mat-option *ngFor="let legalForm of legalFormOptions" [value]="legalForm.id">
           {{ legalForm.value }}
         </mat-option>
@@ -127,7 +127,7 @@
 
       <mat-form-field fxFlex="98%">
         <mat-label><span [translate]="'modulo.labels.remarks'">Remarks</span></mat-label>
-        <textarea matInput formControlName="remarks"></textarea>
+        <textarea matInput formControlName="remarks" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
       </mat-form-field>
 
     </div>
