@@ -1119,7 +1119,7 @@
   "modulo.validations.paymenttyperequired":"Payment Type is <strong>required</strong>",
   "modulo.validations.depositfrequencytyperequired":"Deposit Frequency Type is <strong>required</strong>",
   "modulo.validations.depositfrequencyrequired":"Deposit Frequency is <strong>required</strong>",
-  "modulo.validations.branchofficerequired":"Branch Office is <strong>required</strong>",
+  "modulo.validations.recurringdepositamountrequired":"Recurring Deposit Amount is <strong>required</strong>",
 
   "modulo.links.general":"General",
   "modulo.links.accountdetail":"Account Details",
