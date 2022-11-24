@@ -1,18 +1,26 @@
-<h1 mat-dialog-title>Welcome to Mifos</h1>
+<h1 mat-dialog-title>
+    <span [translate]="'modulo.configurationwizard.title'">Welcome to Mifos</span></h1>
 
 <mat-dialog-content>
 
-<h3 class="mw600">Following guide tour will help you configure Mifos according to your organization needs.</h3>
+<h3 class="mw600">
+    <span [translate]="'modulo.configurationwizard.titlewizard'">
+        Following guide tour will help you configure Mifos according to your organization needs.</span></h3>
 
-<h3>You have successfully completed the setup of {{ previousStepName }}</h3>
+<h3><span [translate]="'modulo.configurationwizard.descriptionsuccessstep'" [translateParams]="{ previous: previousStepNames }">
+    You have successfully completed the setup of {{ previousStepName }}</span></h3>
 
-<h3>Progress Bar : {{stepPercentage}}%</h3>
+<h3><span [translate]="'modulo.configurationwizard.progress'" [translateParams]="{ porcent: stepPercentage }">
+    Progress Bar : {{stepPercentage}}%</span></h3>
 
 <mat-progress-bar mode="determinate" [value]="stepPercentage"></mat-progress-bar>
 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-raised-button color="warn" [mat-dialog-close]="{ nextStep: false }">Close Config. Wizard</button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="{ nextStep: true }"> {{ nextStepName }} </button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="{ nextStep: false }">
+        <span [translate]="'labels.buttons.close'">Close Config. Wizard</span></button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="{ nextStep: true }"> 
+        <span [translate]="'labels.buttons.step'" [translateParams]="{ step: stepName }">
+            {{ nextStepName }} </span></button>
 </mat-dialog-actions>
