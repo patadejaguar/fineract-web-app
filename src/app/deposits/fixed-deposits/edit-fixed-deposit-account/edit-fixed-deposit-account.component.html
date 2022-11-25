@@ -24,7 +24,8 @@
 
     <mat-step [stepControl]="fixedDepositAccountDetailsForm">
 
-      <ng-template matStepLabel>DETAILS</ng-template>
+      <ng-template matStepLabel>
+        <span [translate]="'modulo.labels.details'">DETAILS</span></ng-template>
 
       <mifosx-fixed-deposit-account-details-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"
@@ -35,7 +36,7 @@
 
     <mat-step [stepControl]="fixedDepositAccountDetailsForm.get('productId')">
 
-      <ng-template matStepLabel>CURRENCY</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.currency'">CURRENCY</span></ng-template>
 
       <mifosx-fixed-deposit-account-currency-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"
@@ -46,7 +47,7 @@
 
     <mat-step [stepControl]="fixedDepositAccountTermsForm">
 
-      <ng-template matStepLabel>TERMS</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.terms'">TERMS</span></ng-template>
 
       <mifosx-fixed-deposit-account-terms-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"
@@ -57,7 +58,7 @@
 
     <mat-step [stepControl]="fixedDepositAccountSettingsForm">
 
-      <ng-template matStepLabel>SETTINGS</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.settings'">SETTINGS</span></ng-template>
 
       <mifosx-fixed-deposit-account-settings-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"
@@ -68,7 +69,7 @@
 
     <mat-step>
 
-      <ng-template matStepLabel>INTEREST RATE CHART</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.interestratechart'">INTEREST RATE CHART</span></ng-template>
 
       <mifosx-fixed-deposit-account-interest-rate-chart-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"
@@ -79,7 +80,7 @@
 
     <mat-step>
 
-      <ng-template matStepLabel>CHARGES</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.charges'">CHARGES</span></ng-template>
 
       <mifosx-fixed-deposit-account-charges-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"
@@ -92,7 +93,7 @@
 
     <mat-step state="preview" *ngIf="fixedDepositAccountFormValidAndNotPristine" completed>
 
-      <ng-template matStepLabel>PREVIEW</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.preview'">PREVIEW</span></ng-template>
 
       <mifosx-fixed-deposit-account-preview-step
         [fixedDepositsAccountTemplate]="fixedDepositsAccountAndTemplate"

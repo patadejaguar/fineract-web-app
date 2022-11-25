@@ -16,15 +16,16 @@
         <mat-card-title>
           <h3>
             <i class="fa fa-stop" [ngClass]="fixedDepositsAccountData.status.code | statusLookup" [matTooltip]="fixedDepositsAccountData.status.value"></i>
-              Account Name : {{fixedDepositsAccountData.depositProductName}}
+              <span [translate]="'modulo.labels.accountname'">Account Name </span>: {{fixedDepositsAccountData.depositProductName}}
           </h3>
         </mat-card-title>
         <mat-card-subtitle>
           <p>
-            Account #: {{fixedDepositsAccountData.accountNo}} | Client Name: {{fixedDepositsAccountData.clientName}}<br/>
+            <span [translate]="'modulo.labels.account'">Account</span> #: {{fixedDepositsAccountData.accountNo}} | 
+            <span [translate]="'modulo.labels.clientname'">Client Name</span>: {{fixedDepositsAccountData.clientName}}<br/>
             <span *ngIf="!fixedDepositsAccountData.status.rejected && !fixedDepositsAccountData.status.submittedAndPendingApproval">
-              Current Balance: {{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.summary.accountBalance}}<br/>
-              Deposit Amount: {{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.depositAmount}}<br/>
+              <span [translate]="'modulo.labels.currentbalance'">Current Balance</span>: {{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.summary.accountBalance}}<br/>
+              <span [translate]="'modulo.labels.depositamount'">Deposit Amount</span>: {{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.depositAmount}}<br/>
             </span>
           </p>
         </mat-card-subtitle>
@@ -40,7 +41,8 @@
       </ng-container>
   
       <ng-container *ngIf="buttonConfig.options.length">
-        <button mat-raised-button [matMenuTriggerFor]="More">More</button>
+        <button mat-raised-button [matMenuTriggerFor]="More">
+          <span [translate]="'labels.buttons.More'">More</span></button>
         <mat-menu #More="matMenu">
         <span *ngFor="let option of buttonConfig.options">
           <button mat-menu-item (click)="doAction(option.name)">{{option.name}}</button>
@@ -59,31 +61,31 @@
       <div fxFlex="49%" fxLayout="column" fxLayoutGap="4%">
 
         <div>
-          <h4 class="table-headers">Fixed Deposit Details</h4>
+          <h4 class="table-headers"><span [translate]="'modulo.labels.fixeddepositdetails'">Fixed Deposit Details</span></h4>
           <table>
             <tbody>
               <tr>
-                <td>Activated On</td>
+                <td><span [translate]="'modulo.labels.activatedon'">Activated On</span></td>
                 <td>{{fixedDepositsAccountData.timeline.activatedOnDate ? (fixedDepositsAccountData.timeline.activatedOnDate  | dateFormat) : 'Not Activated'}}</td>
               </tr>
               <tr *ngIf="fixedDepositsAccountData.timeline.closedOnDate">
-                <td>Closed On</td>
+                <td><span [translate]="'modulo.labels.closedon'">Closed On</span></td>
                 <td>{{fixedDepositsAccountData.timeline.closedOnDate  | dateFormat}}</td>
               </tr>
               <tr>
-                <td>Field Officer</td>
+                <td><span [translate]="'modulo.labels.fieldofficer'">Field Officer</span></td>
                 <td>{{fixedDepositsAccountData.fieldOfficerName ? fixedDepositsAccountData.fieldOfficerName : 'Unassigned'}}</td>
               </tr>
               <tr>
-                <td>Maturity Date</td>
+                <td><span [translate]="'modulo.labels.maturitydate'">Maturity Date</span></td>
                 <td>{{fixedDepositsAccountData.maturityDate ? (fixedDepositsAccountData.maturityDate  | dateFormat) : 'N/A'}}</td>
               </tr>
               <tr>
-                <td>Deposit Period</td>
+                <td><span [translate]="'modulo.labels.depositperiod'">Deposit Period</span></td>
                 <td>{{fixedDepositsAccountData.depositPeriod}}&nbsp;{{fixedDepositsAccountData.depositPeriodFrequency.value}}</td>
               </tr>
               <tr *ngIf="fixedDepositsAccountData.withHoldTax">
-                <td>Tax Group</td>
+                <td><span [translate]="'modulo.labels.taxgroup'">Tax Group</span></td>
                 <td>{{fixedDepositsAccountData.taxGroup.name}}</td>
               </tr>
             </tbody>
@@ -91,31 +93,31 @@
         </div>
 
         <div>
-          <h4 class="table-headers">Interest Details</h4>
+          <h4 class="table-headers"><span [translate]="'modulo.labels.interestdetails'">Interest Details</span></h4>
           <table>
             <tbody>
               <tr>
-                <td>Interest Rate</td>
+                <td><span [translate]="'modulo.labels.interestrate'">Interest Rate</span></td>
                 <td>{{fixedDepositsAccountData.nominalAnnualInterestRate}}%</td>
               </tr>
               <tr>
-                <td>Interest Compounding Period</td>
+                <td><span [translate]="'modulo.labels.interestcompoundingperiod'">Interest Compounding Period</span></td>
                 <td>{{fixedDepositsAccountData.interestCompoundingPeriodType.value}}</td>
               </tr>
               <tr>
-                <td>Interest Posting Period</td>
+                <td><span [translate]="'modulo.labels.interestpostingperiod'">Interest Posting Period</span></td>
                 <td>{{fixedDepositsAccountData.interestPostingPeriodType.value}}</td>
               </tr>
               <tr>
-                <td>Interest Calculated Using</td>
+                <td><span [translate]="'modulo.labels.interestcalculatedusing'">Interest Calculated Using</span></td>
                 <td>{{fixedDepositsAccountData.interestCalculationType.value}}</td>
               </tr>
               <tr>
-                <td>No. of Days in Year</td>
+                <td><span [translate]="'modulo.labels.nodaysinyear'">No. of Days in Year</span></td>
                 <td>{{fixedDepositsAccountData.interestCalculationDaysInYearType.value}}</td>
               </tr>
               <tr *ngIf="fixedDepositsAccountData.preClosurePenalApplicable">
-                <td>Pre-cloure Penal</td>
+                <td><span [translate]="'modulo.labels.preclosurepenal'">Pre-closure Penal</span></td>
                 <td>{{fixedDepositsAccountData.preClosurePenalInterest}} % on {{fixedDepositsAccountData.preClosurePenalInterestOnType.value}}</td>
               </tr>
           </table>
@@ -126,27 +128,27 @@
       <div fxFlex="49%">
 
         <div *ngIf="!fixedDepositsAccountData.status.rejected && !fixedDepositsAccountData.status.submittedAndPendingApproval; else otherDetails">
-          <h4 class="table-headers">Performance History</h4>
+          <h4 class="table-headers"><span [translate]="'modulo.labels.performancehistory'">Performance History</span></h4>
           <table>
             <tbody>
               <tr>
-                <td>Principal Amount</td>
+                <td><span [translate]="'modulo.labels.principalamount'">Principal Amount</span></td>
                 <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.depositAmount}}</td>
               </tr>
               <tr>
-                <td>Maturity Amount</td>
+                <td><span [translate]="'modulo.labels.maturityamount'">Maturity Amount</span></td>
                 <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.maturityAmount}}</td>
               </tr>
               <tr *ngIf="fixedDepositsAccountData.summary.totalDeposits">
-                <td>Total Deposits</td>
+                <td><span [translate]="'modulo.labels.totaldeposits'">Total Deposits</span></td>
                 <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.summary.totalDeposits}}</td>
               </tr>
               <tr *ngIf="fixedDepositsAccountData.summary.totalWithdrawals">
-                <td>Total Withdrawals</td>
+                <td><span [translate]="'modulo.labels.totalwithdrawals'">Total Withdrawals</span></td>
                 <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.summary.totalWithdrawals}}</td>
               </tr>
               <tr *ngIf="fixedDepositsAccountData.summary.totalInterestEarned >= 0">
-                <td>Total Interest Earned</td>
+                <td><span [translate]="'modulo.labels.totalinterestearned'">Total Interest Earned</span></td>
                 <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.summary.totalInterestEarned}}</td>
               </tr>
           </table>
@@ -154,15 +156,15 @@
 
         <ng-template #otherDetails>
           <div>
-            <h4 class="table-headers">Other Details</h4>
+            <h4 class="table-headers"><span [translate]="'modulo.labels.otherdetails'">Other Details</span></h4>
             <table>
               <tbody>
                 <tr>
-                  <td>Principal Amount</td>
+                  <td><span [translate]="'modulo.labels.principalamount'">Principal Amount</span></td>
                   <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.depositAmount}}</td>
                 </tr>
                 <tr>
-                  <td>Maturity Amount</td>
+                  <td><span [translate]="'modulo.labels.maturityamount'">Maturity Amount</span></td>
                   <td>{{fixedDepositsAccountData.currency.displaySymbol}}&nbsp;{{fixedDepositsAccountData.maturityAmount}}</td>
                 </tr>
               </tbody>
@@ -177,19 +179,19 @@
     <nav mat-tab-nav-bar class="navigation-tabs">
       <a mat-tab-link [routerLink]="['./interest-rate-chart']" routerLinkActive #IRC="routerLinkActive"
       [active]="IRC.isActive">
-        Interest Rate Chart
+        <span [translate]="'modulo.labels.interestratechart'">Interest Rate Chart</span>
       </a>
       <a mat-tab-link [routerLink]="['./transactions']" routerLinkActive #transactions="routerLinkActive"
       [active]="transactions.isActive">
-        Transactions
+       <span [translate]="'modulo.labels.transactions'"> Transactions</span>
       </a>
       <a mat-tab-link [routerLink]="['./charges']" routerLinkActive #charges="routerLinkActive"
       [active]="charges.isActive">
-        Charges
+        <span [translate]="'modulo.labels.charges'">Charges</span>
       </a>
       <a mat-tab-link [routerLink]="['./standing-instructions']" routerLinkActive #standingInstructions="routerLinkActive"
         [active]="standingInstructions.isActive" *ngIf="fixedDepositsAccountData.clientId">
-        Standing Instructions
+        <span [translate]="'modulo.labels.standingintructions'">Standing Instructions</span>
       </a>
       <ng-container *ngFor="let savingsDatatable of savingsDatatables">
         <a mat-tab-link *mifosxHasPermission="'READ_' + savingsDatatable.registeredTableName"
