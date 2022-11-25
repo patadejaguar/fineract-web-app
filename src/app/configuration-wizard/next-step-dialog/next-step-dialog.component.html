@@ -7,7 +7,7 @@
     <span [translate]="'modulo.configurationwizard.titlewizard'">
         Following guide tour will help you configure Mifos according to your organization needs.</span></h3>
 
-<h3><span [translate]="'modulo.configurationwizard.descriptionsuccessstep'" [translateParams]="{ previous: previousStepNames }">
+<h3><span [translate]="'modulo.configurationwizard.descriptionsuccessstep'" [translateParams]="{ previous: previousStepName }">
     You have successfully completed the setup of {{ previousStepName }}</span></h3>
 
 <h3><span [translate]="'modulo.configurationwizard.progress'" [translateParams]="{ porcent: stepPercentage }">
@@ -21,6 +21,6 @@
     <button mat-raised-button color="warn" [mat-dialog-close]="{ nextStep: false }">
         <span [translate]="'labels.buttons.close'">Close Config. Wizard</span></button>
     <button mat-raised-button color="primary" [mat-dialog-close]="{ nextStep: true }"> 
-        <span [translate]="'labels.buttons.step'" [translateParams]="{ step: stepName }">
+        <span [translate]="'labels.buttons.step'" [translateParams]="{ step: nextStepName }">
             {{ nextStepName }} </span></button>
 </mat-dialog-actions>
