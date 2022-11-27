@@ -3,23 +3,23 @@
   <mat-list>
 
     <mat-list-item>
-      Campaign Name : {{ campaign.campaignName }}
+      <span [translate]="'modulo.labels.campaignname'">Campaign Name </span>: {{ campaign.campaignName }}
     </mat-list-item>
 
     <mat-list-item>
-      SMS Provider : {{ (campaign.providerId | find:smsProviders:'id':'name') || "Unassigned" }}
+      <span [translate]="'modulo.labels.smsprovider'">SMS Provider</span> : {{ (campaign.providerId | find:smsProviders:'id':'name') || "Unassigned" }}
     </mat-list-item>
 
     <mat-list-item>
-      Trigger Type : {{ (campaign.editFlag ? campaign.triggerType.id : campaign.triggerType) | find:triggerTypes:'id':'value' }}
+      <span [translate]="'modulo.labels.triggertype'">Trigger Type</span> : {{ (campaign.editFlag ? campaign.triggerType.id : campaign.triggerType) | find:triggerTypes:'id':'value' }}
     </mat-list-item>
 
     <mat-list-item>
-      Bussiness Rule : {{ campaign.editFlag ? campaign.reportName : campaign.paramValue?.reportName }}
+      <span [translate]="'modulo.labels.businessrule'">Business Rule</span> : {{ campaign.editFlag ? campaign.reportName : campaign.paramValue?.reportName }}
     </mat-list-item>
 
     <div fxLayout="column" fxLayoutGap="10px" class="template-message">
-      <h3>Campaign Message :</h3>
+      <h3><span [translate]="'modulo.labels.campaignmessage'">Campaign Message</span> :</h3>
       <textarea matInput disabled>{{ campaign.editFlag ? editedCampaignMessage : campaign.message }}</textarea>
     </div>
 
@@ -27,10 +27,10 @@
 
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button [routerLink]="['../']">
-      Cancel
+      <span [translate]="'labels.buttons.Cancel'">Cancel</span>
     </button>
     <button mat-raised-button color="primary" (click)="submit.emit()">
-      Submit
+      <span [translate]="'labels.buttons.Submit'">Submit</span>
     </button>
   </div>
 

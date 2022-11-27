@@ -9,18 +9,20 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="editGroupForm.controls.name.hasError('required')">
-              Group Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.groupnamerequired' | translate">
+                Group Name is <strong>required</strong></span>
             </mat-error>
             <mat-error *ngIf="editGroupForm.controls.name.hasError('pattern')">
-              Group Name <strong>cannot</strong> begin with a special character or number
+              <span [innerHTML]="'modulo.validations.groupnamespecialchar' | translate">
+                Group Name <strong>cannot</strong> begin with a special character or number</span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Staff</mat-label>
+            <mat-label><span [translate]="'modulo.labels.staff'">Staff</span></mat-label>
             <mat-select formControlName="staffId">
               <mat-option *ngFor="let staff of staffData" [value]="staff.id">
               {{ staff.displayName }}
@@ -29,27 +31,29 @@
           </mat-form-field>
 
           <mat-form-field *ngIf="this.editGroupForm.contains('activationDate')" (click)="activationDatePicker.open()">
-            <mat-label>Activation Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.activationdate'">Activation Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="activationDatePicker" required formControlName="activationDate">
             <mat-datepicker-toggle matSuffix [for]="activationDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #activationDatePicker></mat-datepicker>
             <mat-error *ngIf="editGroupForm.controls.activationDate.hasError('required')">
-              Activation Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.accountrequired' | translate">
+                Activation Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>External id</mat-label>
+            <mat-label><span [translate]="'modulo.labels.externalid'">External id</span></mat-label>
             <input matInput formControlName="externalId">
           </mat-form-field>
 
           <mat-form-field (click)="submittedOnDatePicker.open()">
-            <mat-label>Submitted on</mat-label>
+            <mat-label><span [translate]="'modulo.labels.submittedon'">Submitted on</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="submittedOnDatePicker" required formControlName="submittedOnDate">
             <mat-datepicker-toggle matSuffix [for]="submittedOnDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #submittedOnDatePicker></mat-datepicker>
             <mat-error *ngIf="editGroupForm.controls.submittedOnDate.hasError('required')">
-              Submission Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.submissiondaterequired' | translate">
+                Submission Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
           
@@ -58,8 +62,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!editGroupForm.valid" (click)="submit()">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!editGroupForm.valid" (click)="submit()">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

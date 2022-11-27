@@ -3,19 +3,19 @@
   <mat-list>
 
     <mat-list-item>
-      Parent Office : {{ officeData.parentName ? officeData.parentName : 'N/A' }}
+      <span [translate]="'modulo.labels.parentoffice'">Parent Office</span> : {{ officeData.parentName ? officeData.parentName : 'N/A' }}
     </mat-list-item>
 
     <mat-list-item>
-      Opened On : {{ officeData.openingDate ? (officeData.openingDate  | dateFormat) : 'Unassigned' }}
+      <span [translate]="'modulo.labels.openedon'">Opened On</span> : {{ officeData.openingDate ? (officeData.openingDate  | dateFormat) : 'Unassigned' }}
     </mat-list-item>
 
     <mat-list-item>
-      Name Decorated : {{ officeData.nameDecorated ? officeData.nameDecorated : 'Unassigned' }}
+      <span [translate]="'modulo.labels.namedecorated'">Name Decorated</span> : {{ officeData.nameDecorated ? officeData.nameDecorated : 'Unassigned' }}
     </mat-list-item>
 
     <mat-list-item>
-      External Id : {{ officeData.externalId ? officeData.externalId : 'Unassigned' }}
+      <span [translate]="'modulo.labels.externalid'">External Id</span> : {{ officeData.externalId ? officeData.externalId : 'Unassigned' }}
     </mat-list-item>
     
   </mat-list>

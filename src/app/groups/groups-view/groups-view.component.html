@@ -15,16 +15,17 @@
         <mat-card-title>
           <h3>
             <i class="fa fa-stop" [ngClass]="groupViewData.status.code|statusLookup" [matTooltip]="groupViewData.status.value"></i>
-            Group Name : {{groupViewData.name}}
+            <span [translate]="'modulo.labels.groupname'">Group Name</span> : {{groupViewData.name}}
           </h3>
         </mat-card-title>
         <mat-card-subtitle>
           <p>
-            Group #: {{groupViewData.id}} | Center Name: {{groupViewData.centerName}} | Staff: {{groupViewData.staffName || 'Unassigned'}}<br/>
-            Office Name: {{groupViewData.officeName}}<br/>
-            Activation Date : {{(groupViewData.activationDate)?(groupViewData.activationDate  | dateFormat) :'Not Activated'}}<br/>
+            <span [translate]="'modulo.labels.group'">Group</span> #: {{groupViewData.id}} | 
+            <span [translate]="'modulo.labels.centername'">Center Name</span>: {{groupViewData.centerName}} | Staff: {{groupViewData.staffName || 'Unassigned'}}<br/>
+            <span [translate]="'modulo.labels.officename'">Office Name</span>: {{groupViewData.officeName}}<br/>
+            <span [translate]="'modulo.labels.activationdate'">Activation Date</span> : {{(groupViewData.activationDate)?(groupViewData.activationDate  | dateFormat) :'Not Activated'}}<br/>
             <span *ngIf="!groupViewData.active">
-             Closure Date: {{groupViewData.timeline.closedOnDate  | dateFormat}}
+             <span [translate]="'modulo.labels.closuredate'">Closure Date</span>: {{groupViewData.timeline.closedOnDate  | dateFormat}}
             </span>
           </p>
         </mat-card-subtitle>
@@ -33,17 +34,18 @@
       <div class="group-meeting" fxLayoutAlign="start start">
         <div *ngIf="groupViewData.collectionMeetingCalendar; else unassigned">
           <p>
-             Next Meeting on: {{groupViewData.collectionMeetingCalendar?.nextTenRecurringDates[0]  | dateFormat}}
+             <span [translate]="'modulo.labels.nextmeeting'">Next Meeting on</span>: {{groupViewData.collectionMeetingCalendar?.nextTenRecurringDates[0]  | dateFormat}}
              <i class="fa fa-edit" *ngIf="editMeeting" (click)="doAction('Edit Meeting')"></i><br/>
-             Meeting Frequency: {{groupViewData.collectionMeetingCalendar?.frequency.value | lowercase}}
+             <span [translate]="'modulo.labels.meetingfrequency'">Meeting Frequency</span>: {{groupViewData.collectionMeetingCalendar?.frequency.value | lowercase}}
           </p>
         </div>
         <ng-template #unassigned>
           <div>
             <p>
-              Next Meeting on: Unassigned
+              <span [translate]="'modulo.labels.nextmeeting'">Next Meeting on</span>:
+                <span [translate]="'modulo.labels.unassigned'"> Unassigned</span>
               <i class="fa fa-calendar"></i><br/>
-              Meeting Frequency: N/A
+              <span [translate]="'modulo.labels.meetingfrequency'">Meeting Frequency</span>: N/A
           </p>
         </div>
         </ng-template>
@@ -55,40 +57,52 @@
 
         <span *ngIf="!(groupViewData.status.value==='Active')">
           <button mat-raised-button  *mifosxHasPermission="'UPDATE_GROUP'" (click)="doAction('Activate')">
-            <i class="fa fa-check-sign"></i>Activate</button>
+            <i class="fa fa-check-sign"></i><span [translate]="'labels.buttons.Activate'">Activate</span></button>
         </span>
         <button mat-raised-button *mifosxHasPermission="'UPDATE_GROUP'" (click)="doAction('Edit')">
-          <i class="fa fa-edit"></i>Edit</button>
+          <i class="fa fa-edit"></i><span [translate]="'labels.buttons.Edit'">Edit</span></button>
         <button mat-raised-button *mifosxHasPermission="'CREATE_CLIENT'">
-          <i class="fa fa-plus"></i>Add Clients</button>
+          <i class="fa fa-plus"></i><span [translate]="'labels.buttons.AddClients'">Add Clients</span></button>
         <button mat-raised-button *mifosxHasPermission="'ASSOCIATECLIENTS_GROUP'" (click)="doAction('Transfer Clients')">
-          <i class="fa fa-exchange"></i>Transfer Clients</button>
+          <i class="fa fa-exchange"></i><span [translate]="'labels.buttons.TransferClients'">Transfer Clients</span></button>
         <button mat-raised-button *mifosxHasPermission="'TRANSFERCLIENTS_GROUP'" (click)="doAction('Manage Members')">
-          <i class="fa fa-user"></i>Manage Members</button>
+          <i class="fa fa-user"></i><span [translate]="'labels.buttons.ManageMembers'">Manage Members</span></button>
 
         <button mat-raised-button *ngIf="groupViewData.active" [matMenuTriggerFor]="AccountApplications">
-          <i class="fa fa-file"></i>Applications</button>
+          <i class="fa fa-file"></i><span [translate]="'labels.buttons.Applications'">Applications</span></button>
         <mat-menu #AccountApplications="matMenu">
           <span *ngIf="groupViewData.clientMembers">
-            <button mat-menu-item *mifosxHasPermission="'CREATE_LOAN'">Bulk JLG Loan Application</button></span>
-          <button mat-menu-item *mifosxHasPermission="'CREATE_SAVINGSACCOUNT'" [routerLink]="['savings-accounts', 'create']">Group Saving Application</button>
-          <button mat-menu-item *mifosxHasPermission="'CREATE_LOAN'" [routerLink]="['loans-accounts', 'create']">Group Loan Application</button>
-          <button mat-menu-item  [routerLink]="['loans-accounts', 'glim-account', 'create']">GLIM Loan Application</button>
-          <button mat-menu-item  [routerLink]="['savings-accounts', 'gsim-account' , 'create']"> GSIM Application </button>
+            <button mat-menu-item *mifosxHasPermission="'CREATE_LOAN'">
+              <span [translate]="'labels.buttons.BulkJLGLoanApplication'">Bulk JLG Loan Application</span></button></span>
+          <button mat-menu-item *mifosxHasPermission="'CREATE_SAVINGSACCOUNT'" [routerLink]="['savings-accounts', 'create']">
+            <span [translate]="'labels.buttons.GroupSavingApplication'">Group Saving Application</span></button>
+          <button mat-menu-item *mifosxHasPermission="'CREATE_LOAN'" [routerLink]="['loans-accounts', 'create']">
+            <span [translate]="'labels.buttons.GroupLoanApplication'">Group Loan Application</span></button>
+          <button mat-menu-item  [routerLink]="['loans-accounts', 'glim-account', 'create']">
+            <span [translate]="'labels.buttons.GLIMLoanApplication'">GLIM Loan Application</span></button>
+          <button mat-menu-item  [routerLink]="['savings-accounts', 'gsim-account' , 'create']">
+            <span [translate]="'labels.buttons.GSIMApliccation'"> GSIM Application </span></button>
         </mat-menu>
 
-        <button mat-raised-button [matMenuTriggerFor]="More">More</button>
+        <button mat-raised-button [matMenuTriggerFor]="More">
+          <span [translate]="'labels.buttons.More'">More</span></button>
         <mat-menu #More="matMenu">
           <span *ngIf="groupViewData.collectionMeetingCalendar">
-            <button mat-menu-item *mifosxHasPermission="'SAVEORUPDATEATTENDANCE_MEETING'" (click)="doAction('Attendance')">Attendance</button></span>
+            <button mat-menu-item *mifosxHasPermission="'SAVEORUPDATEATTENDANCE_MEETING'" (click)="doAction('Attendance')">
+              <span [translate]="'labels.buttons.Attendance'">Attendance</span></button></span>
           <span *ngIf="!groupViewData.staffId">
-            <button mat-menu-item *mifosxHasPermission="'ASSIGNSTAFF_GROUP'" (click)="doAction('Assign Staff')">Assign Staff</button></span>
+            <button mat-menu-item *mifosxHasPermission="'ASSIGNSTAFF_GROUP'" (click)="doAction('Assign Staff')">
+              <span [translate]="'labels.buttons.AssignStaff'">Assign Staff</span></button></span>
           <span *ngIf="groupViewData.staffId">
-            <button mat-menu-item *mifosxHasPermission="'UNASSIGNSTAFF_GROUP'" (click)="doAction('Unassign Staff')">Unassign Staff</button></span>
+            <button mat-menu-item *mifosxHasPermission="'UNASSIGNSTAFF_GROUP'" (click)="doAction('Unassign Staff')">
+              <span [translate]="'labels.buttons.UnassignStaff'">Unassign Staff</span></button></span>
           <span *ngIf="!(groupViewData.centerId || groupViewData.collectionMeetingCalendar) && groupViewData.status.value==='Active'">
-            <button mat-menu-item *mifosxHasPermission="'CREATE_MEETING'" (click)="doAction('Attach Meeting')">Attach Meeting</button></span>
-          <button mat-menu-item *mifosxHasPermission="'CLOSE_GROUP'" (click)="doAction('Close')">Close</button>
-          <button mat-menu-item *mifosxHasPermission="'DELETE_GROUP'" (click)="doAction('Delete')">Delete</button>
+            <button mat-menu-item *mifosxHasPermission="'CREATE_MEETING'" (click)="doAction('Attach Meeting')">
+              <span [translate]="'labels.buttons.AttachMeeting'">Attach Meeting</span></button></span>
+          <button mat-menu-item *mifosxHasPermission="'CLOSE_GROUP'" (click)="doAction('Close')">
+            <span [translate]="'labels.buttons.Close'">Close</span></button>
+          <button mat-menu-item *mifosxHasPermission="'DELETE_GROUP'" (click)="doAction('Delete')">
+            <span [translate]="'labels.buttons.Delete'">Delete</span></button>
         </mat-menu>
 
     </mat-card-actions>
@@ -100,15 +114,15 @@
     <nav mat-tab-nav-bar class="navigation-tabs">
       <a mat-tab-link [routerLink]="['./general']" routerLinkActive #general="routerLinkActive"
       [active]="general.isActive">
-        General
+        <span [translate]="'modulo.labels.general'">General</span>
       </a>
       <a mat-tab-link [routerLink]="['./notes']" *mifosxHasPermission="'READ_GROUPNOTE'" routerLinkActive #notes="routerLinkActive"
       [active]="notes.isActive">
-        Notes
+        <span [translate]="'modulo.labels.notes'">Notes</span>
       </a>
       <a mat-tab-link [routerLink]="['./committee']" routerLinkActive #committee="routerLinkActive"
       [active]="committee.isActive">
-        Committee
+        <span [translate]="'modulo.labels.committee'">Committee</span>
       </a>
       <span *ngFor="let groupDatatable of groupDatatables">
         <a mat-tab-link *mifosxHasPermission="'READ_' + groupDatatable.registeredTableName"

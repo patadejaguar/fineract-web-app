@@ -9,60 +9,61 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <input matInput required formControlName="office">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Teller Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.tellername'">Teller Name</span></mat-label>
             <input matInput required formControlName="tellerName">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Cashier</mat-label>
+            <mat-label><span [translate]="'modulo.labels.cashier'">Cashier</span></mat-label>
             <input matInput required formControlName="cashier">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Assignment Period</mat-label>
+            <mat-label><span [translate]="'modulo.labels.assignmentperiod'">Assignment Period</span></mat-label>
             <input matInput formControlName="assignmentPeriod">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" (click)="cashDatePicker.open()">
-            <mat-label>Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.date'">Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="cashDatePicker" required formControlName="txnDate">
             <mat-datepicker-toggle matSuffix [for]="cashDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #cashDatePicker></mat-datepicker>
             <mat-error *ngIf="settleCashForm.controls.txnDate.hasError('required')">
-              Date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.daterequired' | translate">Date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Currency</mat-label>
+            <mat-label><span [translate]="'modulo.labels.currency'">Currency</span></mat-label>
             <mat-select required formControlName="currencyCode">
               <mat-option *ngFor="let currency of cashierData.currencyOptions" [value]="currency.code">
                 {{ currency.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="settleCashForm.controls.currencyCode.hasError('required')">
-              Currency <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.currencyrequired' | translate">Currency <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Amount</mat-label>
+            <mat-label><span [translate]="'modulo.labels.amount'">Amount</span></mat-label>
             <input matInput required formControlName="txnAmount">
             <mat-error *ngIf="settleCashForm.controls.txnAmount.hasError('required')">
-              Amount <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.amountrequired' | translate">Amount <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Notes/Comments</mat-label>
+            <mat-label><span [translate]="'modulo.labels.notescomments'">Notes/Comments</span></mat-label>
             <input matInput required formControlName="txnNote">
             <mat-error *ngIf="settleCashForm.controls.txnNote.hasError('required')">
-              Notes/Comments <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.notescommentsrequired' | translate">
+                Notes/Comments <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -71,8 +72,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!settleCashForm.valid" *mifosxHasPermission="'SETTLECASHFROMCASHIER_TELLER'">Settle Cash</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!settleCashForm.valid" *mifosxHasPermission="'SETTLECASHFROMCASHIER_TELLER'">
+          <span [translate]="'labels.buttons.SettleCash'">Settle Cash</span></button>
       </mat-card-actions>
 
     </form>
