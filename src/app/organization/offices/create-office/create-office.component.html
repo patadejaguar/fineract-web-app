@@ -9,37 +9,37 @@
         <div #createOfficeFormRef fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <input required matInput formControlName="name">
             <mat-error *ngIf="officeForm.controls.name.hasError('required')">
-              Office is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.officerequired' | translate">Office is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Parent Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.parentoffice'">Parent Office</span></mat-label>
             <mat-select required formControlName="parentId">
               <mat-option *ngFor="let office of officeData" [value]="office.id" >
                 {{ office.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="officeForm.controls.parentId.hasError('required')">
-              Parent Office is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.parentofficerequired' | translate">Parent Office is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field (click)="openedOnDatePicker.open()">
-            <mat-label>Opened On</mat-label>
+            <mat-label><span [translate]="'modulo.labels.openedon'">Opened On</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" formControlName="openingDate" required [matDatepicker]="openedOnDatePicker">
             <mat-datepicker-toggle matSuffix [for]="openedOnDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #openedOnDatePicker></mat-datepicker>
             <mat-error *ngIf="officeForm.controls.openingDate.hasError('required')">
-              Opening Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.openedonrequired' | translate">Opening Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>External ID</mat-label>
+            <mat-label><span [translate]="'modulo.labels.externalid'">External ID</span></mat-label>
             <input matInput formControlName="externalId">
           </mat-form-field>
           
@@ -48,8 +48,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!officeForm.valid" *mifosxHasPermission="'CREATE_OFFICE'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+           <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!officeForm.valid" *mifosxHasPermission="'CREATE_OFFICE'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
@@ -59,12 +61,18 @@
 </div>
 
 <ng-template #templateCreateOfficeForm let-popover="popover">
-  <h2>Create Office</h2>
-  <p class="mw400">Click to start filling the details. * mark fields are neccessary. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67141727/Manage+Offices" target="_blank">Manage Offices</a></p>
+  <h2><span [translate]="'modulo.labels.createoffice'">Create Office</span></h2>
+  <p class="mw400"><span [translate]="'modulo.description.fillingdetailsoffice'">
+    Click to start filling the details. * mark fields are neccessary. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67141727/Manage+Offices" target="_blank">Manage Offices</a>
+  </span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close()">Create Office</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next Step</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close()">
+      <span [translate]="'labels.buttons.CreateOffice'">Create Office</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.NextStep'">Next Step</span></button>
   </div>
 </ng-template>

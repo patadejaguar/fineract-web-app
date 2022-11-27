@@ -1,11 +1,11 @@
 <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_CRITERIA'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
   <button mat-raised-button color="warn" (click)="deleteCriteria()" *mifosxHasPermission="'DELETE_CRITERIA'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 </div>
 
@@ -21,7 +21,7 @@
         <mat-divider [inset]="true"></mat-divider>
 
          <div fxFlexFill class="loanProduct">
-          <span fxFlex="40%">Loan Product:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.loanproduct'">Loan Product</span>:</span>
           <span fxFlex="60%">{{ loanProducts }}</span>
         </div> 
 
@@ -32,32 +32,32 @@
         <table mat-table class="mat-elevation-z1" [dataSource]="dataSource">
 
           <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.category'"> Category</span> </th>
             <td mat-cell *matCellDef="let provisioningData"> {{provisioningData.categoryName}} </td>
           </ng-container>
       
           <ng-container matColumnDef="minAge">
-            <th mat-header-cell *matHeaderCellDef> Min Age </th>
+            <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.minage'"> Min Age</span> </th>
             <td mat-cell *matCellDef="let provisioningData"> {{provisioningData.minAge}} </td>
           </ng-container>
       
           <ng-container matColumnDef="maxAge">
-            <th mat-header-cell *matHeaderCellDef> Max Age </th>
+            <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.maxage'"> Max Age </span></th>
             <td mat-cell *matCellDef="let provisioningData"> {{provisioningData.maxAge}} </td>
           </ng-container>
 
           <ng-container matColumnDef="percentage">
-            <th mat-header-cell *matHeaderCellDef> Percentage </th>
+            <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.percentage'"> Percentage</span> </th>
             <td mat-cell *matCellDef="let provisioningData"> {{provisioningData.provisioningPercentage}} </td>
           </ng-container>
 
           <ng-container matColumnDef="liabilityAccount">
-            <th mat-header-cell *matHeaderCellDef> Liability Account </th>
+            <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.liabilityaccount'"> Liability Account</span> </th>
             <td mat-cell *matCellDef="let provisioningData"> {{provisioningData.liabilityName}} </td>
           </ng-container>
 
           <ng-container matColumnDef="expenseAccount">
-            <th mat-header-cell *matHeaderCellDef> Expense Account </th>
+            <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.expenseaccount'"> Expense Account</span> </th>
             <td mat-cell *matCellDef="let provisioningData"> {{provisioningData.expenseName}} </td>
           </ng-container>
       

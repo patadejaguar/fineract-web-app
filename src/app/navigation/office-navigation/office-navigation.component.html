@@ -20,7 +20,7 @@
   <div fxLayout="row wrap" class="content">
 
     <div fxFlex="50%" class="mat-body-strong">
-      Opened On
+      <span [translate]="'modulo.labels.openedon'">Opened On</span>
     </div>
 
     <div fxFlex="50%">
@@ -28,7 +28,7 @@
     </div>
 
     <div fxFlex="50%" class="mat-body-strong" *ngIf="officeData.parentName">
-      Parent officeData
+      <span [translate]="'modulo.labels.parentofficedata'">Parent officeData</span>
     </div>
 
     <div fxFlex="50%" *ngIf="officeData.parentName">
@@ -36,7 +36,7 @@
     </div>
 
     <div fxFlex="50%" class="mat-body-strong">
-      Number of Staff
+      <span [translate]="'modulo.labels.numberstaff'">Number of Staff</span>
     </div>
 
     <div fxFlex="50%">
