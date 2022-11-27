@@ -1,11 +1,11 @@
 <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_CASHIER'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
   <button mat-raised-button color="warn" (click)="deleteCashier()" *mifosxHasPermission="'DELETECASHIER_TELLER'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 </div>
 
@@ -19,7 +19,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="header">
-          Name
+          <span [translate]="'modulo.labels.name'">Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -27,7 +27,7 @@
         </div>
 
         <div fxFlex="50%" class="header">
-          Teller
+          <span [translate]="'modulo.labels.teller'">Teller</span>
         </div>
 
         <div fxFlex="50%">
@@ -35,7 +35,7 @@
         </div>
 
         <div fxFlex="50%" class="header" *ngIf="cashierData.description !== ''">
-          Description
+          <span [translate]="'modulo.labels.description'">Description</span>
         </div>
 
         <div fxFlex="50%" *ngIf="cashierData.description !== ''">
@@ -43,7 +43,7 @@
         </div>
 
         <div fxFlex="50%" class="header">
-          Start Date
+          <span [translate]="'modulo.labels.startdate'">Start Date</span>
         </div>
 
         <div fxFlex="50%">
@@ -51,7 +51,7 @@
         </div>
 
         <div fxFlex="50%" class="header">
-          End Date
+          <span [translate]="'modulo.labels.enddate'">End Date</span>
         </div>
 
         <div fxFlex="50%">
@@ -59,7 +59,7 @@
         </div>
 
         <div fxFlex="50%" class="header">
-          Full Day?
+          <span [translate]="'modulo.labels.fulldayq'">Full Day?</span>
         </div>
 
         <div fxFlex="50%">

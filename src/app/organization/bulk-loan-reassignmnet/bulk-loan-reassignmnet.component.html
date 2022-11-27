@@ -9,7 +9,7 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <mat-select required (selectionChange)="getOffice($event.value)">
               <mat-option *ngFor="let office of offices" [value]="office.id">
                 {{ office.name }} 
@@ -22,7 +22,7 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%" (click)="assignmentDatePicker.open()">
-            <mat-label>Assignment Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.assignmentdate'">Assignment Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="assignmentDatePicker" required formControlName="assignmentDate">
             <mat-datepicker-toggle matSuffix [for]="assignmentDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #assignmentDatePicker></mat-datepicker>
@@ -36,7 +36,7 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%" *ngIf="fromLoanOfficers !== undefined">
-            <mat-label>From loan officer</mat-label>
+            <mat-label><span [translate]="'modulo.labels.fromloanofficer'">From loan officer</span></mat-label>
             <mat-select required formControlName="fromLoanOfficerId" (selectionChange)="getFromOfficers($event.value)">
               <mat-option *ngFor="let fromOfficers of fromLoanOfficers" [value]="fromOfficers.id">
                 {{ fromOfficers.displayName }} 
@@ -52,7 +52,7 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>To loan officer</mat-label>
+            <mat-label><span [translate]="'modulo.labels.toloanofficer'">To loan officer</span></mat-label>
             <mat-select required formControlName="toLoanOfficerId">
               <mat-option *ngFor="let toOfficers of toLoanOfficers" [value]="toOfficers.id">
                 {{ toOfficers.displayName }} 
@@ -71,7 +71,7 @@
 
             <thead>
 
-              <th> Clients </th>
+              <th><span [translate]="'modulo.labels.clients'"> Clients </span></th>
 
             </thead>
 
@@ -109,7 +109,7 @@
 
             <thead>
 
-              <th> Groups </th>
+              <th><span [translate]="'modulo.labels.groups'"> Groups</span> </th>
 
             </thead>
 
@@ -148,8 +148,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!bulkLoanForm.valid" *mifosxHasPermission="'BULKREASSIGN_LOAN'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!bulkLoanForm.valid" *mifosxHasPermission="'BULKREASSIGN_LOAN'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

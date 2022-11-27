@@ -9,26 +9,28 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Client</mat-label>
+            <mat-label><span [translate]="'modulo.labels.client'">Client</span></mat-label>
             <mat-select formControlName="clientId">
               <mat-option *ngFor="let client of clientMemberData" [value]="client.id">
                 {{ client.displayName }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="groupsAddRoleForm.controls.clientId.hasError('required')">
-              Client Member is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.clientmemberrequired' | translate">
+                Client Member is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Role</mat-label>
+            <mat-label><span [translate]="'modulo.labels.role'">Role</span></mat-label>
             <mat-select formControlName="role">
               <mat-option *ngFor="let role of roleData" [value]="role.id">
                 {{ role.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="groupsAddRoleForm.controls.role.hasError('required')">
-              Role is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.rolerequired' | translate">
+                Role is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -37,9 +39,11 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
         <button mat-raised-button color="primary" [disabled]="!groupsAddRoleForm.valid"
-          *mifosxHasPermission="'ASSIGNROLE_GROUP'">Confirm</button>
+          *mifosxHasPermission="'ASSIGNROLE_GROUP'">
+          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>
