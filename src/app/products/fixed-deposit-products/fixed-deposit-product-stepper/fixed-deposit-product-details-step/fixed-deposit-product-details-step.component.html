@@ -3,26 +3,26 @@
   <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Product Name</mat-label>
+      <mat-label><span [translate]="'modulo.labels.productname'">Product Name</span></mat-label>
       <input matInput formControlName="name" required>
       <mat-error *ngIf="fixedDepositProductDetailsForm.controls.name.hasError('required')">
-        Product Name is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.productnamerequired' | translate">Product Name is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Short Name</mat-label>
+      <mat-label><span [translate]="'modulo.labels.shortname'">Short Name</span></mat-label>
       <input matInput formControlName="shortName" maxlength="4" required>
       <mat-error *ngIf="fixedDepositProductDetailsForm.controls.shortName.hasError('required')">
-        Short Name is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.shortnamerequired' | translate">Short Name is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="98%">
-      <mat-label>Description</mat-label>
+      <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
       <textarea matInput formControlName="description" required></textarea>
       <mat-error *ngIf="fixedDepositProductDetailsForm.controls.description.hasError('required')">
-        Description is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.descriptionrequired' | translate">Description is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
@@ -31,10 +31,10 @@
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious disabled>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-      Previous
+      <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext>
-      Next&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
       <fa-icon icon="arrow-right"></fa-icon>
     </button>
   </div>

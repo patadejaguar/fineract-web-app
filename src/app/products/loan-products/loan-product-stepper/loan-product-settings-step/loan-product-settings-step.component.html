@@ -3,77 +3,78 @@
   <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" fxLayoutAlign.gt-sm="start center">
 
     <mat-form-field fxFlex="31%">
-      <mat-label>Amortization</mat-label>
+      <mat-label><span [translate]="'modulo.labels.amortization'">Amortization</span></mat-label>
       <mat-select formControlName="amortizationType" required>
         <mat-option *ngFor="let amortizationType of amortizationTypeData" [value]="amortizationType.id">
           {{ amortizationType.value }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Amortization is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.amortizationrequired' | translate">Amortization is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-checkbox fxFlex="15%" labelPosition="before" formControlName="isEqualAmortization">
-      Is Equal Amortization?
+      <span [translate]="'modulo.labels.isequalamortizationq'">Is Equal Amortization?</span>
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Interest Method</mat-label>
+      <mat-label><span [translate]="'modulo.labels.interestmethod'">Interest Method</span></mat-label>
       <mat-select formControlName="interestType" required>
         <mat-option *ngFor="let interestType of interestTypeData" [value]="interestType.id">
           {{ interestType.value }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Interest Method is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.interestmethodrequired' | translate">Interest Method is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Interest calculation period</mat-label>
+      <mat-label><span [translate]="'modulo.labels.interestcalculationperiod'">Interest calculation period</span></mat-label>
       <mat-select formControlName="interestCalculationPeriodType" required>
         <mat-option *ngFor="let interestCalculationPeriodType of interestCalculationPeriodTypeData" [value]="interestCalculationPeriodType.id">
           {{ interestCalculationPeriodType.value }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Interest calculation period is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.interestcalculationperiodrequired' | translate">
+          Interest calculation period is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-checkbox *ngIf="loanProductSettingsForm.value.interestCalculationPeriodType === 1" fxFlex="48%" labelPosition="before" formControlName="allowPartialPeriodInterestCalcualtion">
-      Calculate interest for exact days in partial period
+     <span [translate]="'modulo.labels.calculateinterestexactdaypartialperiod'"> Calculate interest for exact days in partial period</span>
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Repayment strategy</mat-label>
+      <mat-label><span [translate]="'modulo.labels.repaymentstrategy'">Repayment strategy</span></mat-label>
       <mat-select formControlName="transactionProcessingStrategyCode" required>
         <mat-option *ngFor="let transactionProcessingStrategy of transactionProcessingStrategyData" [value]="transactionProcessingStrategy.code">
           {{ transactionProcessingStrategy.name }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Repayment strategy is <strong>required</strong>
+       <span [innerHTML]="'modulo.validations.repaymentstrategyrequired' | translate"> Repayment strategy is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <span fxFlex="48%" fxHide.lt-md></span>
 
-    <h4 fxFlex="98%" class="mat-h4">Moratorium</h4>
+    <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.moratorium'">Moratorium</span></h4>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Grace on principal payment</mat-label>
+      <mat-label><span [translate]="'modulo.labels.graceprincipalpayment'">Grace on principal payment</span></mat-label>
       <input type="number" matInput formControlName="graceOnPrincipalPayment">
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Grace on interest payment</mat-label>
+      <mat-label><span [translate]="'modulo.labels.graceinterestpayment'">Grace on interest payment</span></mat-label>
       <input type="number" matInput formControlName="graceOnInterestPayment">
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Delinquency Bucket</mat-label>
+      <mat-label><span [translate]="'modulo.labels.delinquencybucket'">Delinquency Bucket</span></mat-label>
       <mat-select formControlName="delinquencyBucketId">
         <mat-option *ngFor="let delinquencyBucket of delinquencyBucketData" [value]="delinquencyBucket.id">
           {{ delinquencyBucket.name }}
@@ -84,136 +85,143 @@
     <mat-divider fxFlex="98%"></mat-divider>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Interest free period</mat-label>
+      <mat-label><span [translate]="'modulo.labels.interestfreeperiod'">Interest free period</span></mat-label>
       <input type="number" matInput formControlName="graceOnInterestCharged">
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Arrears tolerance</mat-label>
+      <mat-label><span [translate]="'modulo.labels.arrearstolerance'">Arrears tolerance</span></mat-label>
       <input type="number" matInput formControlName="inArrearsTolerance">
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Days in year</mat-label>
+      <mat-label><span [translate]="'modulo.labels.daysinyear'">Days in year</span></mat-label>
       <mat-select formControlName="daysInYearType" required>
         <mat-option *ngFor="let daysInYearType of daysInYearTypeData" [value]="daysInYearType.id">
           {{ daysInYearType.value }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Days in year is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.daysinyearrequired' | translate">Days in year is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Days in month</mat-label>
+      <mat-label><span [translate]="'modulo.labels.daysinmonth'">Days in month</span></mat-label>
       <mat-select formControlName="daysInMonthType" required>
         <mat-option *ngFor="let daysInMonthType of daysInMonthTypeData" [value]="daysInMonthType.id">
           {{ daysInMonthType.value }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Days in month is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.daysinmonthrequired' | translate">Days in month is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-checkbox fxFlex="98%" labelPosition="before" formControlName="canDefineInstallmentAmount" class="margin-v">
-      Allow fixing of the installment amount
+      <span [translate]="'modulo.labels.allowfixingstallmentsamount'">Allow fixing of the installment amount</span>
     </mat-checkbox>
 
-    <h4 fxFlex="48%" class="mat-h4">Number of days a loan may be overdue before moving into arrears</h4>
+    <h4 fxFlex="48%" class="mat-h4"><span [translate]="'modulo.labels.numberdaysloanoverduebeforearrears'">
+      Number of days a loan may be overdue before moving into arrears</span></h4>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>On arrears ageing</mat-label>
+      <mat-label><span [translate]="'modulo.labels.onarrearsageing'">On arrears ageing</span></mat-label>
       <input type="number" matInput formControlName="graceOnArrearsAgeing">
     </mat-form-field>
 
-    <h4 fxFlex="48%" class="mat-h4">Maximum number of days a loan may be overdue before becoming a NPA (non-performing asset)</h4>
+    <h4 fxFlex="48%" class="mat-h4"><span [translate]="'modulo.labels.maxnumberdaysloanoverdue'">
+      Maximum number of days a loan may be overdue before becoming a NPA (non-performing asset)</span></h4>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Overdue days for NPA</mat-label>
+      <mat-label><span [translate]="'modulo.labels.overduedaysnpa'">Overdue days for NPA</span></mat-label>
       <input type="number" matInput formControlName="overdueDaysForNPA">
     </mat-form-field>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="accountMovesOutOfNPAOnlyOnArrearsCompletion" class="margin-v">
-      Account moves out of NPA only after all arrears have been cleared?
+      <span [translate]="'modulo.labels.accountmovesoutofnpaq'">
+        Account moves out of NPA only after all arrears have been cleared?</span>
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Principal Threshold (%) for Last Instalment</mat-label>
+      <mat-label><span [translate]="'modulo.labels.principalthresholdlastinstalment'">Principal Threshold (%) for Last Instalment</span></mat-label>
       <input type="number" matInput formControlName="principalThresholdForLastInstallment">
     </mat-form-field>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="allowVariableInstallments" class="margin-v">
-      Are Variable Installments allowed?
+      <span [translate]="'modulo.labels.arevariableinstallmentallowedq'">Are Variable Installments allowed?</span>
     </mat-checkbox>
 
     <div *ngIf="loanProductSettingsForm.value.allowVariableInstallments" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-      <h4 fxFlex="98%" class="mat-h4">Variable Installments</h4>
+      <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.variableinstallments'">Variable Installments</span></h4>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Minimum gap between Installments</mat-label>
+        <mat-label><span [translate]="'modulo.labels.mingabbetweeninstallments'">Minimum gap between Installments</span></mat-label>
         <input type="number" matInput formControlName="minimumGap" required>
         <mat-error>
-          Minimum gap between Installments is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.mingabbetweeninstallmentsrequired' | translate">
+            Minimum gap between Installments is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Maximum gap between Installments</mat-label>
+        <mat-label><span [translate]="'modulo.labels.maxgabbetweeninstallments'">Maximum gap between Installments</span></mat-label>
         <input type="number" matInput formControlName="maximumGap">
       </mat-form-field>
 
     </div>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="canUseForTopup" class="margin-v">
-      Allowed to be used for providing Topup Loans
+      <span [translate]="'modulo.labels.allowedusedprovidingtopuploans'">Allowed to be used for providing Topup Loans</span>
     </mat-checkbox>
 
     <mat-divider fxFlex="98%"></mat-divider>
 
-    <h3 fxFlex="23%" class="mat-h3">Interest Recalculation</h3>
+    <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.interestrecalculation'">Interest Recalculation</span></h3>
 
     <mat-checkbox fxFlex="73%" labelPosition="before" formControlName="isInterestRecalculationEnabled" class="margin-b">
-      Recalculate Interest
+      <span [translate]="'modulo.labels.recalculateinterest'">Recalculate Interest</span>
     </mat-checkbox>
 
     <div *ngIf="loanProductSettingsForm.value.isInterestRecalculationEnabled" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Pre-closure interest calculation rule</mat-label>
+        <mat-label><span [translate]="'modulo.labels.preclosureinterestcalculationrule'">Pre-closure interest calculation rule</span></mat-label>
         <mat-select formControlName="preClosureInterestCalculationStrategy" required>
           <mat-option *ngFor="let preClosureInterestCalculationStrategy of preClosureInterestCalculationStrategyData" [value]="preClosureInterestCalculationStrategy.id">
             {{ preClosureInterestCalculationStrategy.value }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Pre-closure interest calculation rule is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.preclosureinterestcalculationrulerequired' | translate">
+            Pre-closure interest calculation rule is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Advance payments adjustment type</mat-label>
+        <mat-label><span [translate]="'modulo.labels.advancepaymentsadjuttype'">Advance payments adjustment type</span></mat-label>
         <mat-select formControlName="rescheduleStrategyMethod" required>
           <mat-option *ngFor="let rescheduleStrategyType of rescheduleStrategyTypeData" [value]="rescheduleStrategyType.id">
             {{ rescheduleStrategyType.value }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Advance payments adjustment type is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.advancepaymentsadjuttyperequired' | translate">
+            Advance payments adjustment type is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Interest recalculation compounding on</mat-label>
+        <mat-label><span [translate]="'modulo.labels.interestrecalculationcompounding'">Interest recalculation compounding on</span></mat-label>
         <mat-select formControlName="interestRecalculationCompoundingMethod" required>
           <mat-option *ngFor="let interestRecalculationCompoundingType of interestRecalculationCompoundingTypeData" [value]="interestRecalculationCompoundingType.id">
             {{ interestRecalculationCompoundingType.value }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Interest recalculation compounding on is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.interestrecalculationcompoundingrequired' | translate">
+            Interest recalculation compounding on is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
@@ -222,18 +230,20 @@
       <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
         <mat-form-field fxFlex="48%" *ngIf="loanProductSettingsForm.value.interestRecalculationCompoundingMethod !== 0 && loanProductSettingsForm.value.recalculationCompoundingFrequencyType !== 1">
-          <mat-label>Frequency Interval for compounding</mat-label>
+          <mat-label><span [translate]="'modulo.labels.frequencyintervalcompounding'">Frequency Interval for compounding</span></mat-label>
           <input type="number" matInput formControlName="recalculationCompoundingFrequencyInterval" required>
           <mat-error>
-            Frequency Interval for compounding is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.frequencyintervalcompoundingrequired' | translate">
+              Frequency Interval for compounding is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="48%" *ngIf="loanProductSettingsForm.value.recalculationRestFrequencyType !== 1">
-          <mat-label>Frequency Interval for recalculation</mat-label>
+          <mat-label><span [translate]="'modulo.labels.frequencyintervalrecalculation'">Frequency Interval for recalculation</span></mat-label>
           <input type="number" matInput formControlName="recalculationRestFrequencyInterval" required>
           <mat-error>
-            Frequency Interval for recalculation is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.frequencyintervalrecalculationrequired' | translate">
+              Frequency Interval for recalculation is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
@@ -242,7 +252,7 @@
       <div *ngIf="loanProductSettingsForm.value.interestRecalculationCompoundingMethod !== 0" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
         <mat-form-field fxFlex="31%">
-          <mat-label>Frequency for compounding</mat-label>
+          <mat-label><span [translate]="'modulo.labels.frequencycompounding'">Frequency for compounding</span></mat-label>
           <mat-select formControlName="recalculationCompoundingFrequencyType" required>
             <mat-option *ngFor="let interestRecalculationFrequencyType of interestRecalculationFrequencyTypeData" [value]="interestRecalculationFrequencyType.id">
               {{ interestRecalculationFrequencyType.value }}
@@ -289,14 +299,16 @@
       </div>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Frequency for recalculate Outstanding Principal</mat-label>
+        <mat-label><span [translate]="'modulo.labels.frequencyrecalculateoutstandingprincipal'">
+          Frequency for recalculate Outstanding Principal</span></mat-label>
         <mat-select formControlName="recalculationRestFrequencyType" required>
           <mat-option *ngFor="let interestRecalculationFrequencyType of interestRecalculationFrequencyTypeData" [value]="interestRecalculationFrequencyType.id">
             {{ interestRecalculationFrequencyType.value }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Frequency for recalculate Outstanding Principal is <strong>required</strong>
+         <span [innerHTML]="'modulo.validations.frequencyrecalculateoutstandingprincipalrequired' | translate">
+           Frequency for recalculate Outstanding Principal is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
@@ -337,36 +349,37 @@
       </div>
 
       <mat-checkbox fxFlex="98%" labelPosition="before" formControlName="isArrearsBasedOnOriginalSchedule" class="margin-v">
-        Is Arrears recognization based on original schedule?
+       <span [translate]="'modulo.labels.isarrearsrecognizationbasedoriginalscheduleq'"> Is Arrears recognization based on original schedule?</span>
       </mat-checkbox>
 
     </div>
 
     <mat-divider fxFlex="98%"></mat-divider>
 
-    <h3 fxFlex="23%" class="mat-h3">Guarantee Requirements</h3>
+    <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.guaranteerequirements'">Guarantee Requirements</span></h3>
 
     <mat-checkbox fxFlex="73%" labelPosition="before" formControlName="holdGuaranteeFunds" class="margin-b">
-      Place Guarantee Funds On-Hold?
+      <span [translate]="'modulo.labels.placeguaranteefundonholdq'">Place Guarantee Funds On-Hold?</span>
     </mat-checkbox>
 
     <div *ngIf="loanProductSettingsForm.value.holdGuaranteeFunds" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Mandatory Guarantee(%)</mat-label>
+        <mat-label><span [translate]="'modulo.labels.mandatoryguarantee'">Mandatory Guarantee</span>(%)</mat-label>
         <input type="number" matInput formControlName="mandatoryGuarantee" required>
         <mat-error>
-          Mandatory Guarantee is <strong>required</strong>
+         <span [innerHTML]="'modulo.validations.mandatoryguaranteerequired' | translate">
+           Mandatory Guarantee is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Minimum Guarantee from Own Funds(%)</mat-label>
+        <mat-label><span [translate]="'modulo.labels.minguaranteeownfunds'">Minimum Guarantee from Own Funds</span>(%)</mat-label>
         <input type="number" matInput formControlName="minimumGuaranteeFromOwnFunds">
       </mat-form-field>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Minimum Guarantee from Guarantor Funds(%)</mat-label>
+        <mat-label><span [translate]="'modulo.labels.minguaranteeguarantor'">Minimum Guarantee from Guarantor Funds</span>(%)</mat-label>
         <input type="number" matInput formControlName="minimumGuaranteeFromGuarantor">
       </mat-form-field>
 
@@ -374,71 +387,74 @@
 
     <mat-divider fxFlex="98%"></mat-divider>
 
-    <h3 fxFlex="23%" class="mat-h3">Loan Tranche Details</h3>
+    <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.loantranchedetails'">Loan Tranche Details</span></h3>
 
     <mat-checkbox fxFlex="73%" labelPosition="before" formControlName="multiDisburseLoan" class="margin-b">
-      Enable Multiple Disbursals
+      <span [translate]="'modulo.labels.enablemultipledisbursals'">Enable Multiple Disbursals</span>
     </mat-checkbox>
 
     <div *ngIf="loanProductSettingsForm.value.multiDisburseLoan" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
       <mat-form-field fxFlex="48%">
-        <mat-label>Maximum Tranche count</mat-label>
+        <mat-label><span [translate]="'modulo.labels.maxtranchecount'">Maximum Tranche count</span></mat-label>
         <input type="number" matInput formControlName="maxTrancheCount" required>
         <mat-error>
-          Maximum Tranche count is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.maxtranchecountrequired' | translate">
+            Maximum Tranche count is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Maximum allowed outstanding balance</mat-label>
+        <mat-label><span [translate]="'modulo.labels.maxallowedoutstandingbalance'">Maximum allowed outstanding balance</span></mat-label>
         <input type="number" matInput formControlName="outstandingLoanBalance">
       </mat-form-field>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="disallowExpectedDisbursements" class="margin-v">
-        Disallow Expected Disbursements
+        <span [translate]="'modulo.labels.disallowexpecteddisbursements'">Disallow Expected Disbursements</span>
       </mat-checkbox>
     </div>
 
     <mat-divider fxFlex="98%"></mat-divider>
 
-    <h3 fxFlex="23%" class="mat-h3">Configurable Terms and Settings</h3>
+    <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.configurabletermsandsettings'">
+      Configurable Terms and Settings</span></h3>
 
     <mat-checkbox fxFlex="73%" labelPosition="before" formControlName="allowAttributeConfiguration" class="margin-b">
-      Allow overriding select terms and settings in loan accounts
+      <span [translate]="'modulo.labels.allowoverridingselectterms'">Allow overriding select terms and settings in loan accounts</span>
     </mat-checkbox>
 
     <div *ngIf="loanProductSettingsForm.value.allowAttributeConfiguration" formGroupName="allowAttributeOverrides" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="amortizationType" class="margin-v">
-        Amortization
+        <span [translate]="'modulo.labels.amortization'">Amortization</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="interestType" class="margin-v">
-        Interest method
+        <span [translate]="'modulo.labels.interestmethod'">Interest method</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="transactionProcessingStrategyCode" class="margin-v">
-        Repayment strategy
+        <span [translate]="'modulo.labels.repaymentstrategy'">Repayment strategy</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="interestCalculationPeriodType" class="margin-v">
-        Interest calculation period
+        <span [translate]="'modulo.labels.interestcalculationperiod'">Interest calculation period</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="inArrearsTolerance" class="margin-v">
-        Arrears tolerance
+       <span [translate]="'modulo.labels.arrearstolerance'"> Arrears tolerance</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="repaymentEvery" class="margin-v">
-        Repaid every
+        <span [translate]="'modulo.labels.repaidevery'">Repaid every</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="graceOnPrincipalAndInterestPayment" class="margin-v">
-        Moratorium
+        <span [translate]="'modulo.labels.moratorium'">Moratorium</span>
       </mat-checkbox>
 
       <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="graceOnArrearsAgeing" class="margin-v">
-        Number of days a loan may be overdue before moving into arrears
+       <span [translate]="'modulo.labels.numberdaysloanoverduebeforearrears'">
+         Number of days a loan may be overdue before moving into arrears</span>
       </mat-checkbox>
 
     </div>
@@ -448,10 +464,10 @@
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-      Previous
+      <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext>
-      Next&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
       <fa-icon icon="arrow-right"></fa-icon>
     </button>
   </div>
