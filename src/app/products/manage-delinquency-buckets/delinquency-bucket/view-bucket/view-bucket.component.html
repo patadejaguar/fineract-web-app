@@ -1,11 +1,11 @@
 <div class="container m-b-20" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="end" fxLayoutGap="2%">
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_DELINQUENCY_BUCKET'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
   <button mat-raised-button color="warn" (click)="deleteDelinquencyBucket()" *mifosxHasPermission="'DELETE_DELINQUENCY_BUCKET'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 </div>
 
@@ -18,7 +18,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Name
+          <span [translate]="'modulo.labels.name'">Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -26,15 +26,15 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Classification Name
+          <span [translate]="'modulo.labels.classificationame'">Classification Name</span>
         </div>
 
         <div fxFlex="25%" class="mat-body-strong">
-          Days From
+          <span [translate]="'modulo.labels.daysfrom'">Days From</span>
         </div>
 
         <div fxFlex="25%" class="mat-body-strong">
-          Days Till
+          <span [translate]="'modulo.labels.daystill'">Days Till</span>
         </div>
       </div>
 

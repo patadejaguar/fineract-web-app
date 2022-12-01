@@ -1,7 +1,7 @@
 <div class="container m-b-20" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="end" fxLayoutGap="2%">
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_TAXGROUP'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 </div>
 
@@ -14,7 +14,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="33%" class="mat-body-strong">
-          Name
+         <span [translate]="'modulo.labels.name'"> Name</span>
         </div>
 
         <div fxFlex="67%">
@@ -22,15 +22,15 @@
         </div>
 
         <div fxFlex="34%" class="mat-body-strong">
-          Tax-Component Name
+          <span [translate]="'modulo.labels.taxcomponentname'">Tax-Component Name</span>
         </div>
 
         <div fxFlex="33%" class="mat-body-strong">
-          Start Date
+          <span [translate]="'modulo.labels.startdate'">Start Date</span>
         </div>
 
         <div fxFlex="33%" class="mat-body-strong">
-          End Date
+          <span [translate]="'modulo.labels.enddate'">End Date</span>
         </div>
 
       </div>

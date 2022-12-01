@@ -9,30 +9,31 @@
         <div fxLayout="column">
 
           <mat-form-field (click)="startDatePicker.open()">
-            <mat-label>Dividend Period Start Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.dividendperiodstartdate'">Dividend Period Start Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="startDatePicker" required formControlName="dividendPeriodStartDate">
             <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #startDatePicker></mat-datepicker>
             <mat-error *ngIf="createDividendForm.controls.dividendPeriodStartDate.hasError('required')">
-              Starting date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.startdaterequired' | translate">
+                Starting date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field (click)="endDatePicker.open()">
-            <mat-label>Dividend Period End Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.dividendperiodenddate'">Dividend Period End Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="endDatePicker" required formControlName="dividendPeriodEndDate">
             <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #endDatePicker></mat-datepicker>
             <mat-error *ngIf="createDividendForm.controls.dividendPeriodEndDate.hasError('required')">
-              End date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.enddaterequired' | translate">End date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Dividend Amount</mat-label>
+            <mat-label><span [translate]="'modulo.labels.dividendamount'">Dividend Amount</span></mat-label>
             <input matInput required formControlName="dividendAmount">
             <mat-error *ngIf="createDividendForm.controls.dividendAmount.hasError('required')">
-              Amount is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.amountrequired' | translate">Amount is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -41,8 +42,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!createDividendForm.valid">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!createDividendForm.valid">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

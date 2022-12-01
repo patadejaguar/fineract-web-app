@@ -1,7 +1,7 @@
 <div class="container m-b-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
   <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_DELINQUENCY_RANGE'">
     <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-    Create Delinquency Range
+    <span [translate]="'labels.buttons.CreateDelinquencyRange'">Create Delinquency Range</span>
   </button>
 </div>
 
@@ -19,17 +19,20 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="classification">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="classification"> Classification </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="classification"> 
+          <span [translate]="'modulo.labels.classification'">Classification</span> </th>
         <td mat-cell *matCellDef="let delinquencyRange"> {{ delinquencyRange.classification }} </td>
       </ng-container>
 
       <ng-container matColumnDef="minimumAgeDays">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="minimumAgeDays"> Days From </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="minimumAgeDays">
+          <span [translate]="'modulo.labels.daysfrom'"> Days From</span> </th>
         <td mat-cell *matCellDef="let delinquencyRange"> {{ delinquencyRange.minimumAgeDays }} </td>
       </ng-container>
 
       <ng-container matColumnDef="maximumAgeDays">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="maximumAgeDays"> Days Till </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="maximumAgeDays">
+          <span [translate]="'modulo.labels.daystill'"> Days Till </span></th>
         <td mat-cell *matCellDef="let delinquencyRange"> {{ delinquencyRange.maximumAgeDays }} </td>
       </ng-container>
 

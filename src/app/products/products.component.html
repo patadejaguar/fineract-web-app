@@ -13,8 +13,9 @@
             <mat-icon matListIcon>
               <fa-icon icon="briefcase" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Loan Products</h4>
-            <p matLine>Add new loan product or modify or inactivate loan product</p>
+            <h4 matLine><span [translate]="'modulo.labels.loanproducts'">Loan Products</span></h4>
+            <p matLine><span [translate]="'modulo.description.loanproducts'">
+              Add new loan product or modify or inactivate loan product</span></p>
           </mat-list-item>
         </div>
 
@@ -23,8 +24,9 @@
             <mat-icon matListIcon>
               <fa-icon icon="briefcase" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Savings Products</h4>
-            <p matLine>Add new savings product or modify or inactivate savings product</p>
+            <h4 matLine><span [translate]="'modulo.labels.savingsproducts'">Savings Products</span></h4>
+            <p matLine><span [translate]="'modulo.description.savingsproducts'">
+              Add new savings product or modify or inactivate savings product</span></p>
           </mat-list-item>
         </div>
 
@@ -33,8 +35,9 @@
             <mat-icon matListIcon>
               <fa-icon icon="briefcase" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Share Products</h4>
-            <p matLine>Add new share product or modify or inactivate share product</p>
+            <h4 matLine><span [translate]="'modulo.labels.shareproducts'">Share Products</span></h4>
+            <p matLine><span [translate]="'modulo.description.shareproducts'">
+              Add new share product or modify or inactivate share product</span></p>
           </mat-list-item>
         </div>
 
@@ -43,8 +46,10 @@
             <mat-icon matListIcon>
               <fa-icon icon="money-bill-alt" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Charges</h4>
-            <p matLine>Define charges/penalties for loan products, savings and deposit products</p>
+            <h4 matLine><span [translate]="'modulo.labels.charges'">Charges</span></h4>
+            <p matLine>
+              <span [translate]="'modulo.description.charges'">
+                Define charges/penalties for loan products, savings and deposit products</span></p>
           </mat-list-item>
         </div>
 
@@ -52,16 +57,18 @@
             <mat-icon matListIcon>
               <fa-icon icon="money-bill-alt" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Collateral Management</h4>
-            <p matLine>Define collaterals for Collateral Management</p>
+            <h4 matLine><span [translate]="'modulo.labels.collateralmanagement'">Collateral Management</span></h4>
+            <p matLine>
+              <span [translate]="'modulo.description.collateralmanagement'">Define collaterals for Collateral Management</span></p>
           </mat-list-item>
 
           <mat-list-item [routerLink]="['delinquency-bucket-configurations']" *mifosxHasPermission="'READ_DELINQUENCY_BUCKET'">
             <mat-icon matListIcon>
               <fa-icon icon="briefcase" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Delinquency Buckets</h4>
-            <p matLine>Define delinquency day ranges and bucket set for loan products</p>
+            <h4 matLine><span [translate]="'modulo.labels.delinquencybuckets'">Delinquency Buckets</span></h4>
+            <p matLine><span [translate]="'modulo.description.delinquencybuckets'">
+              Define delinquency day ranges and bucket set for loan products</span></p>
           </mat-list-item>
 
         </mat-nav-list>
@@ -76,8 +83,9 @@
             <mat-icon matListIcon>
               <fa-icon icon="random" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Products Mix</h4>
-            <p matLine>Defines rules for taking multiple rules</p>
+            <h4 matLine><span [translate]="'modulo.labels.productsmix'">Products Mix</span></h4>
+            <p matLine>
+              <span [translate]="'modulo.description.productsmix'">Defines rules for taking multiple rules</span></p>
           </mat-list-item>
 
         <div #fixedDepositProducts>
@@ -85,8 +93,9 @@
             <mat-icon matListIcon>
               <fa-icon icon="briefcase" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Fixed Deposit Products</h4>
-            <p matLine>Add, modify or inactivate a Fixed deposit product</p>
+            <h4 matLine><span [translate]="'modulo.labels.fixeddepositproducts'">Fixed Deposit Products</span></h4>
+            <p matLine><span [translate]="'modulo.description.fixeddepositproducts'">
+              Add, modify or inactivate a Fixed deposit product</span></p>
           </mat-list-item>
         </div>
 
@@ -95,8 +104,9 @@
             <mat-icon matListIcon>
               <fa-icon icon="briefcase" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Recurring Deposit Products</h4>
-            <p matLine>Add, modify or inactivate a Recurring Deposit product</p>
+            <h4 matLine><span [translate]="'modulo.labels.recurringdepositproducts'">Recurring Deposit Products</span></h4>
+            <p matLine><span [translate]="'modulo.description.recurringdepositproducts'">
+              Add, modify or inactivate a Recurring Deposit product</span></p>
           </mat-list-item>
         </div>
 
@@ -104,16 +114,16 @@
             <mat-icon matListIcon>
               <fa-icon icon="cogs" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Manage Tax Configurations</h4>
-            <p matLine>Define Tax components and Tax groups</p>
+            <h4 matLine><span [translate]="'modulo.labels.managetaxconfigurations'">Manage Tax Configurations</span></h4>
+            <p matLine><span [translate]="'modulo.description.managetaxconfigurations'">Define Tax components and Tax groups</span></p>
           </mat-list-item>
 
           <mat-list-item [routerLink]="['floating-rates']" *mifosxHasPermission="'READ_FLOATINGRATE'">
             <mat-icon matListIcon>
               <fa-icon icon="money-bill-alt" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Floating Rates</h4>
-            <p matLine>Define floating rates for loan products</p>
+            <h4 matLine><span [translate]="'modulo.labels.floatingrates'">Floating Rates</span></h4>
+            <p matLine><span [translate]="'modulo.description.floatingrates'">Define floating rates for loan products</span></p>
           </mat-list-item>
 
         </mat-nav-list>
@@ -127,61 +137,85 @@
 </div>
 
 <ng-template #templateCharges let-popover="popover">
-  <h2>Charges</h2>
-  <p class="mw400">Mifos supports two types of charges—fees and penalties.Fees are charged for services—for example, membership fees, loan disbursement fees, withdrawal fees. Penalties are charged to discourage clients from deviating from the terms of a product</p>
+  <h2><span [translate]="'modulo.labels.charges'">Charges</span></h2>
+  <p class="mw400"><span [translate]="'modulo.description.chargestwo'">
+    Mifos supports two types of charges—fees and penalties.Fees are charged for services—for example, membership fees, loan disbursement fees, withdrawal fees. Penalties are charged to discourage clients from deviating from the terms of a product</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepCharges()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepCharges()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepCharges()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepCharges()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateLoanProducts let-popover="popover">
-  <h2>Loan Products</h2>
-  <p class="mw400">Loan products define the rules, default settings, and constraints for a financial institution's lending offerings. A loan product provides a template for multiple loan accounts for the financial institution's clients.</p>
+  <h2><span [translate]="'modulo.labels.loanproducts'">Loan Products</span></h2>
+  <p class="mw400"><span [translate]="'modulo.description.loanproductstwo'">
+    Loan products define the rules, default settings, and constraints for a financial institution's lending offerings. A loan product provides a template for multiple loan accounts for the financial institution's clients.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepLoanProducts()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepLoanProducts()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepLoanProducts()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepLoanProducts()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateSavingsProducts let-popover="popover">
-  <h2>Savings Products</h2>
-  <p class="mw400">Savings products define the rules, default settings, and constraints for a financial institution's current/checking and passbook savings accounts. A saving product provides a template for multiple accounts that are or will be held by the financial institution's clients, groups and centers.</p>
+  <h2><span [translate]="'modulo.labels.savingsproducts'">Savings Products</span></h2>
+  <p class="mw400"><span [translate]="'modulo.description.savingsproductstwo'">
+    Savings products define the rules, default settings, and constraints for a financial institution's current/checking and passbook savings accounts. A saving product provides a template for multiple accounts that are or will be held by the financial institution's clients, groups and centers.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepSavingsProducts()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepSavingsProducts()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepSavingsProducts()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepSavingsProducts()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateShareProducts let-popover="popover">
-  <h2>Share Products</h2>
-  <p class="mw400">Share products define the rules, default settings, and constraints for a financial institution's Shares and dividends. A share product provides a template for multiple accounts that are or will be held by the financial institution's clients.</p>
+  <h2><span [translate]="'modulo.labels.shareproducts'">Share Products</span></h2>
+  <p class="mw400"><span [translate]="'modulo.description.shareproductstwo'">
+    Share products define the rules, default settings, and constraints for a financial institution's Shares and dividends. A share product provides a template for multiple accounts that are or will be held by the financial institution's clients.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepShareProducts()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepShareProducts()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepShareProducts()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepShareProducts()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateFixedDepositProducts let-popover="popover">
-  <h2>Fixed Deposit Products</h2>
-  <p class="mw400">Fixed Deposit Products defines the rules, default settings, and constraints for a financial institution's <br> fixed deposit offerings (also referred to as term deposits). A fixed deposit product provides a template for multiple fixed deposit accounts for the financial institution's clients.</p>
+  <h2><span [translate]="'modulo.labels.fixeddepositproducts'">Fixed Deposit Products</span></h2>
+  <p class="mw400"><span [innerHTML]="'modulo.description.fixeddepositproductstwo' | translate">
+    Fixed Deposit Products defines the rules, default settings, and constraints for a financial institution's <br> fixed deposit offerings (also referred to as term deposits). A fixed deposit product provides a template for multiple fixed deposit accounts for the financial institution's clients.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepFixedDepositProducts()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepFixedDepositProducts()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepFixedDepositProducts()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepFixedDepositProducts()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateRecurringDepositProducts let-popover="popover">
-  <h2>Recurring Deposit Products</h2>
-  <p class="mw400">Recurring Deposit products define the rules, default settings, and constraints for a financial institution's recurring deposit offerings (a type of term deposit with recurring deposits). A recurring deposit product provides a template for multiple recurring deposit accounts for the financial institution's clients.</p>
+  <h2><span [translate]="'modulo.labels.recurringdepositproducts'">Recurring Deposit Products</span></h2>
+  <p class="mw400"><span [translate]="'modulo.description.recurringdepositproductstwo'">
+    Recurring Deposit products define the rules, default settings, and constraints for a financial institution's recurring deposit offerings (a type of term deposit with recurring deposits). A recurring deposit product provides a template for multiple recurring deposit accounts for the financial institution's clients.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepRecurringDepositProducts()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepRecurringDepositProducts()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepRecurringDepositProducts()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepRecurringDepositProducts()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
