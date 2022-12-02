@@ -9,47 +9,50 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="100%">
-            <mat-label>Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="bucketForm.controls.name.hasError('required')">
-              Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.namerequired' | translate">Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
-          <h3 fxFlex="40%" class="mat-h3">Delinquency Ranges</h3>
+          <h3 fxFlex="40%" class="mat-h3"><span [translate]="'modulo.labels.delinquencyranges'">Delinquency Ranges</span></h3>
 
           <div fxFlex="40%" fxLayout="row" fxLayoutAlign="start center">
             <button type="button" mat-raised-button color="primary" (click)="addDelinquencyRange()">
               <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-              Add
+              <span [translate]="'labels.buttons.Add'">Add</span>
             </button>
           </div>
 
           <table mat-table [dataSource]="rangesDataSource" [hidden]="rangesDataSource.length === 0">
 
             <ng-container matColumnDef="classification">
-              <th mat-header-cell *matHeaderCellDef> Classification </th>
+              <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.classification'"> Classification</span> </th>
               <td mat-cell *matCellDef="let row"> {{ row.classification }}</td>
               <td mat-cell *matCellDef="let row">
                 {{ row.rangeId | find: delinquencyRangesData:'id':'classification'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="minimumAgeDays">
-              <th mat-header-cell *matHeaderCellDef> Days From </th>
+              <th mat-header-cell *matHeaderCellDef>
+                <span [translate]="'modulo.labels.daysfrom'"> Days From </span></th>
               <td mat-cell *matCellDef="let row"> {{ row.minimumAgeDays }}</td>
               <td mat-cell *matCellDef="let row">
                 {{ row.rangeId | find: delinquencyRangesData:'id':'minimumAgeDays'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="maximumAgeDays">
-              <th mat-header-cell *matHeaderCellDef> Days Till </th>
+              <th mat-header-cell *matHeaderCellDef>
+                <span [translate]="'modulo.labels.daystill'"> Days Till</span> </th>
               <td mat-cell *matCellDef="let row"> {{ row.maximumAgeDays }}</td>
               <td mat-cell *matCellDef="let row">
                 {{ row.rangeId | find: delinquencyRangesData:'id':'maximumAgeDays'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="actions">
-              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <th mat-header-cell *matHeaderCellDef> 
+                <span [translate]="'header.actions'">Actions</span> </th>
               <td mat-cell *matCellDef="let row; let rowIndex = index">
                 <button type="button" mat-icon-button color="warn"
                   (click)="deleteDelinquencyRange(rowIndex)" matTooltip="Delete"
@@ -69,8 +72,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!dataWasChanged" *mifosxHasPermission="'UPDATE_DELINQUENCY_BUCKET'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!dataWasChanged" *mifosxHasPermission="'UPDATE_DELINQUENCY_BUCKET'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

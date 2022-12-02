@@ -3,14 +3,14 @@
   <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" fxLayoutAlign.gt-sm="start center">
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Minimum Opening Balance</mat-label>
+      <mat-label><span [translate]="'modulo.labels.minopeningbalance'">Minimum Opening Balance</span></mat-label>
       <input type="number" matInput formControlName="minRequiredOpeningBalance">
     </mat-form-field>
     
     <span fxFlex="48%" fxHide.lt-md></span>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Lock-in Period</mat-label>
+      <mat-label><span [translate]="'modulo.labels.lockinperiod'">Lock-in Period</span></mat-label>
       <input type="number" matInput formControlName="lockinPeriodFrequency">
     </mat-form-field>
 
@@ -23,61 +23,64 @@
     </mat-form-field>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="withdrawalFeeForTransfers" class="margin-v">
-      Apply Withdrawal Fee for Transfers
+      <span [translate]="'modulo.labels.applywithdrawlfeetransfer'">Apply Withdrawal Fee for Transfers</span>
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Balance Required for Interest Calculation</mat-label>
+      <mat-label><span [translate]="'modulo.labels.balancerequiredinterestcalculation'">Balance Required for Interest Calculation</span></mat-label>
       <input type="number" matInput formControlName="minBalanceForInterestCalculation">
     </mat-form-field>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="enforceMinRequiredBalance" class="margin-v">
-      Enforce Minimum Balance
+      <span [translate]="'modulo.labels.enforceminbalance'">Enforce Minimum Balance</span>
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Minimum Balance</mat-label>
+      <mat-label><span [translate]="'modulo.labels.minbalance'">Minimum Balance</span></mat-label>
       <input type="number" matInput formControlName="minRequiredBalance">
     </mat-form-field>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="withHoldTax" class="margin-v">
-      Is Withhold Tax Applicable?
+      <span [translate]="'modulo.labels.iswithholdtaxq'">Is Withhold Tax Applicable?</span>
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%" *ngIf="savingProductSettingsForm.value.withHoldTax">
-      <mat-label>Tax Group</mat-label>
+      <mat-label><span [translate]="'modulo.labels.taxgroup'">Tax Group</span></mat-label>
       <mat-select formControlName="taxGroupId" required>
         <mat-option *ngFor="let taxGroup of taxGroupData" [value]="taxGroup.id">
           {{ taxGroup.name }}
         </mat-option>
       </mat-select>
       <mat-error>
-        Tax Group is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.taxgrouprequired' | translate">Tax Group is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-divider fxFlex="98%"></mat-divider>
 
-    <h3 fxFlex="23%" class="mat-h3">Overdraft</h3>
+    <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.overdraft'">Overdraft</span></h3>
 
     <mat-checkbox fxFlex="73%" labelPosition="before" formControlName="allowOverdraft" class="margin-b">
-      Is Overdraft Allowed?
+      <span [translate]="'modulo.labels.isoverdraftallowedq'">Is Overdraft Allowed?</span>
     </mat-checkbox>
 
     <div *ngIf="savingProductSettingsForm.value.allowOverdraft" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Minimum Overdraft Required for Interest Calculation</mat-label>
+        <mat-label><span [translate]="'modulo.labels.minoverdraftrequiredinterestcalculation'">
+          Minimum Overdraft Required for Interest Calculation</span></mat-label>
         <input type="number" matInput formControlName="minOverdraftForInterestCalculation">
       </mat-form-field>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Nominal Annual Interest for Overdraft</mat-label>
+        <mat-label><span [translate]="'modulo.labels.nominalannualinterestoverdraft'">
+          Nominal Annual Interest for Overdraft</span></mat-label>
         <input type="number" matInput formControlName="nominalAnnualInterestRateOverdraft">
       </mat-form-field>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Maximum Overdraft Amount Limit</mat-label>
+        <mat-label><span [translate]="'modulo.labels.maxoverdraftamountlimit'">
+          Maximum Overdraft Amount Limit</span></mat-label>
         <input type="number" matInput formControlName="overdraftLimit">
       </mat-form-field>
 
@@ -85,35 +88,38 @@
 
     <mat-divider fxFlex="98%"></mat-divider>
 
-    <h3 fxFlex="23%" class="mat-h3">Dormancy Tracking</h3>
+    <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.dormancytracking'">Dormancy Tracking</span></h3>
 
     <mat-checkbox fxFlex="73%" labelPosition="before" formControlName="isDormancyTrackingActive" class="margin-b">
-      Enable Dormancy Tracking
+      <span [translate]="'modulo.labels.enabledormancytracking'">Enable Dormancy Tracking</span>
     </mat-checkbox>
 
     <div *ngIf="savingProductSettingsForm.value.isDormancyTrackingActive" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Number of Days to Inactive sub-status</mat-label>
+        <mat-label><span [translate]="'modulo.labels.numberdaysinactivesubstatus'">Number of Days to Inactive sub-status</span></mat-label>
         <input type="number" matInput formControlName="daysToInactive" required>
         <mat-error>
-          Number of Days to Inactive sub-status is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.numberdaysinactivesubstatusrequired' | translate">
+            Number of Days to Inactive sub-status is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Number of Days to Dormant sub-status</mat-label>
+        <mat-label><span [translate]="'modulo.labels.numberdaysdormantsubstatus'">Number of Days to Dormant sub-status</span></mat-label>
         <input type="number" matInput formControlName="daysToDormancy" required>
         <mat-error>
-          Number of Days to Dormant sub-status is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.numberdaysdormantsubstatusrequired' | translate">
+            Number of Days to Dormant sub-status is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="31%">
-        <mat-label>Number of Days to Escheat</mat-label>
+        <mat-label><span [translate]="'modulo.labels.numberdaysescheat'">Number of Days to Escheat</span></mat-label>
         <input type="number" matInput formControlName="daysToEscheat" required>
         <mat-error>
-          Number of Days to Escheat is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.numberdaysescheatrequired' | translate">
+            Number of Days to Escheat is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
@@ -124,10 +130,10 @@
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-      Previous
+      <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext>
-      Next&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
       <fa-icon icon="arrow-right"></fa-icon>
     </button>
   </div>

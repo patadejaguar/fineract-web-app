@@ -2,7 +2,7 @@
 <div #buttonCreateLoanProduct class="in-block">
   <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_LOANPRODUCT'">
     <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-    Create Loan Product
+    <span [translate]="'labels.buttons.CreateLoanProduct'">Create Loan Product</span>
   </button>
   </div>
 </div>
@@ -11,7 +11,7 @@
 
   <div #filter fxLayout="row">
     <mat-form-field fxFlex>
-      <mat-label>Filter</mat-label>
+      <mat-label><span [translate]="'modulo.labels.filter'">Filter</span></mat-label>
       <input matInput (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
   </div>
@@ -21,22 +21,26 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.name'"> Name</span> </th>
         <td mat-cell *matCellDef="let loanProduct"> {{ loanProduct.name }} </td>
       </ng-container>
 
       <ng-container matColumnDef="shortName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Short Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.shortname'"> Short Name</span> </th>
         <td mat-cell *matCellDef="let loanProduct"> {{ loanProduct.shortName }} </td>
       </ng-container>
 
       <ng-container matColumnDef="closeDate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Expiry Date </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.expirydate'">Expiry Date</span> </th>
         <td mat-cell *matCellDef="let loanProduct"> {{ loanProduct.closeDate  | dateFormat }} </td>
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let loanProduct">
           <div [className]="loanProduct.status | statusLookup">
             <fa-icon matTooltip="{{ loanProduct.status === 'loanProduct.active' ? 'Active' : 'Inactive' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
@@ -56,29 +60,40 @@
 </div>
 
 <ng-template #templateButtonCreateLoanProduct let-popover="popover">
-  <h2>Create loan product</h2>
-  <p class="mw300">This option allows you to create new loan product.</p>
+  <h2><span [translate]="'modulo.labels.createloanproduct'">Create loan product</span></h2>
+  <p class="mw300"><span [translate]="'modulo.labels.optionallowscreateloanproduct'">
+    This option allows you to create new loan product.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateFilter let-popover="popover">
-  <h4>Search bar to filter loan products.</h4>
+  <h4><span [translate]="'modulo.labels.searchfilterloanproducts'">Search bar to filter loan products.</span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateLoanProduct,buttonCreateLoanProduct, 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateLoanProductsTable,loanProductsTable, 'top', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateLoanProduct,buttonCreateLoanProduct, 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateLoanProductsTable,loanProductsTable, 'top', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateLoanProductsTable let-popover="popover">
-  <h4 class="mw300">List of loan products in the organization. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/102039585/Loan+Products" target="_blank">Loan Products</a></h4>
+  <h4 class="mw300"><span [innerHTML]="'modulo.description.listloanproductsoriganization' | translate">
+    List of loan products in the organization. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/102039585/Loan+Products" target="_blank">Loan Products</a></span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
