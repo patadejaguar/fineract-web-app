@@ -8,7 +8,8 @@
     </div>
     <div fxFlex="60%">
       <button mat-raised-button color="success" *mifosxHasPermission="'APPROVE_LOAN'" (click)="approveLoan()">
-        <fa-icon icon="check"></fa-icon>&nbsp;&nbsp;Approve
+        <fa-icon icon="check"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Approve'">Approve</span>
       </button>
     </div>
   </div>
@@ -36,24 +37,28 @@
         </ng-container>
 
         <ng-container matColumnDef="clientName">
-          <th mat-header-cell *matHeaderCellDef> Client </th>
+          <th mat-header-cell *matHeaderCellDef>
+            <span [translate]="'modulo.labels.client'"> Client</span> </th>
           <td mat-cell *matCellDef="let loan" class="view-details" [routerLink]="['../../clients', loan.clientId, 'general']">
             {{ loan.clientName }} </td>
         </ng-container>
 
         <ng-container matColumnDef="loan">
-          <th mat-header-cell *matHeaderCellDef> Loan </th>
+          <th mat-header-cell *matHeaderCellDef>
+            <span [translate]="'modulo.labels.loan'"> Loan</span> </th>
           <td mat-cell *matCellDef="let loan" class="view-details" [routerLink]="['../../clients', loan.clientId, 'loans-accounts', 'loan.id']">
             {{ loan.loanProductName}}({{loan.accountNo}}) </td>
         </ng-container>
 
         <ng-container matColumnDef="amount">
-          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <th mat-header-cell *matHeaderCellDef>
+            <span [translate]="'modulo.labels.amount'"> Amount</span> </th>
           <td mat-cell *matCellDef="let loan"> {{ loan.principal | number}} </td>
         </ng-container>
 
         <ng-container matColumnDef="loanPurpose">
-          <th mat-header-cell *matHeaderCellDef> Loan Purpose </th>
+          <th mat-header-cell *matHeaderCellDef> 
+            <span [translate]="'modulo.labels.loanpurpose'">Loan Purpose</span> </th>
           <td mat-cell *matCellDef="let loan"> {{ loan.loanPurposeName }} </td>
         </ng-container>
 
@@ -72,7 +77,7 @@
 
   <div class="message">
     <i class="fa fa-exclamation-circle alert-check"></i>
-    No pending loans for approval.
+    <span [translate]="'modulo.labels.nopendingloansapproval'">No pending loans for approval.</span>
   </div>
 
 </div>

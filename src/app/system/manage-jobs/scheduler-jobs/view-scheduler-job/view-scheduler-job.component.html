@@ -1,10 +1,10 @@
 <div class="container m-b-20" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="end" fxLayoutGap="2%">
   <button mat-raised-button color="primary" [routerLink]="['edit']">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
   <button mat-raised-button color="primary" [routerLink]="['viewhistory']">
-    View History
+    <span [translate]="'labels.buttons.ViewHistory'">View History</span>
   </button>
 </div>
 
@@ -17,7 +17,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Job Name
+          <span [translate]="'modulo.labels.jobname'">Job Name</span>
         </div>
           
         <div fxFlex="50%">
@@ -25,7 +25,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Cron Expression
+          <span [translate]="'modulo.labels.cronexpression'">Cron Expression</span>
         </div>
 
         <div fxFlex="50%">
@@ -33,7 +33,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Is Active Job?
+          <span [translate]="'modulo.labels.isactivejobq'">Is Active Job?</span>
         </div>
 
         <div fxFlex="50%">
@@ -41,11 +41,12 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Follow
+          <span [translate]="'modulo.labels.follow'">Follow</span>
         </div>
 
         <div fxFlex="50%">
-          <a href="http://www.cronmaker.com/">	Click Here To Generate Cron Expression </a>
+          <a href="http://www.cronmaker.com/">	
+            <span [translate]="'modulo.description.clickgeneratecron'">Click Here To Generate Cron Expression </span></a>
         </div>
 
       </div>

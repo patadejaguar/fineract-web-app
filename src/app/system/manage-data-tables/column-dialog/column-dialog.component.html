@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ data.columnName ? "Edit" : "Add" }} Column</h1>
+<h1 mat-dialog-title>{{ data.columnName ? "Edit" : "Add" }} <span [translate]="'modulo.labels.column'">Column</span></h1>
 
 <mat-dialog-content>
 
@@ -7,7 +7,7 @@
     <div fxLayout="column">
 
       <mat-form-field>
-        <mat-label>Column Name</mat-label>
+        <mat-label><span [translate]="'modulo.labels.columnname'">Column Name</span></mat-label>
         <input matInput required formControlName="name">
         <mat-error *ngIf="columnForm.controls.name.hasError('required')">
           Column Name is <strong>required</strong>
@@ -15,7 +15,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Column Type</mat-label>
+        <mat-label><span [translate]="'modulo.labels.columntype'">Column Type</span></mat-label>
         <mat-select required formControlName="type">
           <mat-option *ngFor="let columnType of columnTypeData" [value]="columnType.value">
             {{ columnType.displayValue }}
@@ -24,16 +24,17 @@
       </mat-form-field>
 
       <div>
-        <mat-checkbox labelPosition="before" formControlName="mandatory">Mandatory</mat-checkbox>
+        <mat-checkbox labelPosition="before" formControlName="mandatory">
+          <span [translate]="'modulo.labels.mandatory'">Mandatory</span></mat-checkbox>
       </div>
 
       <mat-form-field>
-        <mat-label>Column Length</mat-label>
+        <mat-label><span [translate]="'modulo.labels.columnlength'">Column Length</span></mat-label>
         <input matInput required type="number" formControlName="length">
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Column Code</mat-label>
+        <mat-label><span [translate]="'modulo.labels.columncode'">Column Code</span></mat-label>
         <mat-select required formControlName="code">
           <mat-option *ngFor="let columnCode of data.columnCodes" [value]="columnCode.name">
             {{ columnCode.name }}
@@ -48,7 +49,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
   <button mat-raised-button color="primary" [disabled]="!columnForm.valid || columnForm.pristine"
-    (click)="submit()">Submit</button>
+    (click)="submit()"><span [translate]="'labels.buttons.Submit'">Submit</span></button>
 </mat-dialog-actions>

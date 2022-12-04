@@ -2,12 +2,12 @@
 
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_HOOK'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 
   <button mat-raised-button color="warn" (click)="delete()" *mifosxHasPermission="'DELETE_HOOK'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 
 </div>
@@ -21,7 +21,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Hook Name:
+          <span [translate]="'modulo.labels.hookname'">Hook Name</span>:
         </div>
 
         <div fxFlex="50%">
@@ -29,7 +29,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Status:
+          <span [translate]="'modulo.labels.status'">Status</span>:
         </div>
 
         <div fxFlex="50%">
@@ -37,7 +37,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Activation Date:
+          <span [translate]="'modulo.labels.activationdate'">Activation Date</span>:
         </div>
 
         <div fxFlex="50%">
@@ -45,7 +45,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Updated on:
+          <span [translate]="'modulo.labels.updatedon'">Updated on</span>:
         </div>
 
         <div fxFlex="50%">
@@ -53,7 +53,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Events:
+         <span [translate]="'modulo.labels.events'"> Events</span>:
         </div>
 
         <div fxFlex="50%">
@@ -69,7 +69,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="hookData.name === 'Web'">
-          Content Type:
+          <span [translate]="'modulo.labels.contenttype'">Content Type</span>:
         </div>
 
         <div fxFlex="50%" *ngIf="hookData.name === 'Web'">
@@ -77,7 +77,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Payload URL:
+          <span [translate]="'modulo.labels.payloadurl'">Payload URL</span>:
         </div>
 
         <div fxFlex="50%" *ngIf="hookData.name === 'Web'">
@@ -89,7 +89,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="hookData.name === 'SMS Bridge'">
-          Phone Number:
+          <span [translate]="'modulo.labels.phonenumber'">Phone Number</span>:
         </div>
 
         <div fxFlex="50%" *ngIf="hookData.name === 'SMS Bridge'">
@@ -97,7 +97,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="hookData.name === 'SMS Bridge'">
-          SMS Provider:
+          <span [translate]="'modulo.labels.smsprovider'">SMS Provider</span>:
         </div>
 
         <div fxFlex="50%" *ngIf="hookData.name === 'SMS Bridge'">
@@ -105,7 +105,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="hookData.name === 'SMS Bridge'">
-          SMS Provider Account ID:
+          <span [translate]="'modulo.labels.smsprovideraccountid'">SMS Provider Account ID</span>:
         </div>
 
         <div fxFlex="50%" *ngIf="hookData.name === 'SMS Bridge'">
@@ -113,7 +113,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="hookData.name === 'SMS Bridge'">
-          SMS Provider Token:
+          <span [translate]="'modulo.labels.smsprovidertoken'">SMS Provider Token</span>:
         </div>
 
         <div fxFlex="50%" *ngIf="hookData.name === 'SMS Bridge'">

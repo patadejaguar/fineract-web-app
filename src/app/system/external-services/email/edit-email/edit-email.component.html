@@ -9,42 +9,42 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Username</mat-label>
+            <mat-label><span [translate]="'modulo.labels.username'">Username</span></mat-label>
             <input matInput required formControlName="username">
             <mat-error *ngIf="emailConfigurationForm.controls.username.hasError('required')">
-              Username is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.usernamerequired' | translate">Username is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Password</mat-label>
+            <mat-label><span [translate]="'modulo.labels.password'">Password</span></mat-label>
             <input matInput required formControlName="password">
             <mat-error *ngIf="emailConfigurationForm.controls.password.hasError('required')">
-              Password is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.passwordrequired' | translate">Password is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Host</mat-label>
+            <mat-label><span [translate]="'modulo.labels.host'">Host</span></mat-label>
             <input matInput required formControlName="host">
             <mat-error *ngIf="emailConfigurationForm.controls.host.hasError('required')">
-              Host is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.hostrequired' | translate">Host is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Port</mat-label>
+            <mat-label><span [translate]="'modulo.labels.port'">Port</span></mat-label>
             <input matInput required formControlName="port">
             <mat-error *ngIf="emailConfigurationForm.controls.port.hasError('required')">
-              Port is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.portrequired' | translate">Port is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Use TLS</mat-label>
+            <mat-label><span [translate]="'modulo.labels.usetls'">Use TLS</span></mat-label>
             <input matInput required formControlName="useTLS">
             <mat-error *ngIf="emailConfigurationForm.controls.useTLS.hasError('required')">
-              Use TLS is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.usetlsrequired' | translate">Use TLS is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -53,8 +53,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!emailConfigurationForm.valid || emailConfigurationForm.pristine">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!emailConfigurationForm.valid || emailConfigurationForm.pristine">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
