@@ -2,8 +2,9 @@
 
   <div class="mat-elevation-z8">
     <div *ngIf="!isBusinessDateEnabled">
-      <p>The Business Date functionality is not enabled. If you need that, Go to Global Configurations and enable the
-        configuration: <code>{{configurationName}}</code></p>
+      <p><span [translate]="'modulo.description.businessdatefunctionalitynotenable'">
+        The Business Date functionality is not enabled. If you need that, Go to Global Configurations and enable the
+        configuration</span>: <code>{{configurationName}}</code></p>
     </div>
 
     <div *ngIf="isBusinessDateEnabled">
@@ -13,7 +14,8 @@
           <mat-card-content>
             <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" class="space">
               <div fxFlex="50%">
-                <span fxFlex="40%" class="date-type">User date format: </span>
+                <span fxFlex="40%" class="date-type">
+                  <span [translate]="'modulo.labels.userdateformat'">User date format</span>: </span>
                 <span fxFlex="60%" class="date-value">{{userDateFormat}}</span>
               </div>
             </div>
@@ -21,19 +23,21 @@
             <!-- Business Date -->
             <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
               <div fxFlex="50%" *ngIf="!isEditInProgress">
-                <span fxFlex="40%" class="date-type">Business Date: </span>
+                <span fxFlex="40%" class="date-type">
+                  <span [translate]="'modulo.labels.businessdate'">Business Date</span>: </span>
                 <span fxFlex="60%" class="date-value">{{businessDate | dateFormat}}</span>
               </div>
 
               <mat-form-field (click)="businessDatePicker.open()" *ngIf="isEditInProgress && (dateIndex == 0)">
-                <mat-label>Business Date</mat-label>
+                <mat-label><span [translate]="'modulo.labels.businessdate'">Business Date</span></mat-label>
                 <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="businessDatePicker"
                   formControlName="businessDate">
                 <mat-datepicker-toggle matSuffix [for]="businessDatePicker">
                 </mat-datepicker-toggle>
                 <mat-datepicker #businessDatePicker></mat-datepicker>
                 <mat-error *ngIf="businessDateForm.controls.businessDate.hasError('required')">
-                  Business Date is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.businessdaterequired' | translate">
+                    Business Date is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
 
@@ -41,11 +45,11 @@
                 <span *ngIf="isEditInProgress && (dateIndex == 0)">
                   <button mat-stroked-button color="primary" [disabled]="businessDateForm.pristine" (click)="submit()"
                     *mifosxHasPermission="'UPDATE_BUSINESSDATE'">
-                    Submit
+                    <span [translate]="'labels.buttons.Submit'">Submit</span>
                   </button>
                 </span>
                 <button mat-button *ngIf="isEditInProgress && (dateIndex == 0)" (click)="editInProgressToggle(0)">
-                  Cancel
+                  <span [translate]="'labels.buttons.Cancel'">Cancel</span>
                 </button>
                 <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button matTooltip="Edit the Business Date"
                   matTooltipPosition="above" (click)="editInProgressToggle(0)">
@@ -57,19 +61,21 @@
             <!-- COB Date -->
             <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
               <div fxFlex="50%" *ngIf="!isEditInProgress">
-                <span fxFlex="40%" class="date-type">COB Date: </span>
+                <span fxFlex="40%" class="date-type">
+                  <span [translate]="'modulo.labels.cobdate'">COB Date</span>: </span>
                 <span fxFlex="60%" class="date-value">{{cobDate | dateFormat}}</span>
               </div>
 
               <mat-form-field (click)="cobDatePicker.open()" *ngIf="isEditInProgress && (dateIndex == 1)">
-                <mat-label>COB Date</mat-label>
+                <mat-label><span [translate]="'modulo.labels.cobdate'">COB Date</span></mat-label>
                 <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="cobDatePicker"
                   formControlName="businessDate">
                 <mat-datepicker-toggle matSuffix [for]="cobDatePicker">
                 </mat-datepicker-toggle>
                 <mat-datepicker #cobDatePicker></mat-datepicker>
                 <mat-error *ngIf="businessDateForm.controls.cobDate.hasError('required')">
-                  COB Date is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.cobdaterequired' | translate">
+                    COB Date is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
 
@@ -77,11 +83,11 @@
                 <span *ngIf="isEditInProgress && (dateIndex == 1)">
                   <button mat-stroked-button color="primary" [disabled]="businessDateForm.pristine" (click)="submit()"
                     *mifosxHasPermission="'UPDATE_BUSINESSDATE'">
-                    Submit
+                    <span [translate]="'labels.buttons.Submit'">Submit</span>
                   </button>
                 </span>
                 <button mat-button *ngIf="isEditInProgress && (dateIndex == 1)" (click)="editInProgressToggle(1)">
-                  Cancel
+                  <span [translate]="'labels.buttons.Cancel'">Cancel</span>
                 </button>
                 <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button matTooltip="Edit the COB Date"
                   matTooltipPosition="above" (click)="editInProgressToggle(1)">

@@ -1,21 +1,21 @@
 <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
   <button mat-raised-button color="primary" *mifosxHasPermission="'UPDATE_REPORT'" (click)="onEdit()">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 </div>
 
 <div class="container m-b-20">
   <mat-card>
     <mat-card-header fxLayout="column">
-      <mat-card-title>Survey</mat-card-title>
+      <mat-card-title><span [translate]="'modulo.labels.survey'">Survey</span></mat-card-title>
       <mat-divider [inset]="true"></mat-divider>
     </mat-card-header>
     <mat-card-content>
 
       <div fxLayout="row wrap" class="content">
         <div fxFlex="40%" fxFlex.lt-md="50%" class="header">
-          <b>Key:</b>
+          <b><span [translate]="'modulo.labels.key'">Key</span>:</b>
         </div>
 
         <div fxFlex="60%" fxFlex.lt-md="50%">
@@ -23,7 +23,7 @@
         </div>
 
         <div fxFlex="40%" fxFlex.lt-md="50%" class="header">
-          <b>Name:</b>
+          <b><span [translate]="'modulo.labels.name'">Name</span>:</b>
         </div>
 
         <div fxFlex="60%" fxFlex.lt-md="50%">
@@ -31,7 +31,7 @@
         </div>
 
         <div fxFlex="40%" fxFlex.lt-md="50%" class="header">
-          <b>Country Code:</b>
+          <b><span [translate]="'modulo.labels.countrycode'">Country Code</span>:</b>
         </div>
 
         <div fxFlex="60%" fxFlex.lt-md="50%">
@@ -39,7 +39,7 @@
         </div>
 
         <div fxFlex="40%" fxFlex.lt-md="50%" class="header">
-          <b>Description:</b>
+          <b><span [translate]="'modulo.labels.description'">Description</span>:</b>
         </div>
 
         <div fxFlex="60%" fxFlex.lt-md="50%">
@@ -57,24 +57,24 @@
 <div class="container m-b-20">
   <mat-card class="questions">
     <mat-card-header fxLayout="column">
-      <mat-card-title>Questions</mat-card-title>
+      <mat-card-title><span [translate]="'modulo.labels.questions'">Questions</span></mat-card-title>
       <mat-divider [inset]="true"></mat-divider>
     </mat-card-header>
     <mat-card-content>
       <div class="survey_questions" *ngFor="let questionData of surveyData.questionDatas; index as i">
         <mat-card>
           <mat-card-content>
-            <div>Question: {{i+1}}</div>
+            <div><span [translate]="'modulo.labels.question'">Question</span>: {{i+1}}</div>
             <div fxLayout="row" id="key_text">
               <div fxFlex="25%" fxFlex.lt-md="50%" class="header">
-                <b>Key:</b>
+                <b><span [translate]="'modulo.labels.key'">Key</span>:</b>
               </div>
 
               <div fxFlex="40%" fxFlex.lt-md="50%">
                 {{questionData.key}}
               </div>
               <div fxFlex="40%" fxFlex.lt-md="50%" class="header">
-                <b>Text:</b>
+                <b><span [translate]="'modulo.labels.text'">Text</span>:</b>
               </div>
 
               <div fxFlex="40%" fxFlex.lt-md="50%">
@@ -83,7 +83,7 @@
             </div>
             <div fxLayout="row" id="description">
               <div fxFlex="20%" fxFlex.lt-md="50%" class="header">
-                <b>Description:</b>
+                <b><span [translate]="'modulo.labels.description'">Description</span>:</b>
               </div>
 
               <div fxFlex="40%" fxFlex.lt-md="50%">
@@ -91,7 +91,7 @@
               </div>
             </div>
             <div fxLayout="column" id="questionaire">
-              <div><b>Option: </b></div>
+              <div><b><span [translate]="'modulo.labels.option'">Option</span>: </b></div>
               <table id="response">
                 <tr>
                   <th *ngFor="let column of displayedColumns">{{column | titlecase}}</th>

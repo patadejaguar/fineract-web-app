@@ -3,10 +3,10 @@
   <div #buttonEdit class="in-block">
     <button mat-raised-button color="primary" (click)="editTask(); backupCheckValues();" *mifosxHasPermission="'UPDATE_PERMISSION'">
       <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-      Edit
+      <span [translate]="'labels.buttons.Edit'">Edit</span>
     </button>
   </div>
-</div>
+</div> 
 
 <div class="container">
 
@@ -49,8 +49,10 @@
 
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px" *ngIf="!isDisabled">
       <mat-card-actions>
-        <button type="button" mat-raised-button (click)="cancel(); restoreCheckboxes();">Cancel</button>
-        <button mat-raised-button color="primary" (click)="submit()" *mifosxHasPermission="'UPDATE_PERMISSION'">Submit</button>
+        <button type="button" mat-raised-button (click)="cancel(); restoreCheckboxes();">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" (click)="submit()" *mifosxHasPermission="'UPDATE_PERMISSION'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
     </div>
 
@@ -59,20 +61,28 @@
 </div>
 
 <ng-template #templateButtonEdit let-popover="popover">
-  <h2>Edit</h2>
-  <p class="mw300">To add or remove a task from the Maker-Checker list.</p>
+  <h2><span [translate]="'modulo.labels.edit'">Edit</span></h2>
+  <p class="mw300"><span [translate]="'modulo.description.edit'">
+    To add or remove a task from the Maker-Checker list.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateMcTable,mcTable,'top', true);">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateMcTable,mcTable,'top', true);">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateMcTable let-popover="popover">
-  <h4 class="mw300">List of all maker checker tasks. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895359/Configure+Maker-Checker+Tasks" target="_blank">Configure Maker-Checker Tasks</a></h4>
+  <h4 class="mw300"><span [innerHTML]="'modulo.description.listmakercheckertask' | translate">
+    List of all maker checker tasks. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895359/Configure+Maker-Checker+Tasks" target="_blank">Configure Maker-Checker Tasks</a></span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonEdit,buttonEdit,'bottom', true);">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonEdit,buttonEdit,'bottom', true);">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
