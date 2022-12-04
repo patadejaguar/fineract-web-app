@@ -2,12 +2,12 @@
 
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_DATATABLE'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 
   <button mat-raised-button color="warn" (click)="delete()" *mifosxHasPermission="'DELETE_DATATABLE'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 
 </div>
@@ -20,7 +20,7 @@
 
       <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="12px">
         <div class="mat-body-strong">
-          Associated With
+          <span [translate]="'modulo.labels.associatedwith'">Associated With</span>
         </div>
         <div>
           {{ dataTableData.applicationTableName }}
@@ -39,27 +39,27 @@
   <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="columnName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> Field Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"><span [translate]="'modulo.labels.fieldname'"> Field Name</span> </th>
       <td mat-cell *matCellDef="let dataTableColumn"> {{ dataTableColumn.columnName }}</td>
     </ng-container>
 
     <ng-container matColumnDef="columnDisplayType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> Type </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> <span [translate]="'modulo.labels.type'">Type</span> </th>
       <td mat-cell *matCellDef="let dataTable"> {{ dataTable.columnDisplayType }} </td>
     </ng-container>
 
     <ng-container matColumnDef="columnLength">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> Length </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> <span [translate]="'modulo.labels.length'"> Length </span> </th>
       <td mat-cell *matCellDef="let dataTable"> {{ dataTable.columnLength }} </td>
     </ng-container>
 
     <ng-container matColumnDef="columnCode">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> Code </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> <span [translate]="'modulo.labels.code'"> Code</span> </th>
       <td mat-cell *matCellDef="let dataTable"> {{ dataTable.columnCode }} </td>
     </ng-container>
 
     <ng-container matColumnDef="isColumnNullable">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> Mandatory </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="center"> <span [translate]="'modulo.labels.mandatory'">Mandatory</span> </th>
       <td mat-cell *matCellDef="let dataTable">
         <fa-icon *ngIf="!dataTable.isColumnNullable" icon="check-circle" size="lg" class="column-mandatory"
           matTooltip="Yes" matTooltipPosition="right"></fa-icon>

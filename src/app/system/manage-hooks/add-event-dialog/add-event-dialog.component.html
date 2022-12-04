@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Event</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.addevent'">Add Event</span></h1>
 
 <mat-dialog-content>
 
@@ -7,38 +7,38 @@
     <div fxLayout="column">
 
       <mat-form-field>
-        <mat-label>Select Grouping</mat-label>
+        <mat-label><span [translate]="'modulo.labels.selectgrouping'">Select Grouping</span></mat-label>
         <mat-select required formControlName="grouping">
           <mat-option *ngFor="let grouping of data.groupings" [value]="grouping.name">
             {{ grouping.name }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="eventForm.controls.grouping.hasError('required')">
-          Grouping is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.selectgroupingrequired' | translate">Grouping is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Select Entity</mat-label>
+        <mat-label><span [translate]="'modulo.labels.selectentity'">Select Entity</span></mat-label>
         <mat-select required formControlName="entity">
           <mat-option *ngFor="let entity of entityData" [value]="entity.name">
             {{ entity.name }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="eventForm.controls.entity.hasError('required')">
-          Entity is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.selectentityrequired' | translate">Entity is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Select Action</mat-label>
+        <mat-label><span [translate]="'modulo.labels.selectaction'">Select Action</span></mat-label>
         <mat-select required formControlName="action">
           <mat-option *ngFor="let action of actionData" [value]="action">
             {{ action }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="eventForm.controls.action.hasError('required')">
-          Action is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.selectactionrequired' | translate">Action is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
@@ -49,7 +49,8 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
   <button mat-raised-button color="primary"
-    [disabled]="!eventForm.valid || eventForm.pristine" (click)="submit()">Submit</button>
+    [disabled]="!eventForm.valid || eventForm.pristine" (click)="submit()">
+    <span [translate]="'labels.buttons.Submit'">Submit</span></button>
 </mat-dialog-actions>

@@ -9,66 +9,68 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Username</mat-label>
+            <mat-label><span [translate]="'modulo.labels.username'">Username</span></mat-label>
             <input matInput required formControlName="username"/>
             <mat-error *ngIf="editUserForm.controls.username.hasError('required')">
-              Username is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.usernamerequired' | translate">Username is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Email</mat-label>
+            <mat-label><span [translate]="'modulo.labels.email'">Email</span></mat-label>
             <input matInput required formControlName="email">
             <mat-error *ngIf="editUserForm.controls.email.hasError('email')">
-              Email is <strong>invalid</strong>
+              <span [innerHTML]="'modulo.validations.invalidemail' | translate">Email is <strong>invalid</strong></span>
             </mat-error>
             <mat-error *ngIf="editUserForm.controls.email.hasError('required')">
-              Email is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.emailrequired' | translate">Email is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>First name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.firstname'">First name</span></mat-label>
             <input matInput required formControlName="firstname"/>
             <mat-error *ngIf="editUserForm.controls.firstname.hasError('pattern')">
-              First Name <strong>cannot begin with a special character or number</strong>
+              <span [innerHTML]="'modulo.validations.firstnamespecialchar' | translate">
+                First Name <strong>cannot begin with a special character or number</strong></span>
             </mat-error>
             <mat-error *ngIf="editUserForm.controls.firstname.hasError('required')">
-              First Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.firstnamerequired' | translate">First Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Last name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.lastname'">Last name</span></mat-label>
             <input matInput required formControlName="lastname"/>
             <mat-error *ngIf="editUserForm.controls.lastname.hasError('pattern')">
-              Last Name <strong>cannot begin with a special character or number</strong>
+              <span [innerHTML]="'modulo.validations.lastnamespecialchar' | translate">
+                Last Name <strong>cannot begin with a special character or number</strong></span>
             </mat-error>
             <mat-error *ngIf="editUserForm.controls.lastname.hasError('required')">
-              Last Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.lastnamerequired' | translate">Last Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <div class="password-never-expires-wrapper" fxFlex="48%">
             <mat-checkbox labelPosition="before" formControlName="passwordNeverExpires" >
-              Override password expiry policy
+              <span [translate]="'modulo.labels.overridepasswordexpirypolicy'">Override password expiry policy</span>
             </mat-checkbox>
           </div>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <mat-select required formControlName="officeId" (selectionChange)="officeChanged($event.value)">
               <mat-option *ngFor="let office of officesData" [value]="office.id">
                 {{ office.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="editUserForm.controls.officeId.hasError('required')">
-              Office is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.officerequired' | translate">Office is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Staff</mat-label>
+            <mat-label><span [translate]="'modulo.labels.staff'">Staff</span></mat-label>
             <mat-select formControlName="staffId">
               <mat-option *ngFor="let staff of staffData" [value]="staff.id">
                 {{ staff.displayName }}
@@ -77,14 +79,15 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Roles</mat-label>
+            <mat-label><span [translate]="'modulo.labels.roles'">Roles</span></mat-label>
             <mat-select required formControlName="roles" multiple>
               <mat-option *ngFor="let role of rolesData" [value]="role.id">
                 {{ role.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="editUserForm.controls.roles.hasError('required')">
-              At least one role <strong>must be selected</strong>
+              <span [innerHTML]="'modulo.validations.leastrolselected' | translate">
+                At least one role <strong>must be selected</strong></span>
             </mat-error>
           </mat-form-field>
         
@@ -93,8 +96,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!editUserForm.valid">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!editUserForm.valid">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
     
     </form>

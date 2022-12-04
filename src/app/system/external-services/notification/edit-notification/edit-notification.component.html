@@ -9,26 +9,29 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Server Key</mat-label>
+            <mat-label><span [translate]="'modulo.labels.serverkey'">Server Key</span></mat-label>
             <input matInput required formControlName="server_key">
             <mat-error *ngIf="notificationConfigurationForm.controls.server_key.hasError('required')">
-              Server Key is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.serverkeyrequired' | translate">
+                Server Key is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>GCM End Point</mat-label>
+            <mat-label><span [translate]="'modulo.labels.gcmendpoint'">GCM End Point</span></mat-label>
             <input matInput required formControlName="gcm_end_point">
             <mat-error *ngIf="notificationConfigurationForm.controls.gcm_end_point.hasError('required')">
-              GCM End Point is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.gcmendpointrequired' | translate">
+                GCM End Point is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>FCM End Point</mat-label>
+            <mat-label><span [translate]="'modulo.labels.fecmendpoint'">FCM End Point</span></mat-label>
             <input matInput required formControlName="fcm_end_point">
             <mat-error *ngIf="notificationConfigurationForm.controls.fcm_end_point.hasError('required')">
-              FCM End Point is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.fecmendpointrequired' | translate">
+                FCM End Point is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -37,8 +40,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!notificationConfigurationForm.valid || notificationConfigurationForm.pristine">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!notificationConfigurationForm.valid || notificationConfigurationForm.pristine">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
