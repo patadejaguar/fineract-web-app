@@ -7,20 +7,22 @@
       <mat-card-content>
 
         <mat-form-field fxFlex (click)="unassignedDatePicker.open()">
-          <mat-label>Unassignment Date</mat-label>
+          <mat-label><span [translate]="'modulo.labels.unassignmentdate'">Unassignment Date</span></mat-label>
           <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="unassignedDatePicker" required formControlName="unassignedDate">
           <mat-datepicker-toggle matSuffix [for]="unassignedDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #unassignedDatePicker></mat-datepicker>
           <mat-error *ngIf="savingsUnassignStaffForm.controls.unassignedDate.hasError('required')">
-            Unassignment Date is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.unassignmentdaterequired' | translate">Unassignment Date is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!savingsUnassignStaffForm.valid">Confirm</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!savingsUnassignStaffForm.valid">
+          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>

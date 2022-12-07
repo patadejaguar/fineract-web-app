@@ -4,16 +4,16 @@
   fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
     <button mat-raised-button color="accent" *mifosxHasPermission="'PAY_SAVINGSACCOUNTCHARGE'" (click)="payCharge()">
       <fa-icon icon="dollar-sign"></fa-icon>&nbsp;&nbsp;
-      Pay
+      <span [translate]="'labels.buttons.Pay'">Pay</span>
     </button>
     <button mat-raised-button color="primary" *mifosxHasPermission="'WAIVE_SAVINGSACCOUNTCHARGE'" (click)="waiveCharge()">
       <fa-icon icon="flag"></fa-icon>&nbsp;&nbsp;
-      Waive
+      <span [translate]="'labels.buttons.Waive'">Waive</span>
     </button>
     <span *ngIf="isRecurringCharge()">
       <button mat-raised-button color="warn" *mifosxHasPermission="'INACTIVATE_SAVINGSACCOUNTCHARGE'" (click)="inactivateCharge()">
         <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-        Inactivate
+        <span [translate]="'labels.buttons.Inactivate'">Inactivate</span>
       </button>
     </span>
 </div>
@@ -22,11 +22,11 @@
   fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
     <button mat-raised-button color="primary" *mifosxHasPermission="'UPDATE_SAVINGSACCOUNTCHARGE'" (click)="editCharge()">
       <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-      Edit
+      <span [translate]="'labels.buttons.Edit'">Edit</span>
     </button>
     <button mat-raised-button color="warn" *mifosxHasPermission="'DELETE_SAVINGSACCOUNTCHARGE'" (click)="deleteCharge()">
       <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-      Delete
+      <span [translate]="'labels.buttons.Delete'">Delete</span>
     </button>
 </div>
 
@@ -39,7 +39,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Name
+          <span [translate]="'modulo.labels.name'">Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -47,7 +47,7 @@
         </div>
         
         <div fxFlex="50%" class="mat-body-strong">
-          Charge Type
+          <span [translate]="'modulo.labels.chargetype'">Charge Type</span>
         </div>
 
         <div fxFlex="50%">
@@ -55,7 +55,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Currency
+          <span [translate]="'modulo.labels.currency'">Currency</span>
         </div>
 
         <div fxFlex="50%">
@@ -63,7 +63,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Payment due at
+          <span [translate]="'modulo.labels.paymentdue'">Payment due at</span>
         </div>
 
         <div fxFlex="50%">
@@ -71,7 +71,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Payment due as of
+          <span [translate]="'modulo.labels.paydueof'">Payment due as of</span>
         </div>
 
         <div fxFlex="50%">
@@ -79,7 +79,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Calculation Type
+          <span [translate]="'modulo.labels.calculationtype'">Calculation Type</span>
         </div>
 
         <div fxFlex="50%">
@@ -87,7 +87,7 @@
         </div>
         
         <div fxFlex="50%" class="mat-body-strong">
-          Due
+          <span [translate]="'modulo.labels.due'">Due</span>
         </div>
 
         <div fxFlex="50%">
@@ -95,7 +95,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Paid
+          <span [translate]="'modulo.labels.paid'">Paid</span>
         </div>
 
         <div fxFlex="50%">
@@ -103,7 +103,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Waived
+          <span [translate]="'modulo.labels.waived'">Waived</span>
         </div>
 
         <div fxFlex="50%">
@@ -111,7 +111,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Outstanding
+          <span [translate]="'modulo.labels.outstanding'">Outstanding</span>
         </div>
 
         <div fxFlex="50%">

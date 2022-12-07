@@ -1,7 +1,7 @@
 <mat-card class="container">
 
   <div *ngIf="XBRLSuccess">
-     <h1><strong>Saved Successfully</strong></h1>
+     <h1><strong><span [translate]="'modulo.labels.savedsuccessfully'">Saved Successfully</span></strong></h1>
   </div>
 
   <div *ngIf="!XBRLSuccess">
@@ -40,11 +40,11 @@
       <div class="container m-t-20" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
          <button mat-raised-button color="primary" [routerLink]="['./report']">
             <fa-icon icon="cog"></fa-icon>
-            &nbsp;&nbsp; Generate Report
+            &nbsp;&nbsp; <span [translate]="'labels.buttons.GenerateReport'">Generate Report</span>
          </button>
          <button mat-raised-button color="accent" (click)="submit()">
             <fa-icon icon="download"></fa-icon>
-            &nbsp;&nbsp; Save Changes 
+            &nbsp;&nbsp; <span [translate]="'labels.buttons.SaveChanges'">Save Changes </span>
          </button>
       </div>
 
