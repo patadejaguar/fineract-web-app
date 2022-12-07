@@ -1,8 +1,11 @@
-<h1 mat-dialog-title>Cancel</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.cancel'">Cancel</span></h1>
 <div mat-dialog-content>
-  <p>Are you sure you want to leave this page and lose all inputted data?</p>
+  <p><span [translate]="'modulo.description.aresurewantleavepageq'">
+    Are you sure you want to leave this page and lose all inputted data?</span></p>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>No</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="{ cancel: true }">Yes</button>
+  <button mat-raised-button mat-dialog-close>
+    <span [translate]="'labels.buttons.No'">No</span></button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="{ cancel: true }">
+    <span [translate]="'labels.buttons.Yes'">Yes</span></button>
 </mat-dialog-actions>

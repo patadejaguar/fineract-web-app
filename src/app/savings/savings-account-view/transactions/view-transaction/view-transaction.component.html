@@ -3,18 +3,18 @@
   <span *mifosxHasPermission="'ADJUSTTRANSACTION_SAVINGSACCOUNT'">
     <button mat-raised-button color="primary" *ngIf="transactionData.transactionType.value == 'Transfer' || transactionData.reversed == 'true'
         || transactionData.transactionType.id==3 || transactionData.transactionType.id==17" [routerLink]="'edit'">
-      <fa-icon icon="edit" class="m-r-10"></fa-icon>Edit
+      <fa-icon icon="edit" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Edit'">Edit</span>
     </button>
   </span>
   <span *ngIf="!transactionData.reversed && transactionData.transactionType.amountHold">
     <button mat-raised-button color="primary" *mifosxHasPermission="'RELEASEAMOUNT_SAVINGSACCOUNT'"
       (click)="releaseAmount()">
-      <fa-icon icon="lock-open" class="m-r-10"></fa-icon>Release Amount
+      <fa-icon icon="lock-open" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.ReleaseAmount'">Release Amount</span>
     </button>
   </span>
   <button mat-raised-button color="warn" *mifosxHasPermission="'UNDOTRANSACTION_SAVINGSACCOUNT'"
     (click)="undoTransaction()" [disabled]="transactionData.reversed">
-    <fa-icon icon="undo" class="m-r-10"></fa-icon>Undo
+    <fa-icon icon="undo" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Undo'">Undo</span>
   </button>
 </div>
 
@@ -27,7 +27,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Transaction Id
+          <span [translate]="'modulo.labels.transactionid'">Transaction Id</span>
         </div>
 
         <div fxFlex="50%">
@@ -35,7 +35,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Type
+          <span [translate]="'modulo.labels.type'">Type</span>
         </div>
 
         <div fxFlex="50%">
@@ -43,7 +43,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Transaction Date
+          <span [translate]="'modulo.labels.transactiondate'">Transaction Date</span>
         </div>
 
         <div fxFlex="50%">
@@ -51,7 +51,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Amount
+         <span [translate]="'modulo.labels.amount'">Amount</span> 
         </div>
 
         <div fxFlex="50%">
@@ -59,7 +59,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Currency
+          <span [translate]="'modulo.labels.currency'">Currency</span> 
         </div>
 
         <div fxFlex="50%">
@@ -67,7 +67,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Note
+          <span [translate]="'modulo.labels.note'">Note</span>
         </div>
 
         <div fxFlex="50%">
@@ -77,7 +77,7 @@
         <ng-container *ngIf="transactionData.paymentDetailData">
 
           <div *ngIf="transactionData.paymentDetailData.paymentType" fxFlex="50%" class="mat-body-strong">
-            Payment Type
+            <span [translate]="'modulo.labels.paymenttype'">Payment Type</span>
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.paymentType" fxFlex="50%">
@@ -85,7 +85,7 @@
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.accountNumber" fxFlex="50%" class="mat-body-strong">
-            Account No.
+            <span [translate]="'modulo.labels.accountno'">Account No.</span>
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.accountNumber" fxFlex="50%">
@@ -93,7 +93,7 @@
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.checkNumber" fxFlex="50%" class="mat-body-strong">
-            Cheque Number
+            <span [translate]="'modulo.labels.chequenumber'">Cheque Number</span>
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.checkNumber" fxFlex="50%">
@@ -101,7 +101,7 @@
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.routingCode" fxFlex="50%" class="mat-body-strong">
-            Routing Code
+            <span [translate]="'modulo.labels.routingcode'">Routing Code</span>
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.routingCode" fxFlex="50%">
@@ -109,7 +109,7 @@
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.receiptNumber" fxFlex="50%" class="mat-body-strong">
-            Receipt No.
+            <span [translate]="'modulo.labels.receiptno'">Receipt No.</span>
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.receiptNumber" fxFlex="50%">
@@ -117,7 +117,7 @@
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.bankNumber" fxFlex="50%" class="mat-body-strong">
-            Bank No.
+            <span [translate]="'modulo.labels.bankno'">Bank No.</span>
           </div>
 
           <div *ngIf="transactionData.paymentDetailData.bankNumber" fxFlex="50%">

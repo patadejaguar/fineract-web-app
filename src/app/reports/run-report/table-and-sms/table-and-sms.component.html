@@ -2,7 +2,7 @@
 
   <div class="m-b-10" *ngIf = "dataObject.report.type === 'Table'" fxLayoutAlign="end">
     <button mat-raised-button color="primary" (click)="downloadCSV()" >
-      Export CSV
+      <span [translate]="'labels.buttons.ExportCSV'">Export CSV</span>
     </button>
   </div>
 
