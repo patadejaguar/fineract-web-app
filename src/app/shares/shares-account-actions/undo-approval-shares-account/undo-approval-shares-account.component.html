@@ -9,7 +9,8 @@
         <div>
 
           <p class="mat-typography confirm-text">
-            Are you sure you want to undo approval of shares account with ID: {{accountId}} ?
+            <span [translate]="'modulo.description.approvalsharesaccountq'" [translateParams]="{ id: accountId }">
+              Are you sure you want to undo approval of shares account with ID: {{accountId}} ?</span>
           </p>
 
         </div>
@@ -17,8 +18,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-        <button mat-raised-button color="warn">Confirm</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="warn">
+          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>

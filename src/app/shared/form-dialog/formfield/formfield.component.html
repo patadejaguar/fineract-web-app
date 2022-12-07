@@ -17,7 +17,7 @@
       </mat-select>
 
       <mat-error *ngIf="form.controls[formfield.controlName].hasError('required')">
-        {{ formfield.label }} is <strong>required</strong>
+        {{ formfield.label }} <span [innerHTML]="'modulo.validations.genericrequired' | translate">is <strong>required</strong></span>
       </mat-error>
 
     </mat-form-field>
@@ -31,7 +31,7 @@
     <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
     <mat-datepicker #datePicker></mat-datepicker>
     <mat-error *ngIf="form.controls[formfield.controlName].hasError('required')">
-      {{ formfield.label }} is <strong>required</strong>
+      {{ formfield.label }}<span [innerHTML]="'modulo.validations.genericrequired' | translate"> is <strong>required</strong></span>
     </mat-error>
   </mat-form-field>
 

@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>Approve Share</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.approveshare'">Approve Share</span></h1>
 <div mat-dialog-content>
-  <p>Are you sure you want to approve share with id: {{ data.shareId }} ?</p>
+  <p><span [translate]="'modulo.description.approvegenericq'" [translateParams]="{ shareId: data.shareId }">
+    Are you sure you want to approve share with id: {{ data.shareId }} ?</span></p>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="accent" [mat-dialog-close]="{ approve: true }">Confirm</button>
+  <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="{ approve: true }">
+    <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
 </mat-dialog-actions>
