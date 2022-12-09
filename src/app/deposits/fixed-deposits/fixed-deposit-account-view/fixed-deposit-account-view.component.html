@@ -7,7 +7,7 @@
       <div class="profile-image-container">
         <div>
           <img mat-card-md-image class="profile-image"
-            matTooltip="Fixed Deposits Account"
+            matTooltip="{{'modulo.labels.fixeddepositsaccount' | translate}}"
             [src]="'assets/images/fd_account_placeholder.png'">
         </div>
       </div>
@@ -15,7 +15,8 @@
       <div class="mat-typography account-card-title">
         <mat-card-title>
           <h3>
-            <i class="fa fa-stop" [ngClass]="fixedDepositsAccountData.status.code | statusLookup" [matTooltip]="fixedDepositsAccountData.status.value"></i>
+            <i class="fa fa-stop" [ngClass]="fixedDepositsAccountData.status.code | statusLookup" 
+            [matTooltip]="fixedDepositsAccountData.status.value"></i>
               <span [translate]="'modulo.labels.accountname'">Account Name </span>: {{fixedDepositsAccountData.depositProductName}}
           </h3>
         </mat-card-title>

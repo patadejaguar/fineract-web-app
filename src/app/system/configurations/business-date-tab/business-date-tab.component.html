@@ -51,7 +51,8 @@
                 <button mat-button *ngIf="isEditInProgress && (dateIndex == 0)" (click)="editInProgressToggle(0)">
                   <span [translate]="'labels.buttons.Cancel'">Cancel</span>
                 </button>
-                <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button matTooltip="Edit the Business Date"
+                <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button 
+                matTooltip="{{'modulo.labels.editbusinessdate' | translate}}"
                   matTooltipPosition="above" (click)="editInProgressToggle(0)">
                   <fa-icon icon="edit" size="lg"></fa-icon>
                 </button>
@@ -89,7 +90,8 @@
                 <button mat-button *ngIf="isEditInProgress && (dateIndex == 1)" (click)="editInProgressToggle(1)">
                   <span [translate]="'labels.buttons.Cancel'">Cancel</span>
                 </button>
-                <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button matTooltip="Edit the COB Date"
+                <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button 
+                matTooltip="{{'modulo.labels.editcobdate' | translate}}"
                   matTooltipPosition="above" (click)="editInProgressToggle(1)">
                   <fa-icon icon="edit" size="lg"></fa-icon>
                 </button>

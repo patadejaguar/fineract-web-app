@@ -65,7 +65,8 @@
           <span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let user">
           <div [className]="user.isSelfServiceUser === true ? 'active' : 'inactive'">
-            <fa-icon matTooltip="{{ user.isSelfServiceUser === true ? 'Active' : 'Inactive' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
+            <fa-icon matTooltip="{{ (user.isSelfServiceUser === true ? 'modulo.labels.active' : 'modulo.labels.inactive') | translate }}" 
+            matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
           </div>
         </td>
       </ng-container>

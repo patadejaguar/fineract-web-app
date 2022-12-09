@@ -50,12 +50,12 @@
           <i class="fa fa-check "></i>
         </span>
         <button type="button" mat-icon-button color="primary"
-          (click)="editDisbursementDataEntry(rowIndex)" matTooltip="Edit"
+          (click)="editDisbursementDataEntry(rowIndex)" matTooltip="{{'modulo.labels.edit' | translate}}"
           matTooltipPosition="left" *ngIf="!ele.actualDisbursementDate && showActionsTrancheButtons()">
           <fa-icon icon="edit"></fa-icon>
         </button>
         <button type="button" mat-icon-button color="warn"
-          (click)="removeDisbursementDataEntry(rowIndex)" matTooltip="Delete"
+          (click)="removeDisbursementDataEntry(rowIndex)" matTooltip="{{'modulo.labels.delete' | translate}}"
           matTooltipPosition="left" *ngIf="!ele.actualDisbursementDate && showActionsTrancheButtons()">
           <fa-icon icon="trash"></fa-icon>
         </button>

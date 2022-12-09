@@ -50,7 +50,7 @@
         <td mat-cell *matCellDef="let element">
           <div class="m-l-30" *ngIf="element.status.code !== 'clientStatusType.closed'">
             <button class="account-action-button" mat-raised-button color="primary">
-              <i class="fa fa-plus" matTooltip="New Loan Application"></i>
+              <i class="fa fa-plus" matTooltip="{{'modulo.labels.newloanappliaction' | translate}}"></i>
             </button>
           </div>
         </td>
@@ -112,7 +112,7 @@
         <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.type'"> Type </span></th>
         <td mat-cell *matCellDef="let element">
           <i class="fa fa-large" [ngClass]="(element.loanType.value==='Individual')?'fa-user':'fa-group'"
-          [matTooltip]="(element.loanType.value==='Individual')?'Individual':'Group'"></i>
+          matTooltip="{{((element.loanType.value==='Individual')?'modulo.labels.individual':'modulo.labels.group') | translate}}"></i>
         </td>
       </ng-container>
 
@@ -121,18 +121,18 @@
           <span [translate]="'header.actions'">Actions</span> </th>
         <td mat-cell *matCellDef="let element">
           <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-dollar" matTooltip="Make Repayment"></i>
+            <i class="fa fa-dollar" matTooltip="{{'modulo.labels.makerepayment' | translate}}"></i>
           </button>
           <button *ngIf="element.status.pendingApproval" class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-check" matTooltip="Approve"></i>
+            <i class="fa fa-check" matTooltip="{{'modulo.labels.approve' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.pendingApproval && !element.status.active && !element.status.overpaid"
             class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-flag" matTooltip="Disburse"></i>
+            <i class="fa fa-flag" matTooltip="{{'modulo.labels.disburse' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.pendingApproval && !element.status.active && element.status.overpaid"
             class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-exchange" matTooltip="Transfer Funds"></i>
+            <i class="fa fa-exchange" matTooltip="{{'modulo.labels.transferfunds' | translate}}"></i>
           </button>
         </td>
       </ng-container>
@@ -179,7 +179,7 @@
         <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.type'"> Type</span> </th>
         <td mat-cell *matCellDef="let element">
           <i class="fa fa-large" [ngClass]="(element.loanType.value=== 'Individual')?'fa-user':'fa-group'"
-          [matTooltip]="(element.loanType.value==='Individual')?'Individual':'Group'"></i>
+          matTooltip="{{((element.loanType.value==='Individual')?'modulo.labels.individual':'modulo.labels.group') | translate}}"></i>
         </td>
       </ng-container>
 
@@ -303,7 +303,8 @@
 
       <ng-container matColumnDef="Account No">
         <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountno'"> Account No.</span> </th>
-        <td mat-cell *matCellDef="let element"> <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" [matTooltip]="element.status.value"></i>
+        <td mat-cell *matCellDef="let element"> <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" 
+          [matTooltip]="element.status.value"></i>
           {{element.accountNo}} </td>
       </ng-container>
 
@@ -328,25 +329,25 @@
         <td mat-cell *matCellDef="let element">
           <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Deposit']">
-            <i class="fa fa-arrow-up" matTooltip="Deposit"></i>
+            <i class="fa fa-arrow-up" matTooltip="{{'modulo.labels.deposit' | translate}}"></i>
           </button>
           <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Withdrawal']">
-            <i class="fa fa-arrow-down" matTooltip="Withdraw"></i>
+            <i class="fa fa-arrow-down" matTooltip="{{'modulo.labels.withdraw' | translate}}"></i>
           </button>
           <button *ngIf="element.status.submittedAndPendingApproval" class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Approve']">
-            <i class="fa fa-check" matTooltip="Approve"></i>
+            <i class="fa fa-check" matTooltip="{{'modulo.labels.approve' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.submittedAndPendingApproval && !element.status.active"
             class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Undo Approval']">
-            <i class="fa fa-undo" matTooltip="Undo Approval"></i>
+            <i class="fa fa-undo" matTooltip="{{'modulo.labels.undoapproval' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.submittedAndPendingApproval && !element.status.active"
             class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Activate']">
-            <i class="fa fa-check-circle" matTooltip="Activate"></i>
+            <i class="fa fa-check-circle" matTooltip="{{'modulo.labels.activate' | translate}}"></i>
           </button>
         </td>
       </ng-container>

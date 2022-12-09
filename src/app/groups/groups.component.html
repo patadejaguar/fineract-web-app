@@ -3,7 +3,7 @@
   <div fxLayout="row" fxLayoutAlign="start center">
     <div class="search-box">
       <mat-form-field>
-        <input matInput placeholder="Search by Name" [formControl]="name">
+        <input matInput placeholder="{{'modulo.labels.searchbyname' | translate}}" [formControl]="name">
       </mat-form-field>
       <mat-checkbox #showClosedGroups labelPosition="after" (change)="changeShowClosedGroups()">
         <span [translate]="'modulo.labels.showclosedgroups'">Show Closed Groups</span></mat-checkbox>

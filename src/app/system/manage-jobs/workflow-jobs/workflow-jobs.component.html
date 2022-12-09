@@ -36,7 +36,8 @@
         <th mat-header-cell *matHeaderCellDef> 
           <span [translate]="'header.actions'">Actions</span> </th>
         <td mat-cell *matCellDef="let row; let rowIndex = index">
-          <button type="button" mat-icon-button color="warn" (click)="removeJobStep(rowIndex)" matTooltip="Delete"
+          <button type="button" mat-icon-button color="warn" (click)="removeJobStep(rowIndex)" 
+          matTooltip="{{'modulo.labels.delete' | translate}}"
             matTooltipPosition="left">
             <fa-icon icon="trash"></fa-icon>
           </button>

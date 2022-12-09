@@ -18,7 +18,8 @@
       <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" [formGroupName]="chartIndex">
 
         <div fxFlex="98%" fxLayout="row" fxLayoutAlign="end center">
-          <button type="button" mat-icon-button color="warn" (click)="delete(charts, chartIndex)" matTooltip="Delete Interest Rate Chart" matTooltipPosition="left">
+          <button type="button" mat-icon-button color="warn" (click)="delete(charts, chartIndex)" 
+          matTooltip="{{'modulo.labels.deleteinterestratechart' | translate}}" matTooltipPosition="left">
             <fa-icon icon="trash"></fa-icon>
           </button>
         </div>

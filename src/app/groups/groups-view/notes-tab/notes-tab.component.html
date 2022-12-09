@@ -6,7 +6,7 @@
       (ngSubmit)="addNote()">
 
     <mat-form-field fxFlex="calc(90%-20px)">
-      <textarea formControlName="note" matInput placeholder="Write a note ...."></textarea>
+      <textarea formControlName="note" matInput placeholder="{{'modulo.labels.writenote' | translate}}"></textarea>
     </mat-form-field>
 
     <button mat-raised-button fxFlex color="primary" *mifosxHasPermission="'CREATE_GROUPNOTE'" [disabled]="!noteForm.valid">
