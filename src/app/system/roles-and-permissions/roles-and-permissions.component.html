@@ -37,7 +37,8 @@
           <span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let role">
           <div [className]="role.disabled === true ? 'false' : 'true'">
-            <fa-icon matTooltip="{{ role.disabled === true ? 'Disabled' : 'Enabled' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
+            <fa-icon matTooltip="{{ (role.disabled === true ? 'modulo.labels.disabled' : 'modulo.labels.enabled') | translate }}" 
+            matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
           </div>
         </td>
       </ng-container>

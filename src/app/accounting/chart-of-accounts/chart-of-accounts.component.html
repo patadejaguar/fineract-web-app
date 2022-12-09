@@ -55,7 +55,8 @@
           <span [translate]="'modulo.labels.disabled'">Disabled</span> </th>
         <td mat-cell *matCellDef="let glAccount">
           <div [className]="glAccount.disabled === true ? 'disabled' : 'enabled'">
-            <fa-icon matTooltip="{{ glAccount.disabled === true ? 'Disabled' : 'Enabled' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
+            <fa-icon matTooltip="{{ (glAccount.disabled === true ? 'modulo.labels.disabled' : 'modulo.labels.enabled') | translate }}" 
+            matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
           </div>
         </td>
       </ng-container>
@@ -64,8 +65,10 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <span [translate]="'modulo.labels.manualallowed'"> Manual Entries Allowed </span></th>
         <td mat-cell *matCellDef="let glAccount">
-          <fa-icon *ngIf="glAccount.manualEntriesAllowed" class="manual-entries-allowed" matTooltip="Allowed" matTooltipPosition="right" icon="check-circle" size="lg"></fa-icon>
-          <fa-icon *ngIf="!glAccount.manualEntriesAllowed" class="manual-entries-not-allowed" matTooltip="Not Allowed" matTooltipPosition="right" icon="times-circle" size="lg"></fa-icon>
+          <fa-icon *ngIf="glAccount.manualEntriesAllowed" class="manual-entries-allowed" 
+          matTooltip="{{'modulo.labels.allowed' | translate}}" matTooltipPosition="right" icon="check-circle" size="lg"></fa-icon>
+          <fa-icon *ngIf="!glAccount.manualEntriesAllowed" class="manual-entries-not-allowed" 
+          matTooltip="{{'modulo.labels.notallowed' | translate}}" matTooltipPosition="right" icon="times-circle" size="lg"></fa-icon>
         </td>
       </ng-container>
 

@@ -47,7 +47,8 @@
           <span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let survey">
             <div [className]="!isActive(survey.validFrom, survey.validTo) === true ? 'disabled' : 'enabled'">
-                <fa-icon matTooltip="{{ !isActive(survey.validFrom, survey.validTo) === true ? 'Disabled' : 'Enabled' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
+                <fa-icon matTooltip="{{ (!isActive(survey.validFrom, survey.validTo) === true ? 'modulo.labels.disabled' : 'modulo.labels.enabled') | translate }}" 
+                matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
             </div>
         </td>
       </ng-container>

@@ -3,7 +3,8 @@
   <div fxLayout="row" fxLayoutAlign="start center">
     <div class="search-box" fxFlex="40%">
       <mat-form-field fxFlex="90%">
-        <input matInput placeholder="Filter by loan Id or error" (keyup)="applyFilter($event.target.value)">
+        <input matInput placeholder="{{'modulo.labels.filterbyloanid' | translate}}"
+        (keyup)="applyFilter($event.target.value)">
       </mat-form-field>
     </div>
     <div fxFlex="60%" *ngIf="allowRunInlineJob">
@@ -56,10 +57,10 @@
       <th mat-header-cell *matHeaderCellDef> 
         <span [translate]="'modulo.labels.details'">Details </span></th>
       <td mat-cell *matCellDef="let loan" class="view-details">
-        <button mat-icon-button class="error-log" matTooltip="Error details" (click)="showDetails(loan)" matTooltipPosition="left">
+        <button mat-icon-button class="error-log" matTooltip="{{'modulo.labels.errordetails' | translate}}" (click)="showDetails(loan)" matTooltipPosition="left">
           <fa-icon icon="exclamation-circle" size="lg"></fa-icon>
         </button>
-        <button mat-icon-button matTooltip="View Loan Account" (click)="viewLoanAccount(loan)" matTooltipPosition="right">
+        <button mat-icon-button matTooltip="{{'modulo.labels.viewloanaccount' | translate}}" (click)="viewLoanAccount(loan)" matTooltipPosition="right">
           <fa-icon icon="eye" size="lg"></fa-icon>
         </button>
       </td>

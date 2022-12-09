@@ -136,7 +136,8 @@
 
                     <div fxFlex="8%">
                       <div class="delete-wrapper">
-                        <button type="button" color="warn" mat-icon-button matTooltip="Delete" matTooltipPosition="above" (click)="removeResponse(getResponseDatas(questionIndex), responseIndex)" [disabled]="getResponseDatas(questionIndex).controls.length === 1">
+                        <button type="button" color="warn" mat-icon-button 
+                        matTooltip="{{'modulo.labels.delete' | translate}}" matTooltipPosition="above" (click)="removeResponse(getResponseDatas(questionIndex), responseIndex)" [disabled]="getResponseDatas(questionIndex).controls.length === 1">
                           <fa-icon icon="trash" size="lg"></fa-icon>
                         </button>
                       </div>

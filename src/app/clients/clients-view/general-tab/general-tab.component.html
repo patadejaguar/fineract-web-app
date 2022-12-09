@@ -151,26 +151,29 @@
     <ng-container matColumnDef="Actions">
       <th mat-header-cell class="center" *matHeaderCellDef> <span [translate]="'header.actions'"> Actions</span> </th>
       <td mat-cell class="center" *matCellDef="let element">
-        <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary" matTooltip="Make Repayment" matTooltipPosition="above"
+        <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary" matTooltip="{{'modulo.labels.makerepayment}}' | translate" matTooltipPosition="above"
         (click)="routeEdit($event)" [routerLink]="['../','loans-accounts', element.id, 'actions', 'Make Repayment']">
           <i class="fa fa-dollar"></i>
         </button>
         <span *ngIf="element.status.pendingApproval">
-          <button class="account-action-button" mat-raised-button color="primary" matTooltip="Approve"
+          <button class="account-action-button" mat-raised-button color="primary" 
+          matTooltip="{{'modulo.labels.approve' | translate}}"
             matTooltipPosition="above" *mifosxHasPermission="'APPROVE_LOAN'" (click)="routeEdit($event)"
             [routerLink]="['../','loans-accounts', element.id, 'actions', 'Approve']">
             <i class="fa fa-check"></i>
           </button>
         </span>
         <span *ngIf="!element.status.pendingApproval && !element.status.active && !element.status.overpaid">
-          <button class="account-action-button" mat-raised-button color="primary" matTooltip="Disburse"
+          <button class="account-action-button" mat-raised-button color="primary" 
+          matTooltip="{{'modulo.labels.disburse' | translate}}"
             matTooltipPosition="above" *mifosxHasPermission="'DISBURSE_LOAN'"
             (click)="routeEdit($event)" [routerLink]="['../','loans-accounts', element.id, 'actions', 'Disburse']">
             <i class="fa fa-flag"></i>
           </button>
         </span>
         <span *ngIf="!element.status.pendingApproval && !element.status.active && element.status.overpaid">
-        <button class="account-action-button" mat-raised-button color="primary" matTooltip="Transfer Funds"
+        <button class="account-action-button" mat-raised-button color="primary" 
+        matTooltip="{{'modulo.labels.transferfunds' | translate}}"
           matTooltipPosition="above" *mifosxHasPermission="'DISBURSE_LOAN'"
           (click)="routeEdit($event); routeTransferFund(element.id)">
           <i class="fa fa-exchange"></i>

@@ -51,61 +51,68 @@
       </div>
 
       <mat-nav-list>
-        <mat-list-item [routerLink]="['/dashboard']" matTooltip="Dashboard">
+        <mat-list-item [routerLink]="['/dashboard']" matTooltip="{{ 'modulo.labels.dashboard' | translate }}">
           <mat-icon matListIcon >
             <fa-icon icon="tachometer-alt" size="sm"></fa-icon>
           </mat-icon>
           <a matLine #dashboard>{{ 'labels.menus.Dashboard' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/navigation']" matTooltip="Navigation">
+        <mat-list-item [routerLink]="['/navigation']" matTooltip="{{'modulo.labels.navigation' | translate}}">
           <mat-icon matListIcon>
             <fa-icon icon="location-arrow" size="sm"></fa-icon>
           </mat-icon>
           <a matLine #navigation>{{ 'labels.menus.Navigation' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/checker-inbox-and-tasks/checker-inbox']" matTooltip="Checker Inbox and Tasks">
+        <mat-list-item [routerLink]="['/checker-inbox-and-tasks/checker-inbox']" 
+        matTooltip="{{'modulo.labels.checkerinboxtask' | translate}}">
           <mat-icon matListIcon>
             <i class="fa fa-check" ></i>
           </mat-icon>
           <a matLine>{{ 'labels.menus.Checker Inbox and Tasks' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/collections/individual-collection-sheet']" matTooltip="Individual Collection Sheet">
+        <mat-list-item [routerLink]="['/collections/individual-collection-sheet']" 
+        matTooltip="{{'modulo.labels.individualcollactionsheet' | translate}}">
           <mat-icon matListIcon>
             <i class="fa fa-tasks "></i>
           </mat-icon>
           <a matLine>{{ 'labels.menus.Individual Collection Sheet' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/notifications']" matTooltip="Notifications">
+        <mat-list-item [routerLink]="['/notifications']" 
+        matTooltip="{{'modulo.labels.notifications' | translate}}">
           <mat-icon matListIcon>
             <fa-icon icon="bell" size="sm"></fa-icon>
           </mat-icon>
           <a matLine>{{ 'labels.menus.Notifications' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/accounting/journal-entries/frequent-postings']" matTooltip="Frequent Postings">
+        <mat-list-item [routerLink]="['/accounting/journal-entries/frequent-postings']" 
+        matTooltip="{{'modulo.labels.frequentpostings' | translate}}">
           <mat-icon matListIcon>
             <fa-icon icon="sync" size="sm"></fa-icon>
           </mat-icon>
           <a matLine #frequentPostings>{{ 'labels.menus.Frequent Postings' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/accounting/journal-entries/create']" matTooltip="Create Journal Entry">
+        <mat-list-item [routerLink]="['/accounting/journal-entries/create']" 
+        matTooltip="{{'modulo.labels.createjournalentry' | translate}}">
           <mat-icon matListIcon>
             <fa-icon icon="plus" size="sm"></fa-icon>
           </mat-icon>
           <a matLine #createJournalEntry>{{ 'labels.menus.Create Journal Entry' | translate }}</a>
         </mat-list-item>
-        <mat-list-item [routerLink]="['/accounting/chart-of-accounts']" matTooltip="Chart Of Accounts">
+        <mat-list-item [routerLink]="['/accounting/chart-of-accounts']" 
+        matTooltip="{{'modulo.labels.chartaccounts' | translate}}">
           <mat-icon matListIcon>
             <fa-icon icon="sitemap" size="sm"></fa-icon>
           </mat-icon>
           <a matLine #chartOfAccounts>{{ 'labels.menus.Chart of Accounts' | translate }}</a>
         </mat-list-item>
-        <mat-list-item (click)="showKeyboardShortcuts()" matTooltip="Keyboard Shortcuts">
+        <mat-list-item (click)="showKeyboardShortcuts()" 
+        matTooltip="{{'modulo.labels.keyboardshortcuts' | translate}}">
           <mat-icon matListIcon>
             <fa-icon icon="keyboard" size="sm"></fa-icon>
           </mat-icon>
           <a matLine>{{ 'labels.menus.Keyboard Shortcuts' | translate }}</a>
         </mat-list-item>
-        <mat-list-item matTooltip="Help">
+        <mat-list-item matTooltip="{{'modulo.labels.help' | translate}}">
           <mat-icon matListIcon (click)="help()">
             <fa-icon icon="question-circle" size="sm"></fa-icon>
           </mat-icon>

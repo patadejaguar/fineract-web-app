@@ -1,7 +1,8 @@
 <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="2%">
 
   <mat-form-field [fxFlex]="flex || '83%'">
-    <input matInput [readonly]="true" [value]="fileName || ''" placeholder="No file selected">
+    <input matInput [readonly]="true" [value]="fileName || ''" 
+    placeholder="{{'modulo.labels.nofileselected' | translate}}">
   </mat-form-field>
 
   <span fxFlex="10%" fxFlexAlign="center">

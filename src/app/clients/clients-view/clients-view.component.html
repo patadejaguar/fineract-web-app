@@ -11,15 +11,15 @@
         </div>
         <div fxLayoutAlign="center center" class="m-b-5">
           <button class="client-image-button" mat-raised-button (click)="doAction('Upload Image')"
-            matTooltip="Upload Image" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
+            matTooltip="{{'modulo.labels.uploadimage' | translate}}" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
             <i class="fa fa-upload"></i>
           </button>
           <button class="client-image-button" mat-raised-button (click)="doAction('Capture Image')"
-            matTooltip="Capture Image" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
+            matTooltip="{{'modulo.labels.captureimage' | translate}}" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
             <i class="fa fa-camera"></i>
           </button>
           <button class="client-image-button" mat-raised-button (click)="doAction('Delete Image')"
-            matTooltip="Delete Image" *mifosxHasPermission="'DELETE_CLIENTIMAGE'">
+            matTooltip="{{'modulo.labels.deleteimage' | translate}}" *mifosxHasPermission="'DELETE_CLIENTIMAGE'">
             <i class="fa fa-trash"></i>
           </button>
           <br>

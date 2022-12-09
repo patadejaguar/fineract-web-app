@@ -64,9 +64,9 @@
               <span [translate]="'modulo.labels.isdifferentialq'"> Is Differential?</span> </th>
             <td mat-cell *matCellDef="let floatingRate">
               <fa-icon *ngIf="floatingRate.isDifferentialToBaseLendingRate" icon="check-circle" size="lg"
-                class="is-differential" matTooltip="Yes" matTooltipPosition="right"></fa-icon>
+                class="is-differential" matTooltip="{{'modulo.labels.yes' | translate}}" matTooltipPosition="right"></fa-icon>
               <fa-icon *ngIf="!floatingRate.isDifferentialToBaseLendingRate" icon="times-circle" size="lg"
-                class="not-is-differential" matTooltip="No" matTooltipPosition="right"></fa-icon>
+                class="not-is-differential" matTooltip="{{'modulo.labels.no' | translate}}" matTooltipPosition="right"></fa-icon>
             </td>
           </ng-container>
 

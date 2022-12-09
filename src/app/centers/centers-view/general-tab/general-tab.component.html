@@ -94,35 +94,35 @@
             <ng-container *ngIf="element.status.active">
               <button class="account-action-button" mat-raised-button color="primary" *ngIf="element.depositType.id == '100'"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Deposit']">
-                <i class="fa fa-arrow-right" matTooltip="Deposit"></i>
+                <i class="fa fa-arrow-right" matTooltip="{{'modulo.labels.deposit' | translate}}"></i>
               </button>
               <button class="account-action-button" mat-raised-button color="primary" *ngIf="element.depositType.id == '300'"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Deposit']">
-                <i class="fa fa-arrow-right" matTooltip="Deposit"></i>
+                <i class="fa fa-arrow-right" matTooltip="{{'modulo.labels.deposit' | translate}}"></i>
               </button>
               <button class="account-action-button" mat-raised-button color="primary" *ngIf="element.depositType.id == '100'"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Withdrawal']">
-                <i class="fa fa-arrow-left" matTooltip="Withdraw"></i>
+                <i class="fa fa-arrow-left" matTooltip="{{'modulo.labels.withdraw' | translate}}"></i>
               </button>
               <button class="account-action-button" mat-raised-button color="primary" *ngIf="element.depositType.id == '300'"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Withdrawal']">
-                <i class="fa fa-arrow-left" matTooltip="Withdraw"></i>
+                <i class="fa fa-arrow-left" matTooltip="{{'modulo.labels.withdraw' | translate}}"></i>
               </button>
             </ng-container>
             <ng-container *ngIf="element.status.submittedAndPendingApproval">
               <button class="account-action-button" mat-raised-button color="primary"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Approve']">
-                <i class="fa fa-check" matTooltip="Approve"></i>
+                <i class="fa fa-check" matTooltip="{{'modulo.labels.approve' | translate}}"></i>
               </button>
             </ng-container>
             <ng-container *ngIf="!element.status.submittedAndPendingApproval && !element.status.active">
               <button class="account-action-button" mat-raised-button color="primary"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Undo Approval']">
-                <i class="fa fa-undo" matTooltip="Undo Approve"></i>
+                <i class="fa fa-undo" matTooltip="{{'modulo.labels.undoapprove' | translate}}"></i>
               </button>
               <button class="account-action-button" mat-raised-button color="primary"
                 (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Activate']">
-                <i class="fa fa-power-off" matTooltip="Activate"></i>
+                <i class="fa fa-power-off" matTooltip="{{'modulo.labels.activate' | translate}}"></i>
               </button>
             </ng-container>
           </td>

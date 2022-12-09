@@ -43,6 +43,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DatePipe, LocationStrategy } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatPaginatorIntl } from "@angular/material/paginator";
+import { MatPaginationIntlService } from "./core/paginator-internatinalization/mat-pagination-intl-service";
 
 /**
  * App Module
@@ -89,7 +91,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     AppRoutingModule,
   ],
   declarations: [WebAppComponent, NotFoundComponent],
-  providers: [DatePipe],
+  providers: [DatePipe,{provide: MatPaginatorIntl,useClass: MatPaginationIntlService}],
   bootstrap: [WebAppComponent]
 })
 export class AppModule { }
