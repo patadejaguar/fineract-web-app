@@ -19,8 +19,8 @@
 
 <mat-dialog-actions>
     <button mat-raised-button color="warn" [mat-dialog-close]="{ nextStep: false }">
-        <span [translate]="'labels.buttons.close'">Close Config. Wizard</span></button>
+        <span [translate]="'modulo.configurationwizard.buttons.close'">Close Config. Wizard</span></button>
     <button mat-raised-button color="primary" [mat-dialog-close]="{ nextStep: true }"> 
-        <span [translate]="'labels.buttons.step'" [translateParams]="{ step: nextStepName }">
+        <span [translate]="'modulo.configurationwizard.buttons.step'" [translateParams]="{ step: nextStepName }">
             {{ nextStepName }} </span></button>
 </mat-dialog-actions>
