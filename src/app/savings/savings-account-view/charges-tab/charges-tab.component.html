@@ -6,7 +6,7 @@
     </div>
     <div class="action-button m-b-20" *ngIf="this.chargesData">
       <button mat-raised-button color="primary" (click)="toggleCharges()">
-        {{showInactiveCharges?'View Active Charges':'View Inactive Charges'}}</button>
+        {{(showInactiveCharges?'modulo.labels.viewactivecharges':'modulo.labels.viewinactivecharges')| translate}}</button>
     </div>
   </div>
 

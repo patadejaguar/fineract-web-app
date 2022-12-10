@@ -71,7 +71,8 @@
       </div>
       <div *ngIf="(loanAccounts|accountsFilter:'loan':'closed').length" class="action-button m-b-10">
         <button mat-raised-button class="f-right" color="primary"
-      (click)="toggleLoanAccountsOverview()">{{showClosedLoanAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+      (click)="toggleLoanAccountsOverview()">
+      {{(showClosedLoanAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
 
@@ -293,7 +294,8 @@
       </div>
       <div class="action-button m-b-10">
         <button *ngIf="(savingAccounts|accountsFilter:'saving':'closed').length" mat-raised-button class="f-right" color="primary"
-        (click)="toggleSavingAccountsOverview()">{{showClosedSavingAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+        (click)="toggleSavingAccountsOverview()">
+        {{(showClosedSavingAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
 

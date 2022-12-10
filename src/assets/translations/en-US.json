@@ -208,7 +208,8 @@
       "ActivateSelfServiceUser":"Activate Self Service User",
       "Deactivate":"Deactivate",
       "Browse":"Browse",
-      "ViewJournalEntries":"View Journal Entries"
+      "ViewJournalEntries":"View Journal Entries",
+      "ChargesOverview":"Charges Overview"
     },
     "commons": {
       "is required": "is required"
@@ -1564,6 +1565,12 @@
   "modulo.labels.incomes": "Incomes",
   "modulo.labels.schedulerjobs": "Scheduler Jobs",
   "modulo.labels.workflowjobs": "Workflow Jobs",
+  "modulo.labels.viewactiveaccounts":"View Active Accounts",
+  "modulo.labels.viewclosedaccounts":"View Closed Accounts",
+  "modulo.labels.hidedeletedguarantors":"Hide Deleted Guarantors",
+  "modulo.labels.showdeletedguarantors":"Show Deleted Guarantors",
+  "modulo.labels.viewactivecharges": "View Active Charges",
+  "modulo.labels.viewinactivecharges": "View Inactive Charges",
   "modulo.configurationwizard.buttons.account": "Setup Accounting",
 	"modulo.configurationwizard.buttons.close": "Close Config. Wizard",
 	"modulo.configurationwizard.buttons.funds": "Setup Funds and Reports",

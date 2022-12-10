@@ -40,7 +40,8 @@
         <mat-card-subtitle>
           <p>
             <span [translate]="'modulo.labels.client'">Client </span>#:{{clientViewData.accountNo}} | 
-            <span [translate]="'modulo.labels.externalid'">External Id</span>: {{clientViewData.externalId}} | Staff:{{clientViewData.staffName || 'Unassigned'}}<br />
+            <span [translate]="'modulo.labels.externalid'">External Id</span>: {{clientViewData.externalId}} | 
+            <span [translate]="'modulo.labels.staff'">Staff</span>:{{clientViewData.staffName || 'Unassigned'}}<br />
             <span [translate]="'modulo.labels.activationdate'">Activation Date</span> :
             {{(clientViewData.activation)?(clientViewData.activationDate | dateFormat) :'Not Activated'}}<br />
             <span [translate]="'modulo.labels.memberof'">Member Of </span>:
