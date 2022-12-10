@@ -98,7 +98,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.transferinterestsavingsq'">Transfer Interest to Savings Account?</span></span>
-    <span fxFlex="60%">{{ fixedDepositAccountData.transferInterestToSavings ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (fixedDepositAccountData.transferInterestToSavings ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="fixedDepositAccountData.transferInterestToSavings">

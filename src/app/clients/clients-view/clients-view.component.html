@@ -47,7 +47,7 @@
 
         <mat-card-subtitle>
           <p>
-            <b>Office :</b> {{clientViewData.officeName}}<br />
+            <b> <span [translate]="'modulo.labels.office'">Office </span> :</b> {{clientViewData.officeName}}<br />
             <b><span [translate]="'modulo.labels.client'">Client </span> :</b> {{clientViewData.accountNo}}<br />
             <b><span [translate]="'modulo.labels.externalid'">External Id </span>:</b> {{clientViewData.externalId}}<br />
             <span *ngIf="clientViewData.staffName"><b><span [translate]="'modulo.labels.staff'">Staff </span> :</b> {{clientViewData.staffName ||

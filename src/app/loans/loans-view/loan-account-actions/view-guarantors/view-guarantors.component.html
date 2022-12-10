@@ -79,7 +79,8 @@
         <div fxLayout="column" fxFlex="50%">
           <div fxLayout="row" fxLayoutAlign="flex-end">
             <button mat-raised-button class="f-right" color="primary"
-              (click)="toggleGuarantorsDetailsOverview()">{{showDeletedGuarantorsAccounts?'Hide Deleted Guarantors':'Show Deleted Guarantors'}}</button>
+              (click)="toggleGuarantorsDetailsOverview()">
+              {{(showDeletedGuarantorsAccounts?'modulo.labels.hidedeletedguarantors':'modulo.labels.showdeletedguarantors') | translate}}</button>
           </div>
         </div>
       </div>

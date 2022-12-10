@@ -32,8 +32,8 @@
     </div>
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
-        <button mat-raised-button class="f-right" color="primary" [routerLink]="['../', 'charges', 'overview']" *mifosxHasPermission="'READ_CLIENTCHARGE'">Charges
-          <span [translate]="'labels.buttons.Overview'">Overview</span></button>
+        <button mat-raised-button class="f-right" color="primary" [routerLink]="['../', 'charges', 'overview']" *mifosxHasPermission="'READ_CLIENTCHARGE'">
+          <span [translate]="'labels.buttons.ChargesOverview'">Charges Overview</span></button>
       </div>
     </div>
   </div>
@@ -104,7 +104,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleLoanAccountsOverview()">{{showClosedLoanAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleLoanAccountsOverview()">
+          {{(showClosedLoanAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -251,7 +252,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleSavingAccountsOverview()">{{showClosedSavingAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleSavingAccountsOverview()">
+          {{(showClosedSavingAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -355,7 +357,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleFixedAccountsOverview()">{{showClosedFixedAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleFixedAccountsOverview()">
+          {{(showClosedFixedAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -453,7 +456,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleRecurringAccountsOverview()">{{showClosedRecurringAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleRecurringAccountsOverview()">
+          {{(showClosedRecurringAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -554,7 +558,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleShareAccountsOverview()">{{showClosedSavingAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleShareAccountsOverview()">
+          {{(showClosedSavingAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>

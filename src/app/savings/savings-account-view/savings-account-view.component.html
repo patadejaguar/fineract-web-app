@@ -164,7 +164,7 @@
             <tr *ngIf="savingsAccountData.daysToEscheat">
               <td><span [translate]="'modulo.labels.daystoescheat'">Days to Escheat</span></td>
               <td>{{savingsAccountData.daysToEscheat}}</td>
-            </tr>
+            </tr> 
             <tr *ngIf="savingsAccountData.annualFee">
               <td><span [translate]="'modulo.labels.annualfee'">Annual Fee</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.annualFee.amount | number}}
