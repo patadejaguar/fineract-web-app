@@ -47,7 +47,7 @@
           <th mat-header-cell *matHeaderCellDef>
             <span [translate]="'modulo.labels.status'"> Status</span> </th>
           <td mat-cell *matCellDef="let identity">
-              {{(identity.status==='clientIdentifierStatusType.active')?'active':'inactive'}}
+              {{((identity.status==='clientIdentifierStatusType.active')?'modulo.labels.active':'modulo.labels.inactive') | translate}}
           </td>
         </ng-container>
 

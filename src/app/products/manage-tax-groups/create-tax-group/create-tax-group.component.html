@@ -45,11 +45,11 @@
                 <span [translate]="'header.actions'"> Actions</span> </th>
               <td mat-cell *matCellDef="let taxComponent; let taxComponentIndex = index">
                 <button type="button" mat-icon-button color="primary" (click)="editTaxGroup(taxComponent, taxComponentIndex)"
-                  matTooltip="Edit" matTooltipPosition="left">
+                  matTooltip="{{'modulo.labels.edit' | translate}}" matTooltipPosition="left">
                   <fa-icon icon="edit"></fa-icon>
                 </button>
                 <button type="button" mat-icon-button color="warn"
-                  (click)="delete(taxComponentIndex)" matTooltip="Delete"
+                  (click)="delete(taxComponentIndex)" matTooltip="{{'modulo.labels.delete' | translate}}"
                   matTooltipPosition="left">
                   <fa-icon icon="trash"></fa-icon>
                 </button>

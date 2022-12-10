@@ -6,7 +6,8 @@
         <h2>
           {{ employeeData.displayName }} 
           <span [className]="employeeData.isActive === true ? 'true' : 'false'">
-            <fa-icon matTooltip="{{ employeeData.isActive === true ? 'Active' : 'Inactive' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
+            <fa-icon matTooltip="{{ (employeeData.isActive === true ? 'modulo.labels.active' : 'modulo.labels.inactive') | translate }}" 
+            matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
           </span>        
         </h2>
       </mat-card-title>

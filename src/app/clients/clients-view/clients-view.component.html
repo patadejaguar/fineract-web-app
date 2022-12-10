@@ -10,13 +10,16 @@
             [src]="(clientImage)?clientImage:'assets/images/user_placeholder.png'">
         </div>
         <div fxLayoutAlign="center center" class="m-b-5">
-          <button class="client-image-button" mat-raised-button (click)="doAction('Upload Image')" matTooltip="Upload Image" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
+          <button class="client-image-button" mat-raised-button (click)="doAction('Upload Image')" 
+          matTooltip="{{'modulo.labels.uploadimage' | translate}}" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
             <i class="fa fa-upload"></i>
           </button>
-          <button class="client-image-button" mat-raised-button (click)="doAction('Capture Image')" matTooltip="Capture Image" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
+          <button class="client-image-button" mat-raised-button (click)="doAction('Capture Image')" 
+          matTooltip="{{'modulo.labels.captureimage' | translate}}" *mifosxHasPermission="'CREATE_CLIENTIMAGE'">
             <i class="fa fa-camera"></i>
           </button>
-          <button class="client-image-button" mat-raised-button (click)="doAction('Delete Image')" matTooltip="Delete Image" *mifosxHasPermission="'DELETE_CLIENTIMAGE'">
+          <button class="client-image-button" mat-raised-button (click)="doAction('Delete Image')" 
+          matTooltip="{{'modulo.labels.deleteimage' | translate}}" *mifosxHasPermission="'DELETE_CLIENTIMAGE'">
             <i class="fa fa-trash"></i>
           </button>
           <br>
@@ -36,8 +39,9 @@
 
         <mat-card-subtitle>
           <p>
-            <span [translate]="'modulo.labels.client'">Client </span>#:{{clientViewData.accountNo}} | External
-            <span [translate]="'modulo.labels.id'">Id</span>: {{clientViewData.externalId}} | Staff:{{clientViewData.staffName || 'Unassigned'}}<br />
+            <span [translate]="'modulo.labels.client'">Client </span>#:{{clientViewData.accountNo}} | 
+            <span [translate]="'modulo.labels.externalid'">External Id</span>: {{clientViewData.externalId}} | 
+            <span [translate]="'modulo.labels.staff'">Staff</span>:{{clientViewData.staffName || 'Unassigned'}}<br />
             <span [translate]="'modulo.labels.activationdate'">Activation Date</span> :
             {{(clientViewData.activation)?(clientViewData.activationDate | dateFormat) :'Not Activated'}}<br />
             <span [translate]="'modulo.labels.memberof'">Member Of </span>:

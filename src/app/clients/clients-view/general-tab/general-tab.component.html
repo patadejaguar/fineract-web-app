@@ -22,8 +22,8 @@
     </div>
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
-        <button mat-raised-button class="f-right" color="primary" [routerLink]="['../', 'charges', 'overview']" *mifosxHasPermission="'READ_CLIENTCHARGE'">Charges
-          <span [translate]="'labels.buttons.Overview'">Overview</span></button>
+        <button mat-raised-button class="f-right" color="primary" [routerLink]="['../', 'charges', 'overview']" *mifosxHasPermission="'READ_CLIENTCHARGE'">
+          <span [translate]="'labels.buttons.ChargesOverview'">Charges Overview</span></button>
       </div>
     </div>
   </div>
@@ -99,7 +99,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleLoanAccountsOverview()">{{showClosedLoanAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleLoanAccountsOverview()">
+          {{(showClosedLoanAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -141,7 +142,8 @@
     <ng-container matColumnDef="Type">
       <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.type'"> Type</span> </th>
       <td mat-cell *matCellDef="let element">
-        <i class="fa fa-large" [ngClass]="(element.loanType.value=== 'Individual')?'fa-user':'fa-group'" matTooltip=" {{ element.loanType.value }}" matTooltipPosition="above"></i>
+        <i class="fa fa-large" [ngClass]="(element.loanType.value=== 'Individual')?'fa-user':'fa-group'" 
+        matTooltip=" {{ element.loanType.value }}" matTooltipPosition="above"></i>
       </td>
     </ng-container>
 
@@ -149,26 +151,30 @@
       <th mat-header-cell *matHeaderCellDef>
         <span [translate]="'header.actions'"> Actions</span> </th>
       <td mat-cell *matCellDef="let element">
-        <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary" matTooltip="Make Repayment" matTooltipPosition="above"
+        <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary" 
+        matTooltip="{{'modulo.labels.makerepayment}}' | translate" matTooltipPosition="above"
         (click)="routeEdit($event)" [routerLink]="['../','loans-accounts', element.id, 'actions', 'Make Repayment']">
           <i class="fa fa-dollar"></i>
         </button>
         <span *ngIf="element.status.pendingApproval">
-          <button class="account-action-button" mat-raised-button color="primary" matTooltip="Approve"
+          <button class="account-action-button" mat-raised-button color="primary" 
+          matTooltip="{{'modulo.labels.approve' | translate}}"
             matTooltipPosition="above" *mifosxHasPermission="'APPROVE_LOAN'" (click)="routeEdit($event)"
             [routerLink]="['../','loans-accounts', element.id, 'actions', 'Approve']">
             <i class="fa fa-check"></i>
           </button>
         </span>
         <span *ngIf="!element.status.pendingApproval && !element.status.active && !element.status.overpaid">
-          <button class="account-action-button" mat-raised-button color="primary" matTooltip="Disburse"
+          <button class="account-action-button" mat-raised-button color="primary" 
+          matTooltip="{{'modulo.labels.disburse' | translate}}"
             matTooltipPosition="above" *mifosxHasPermission="'DISBURSE_LOAN'"
             (click)="routeEdit($event)" [routerLink]="['../','loans-accounts', element.id, 'actions', 'Disburse']">
             <i class="fa fa-flag"></i>
           </button>
         </span>
         <span *ngIf="!element.status.pendingApproval && !element.status.active && element.status.overpaid">
-        <button class="account-action-button" mat-raised-button color="primary" matTooltip="Transfer Funds"
+        <button class="account-action-button" mat-raised-button color="primary" 
+        matTooltip="{{'modulo.labels.transferfunds' | translate}}"
           matTooltipPosition="above" *mifosxHasPermission="'DISBURSE_LOAN'"
           (click)="routeEdit($event); routeTransferFund(element.id)">
           <i class="fa fa-exchange"></i>
@@ -223,7 +229,8 @@
       <th mat-header-cell *matHeaderCellDef>
         <span [translate]="'modulo.labels.type'"> Type</span> </th>
       <td mat-cell *matCellDef="let element">
-        <i class="fa fa-large" [ngClass]="(element.loanType.value === 'Individual')?'fa-user':'fa-group'" matTooltip=" {{ element.loanType.value }}" matTooltipPosition="above"></i>
+        <i class="fa fa-large" [ngClass]="(element.loanType.value === 'Individual')?'fa-user':'fa-group'" 
+        matTooltip=" {{ element.loanType.value }}" matTooltipPosition="above"></i>
       </td>
     </ng-container>
 
@@ -249,7 +256,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleSavingAccountsOverview()">{{showClosedSavingAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleSavingAccountsOverview()">
+          {{(showClosedSavingAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -355,7 +363,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleFixedAccountsOverview()">{{showClosedFixedAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleFixedAccountsOverview()">
+          {{(showClosedFixedAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -455,7 +464,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleRecurringAccountsOverview()">{{showClosedRecurringAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleRecurringAccountsOverview()">
+          {{(showClosedRecurringAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>
@@ -558,7 +568,8 @@
     <div fxLayout="column" fxFlex="50%">
       <div fxLayout="row" fxLayoutAlign="flex-end">
         <button mat-raised-button class="f-right" color="primary"
-          (click)="toggleShareAccountsOverview()">{{showClosedSavingAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+          (click)="toggleShareAccountsOverview()">
+          {{(showClosedSavingAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
   </div>

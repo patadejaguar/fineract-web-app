@@ -1,10 +1,12 @@
 <mat-toolbar fxLayout="row" color="primary" id="mifosx-toolbar">
 
-  <button mat-icon-button *ngIf="!sidenavCollapsed" (click)="toggleSidenav()" matTooltip="Toggle Hide/Open">
+  <button mat-icon-button *ngIf="!sidenavCollapsed" (click)="toggleSidenav()" 
+  matTooltip="{{'modulo.labels.togglehideopen' | translate}}">
     <fa-icon icon="bars" size="lg"></fa-icon>
   </button>
 
-  <button mat-icon-button *ngIf="sidenav.opened" (click)="toggleSidenavCollapse()" matTooltip="Toggle Collapse" fxHide.lt-md="true">
+  <button mat-icon-button *ngIf="sidenav.opened" (click)="toggleSidenavCollapse()" 
+  matTooltip="{{'modulo.labels.togglecollapse' | translate}}" fxHide.lt-md="true">
     <fa-icon *ngIf="!sidenavCollapsed" icon="chevron-left"></fa-icon>
     <fa-icon *ngIf="sidenavCollapsed" icon="chevron-right"></fa-icon>
   </button>

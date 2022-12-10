@@ -71,13 +71,15 @@
               <button mat-button *ngIf="codeValueRowStatus[i] === 'edit'" (click)="disableRow(i)">
                 <span [translate]="'labels.buttons.Cancel'">Cancel</span>
               </button>
-              <button mat-icon-button color="primary" [disabled]="!codeValuesForm.get('codeValues').at(i).valid" *ngIf="codeValueRowStatus[i] === 'new'" matTooltip="Add" matTooltipPosition="above" (click)="addCodeValue(i)">
+              <button mat-icon-button color="primary" [disabled]="!codeValuesForm.get('codeValues').at(i).valid" *ngIf="codeValueRowStatus[i] === 'new'" 
+              matTooltip="{{'modulo.labels.add' | translate}}" matTooltipPosition="above" (click)="addCodeValue(i)">
                 <fa-icon icon="plus" size="lg"></fa-icon>
               </button>
-              <button type="button" color="primary" *ngIf="codeValueRowStatus[i] === 'disabled'" mat-icon-button matTooltip="Edit" matTooltipPosition="above" (click)="enableRow(i)">
+              <button type="button" color="primary" *ngIf="codeValueRowStatus[i] === 'disabled'" mat-icon-button 
+              matTooltip="{{'modulo.labels.edit' | translate}}" matTooltipPosition="above" (click)="enableRow(i)">
                 <fa-icon icon="edit" size="lg"></fa-icon>
               </button>
-              <button type="button" color="warn" mat-icon-button matTooltip="Delete" *mifosxHasPermission="'DELETE_CODEVALUE'" matTooltipPosition="above" (click)="codeValueRowStatus[i] === 'new' ? removeNewCodeValue(i) : deleteCodeValue(i)">
+              <button type="button" color="warn" mat-icon-button matTooltip="{{'modulo.labels.delete' | translate}}" *mifosxHasPermission="'DELETE_CODEVALUE'" matTooltipPosition="above" (click)="codeValueRowStatus[i] === 'new' ? removeNewCodeValue(i) : deleteCodeValue(i)">
                 <fa-icon icon="trash" size="lg"></fa-icon>
               </button>
             </div>

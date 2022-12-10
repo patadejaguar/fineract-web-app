@@ -7,7 +7,7 @@
       <div class="profile-image-container">
         <div>
           <img mat-card-md-image class="profile-image"
-            matTooltip="Shares Account"
+            matTooltip="{{'modulo.labels.sharesaccount' | translate}}"
             src="assets/images/shares_account_placeholder.png">
         </div>
       </div>
@@ -15,7 +15,8 @@
       <div class="mat-typography account-card-title">
         <mat-card-title>
           <h3>
-            <i class="fa fa-stop" [ngClass]="sharesAccountData.status.code | statusLookup" [matTooltip]="sharesAccountData.status.value"></i>
+            <i class="fa fa-stop" [ngClass]="sharesAccountData.status.code | statusLookup" 
+            [matTooltip]="sharesAccountData.status.value"></i>
               <span [translate]="'modulo.labels.accountname'">Account Name</span> : {{sharesAccountData.productName}}
           </h3>
         </mat-card-title>

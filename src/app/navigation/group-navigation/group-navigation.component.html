@@ -21,7 +21,7 @@
 
 <mat-card-content>
     <mat-tab-group>
-      <mat-tab label="Details">
+      <mat-tab label="{{'modulo.labels.details' | translate}}">
         <div fxLayout="row wrap" class="content">
 
           <div fxFlex="50%" class="mat-body-strong">
@@ -75,11 +75,11 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Loan Accounts" *ngIf="groupAccountsData && groupAccountsData.loanAccounts">
+      <mat-tab label="{{'modulo.labels.loanaccounts' | translate}}" *ngIf="groupAccountsData && groupAccountsData.loanAccounts">
         <mifosx-loan-account-table [loanAccountData]="groupAccountsData.loanAccounts"></mifosx-loan-account-table>
       </mat-tab>
 
-      <mat-tab label="Savings Accounts" *ngIf="groupAccountsData && groupAccountsData.savingsAccounts">
+      <mat-tab label="{{'modulo.labels.savingsaccounts' | translate}}" *ngIf="groupAccountsData && groupAccountsData.savingsAccounts">
         <mifosx-savings-account-table [savingsAccountData]="groupAccountsData.savingsAccounts"></mifosx-savings-account-table>
       </mat-tab>
 

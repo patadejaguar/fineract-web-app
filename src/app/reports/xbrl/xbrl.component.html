@@ -7,10 +7,10 @@
   <div *ngIf="!XBRLSuccess">
 
       <mat-tab-group (selectedTabChange)="filterTaxonomiesBy($event.index)">
-         <mat-tab label="Portfolio"></mat-tab>
-         <mat-tab label="BalanceSheet"></mat-tab>
-         <mat-tab label="Incomes"></mat-tab>
-         <mat-tab label="Expenses"></mat-tab>
+         <mat-tab label="{{'modulo.labels.portfolio' | translate}}"></mat-tab>
+         <mat-tab label="{{'modulo.labels.balancesheet' | translate}}"></mat-tab>
+         <mat-tab label="{{'modulo.labels.incomes' | translate}}"></mat-tab>
+         <mat-tab label="{{'modulo.labels.expenses' | translate}}"></mat-tab>
       </mat-tab-group>
 
       <table mat-table [dataSource]="dataSource">
