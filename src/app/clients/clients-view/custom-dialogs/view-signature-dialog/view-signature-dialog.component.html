@@ -9,8 +9,8 @@
 </div>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Close</span></button>
+  <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Close'">Close</span></button>
   <button mat-raised-button *ngIf="signatureId" color="warn" [mat-dialog-close]="{ delete: true }">
-    <span [translate]="'labels.buttons.Cancel'">Delete</span></button>
+    <span [translate]="'labels.buttons.Delete'">Delete</span></button>
   <button mat-raised-button color="primary" [mat-dialog-close]="{ upload: true }">{{ signatureId ? 'Reupload' : 'Upload'}}</button>
 </mat-dialog-actions>
