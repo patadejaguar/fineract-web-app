@@ -9,26 +9,29 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>S3 Access Key</mat-label>
+            <mat-label><span [translate]="'modulo.labels.s3accesskey'">S3 Access Key</span></mat-label>
             <input matInput required formControlName="s3_access_key">
             <mat-error *ngIf="amazonS3ConfigurationForm.controls.s3_access_key.hasError('required')">
-              S3 Access Key is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.s3accesskeyrequired' | translate">
+                S3 Access Key is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>S3 Bucket Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.s3bucketname'">S3 Bucket Name</span></mat-label>
             <input matInput required formControlName="s3_bucket_name">
             <mat-error *ngIf="amazonS3ConfigurationForm.controls.s3_bucket_name.hasError('required')">
-              S3 Bucket Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.s3bucketnamerequired' | translate">
+                S3 Bucket Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>S3 Secret Key</mat-label>
+            <mat-label><span [translate]="'modulo.labels.s3secretkey'">S3 Secret Key</span></mat-label>
             <input matInput required formControlName="s3_secret_key">
             <mat-error *ngIf="amazonS3ConfigurationForm.controls.s3_secret_key.hasError('required')">
-              S3 Secret Key is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.s3secretkeyrequired' | translate">
+                S3 Secret Key is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -37,8 +40,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!amazonS3ConfigurationForm.valid || amazonS3ConfigurationForm.pristine">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!amazonS3ConfigurationForm.valid || amazonS3ConfigurationForm.pristine">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

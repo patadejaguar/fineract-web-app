@@ -4,7 +4,7 @@
 
     <mat-card fxLayout="column" fxLayoutGap="2%" fxFlex="50%">
 
-      <h3><strong>{{bulkImport.name}} Template</strong></h3>
+      <h3><strong>{{bulkImport.name}} <span [translate]="'modulo.labels.template'">Template</span></strong></h3>
   
       <form [formGroup]="bulkImportForm">
   
@@ -12,7 +12,7 @@
   
           <div *ngIf="bulkImport.formFields >= 1">
             <mat-form-field fxFlex>
-              <mat-label>Office</mat-label>
+              <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
               <mat-select required formControlName="officeId">
                 <mat-option *ngFor="let office of officeData" [value]="office.id">
                 {{ office.name }}
@@ -23,7 +23,7 @@
   
           <div *ngIf="bulkImport.formFields >= 2">
             <mat-form-field fxFlex>
-              <mat-label>Staff</mat-label>
+              <mat-label><span [translate]="'modulo.labels.staff'">Staff</span></mat-label>
               <mat-select required formControlName="staffId">
                 <mat-option *ngFor="let staff of staffData" [value]="staff.id">
                 {{ staff.displayName }}
@@ -34,10 +34,10 @@
   
           <div *ngIf="bulkImport.formFields === 3">
             <mat-form-field fxFlex>
-              <mat-label>Legal Form</mat-label>
+              <mat-label><span [translate]="'modulo.labels.legalform'">Legal Form</span></mat-label>
               <mat-select required formControlName="legalForm">
-                <mat-option value="Entity">Entity</mat-option>
-                <mat-option value="Person">Person</mat-option>
+                <mat-option value="Entity"><span [translate]="'modulo.labels.entity'">Entity</span></mat-option>
+                <mat-option value="Person"><span [translate]="'modulo.labels.person'">Person</span></mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -48,7 +48,8 @@
       
       <div fxFlex="13%">
         <button mat-raised-button color="primary" (click)="downloadTemplate()" *mifosxHasPermission="bulkImport.permission">
-          <i class="fa fa-download"></i>&nbsp;&nbsp;Download
+          <i class="fa fa-download"></i>&nbsp;&nbsp;
+          <span [translate]="'labels.buttons.Download'">Download</span>
         </button>
       </div>
   
@@ -58,15 +59,20 @@
   
       <h3><strong>{{bulkImport.name}}</strong></h3>
 
-      <h4>Select Excel File</h4>
+      <h4><span [translate]="'modulo.labels.selectexcelfile'">Select Excel File</span></h4>
 
       <mifosx-file-upload  flex="75%" (change)="onFileSelect($event)"></mifosx-file-upload>
 
-      <mat-hint *ngIf="bulkImport.name === 'Clients'">Please retain the value Entity/Person in the filename.</mat-hint>
+      <mat-hint *ngIf="bulkImport.name === 'Clients'">
+        <span [translate]="'modulo.labels.pleaseretainentityperson'">
+          Please retain the value Entity/Person in the filename.
+          </span>
+        </mat-hint>
 
       <div fxFlex="13%">
         <button mat-raised-button color="primary" [disabled]="!template" (click)="uploadTemplate()">
-          <i class="fa fa-upload"></i>&nbsp;&nbsp;Upload
+          <i class="fa fa-upload"></i>&nbsp;&nbsp;
+          <span [translate]="'labels.buttons.Upload'">Upload</span>
         </button>
       </div>
 
@@ -79,12 +85,13 @@
   <mat-card>
 
     <div>
-      <h3 class="documents"><strong>Documents</strong></h3>
+      <h3 class="documents"><strong><span [translate]="'modulo.labels.documents'">Documents</span></strong></h3>
     </div>
 
     <div class="m-b-10" fxLayoutAlign="end">
       <button  mat-raised-button color="primary" (click)="refreshDocuments()">
-        <i class="fa fa-repeat"></i>&nbsp;&nbsp;Refresh
+        <i class="fa fa-repeat"></i>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Refresh'">Refresh</span>
       </button>
     </div>
 
@@ -93,42 +100,50 @@
       <table #importsTable mat-table [dataSource]="dataSource" matSort>
 
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span [translate]="'modulo.labels.name'"> Name</span> </th>
           <td mat-cell *matCellDef="let import"> {{ import.name }} </td>
         </ng-container>
 
         <ng-container matColumnDef="importTime">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Import Time </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+            <span [translate]="'modulo.labels.importtime'">Import Time</span> </th>
           <td mat-cell *matCellDef="let import"> {{ import.importTime  | dateFormat }} </td>
         </ng-container>
 
         <ng-container matColumnDef="endTime">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> End Time </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span [translate]="'modulo.labels.endtime'"> End Time </span></th>
           <td mat-cell *matCellDef="let import"> {{ import.endTime  | dateFormat }} </td>
         </ng-container>
 
         <ng-container matColumnDef="completed">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Completed </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span [translate]="'modulo.labels.completed'"> Completed</span> </th>
           <td mat-cell *matCellDef="let import"> {{ import.completed }} </td>
         </ng-container>
 
         <ng-container matColumnDef="totalRecords">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Records </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span [translate]="'modulo.labels.totalrecords'"> Total Records</span> </th>
           <td mat-cell *matCellDef="let import"> {{ import.totalRecords }} </td>
         </ng-container>
 
         <ng-container matColumnDef="successCount">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Success Count </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+            <span [translate]="'modulo.labels.successcount'">Success Count</span> </th>
           <td mat-cell *matCellDef="let import"> {{ import.successCount }} </td>
         </ng-container>
 
         <ng-container matColumnDef="failureCount">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Failure Count </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span [translate]="'modulo.labels.failurecount'"> Failure Count</span> </th>
           <td mat-cell *matCellDef="let import"> {{ import.failureCount }} </td>
         </ng-container>
 
         <ng-container matColumnDef="download">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Download </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <span [translate]="'modulo.labels.download'"> Download</span> </th>
           <td mat-cell *matCellDef="let import">
             <button mat-icon-button (click)="downloadDocument(import.name, import.importId)" *mifosxHasPermission="'READ_DOCUMENT'">
               <fa-icon icon="cloud-download-alt"></fa-icon>

@@ -9,47 +9,52 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="editAdhocQueryForm.controls.name.hasError('required')">
-              Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.namerequired' | translate">
+                Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>SQL Query</mat-label>
+            <mat-label><span [translate]="'modulo.labels.sqlquery'">SQL Query</span></mat-label>
             <textarea matInput required formControlName="query"></textarea>
             <mat-error *ngIf="editAdhocQueryForm.controls.query.hasError('required')">
-              SQL Query is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.sqlqueryrequired' | translate">
+                SQL Query is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Insert into table</mat-label>
+            <mat-label><span [translate]="'modulo.labels.insertintotable'">Insert into table</span></mat-label>
             <input matInput required formControlName="tableName">
             <mat-error *ngIf="editAdhocQueryForm.controls.tableName.hasError('required')">
-              Insert into table is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.insertintotablerequired' | translate">
+                Insert into table is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Table Fields</mat-label>
+            <mat-label><span [translate]="'modulo.labels.tablefields'">Table Fields</span></mat-label>
             <textarea matInput required formControlName="tableFields"></textarea>
             <mat-error *ngIf="editAdhocQueryForm.controls.tableFields.hasError('required')">
-              Table Fields are <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.tablefieldsrequired' | translate">
+                Table Fields are <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Email</mat-label>
+            <mat-label><span [translate]="'modulo.labels.email'">Email</span></mat-label>
             <input matInput formControlName="email">
             <mat-error *ngIf="editAdhocQueryForm.controls.email.hasError('email')">
-              Email is <strong>invalid</strong>
+             <span [innerHTML]="'modulo.validations.emailrequired' | translate">
+               Email is <strong>invalid</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Report Run Frequency</mat-label>
+            <mat-label><span [translate]="'modulo.labels.reportrunfrequency'">Report Run Frequency</span></mat-label>
             <mat-select formControlName="reportRunFrequency">
               <mat-option *ngFor="let reportRunFrequency of reportRunFrequencyData" [value]="reportRunFrequency.id">
                 {{ reportRunFrequency.value }}
@@ -58,18 +63,21 @@
           </mat-form-field>
 
           <mat-form-field *ngIf="editAdhocQueryForm.controls.reportRunFrequency.value === 5">
-            <mat-label>Custom Report Run Frequency (Days)</mat-label>
+            <mat-label>
+              <span [translate]="'modulo.labels.customreportrunfrequency'">Custom Report Run Frequency (Days)</span></mat-label>
             <input type="number" matInput required formControlName="reportRunEvery">
             <mat-error *ngIf="editAdhocQueryForm.controls.reportRunEvery.hasError('required')">
-              Custom Report Run Frequency is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.customreportrunfrequencyrequired' | translate">
+                Custom Report Run Frequency is <strong>required</strong></span>
             </mat-error>
             <mat-error *ngIf="editAdhocQueryForm.controls.reportRunEvery.hasError('min')">
-              Custom Report Run Frequency <strong>must be larger than 0</strong>
+              <span [innerHTML]="'modulo.validations.customreportlargethan' | translate">
+                Custom Report Run Frequency <strong>must be larger than 0</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-checkbox labelPosition="before" formControlName="isActive">
-            Active
+            <span [translate]="'modulo.labels.active'">Active</span>
           </mat-checkbox>
 
         </div>
@@ -77,8 +85,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!editAdhocQueryForm.valid" *mifosxHasPermission="'UPDATE_ADHOC'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!editAdhocQueryForm.valid" *mifosxHasPermission="'UPDATE_ADHOC'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

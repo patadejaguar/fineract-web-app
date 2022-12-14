@@ -9,7 +9,8 @@
         <div #workingDaysFormRef fxLayout="column">
 
           <div fxLayout="row" fxLayout.lt-md="column">
-            <mat-label fxFlex="50%" class="mat-h4">Working Days</mat-label>
+            <mat-label fxFlex="50%" class="mat-h4">
+              <span [translate]="'modulo.labels.workingdays'">Working Days</span></mat-label>
             <div fxFlex="50%" fxLayout="column" formArrayName="recurrence">
               <div *ngFor="let day of recurrence.controls; let i = index;">
                 <mat-checkbox labelPosition="after" [formControlName]="i">
@@ -20,7 +21,7 @@
           </div>
 
           <mat-form-field>
-            <mat-label>Payments due on non working days</mat-label>
+            <mat-label><span [translate]="'modulo.labels.paymentduenon'">Payments due on non working days</span></mat-label>
             <mat-select formControlName="repaymentRescheduleType">
               <mat-option *ngFor="let repaymentRescheduleType of repaymentRescheduleTypeData" [value]="repaymentRescheduleType.id">
                 {{ repaymentRescheduleType.value }}
@@ -29,7 +30,8 @@
           </mat-form-field>
 
           <mat-checkbox labelPosition="before" formControlName="extendTermForDailyRepayments">
-            Extend the term for loans following a daily repayment schedule
+            <span [translate]="'modulo.labels.extendtermloans'">
+              Extend the term for loans following a daily repayment schedule</span>
           </mat-checkbox>
 
         </div>
@@ -37,8 +39,9 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="workingDaysForm.pristine" *mifosxHasPermission="'UPDATE_WORKINGDAYS'">Submit</button>
+        <button mat-raised-button [routerLink]="['../']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="workingDaysForm.pristine" *mifosxHasPermission="'UPDATE_WORKINGDAYS'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
@@ -48,12 +51,18 @@
 </div>
 
 <ng-template #templateWorkingDaysFormRef let-data let-popover="popover">
-  <h2>Working Days</h2>
-  <p class="mw400">Click (Define Working Days) to define working days. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/90243212/Working+Days" target="_blank">Working Days</a></p>
+  <h2><span [translate]="'modulo.labels.workingdays'">Working Days</span></h2>
+  <p class="mw400"><span [translate]="'modulo.desciption.defineworkingdays'">
+    Click (Define Working Days) to define working days. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/90243212/Working+Days" target="_blank">Working Days</a>
+  </span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close()">Define Working Days</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next Step</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close()">
+      <span [translate]="'labels.buttons.DefineWorkingDays'">Define Working Days</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.NextStep'">Next Step</span></button>
   </div>
 </ng-template>

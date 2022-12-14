@@ -9,17 +9,17 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <input matInput required autofocus [value]="cashierData.template.officeName" disabled>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Teller Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.tellername'">Teller Name</span></mat-label>
             <input matInput required autofocus [value]="cashierData.data.tellerName" disabled>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" *ngIf="isStaffId">
-            <mat-label>Cashier</mat-label>
+            <mat-label><span [translate]="'modulo.labels.cashier'">Cashier</span></mat-label>
             <mat-select formControlName="staffId">
               <mat-option *ngFor="let staff of cashierData.template.staffOptions" [value]="staff.id">
                 {{ staff.displayName }}
@@ -28,7 +28,7 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" *ngIf="!isStaffId">
-            <mat-label>Cashier</mat-label>
+            <mat-label><span [translate]="'modulo.labels.cashier'">Cashier</span></mat-label>
             <mat-select formControlName="staffId" *ngIf="!isStaffId">
               <mat-option [value]="cashierData.data.staffId">
                 Select Option
@@ -37,32 +37,32 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Description/Notes</mat-label>
+            <mat-label><span [translate]="'modulo.labels.descriptionnotes'">Description/Notes</span></mat-label>
             <input matInput autofocus formControlName="description">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" (click)="fromDatePicker.open()">
-            <mat-label>From</mat-label>
+            <mat-label><span [translate]="'modulo.labels.from'">From</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="fromDatePicker" required formControlName="startDate">
             <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #fromDatePicker></mat-datepicker>
             <mat-error *ngIf="editCashierForm.controls.startDate.hasError('required')">
-              From Date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.fromdaterequired' | translate">From Date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" (click)="toDatePicker.open()">
-            <mat-label>To</mat-label>
+            <mat-label><span [translate]="'modulo.labels.to'">To</span></mat-label>
             <input matInput [min]="editCashierForm.value.startDate" [max]="maxDate" [matDatepicker]="toDatePicker" required formControlName="endDate">            <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #toDatePicker></mat-datepicker>
             <mat-error *ngIf="editCashierForm.controls.endDate.hasError('required')">
-              To Date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.todaterequired' | translate">To Date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <div fxFlex="48%" class="space">
             <mat-checkbox labelPosition="before" formControlName="isFullDay">
-              Full Day?
+              <span [translate]="'modulo.labels.fulldayq'">Full Day?</span>
             </mat-checkbox>
           </div>
 
@@ -71,8 +71,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!editCashierForm.valid" *mifosxHasPermission="'UPDATECASHIERALLOCATION_TELLER'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!editCashierForm.valid" *mifosxHasPermission="'UPDATECASHIERALLOCATION_TELLER'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

@@ -4,7 +4,7 @@
     <div class="mat-typography">
       <mat-card-title>
         <h2>
-          {{ clientData.displayName }} 
+          {{ clientData.displayName }}  
           <span [className]="clientData.status.code | statusLookup">
             <fa-icon matTooltip="{{ clientData.status.value }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
           </span>
@@ -12,7 +12,7 @@
       </mat-card-title>
       <mat-card-subtitle>
         <p>
-          Account No: {{ clientData.accountNo }} {{ clientData.externalId ? '| External ID: ' + clientData.externalId : '' }}
+          <span [translate]="'modulo.labels.accountno'">Account No</span>: {{ clientData.accountNo }} {{ clientData.externalId ? '| External ID: ' + clientData.externalId : '' }}
         </p>
       </mat-card-subtitle>
     </div>
@@ -23,11 +23,11 @@
 
   <mat-tab-group>
 
-    <mat-tab label="Details">
+    <mat-tab label="{{'modulo.labels.details' | translate}}">
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.firstName">
-          First Name
+          <span [translate]="'modulo.labels.firstname'">First Name</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.firstName">
@@ -35,7 +35,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.middleName">
-          Middle Name
+          <span [translate]="'modulo.labels.middlename'">Middle Name</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.middleName">
@@ -43,7 +43,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.lastName">
-          Last Name
+          <span [translate]="'modulo.labels.lastname'">Last Name</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.lastName">
@@ -51,7 +51,7 @@
         </div>
         
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.dateOfBirth">
-          Date of Birth
+          <span [translate]="'modulo.labels.birthdate'">Date of Birth</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.dateOfBirth">
@@ -59,7 +59,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.mobileNo">
-          Mobile Number
+          <span [translate]="'modulo.labels.mobilenumber'">Mobile Number</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.mobileNo">
@@ -67,7 +67,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Activation Date
+          <span [translate]="'modulo.labels.activationdate'">Activation Date</span>
         </div>
 
         <div fxFlex="50%">
@@ -75,7 +75,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.officeName">
-          Associated Office
+          <span [translate]="'modulo.labels.associatedoffice'">Associated Office</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.officeName">
@@ -83,7 +83,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="clientData.staffName">
-          Associated Staff
+          <span [translate]="'modulo.labels.associatedstaff'">Associated Staff</span>
         </div>
 
         <div fxFlex="50%" *ngIf="clientData.staffName">
@@ -94,19 +94,19 @@
 
     </mat-tab>
 
-    <mat-tab label="Loan Accounts" *ngIf="clientAccountsData && clientAccountsData.loanAccounts">
+    <mat-tab label="{{'modulo.labels.loanaccounts' | translate}}" *ngIf="clientAccountsData && clientAccountsData.loanAccounts">
       <mifosx-loan-account-table [loanAccountData]="clientAccountsData.loanAccounts"></mifosx-loan-account-table>
     </mat-tab>
 
-    <mat-tab label="Savings Accounts" *ngIf="clientAccountsData && clientAccountsData.savingsAccounts">
+    <mat-tab label="{{'modulo.labels.savingsaccounts' | translate}}" *ngIf="clientAccountsData && clientAccountsData.savingsAccounts">
       <mifosx-savings-account-table [savingsAccountData]="clientAccountsData.savingsAccounts"></mifosx-savings-account-table>
     </mat-tab>
 
-    <mat-tab label="Share Accounts" *ngIf="clientAccountsData && clientAccountsData.shareAccounts">
+    <mat-tab label="{{'modulo.labels.shareaccounts' | translate}}" *ngIf="clientAccountsData && clientAccountsData.shareAccounts">
       <mifosx-share-account-table [shareAccountData]="clientAccountsData.shareAccounts"></mifosx-share-account-table>
     </mat-tab>
 
-    <mat-tab label="Group Members" *ngIf="clientData.groups && clientData.groups.length !== 0">
+    <mat-tab label="{{'modulo.labels.groupmembers' | translate}}" *ngIf="clientData.groups && clientData.groups.length !== 0">
       <mifosx-member-groups [memberGroupData]="clientData.groups"></mifosx-member-groups>
     </mat-tab>
 

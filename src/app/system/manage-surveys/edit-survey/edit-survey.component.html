@@ -11,34 +11,35 @@
             <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
   
               <mat-form-field fxFlex="48%">
-                <mat-label>Key</mat-label>
+                <mat-label><span [translate]="'modulo.labels.key'">Key</span></mat-label>
                 <input matInput maxlength="32" required formControlName="key">
                 <mat-error *ngIf="surveyForm.controls.key.hasError('required')">
-                  Key is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.keyrequired' | translate">Key is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
   
               <mat-form-field fxFlex="48%">
-                <mat-label>Name</mat-label>
+                <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
                 <input matInput maxlength="255" required formControlName="name">
                 <mat-error *ngIf="surveyForm.controls.name.hasError('required')">
-                  Name is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.namerequired' | translate">Name is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
   
               <mat-form-field fxFlex="48%">
-                <mat-label>Country Code</mat-label>
+                <mat-label><span [translate]="'modulo.labels.countrycode'">Country Code</span></mat-label>
                 <input matInput maxlength="2" required formControlName="countryCode">
                 <mat-error *ngIf="surveyForm.controls.countryCode.hasError('required')">
-                  Country Code is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.countrycoderequired' | translate">Country Code is <strong>required</strong></span>
                 </mat-error>
                 <mat-error *ngIf="surveyForm.controls.countryCode.hasError('pattern')">
-                  Country Code <strong>must consist of 2 alphabetic characters</strong>
+                  <span [innerHTML]="'modulo.validations.countrycodetwocharacter' | translate">
+                    Country Code <strong>must consist of 2 alphabetic characters</strong></span>
                 </mat-error>
               </mat-form-field>
   
               <mat-form-field fxFlex="98%">
-                <mat-label>Description</mat-label>
+                <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
                 <textarea matInput formControlName="description"></textarea>
               </mat-form-field>
   
@@ -57,41 +58,41 @@
               <div fxFlexFill fxLayoutGap="2%" fxLayout.lt-md="column" fxLayout="row wrap" [formGroupName]="questionIndex">
   
                 <div fxFlex="98%" fxLayout="row wrap" fxLayoutGap="2%" fxLayoutAlign="space-between center">
-                  <h2 class="mat-h2">Question {{ questionIndex + 1 }}</h2>
+                  <h2 class="mat-h2"><span [translate]="'modulo.labels.question'">Question</span> {{ questionIndex + 1 }}</h2>
                   <button mat-raised-button color="warn" (click)="removeQuestion(questionIndex)" [disabled]="questionDatas.controls.length === 1">
                     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-                    Delete Question
+                    <span [translate]="'labels.buttons.DeleteQuestion'">Delete Question</span>
                   </button>
                 </div>
   
                 <mat-form-field fxFlex="48%">
-                  <mat-label>Key</mat-label>
+                  <mat-label><span [translate]="'modulo.labels.key'">Key</span></mat-label>
                   <input matInput maxlength="32" required formControlName="key">
                   <mat-error *ngIf="question.get('key').hasError('required')">
-                    Key is <strong>required</strong>
+                   <span [innerHTML]="'modulo.validations.keyrequired' | translate"> Key is <strong>required</strong></span>
                   </mat-error>
                 </mat-form-field>
   
                 <mat-form-field fxFlex="48">
-                  <mat-label>Text</mat-label>
+                  <mat-label><span [translate]="'modulo.labels.text'">Text</span></mat-label>
                   <input matInput maxlength="255" required formControlName="text">
                   <mat-error *ngIf="question.get('text').hasError('required')">
-                    Text is <strong>required</strong>
+                    <span [innerHTML]="'modulo.validations.textrequired' | translate">Text is <strong>required</strong></span>
                   </mat-error>
                 </mat-form-field>
   
                 <mat-form-field fxFlex="98%">
-                  <mat-label>Description</mat-label>
+                  <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
                   <textarea matInput formControlName="description"></textarea>
                 </mat-form-field>
   
                 <mat-divider [inset]="true"></mat-divider>
   
                 <div fxFlex="98%" fxLayout="row" fxLayoutAlign="space-between center">
-                  <h4 class="mat-h4">Options</h4>
+                  <h4 class="mat-h4"><span [translate]="'modulo.labels.options'">Options</span></h4>
                   <button type="button" mat-raised-button color="primary" (click)="addResponse(questionIndex)">
                     <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-                    Add Option
+                    <span [translate]="'labels.buttons.AddOption'">Add Option</span>
                   </button>
                 </div>
   
@@ -102,27 +103,29 @@
                     <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" [formGroupName]="responseIndex">
   
                       <mat-form-field fxFlex="43%">
-                        <mat-label>Text</mat-label>
+                        <mat-label><span [translate]="'modulo.labels.text'">Text</span></mat-label>
                         <input matInput required formControlName="text">
                         <mat-error *ngIf="response.get('text').hasError('required')">
-                          Text is <strong>required</strong>
+                          <span [innerHTML]="'modulo.validations.textrequired' | translate">Text is <strong>required</strong></span>
                         </mat-error>
                       </mat-form-field>
   
                       <mat-form-field fxFlex="43%">
-                        <mat-label>Value</mat-label>
+                        <mat-label><span [translate]="'modulo.labels.value'">Value</span></mat-label>
                         <input matInput required formControlName="value">
                         <mat-error *ngIf="response.get('value').hasError('required')">
-                          Value is <strong>required</strong>
+                          <span [innerHTML]="'modulo.validations.valuerequired' | translate">Value is <strong>required</strong></span>
                         </mat-error>
                         <mat-error *ngIf="response.get('value').hasError('pattern')">
-                          Value <strong>must be an integer between -9999 and 9999</strong>
+                          <span [innerHTML]="'modulo.validations.valuebetween' | translate">
+                            Value <strong>must be an integer between -9999 and 9999</strong></span>
                         </mat-error>
                       </mat-form-field>
   
                       <div fxFlex="8%">
                         <div class="delete-wrapper">
-                          <button type="button" color="warn" mat-icon-button matTooltip="Delete" matTooltipPosition="above" (click)="removeResponse(getResponseDatas(questionIndex), responseIndex)" [disabled]="getResponseDatas(questionIndex).controls.length === 1">
+                          <button type="button" color="warn" mat-icon-button 
+                          matTooltip="{{'modulo.labels.delete' | translate}}" matTooltipPosition="above" (click)="removeResponse(getResponseDatas(questionIndex), responseIndex)" [disabled]="getResponseDatas(questionIndex).controls.length === 1">
                             <fa-icon icon="trash" size="lg"></fa-icon>
                           </button>  
                         </div>
@@ -141,12 +144,14 @@
             <div>
   
               <mat-card-actions *ngIf="isLast" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-                <button type="button" mat-raised-button (click)="cancelSurvey()">Cancel</button>
+                <button type="button" mat-raised-button (click)="cancelSurvey()">
+                  <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
                 <button type="button" mat-raised-button color="primary" (click)="addQuestion()">
                   <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-                  Add Question
+                  <span [translate]="'labels.buttons.AddQuestion'">Add Question</span>
                 </button>
-                <button mat-raised-button color="primary" [disabled]="!surveyForm.valid">Edit Survey</button>
+                <button mat-raised-button color="primary" [disabled]="!surveyForm.valid">
+                  <span [translate]="'labels.buttons.EditSurvery'">Edit Survey</span></button>
               </mat-card-actions>    
   
             </div>

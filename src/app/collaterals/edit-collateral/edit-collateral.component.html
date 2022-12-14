@@ -11,25 +11,29 @@
                     <div fxLayout="column">
 
                         <mat-form-field>
-                            <mat-label>Name</mat-label>
+                            <mat-label>
+                                <span [translate]="'modulo.labels.name'">Name</span></mat-label>
                             <input matInput required formControlName="name">
                         </mat-form-field>
 
                         <mat-form-field>
-                            <mat-label>Quantity</mat-label>
+                            <mat-label>
+                                <span [translate]="'modulo.labels.quantity'">Quantity</span></mat-label>
                             <input matInput required formControlName="quantity">
                             <mat-error *ngIf="clientCollateralForm.controls.quantity.hasError('required')">
-                                Quantity is <strong>required</strong>
+                                <span [innerHTML]="'modulo.validations.quantityrequired' | translate">
+                                    Quantity is <strong>required</strong></span>
                             </mat-error>
                         </mat-form-field>
 
                         <mat-form-field>
-                            <mat-label>Total</mat-label>
+                            <mat-label><span [translate]="'modulo.labels.total'">Total</span></mat-label>
                             <input matInput required formControlName="total">
                         </mat-form-field>
 
                         <mat-form-field>
-                            <mat-label>Total Collateral Value</mat-label>
+                            <mat-label>
+                                <span [translate]="'modulo.labels.totalcollateralvalue'">Total Collateral Value</span></mat-label>
                             <input matInput required formControlName="totalCollateral">
                         </mat-form-field>
 
@@ -40,8 +44,10 @@
             </mat-card-content>
 
             <mat-card-actions fxLayoutGap="5px" fxLayout="row" fsLayout.xs="column" fxLayoutAlign="center">
-                <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-                <button mat-raised-button color="primary" [disabled]="!clientCollateralForm.valid">Submit</button> 
+                <button type="button" mat-raised-button [routerLink]="['../../']">
+                    <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+                <button mat-raised-button color="primary" [disabled]="!clientCollateralForm.valid">
+                    <span [translate]="'labels.buttons.Submit'">Submit</span></button> 
             </mat-card-actions>
 
         </form>

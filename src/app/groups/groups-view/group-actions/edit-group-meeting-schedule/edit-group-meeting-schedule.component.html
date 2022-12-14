@@ -9,24 +9,26 @@
         <div fxLayout="column">
 
         <mat-form-field>
-          <mat-label>Existing Meeting Date</mat-label>
+          <mat-label><span [translate]="'modulo.labels.existingmeetingdate'">Existing Meeting Date</span></mat-label>
           <mat-select formControlName="presentMeetingDate">
             <mat-option *ngFor="let date of nextMeetingDates" [value]="date">
               {{ date  | dateFormat }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="groupEditMeetingScheduleForm.controls.presentMeetingDate.hasError('repeatsOnDay')">
-            Existing Meeting Date is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.existingmeetingdaterequired' | translate">
+              Existing Meeting Date is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field (click)="newMeetingDatePicker.open()">
-          <mat-label>Revised Meeting Date</mat-label>
+          <mat-label><span [translate]="'modulo.labels.revisedmeetingdate'">Revised Meeting Date</span></mat-label>
           <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="newMeetingDatePicker" required formControlName="newMeetingDate">
           <mat-datepicker-toggle matSuffix [for]="newMeetingDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #newMeetingDatePicker></mat-datepicker>
           <mat-error *ngIf="groupEditMeetingScheduleForm.controls.newMeetingDate.hasError('required')">
-            Revised Meeting Date is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.revisedmeetingdaterequired' | translate">
+              Revised Meeting Date is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
   
@@ -35,9 +37,11 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
         <button mat-raised-button color="primary" [disabled]="!groupEditMeetingScheduleForm.valid" (click)="submit()"
-          *mifosxHasPermission="'CREATE_MEETING'">Submit</button>
+          *mifosxHasPermission="'CREATE_MEETING'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

@@ -2,13 +2,13 @@
 
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_REPORT'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 
   <span *ngIf="!reportData.coreReport">
     <button mat-raised-button color="warn" (click)="delete()" *mifosxHasPermission="'DELETE_REPORT'">
       <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-      Delete
+      <span [translate]="'labels.buttons.Delete'">Delete</span>
     </button>
   </span>
 
@@ -25,7 +25,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Report Type:
+          <span [translate]="'modulo.labels.reporttype'">Report Type</span>:
         </div>
 
         <div fxFlex="50%">
@@ -33,7 +33,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Report Subtype:
+          <span [translate]="'modulo.labels.reportsubtype'">Report Subtype</span>:
         </div>
 
         <div fxFlex="50%">
@@ -41,7 +41,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Report Category:
+          <span [translate]="'modulo.labels.reportcatergory'">Report Category</span>:
         </div>
 
         <div fxFlex="50%">
@@ -49,7 +49,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Core Report:
+          <span [translate]="'modulo.labels.corereport'">Core Report</span>:
         </div>
 
         <div fxFlex="50%">
@@ -57,7 +57,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          User Report:
+          <span [translate]="'modulo.labels.userreport'">User Report</span>:
         </div>
 
         <div fxFlex="50%">

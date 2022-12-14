@@ -4,7 +4,8 @@
 
   <div fxLayout="row" fxLayoutAlign="flex-end" class="m-b-20">
     <button mat-raised-button color="primary" (click)="addAddress()">
-      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;Add
+      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Add'">Add</span>
     </button>
   </div>
 
@@ -37,18 +38,27 @@
       </div>
 
       <p>
-        <span *ngIf="isFieldEnabled('street')">Street : {{address.street}}<br /></span>
-        <span *ngIf="isFieldEnabled('addressLine1')">Address Line 1 : {{address.addressLine1}}<br /></span>
-        <span *ngIf="isFieldEnabled('addressLine2')">Address Line 2 : {{address.addressLine2}}<br /></span>
-        <span *ngIf="isFieldEnabled('addressLine3')">Address Line 3 : {{address.addressLine3}}<br /></span>
-        <span *ngIf="isFieldEnabled('townVillage')">Town / Village : {{address.townVillage}}<br /></span>
+        <span *ngIf="isFieldEnabled('street')">
+          <span [translate]="'modulo.labels.street'">Street </span>: {{address.street}}<br /></span>
+        <span *ngIf="isFieldEnabled('addressLine1')">
+          <span [translate]="'modulo.labels.address1'">Address Line 1 </span>: {{address.addressLine1}}<br /></span>
+        <span *ngIf="isFieldEnabled('addressLine2')">
+          <span [translate]="'modulo.labels.address2'">Address Line 2 </span>: {{address.addressLine2}}<br /></span>
+        <span *ngIf="isFieldEnabled('addressLine3')">
+          <span [translate]="'modulo.labels.address3'">Address Line 3 </span>: {{address.addressLine3}}<br /></span>
+        <span *ngIf="isFieldEnabled('townVillage')">
+          <span [translate]="'modulo.labels.townvillage'">Town / Village </span>: {{address.townVillage}}<br /></span>
         <span *ngIf="isFieldEnabled('city')">City : {{address.city}}<br /></span>
-        <span *ngIf="isFieldEnabled('stateProvinceId')">State / Province :
+        <span *ngIf="isFieldEnabled('stateProvinceId')">
+          <span [translate]="'modulo.labels.stateprovince'">State / Province </span>:
           {{getSelectedValue('stateProvinceIdOptions',address.stateProvinceId)?.name}}<br /></span>
-        <span *ngIf="isFieldEnabled('countryId')">Country :
+        <span *ngIf="isFieldEnabled('countryId')">
+          <span [translate]="'modulo.labels.country'">Country</span> :
           {{getSelectedValue('countryIdOptions',address.countryId)?.name}}<br /></span>
-        <span *ngIf="isFieldEnabled('postalCode')">Postal Code : {{address.postalCode}}<br /></span>
-        <span *ngIf="isFieldEnabled('isActive')">Active Status : {{address.isActive}}<br /></span>
+        <span *ngIf="isFieldEnabled('postalCode')">
+          <span [translate]="'modulo.labels.postalcode'">Postal Code </span>: {{address.postalCode}}<br /></span>
+        <span *ngIf="isFieldEnabled('isActive')">
+          <span [translate]="'modulo.labels.activestatus'">Active Status </span>: {{address.isActive}}<br /></span>
       </p>
 
     </mat-expansion-panel>
@@ -58,10 +68,10 @@
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-      Previous
+      <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext>
-      Next&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
       <fa-icon icon="arrow-right"></fa-icon>
     </button>
   </div>

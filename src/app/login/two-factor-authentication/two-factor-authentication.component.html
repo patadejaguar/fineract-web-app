@@ -1,9 +1,9 @@
-<p><strong>Two Factor Authentication</strong></p>
+<p [translate]="'modulo.login.twoauth.title'"><strong>Two Factor Authentication</strong></p>
 
 <mat-divider></mat-divider>
 
 <!-- Select delivery method to receive OTP -->
-<p *ngIf="!otpRequested">Please select a delivery method:</p>
+<p *ngIf="!otpRequested"> <span [translate]="'modulo.login.twoauth.description'"> select a delivery method:</span></p>
 
 <form fxLayout="column" *ngIf="!otpRequested" [formGroup]="twoFactorAuthenticationDeliveryMethodForm" class="two-factor-auth-form"
   (ngSubmit)="requestOTP()">
@@ -16,14 +16,14 @@
   </mat-radio-group>
 
   <button mat-raised-button color="primary" fxFlexAlign="center" fxFlexFill [disabled]="!twoFactorAuthenticationDeliveryMethodForm.valid">
-    Request OTP
+    <span [translate]="'modulo.login.twoauth.button.request'"> Request OTP</span>
     <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
   </button>
 
 </form>
 
 <!-- Show input for OTP -->
-<p *ngIf="otpRequested">Please enter the OTP:</p>
+<p *ngIf="otpRequested"> <span [translate]="'modulo.login.twoauth.description2'"> Please enter the OTP:</span></p>
 
 <form fxLayout="column" *ngIf="otpRequested" [formGroup]="twoFactorAuthenticationForm" class="two-factor-auth-form"
   (ngSubmit)="validateOTP()">
@@ -32,28 +32,30 @@
     <span matPrefix>
       <fa-icon icon="user-shield"></fa-icon>&nbsp;&nbsp;
     </span>
-    <mat-label>OTP</mat-label>
+    <mat-label> <span [translate]="'modulo.login.twoauth.label.otp'">OTP</span></mat-label>
     <input type="password" matInput autocomplete="off" required formControlName="otp">
     <mat-hint align="start">
-      <strong>Delivery Method:</strong> {{ selectedTwoFactorAuthenticationDeliveryMethod.name }}
+      <span [translate]="'modulo.login.twoauth.hint.method'"> <strong>Delivery Method:</strong></span> 
+      <span> {{ selectedTwoFactorAuthenticationDeliveryMethod.name }} </span>
     </mat-hint>
     <mat-hint align="end">
-      <strong>Validity:</strong> {{ tokenValidityTime / 60 }} mins
+      <span [translate]="'modulo.login.twoauth.hint.Validity'"> <strong>Validity:</strong></span>
+      <span>{{ tokenValidityTime / 60 }} mins</span>
     </mat-hint>
     <mat-error *ngIf="twoFactorAuthenticationForm.controls.otp.hasError('required')">
-      OTP is <strong>required</strong>
+      <span [translate]="'modulo.validation.otp'"> OTP is <strong>required</strong></span>
     </mat-error>
   </mat-form-field>
 
   <button mat-raised-button color="primary" fxFlexAlign="center" class="two-factor-auth-button"
     [disabled]="!twoFactorAuthenticationForm.valid">
-    Validate OTP
+    <span [translate]="'modulo.login.twoauth.button.validate'">Validate OTP</span>
     <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
   </button>
 
   <button type="button" mat-button fxFlexAlign="center" class="two-factor-auth-button" (click)="resendOTP()"
     [disabled]="loading || resendOTPLoading">
-    Resend OTP
+    <span [translate]="'modulo.login.twoauth.button.resend'">Resend OTP</span>
     <mat-spinner [diameter]="20" *ngIf="resendOTPLoading"></mat-spinner>
   </button>
 

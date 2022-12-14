@@ -12,8 +12,8 @@
             <mat-icon matListIcon>
               <fa-icon icon="sync" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Frequent Postings</h4>
-            <p matLine>These are predefined postings</p>
+            <h4 matLine> <span [translate]="'modulo.labels.frequentposting'">Frequent Postings</span></h4>
+            <p matLine><span [translate]="'modulo.description.frequentposting'">These are predefined postings</span></p>
           </mat-list-item>
 
           <div #createJournalEntries>
@@ -21,8 +21,10 @@
               <mat-icon matListIcon>
                 <fa-icon icon="plus" size="sm"></fa-icon>
               </mat-icon>
-              <h4 matLine>Create Journal Entries</h4>
-              <p matLine>Manual journal entry transactions recorded in a journal</p>
+              <h4 matLine><span [translate]="'modulo.labels.createjournal'">Create Journal Entries</span></h4>
+              <p matLine>
+                <span [translate]="'modulo.description.createjournal'">
+                  Manual journal entry transactions recorded in a journal</span></p>
             </mat-list-item>
           </div>
 
@@ -30,8 +32,8 @@
             <mat-icon matListIcon>
               <fa-icon icon="search" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Search Journal Entries</h4>
-            <p matLine>Advanced search option for journal entries</p>
+            <h4 matLine><span [translate]="'modulo.labels.searchjournal'">Search Journal Entries</span></h4>
+            <p matLine><span [translate]="'modulo.description.searchjournal'">Advanced search option for journal entries</span></p>
           </mat-list-item>
 
           <div #accountsLinked>
@@ -39,8 +41,9 @@
               <mat-icon matListIcon>
                 <fa-icon icon="link" size="sm"></fa-icon>
               </mat-icon>
-              <h4 matLine>Accounts Linked to Financial Activities</h4>
-              <p matLine>List of Financial Activities and GL Account Mappings</p>
+              <h4 matLine><span [translate]="'modulo.labels.accountlinkedactivities'">Accounts Linked to Financial Activities</span></h4>
+              <p matLine>
+                <span [translate]="'modulo.description.listfinacialactivities'">List of Financial Activities and GL Account Mappings</span></p>
             </mat-list-item>
           </div>
 
@@ -49,8 +52,10 @@
               <mat-icon matListIcon>
                 <fa-icon icon="hand-holding-usd" size="sm"></fa-icon>
               </mat-icon>
-              <h4 matLine>Migrate Opening Balances (Office-wise)</h4>
-              <p matLine>Set or update office-level opening balances for GL accounts</p>
+              <h4 matLine>
+                <span [translate]="'modulo.labels.migratebalances'">Migrate Opening Balances (Office-wise)</span></h4>
+              <p matLine>
+                <span [translate]="'modulo.description.migratebalances'">Set or update office-level opening balances for GL accounts</span></p>
             </mat-list-item>
           </div>
 
@@ -67,8 +72,9 @@
               <mat-icon matListIcon>
                 <fa-icon icon="sitemap" size="sm"></fa-icon>
               </mat-icon>
-              <h4 matLine>Chart of Accounts</h4>
-              <p matLine>List of accounts used by the organization</p>
+              <h4 matLine><span [translate]="'modulo.labels.chartaccounts'">Chart of Accounts</span></h4>
+              <p matLine>
+                <span [translate]="'modulo.description.chartaccounts'">List of accounts used by the organization</span></p>
             </mat-list-item>
           </div>
 
@@ -77,8 +83,9 @@
               <mat-icon matListIcon>
                 <fa-icon icon="archive" size="sm"></fa-icon>
               </mat-icon>
-              <h4 matLine>Closing Entries</h4>
-              <p matLine>Journal entries made at the end of accounting period</p>
+              <h4 matLine><span [translate]="'modulo.labels.closingentries'">Closing Entries</span></h4>
+              <p matLine><span [translate]="'modulo.description.closingentries'">
+                Journal entries made at the end of accounting period</span></p>
             </mat-list-item>
           </div>
 
@@ -86,24 +93,25 @@
             <mat-icon matListIcon>
               <fa-icon icon="list" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Accounting Rules</h4>
-            <p matLine>List of all accounting rules</p>
+            <h4 matLine><span [translate]="'modulo.labels.accountingrules'">Accounting Rules</span></h4>
+            <p matLine><span [translate]="'modulo.description.accountingrules'">List of all accounting rules</span></p>
           </mat-list-item>
 
           <mat-list-item *mifosxHasPermission="'EXECUTE_PERIODICACCRUALACCOUNTING'" [routerLink]="['periodic-accruals']">
             <mat-icon matListIcon>
               <fa-icon icon="calendar" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Accruals</h4>
-            <p matLine>Accrues income, expenses and liabilities as on the provided date</p>
+            <h4 matLine><span [translate]="'modulo.labels.accruals'">Accruals</span></h4>
+            <p matLine>
+              <span [translate]="'modulo.description.accruals'">Accrues income, expenses and liabilities as on the provided date</span></p>
           </mat-list-item>
 
           <mat-list-item *mifosxHasPermission="'VIEW_PROVISIONING_ENTRIES'" [routerLink]="['provisioning-entries']">
             <mat-icon matListIcon>
               <fa-icon icon="cogs" size="sm"></fa-icon>
             </mat-icon>
-            <h4 matLine>Provisioning Entries</h4>
-            <p matLine>Create provisioning entries</p>
+            <h4 matLine><span [translate]="'modulo.labels.provisioningentries'">Provisioning Entries</span></h4>
+            <p matLine><span [translate]="'modulo.description.provisioningentries'">Create provisioning entries</span></p>
           </mat-list-item>
 
         </mat-nav-list>
@@ -117,51 +125,75 @@
 </div>
 
 <ng-template #templateChartofAccounts let-popover="popover">
-  <h2>Chart of Accounts</h2>
-  <p class="mw300">The Chart of Accounts - General Ledger Setup allows you to organize your different accounts within Mifos X.</p>
+  <h2><span [translate]="'modulo.labels.chartaccounts'">Chart of Accounts</span></h2>
+  <p class="mw300">
+    <span [translate]="'modulo.description.chartaccount'">
+      The Chart of Accounts - General Ledger Setup allows you to organize your different accounts within Mifos X.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepChartofAccounts()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepChartofAccounts()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepChartofAccounts()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepChartofAccounts()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateAccountsLinked let-popover="popover">
-  <h2>Accounts linked to Financial Activities</h2>
-  <p class="mw400">Accounts linked to Financial Activities are mapped accounts which are needed to do system generating accounting transaction.</p>
+  <h2><span [translate]="'modulo.labels.accountlinkedactivities'">Accounts linked to Financial Activities</span></h2>
+  <p class="mw400">
+    <span [translate]="'modulo.description.accountlinkedactivities'">
+      Accounts linked to Financial Activities are mapped accounts which are needed to do system generating accounting transaction.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepAccountsLinked()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepAccountsLinked()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepAccountsLinked()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepAccountsLinked()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateMigrateOpeningBalances let-popover="popover">
-  <h2>Migrate opening balances (Office-wise)</h2>
-  <p class="mw400">This makes it easier for an organization wanting to move to Mifos to transfer GL account balances (from their existing accounting application or manual system) to Mifos X Accounting.</p>
+  <h2><span [translate]="'modulo.labels.migratebalances'">Migrate opening balances (Office-wise)</span></h2>
+  <p class="mw400">
+    <span [translate]="'modulo.description.makeeasierorganization'">
+      This makes it easier for an organization wanting to move to Mifos to transfer GL account balances (from their existing accounting application or manual system) to Mifos X Accounting.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepMigrateOpeningBalances()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepMigrateOpeningBalances()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepMigrateOpeningBalances()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepMigrateOpeningBalances()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateClosingEntries let-popover="popover">
-  <h2>Closing Entries</h2>
-  <p class="mw300">In Mifos X, you can close accounting to journal entries. Closures can be applied to all branches or to each branch separately. It is important for organizations to close accounting periodically to prevent transactions that affect the accounting books.</p>
+  <h2><span [translate]="'modulo.labels.closingentries'">Closing Entries</span></h2>
+  <p class="mw300">
+    <span [translate]="'modulo.description.canclosejournal'">In Mifos X, you can close accounting to journal entries. Closures can be applied to all branches or to each branch separately. It is important for organizations to close accounting periodically to prevent transactions that affect the accounting books.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepClosingEntries()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepClosingEntries()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepClosingEntries()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepClosingEntries()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateCreateJournalEntries let-popover="popover">
-  <h2>Create Journal Entries</h2>
-  <p class="mw300">Journal Entries are essentially logs of all the transactions in your organization that have accounting implications.</p>
+  <h2><span [translate]="'modulo.labels.createjournal'">Create Journal Entries</span></h2>
+  <p class="mw300">
+    <span [translate]="'modulo.description.journalessentially'">
+      Journal Entries are essentially logs of all the transactions in your organization that have accounting implications.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStepCreateJournalEntries()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStepCreateJournalEntries()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStepCreateJournalEntries()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStepCreateJournalEntries()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

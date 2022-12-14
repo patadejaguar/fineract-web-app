@@ -14,8 +14,11 @@
     <div class="cover-content">
       <h1 class="mat-display-1 cover-title">{{ 'APP_NAME' | translate }}</h1>
       <p class="mat-headline cover-description">
-        {{ 'APP_NAME' | translate }} is designed by the <a href="http://www.openmf.org" target="_blank" class="cover-link">Mifos Initiative</a>. A <a href="http://mifos.org/resources/community/" target="_blank" class="cover-link">global community</a> that aims to speed the elimination of poverty by enabling Organizations to more effectively and efficiently deliver responsible financial services to the world’s poor and unbanked.
-        Sounds interesting? <a href="http://mifos.org/take-action/volunteer/" target="_blank" class="cover-link">Get involved!</a>
+        <span [innerHTML]="'modulo.login.descriptionhome' | translate">
+          {{ 'APP_NAME' | translate }} is designed by the <a href="http://www.openmf.org" target="_blank" class="cover-link">Mifos Initiative</a>. A <a href="http://mifos.org/resources/community/" target="_blank" class="cover-link">global community</a> that aims to speed the elimination of poverty by enabling Organizations to more effectively and efficiently deliver responsible financial services to the world’s poor and unbanked.
+          Sounds interesting? <a href="http://mifos.org/take-action/volunteer/" target="_blank" class="cover-link">Get involved!</a>
+        </span>
+
       </p>
     </div>
   </div>

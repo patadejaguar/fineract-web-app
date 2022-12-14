@@ -2,7 +2,8 @@
 
   <mat-divider fxFlex="98%"></mat-divider>
 
-  <h3 fxFlex="98%" class="mat-h3">Business Rule Parameters</h3>
+  <h3 fxFlex="98%" class="mat-h3">
+    <span [translate]="'modulo.labels.businessruleparameters'">Business Rule Parameters</span></h3>
 
   <form [formGroup]="ReportForm">
 
@@ -56,10 +57,10 @@
 <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
   <button mat-raised-button matStepperPrevious disabled>
     <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-    Previous
+    <span [translate]="'labels.buttons.Previous'">Previous</span>
   </button>
   <button mat-raised-button matStepperNext>
-    Next&nbsp;&nbsp;
+    <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
     <fa-icon icon="arrow-right"></fa-icon>
   </button>
 </div>

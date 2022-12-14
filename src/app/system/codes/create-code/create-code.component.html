@@ -9,10 +9,10 @@
           <div #codeFormRef fxLayout="column">
 
             <mat-form-field>
-              <mat-label>Code Name</mat-label>
+              <mat-label><span [translate]="'modulo.labels.codename'">Code Name</span></mat-label>
               <input matInput required formControlName="name">
               <mat-error *ngIf="codeForm.controls.name.hasError('required')">
-                Code Name is <strong>required</strong>
+                <span [innerHTML]="'modulo.validations.codenamerequired' | translate">Code Name is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
 
@@ -21,8 +21,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!codeForm.valid" *mifosxHasPermission="'CREATE_CODE'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!codeForm.valid" *mifosxHasPermission="'CREATE_CODE'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
@@ -32,12 +34,16 @@
 </div>
 
 <ng-template #templateCodeFormRef let-data let-popover="popover">
-  <h2>Create Code</h2>
-  <p class="mw400">To create code, click on create code and enter the code name.<br> For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895350/Manage+Codes" target="_blank">Manage Codes</a></p>
+  <h2><span [translate]="'modulo.labels.createcode'">Create Code</span></h2>
+  <p class="mw400"><span [innerHTML]="'modulo.description.createcode' | translate">
+    To create code, click on create code and enter the code name.<br> For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895350/Manage+Codes" target="_blank">Manage Codes</a></span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
     <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close()">Create Code</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="primary" (click)="popover.close()">
+      <span [translate]="'labels.buttons.CreateCode'">Create Code</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

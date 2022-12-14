@@ -9,37 +9,38 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Offices</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="officeForm.controls.name.hasError('required')">
-              Office <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.officerequired' | translate">Office <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field *ngIf="officeForm.contains('parentId')">
-            <mat-label>Parent Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.parentoffice'">Parent Office</span></mat-label>
             <mat-select required formControlName="parentId">
               <mat-option *ngFor="let office of officeData.allowedParents" [value]="office.id">
                 {{ office.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="officeForm.controls.parentId.hasError('required')">
-              Parent Office <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.parentofficerequired' | translate">
+                Parent Office <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field (click)="openingDatePicker.open()">
-            <mat-label>Opened On</mat-label>
+            <mat-label><span [translate]="'modulo.labels.openedon'">Opened On</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="openingDatePicker" required formControlName="openingDate">
             <mat-datepicker-toggle matSuffix [for]="openingDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #openingDatePicker></mat-datepicker>
             <mat-error *ngIf="officeForm.controls.openingDate.hasError('required')">
-              Date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.openedonrequired' | translate">Date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>External ID</mat-label>
+            <mat-label><span [translate]="'modulo.labels.externalid'">External ID</span></mat-label>
             <input matInput formControlName="externalId">
           </mat-form-field>
 
@@ -48,8 +49,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../general']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!officeForm.valid" *mifosxHasPermission="'UPDATE_OFFICE'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../general']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!officeForm.valid" *mifosxHasPermission="'UPDATE_OFFICE'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

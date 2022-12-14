@@ -1,16 +1,17 @@
 <div class="tab-container mat-typography">
 
-  <h3>Notes</h3>
+  <h3><span [translate]="'modulo.labels.notes'">Notes</span></h3>
 
   <form #formRef="ngForm" [formGroup]="noteForm" fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="20px"
       (ngSubmit)="addNote()">
 
     <mat-form-field fxFlex="calc(90%-20px)">
-      <textarea formControlName="note" matInput placeholder="Write a note ...."></textarea>
+      <textarea formControlName="note" matInput placeholder="{{'modulo.labels.writenote' | translate}}"></textarea>
     </mat-form-field>
 
     <button mat-raised-button fxFlex color="primary" *mifosxHasPermission="'CREATE_GROUPNOTE'" [disabled]="!noteForm.valid">
-      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp; Add
+      <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp; 
+      <span [translate]="'labels.buttons.Add'">Add</span>
     </button>
 
   </form>
@@ -21,8 +22,8 @@
       <fa-icon icon="sticky-note" matListIcon></fa-icon>
       <h3 matLine>{{groupNote.note}} </h3>
       <p matLine>
-        <span>Created by: {{groupNote.createdByUsername}}</span><br />
-        <span>Date: {{groupNote.createdOn  | dateFormat}}</span>
+        <span><span [translate]="'modulo.labels.createdby'">Created by</span>: {{groupNote.createdByUsername}}</span><br />
+        <span><span [translate]="'modulo.labels.date'">Date</span>: {{groupNote.createdOn  | dateFormat}}</span>
       </p>
       <div fxLayout="row" fxLayoutAlign="flex-start">
         <button mat-button color="primary" (click)="editNote(groupNote.id,groupNote.note,i)">

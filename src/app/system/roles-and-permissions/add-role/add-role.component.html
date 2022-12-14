@@ -9,18 +9,18 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="roleForm.controls.name.hasError('required')">
-              Role Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.rolenamerequired' | translate">Role Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Description</mat-label>
+            <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
             <textarea matInput required formControlName="description"></textarea>
             <mat-error *ngIf="roleForm.controls.description.hasError('required')">
-              Role Description is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.roledescriptionrequired' | translate">Role Description is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -29,8 +29,10 @@
         </mat-card-content>
 
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-          <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-          <button mat-raised-button color="primary" [disabled]="!roleForm.valid">Submit</button>
+          <button type="button" mat-raised-button [routerLink]="['../']">
+            <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+          <button mat-raised-button color="primary" [disabled]="!roleForm.valid">
+            <span [translate]="'labels.buttons.Submit'">Submit</span></button>
         </mat-card-actions>
 
       </form>

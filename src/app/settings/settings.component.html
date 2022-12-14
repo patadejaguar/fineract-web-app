@@ -9,29 +9,29 @@
 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Main Configuration
+          <span [translate]="'modulo.labels.mainconfiguration'">Main Configuration</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
       <div fxLayout="column">
 
         <mat-form-field>
-          <mat-label>Name of the Organization</mat-label>
+          <mat-label><span [translate]="'modulo.labels.nameorganization'">Name of the Organization</span></mat-label>
           <input matInput>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Description</mat-label>
+          <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
           <textarea matInput></textarea>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Summary</mat-label>
+          <mat-label><span [translate]="'modulo.labels.summary'">Summary</span></mat-label>
           <textarea matInput></textarea>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Default Language</mat-label>
+          <mat-label><span [translate]="'modulo.labels.defaultlanguage'">Default Language</span></mat-label>
           <mat-select [formControl]="language" [compareWith]="compareOptions">
             <mat-option *ngFor="let language of languages" [value]="language">
               {{ language.name }}
@@ -40,7 +40,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Default Date Format</mat-label>
+          <mat-label><span [translate]="'modulo.labels.defaultdateformat'">Default Date Format</span></mat-label>
           <mat-select [formControl]="dateFormat">
             <mat-option *ngFor="let dateFormat of dateFormats" [value]="dateFormat">
               {{ dateFormat }}
@@ -56,22 +56,22 @@
 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Images
+          <span [translate]="'modulo.labels.images'">Images</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
       <div fxLayout="column">
 
-        <span class="header">Favicon</span>
+        <span class="header"><span [translate]="'modulo.labels.favicon'">Favicon</span></span>
         <mifosx-file-upload></mifosx-file-upload>
 
-        <span class="header">Cover Image</span>
+        <span class="header"><span [translate]="'modulo.labels.coverimage'">Cover Image</span></span>
         <mifosx-file-upload></mifosx-file-upload>
 
-        <span class="header">Logo</span>
+        <span class="header"><span [translate]="'modulo.labels.logo'">Logo</span></span>
         <mifosx-file-upload></mifosx-file-upload>
 
-        <span class="header">Logo with Organization Name</span>
+        <span class="header"><span [translate]="'modulo.labels.logowithorganizationname'">Logo with Organization Name</span></span>
         <mifosx-file-upload></mifosx-file-upload>
 
       </div>
@@ -82,17 +82,17 @@
 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Theme and Font
+          <span [translate]="'modulo.labels.themefont'">Theme and Font</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
       <div fxLayout="column">
 
-        <span class="header">Theme</span>
+        <span class="header"><span [translate]="'modulo.labels.theme'">Theme</span></span>
         <mifosx-theme-picker></mifosx-theme-picker>
 
         <mat-form-field>
-          <mat-label>Default Font</mat-label>
+          <mat-label><span [translate]="'modulo.labels.defaultfont'">Default Font</span></mat-label>
           <mat-select>
             <mat-option *ngFor="let font of fonts" [value]="font">
               {{ font }}
@@ -108,24 +108,24 @@
 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Contact Information
+          <span [translate]="'modulo.labels.contactinformation'">Contact Information</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
       <div fxLayout="column">
 
         <mat-form-field>
-          <mat-label>Website</mat-label>
+          <mat-label><span [translate]="'modulo.labels.website'">Website</span></mat-label>
           <input type="url" matInput>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label><span [translate]="'modulo.labels.email'">Email</span></mat-label>
           <input type="email" matInput>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Contact No</mat-label>
+          <mat-label><span [translate]="'modulo.labels.contactno'">Contact No</span></mat-label>
           <input type="tel" matInput>
         </mat-form-field>
 

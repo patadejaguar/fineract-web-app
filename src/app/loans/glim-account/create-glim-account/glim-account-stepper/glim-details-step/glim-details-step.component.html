@@ -3,19 +3,19 @@
     <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
   
       <mat-form-field fxFlex="48%">
-        <mat-label>Product Name</mat-label>
+        <mat-label><span [translate]="'modulo.loans.labels.productname'">Product Name</span></mat-label>
         <mat-select formControlName="productId" required>
           <mat-option *ngFor="let product of productData" [value]="product.id">
             {{ product.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Product Name is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.productrequired' | translate">Product Name is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
   
       <mat-form-field fxFlex="48%">
-        <mat-label>Loan officer</mat-label>
+        <mat-label><span [translate]="'modulo.loans.labels.officer'">Loan officer</span></mat-label>
         <mat-select formControlName="loanOfficerId">
           <mat-option *ngFor="let loanOfficer of loanOfficerOptions" [value]="loanOfficer.id">
             {{ loanOfficer.displayName }}
@@ -25,7 +25,7 @@
   
   
       <mat-form-field fxFlex="48%">
-        <mat-label>Fund</mat-label>
+        <mat-label><span [translate]="'modulo.loans.labels.fund'">Fund</span></mat-label>
         <mat-select formControlName="fundId">
           <mat-option *ngFor="let fund of fundOptions" [value]="fund.id">
             {{ fund.name }}
@@ -34,24 +34,24 @@
       </mat-form-field>
   
       <mat-form-field fxFlex="48%" (click)="submitPicker.open()">
-        <mat-label>Submitted on</mat-label>
+        <mat-label><span [translate]="'modulo.loans.labels.submitted'">Submitted on</span></mat-label>
         <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="submitPicker" required
           formControlName="submittedOnDate">
         <mat-datepicker-toggle matSuffix [for]="submitPicker"></mat-datepicker-toggle>
         <mat-datepicker #submitPicker></mat-datepicker>
         <mat-error *ngIf="loansAccountDetailsForm.controls.submittedOnDate?.hasError('required')">
-          Submitted on is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.submittedrequired'| translate">Submitted on is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
   
       <mat-form-field fxFlex="48%" (click)="disbursementPicker.open()">
-        <mat-label>Disbursement on</mat-label>
+        <mat-label><span [translate]="'modulo.loans.labels.disbursement'">Disbursement on</span></mat-label>
         <input matInput [min]="loansAccountDetailsForm.value.submittedOnDate" [max]="maxDate" [matDatepicker]="disbursementPicker" required
           formControlName="expectedDisbursementDate">
         <mat-datepicker-toggle matSuffix [for]="disbursementPicker"></mat-datepicker-toggle>
         <mat-datepicker #disbursementPicker></mat-datepicker>
         <mat-error *ngIf="loansAccountDetailsForm.controls.submittedOnDate?.hasError('required')">
-          Disbursement on is <strong>required</strong>
+         <span [innerHTML]="'modulo.validations.disbursementrequired' | translate"> Disbursement on is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
   
@@ -59,10 +59,10 @@
   
       <mat-divider fxFlex="98%"></mat-divider>
   
-      <h3 class="mat-h3" fxFlexFill>Savings Linkage</h3>
+      <h3 class="mat-h3" fxFlexFill><span [translate]="'modulo.loans.title.savings'">Savings Linkage</span></h3>
   
       <mat-form-field fxFlex="48%">
-        <mat-label>Link savings</mat-label>
+        <mat-label><span [translate]="'modulo.loans.labels.link'">Link savings</span></mat-label>
         <mat-select formControlName="linkAccountId">
           <mat-option *ngFor="let savingaccount of gsimData" [value]="savingaccount.id">
             {{ savingaccount.accountNumber }}
@@ -77,10 +77,10 @@
     <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
       <button mat-raised-button matStepperPrevious disabled>
         <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-        Previous
+        <span [translate]="'labels.buttons.Previous'">Previous</span>
       </button>
       <button mat-raised-button matStepperNext>
-        Next&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Next'"> Next</span>&nbsp;&nbsp;
         <fa-icon icon="arrow-right"></fa-icon>
       </button>
     </div>

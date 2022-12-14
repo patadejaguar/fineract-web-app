@@ -1,15 +1,15 @@
 <div class="container m-b-20" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="end" fxLayoutGap="2%">
   <button mat-raised-button color="primary" [routerLink]="['edit']">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
   <button mat-raised-button color="warn" (click)="delete()">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
   <button mat-raised-button color="primary" (click)="changeUserPassword()">
     <fa-icon icon="cog"></fa-icon>&nbsp;&nbsp;
-    Change Password
+    <span [translate]="'labels.buttons.ChangePassword'">Change Password</span>
   </button>
 </div>
 
@@ -22,7 +22,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Login Name
+          <span [translate]="'modulo.labels.loginname'">Login Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -30,7 +30,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          First Name
+          <span [translate]="'modulo.labels.firstname'">First Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -38,7 +38,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Last Name
+          <span [translate]="'modulo.labels.lastname'">Last Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -47,7 +47,7 @@
 
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="userData.email">
-          Email
+          <span [translate]="'modulo.labels.email'">Email</span>
         </div>
 
         <div fxFlex="50%" *ngIf="userData.email">
@@ -55,7 +55,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Office
+          <span [translate]="'modulo.labels.office'">Office</span>
         </div>
 
         <div fxFlex="50%">
@@ -63,7 +63,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Roles
+          <span [translate]="'modulo.labels.roles'">Roles</span>
         </div>
 
         <div fxFlex="50%">

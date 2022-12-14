@@ -2,7 +2,7 @@
 <div #buttonCreateFixedProduct class="in-block">
   <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_FIXEDDEPOSITPRODUCT'">
     <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-    Create Fixed Deposit Product
+    <span [translate]="'labels.buttons.CreateFixedDepositProduct'">Create Fixed Deposit Product</span>
   </button>
 </div>
 </div>
@@ -11,7 +11,7 @@
 
   <div #filter fxLayout="row" fxLayoutGap="20px">
     <mat-form-field fxFlex>
-      <mat-label>Filter</mat-label>
+      <mat-label><span [translate]="'modulo.labels.filter'">Filter</span></mat-label>
       <input matInput (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
   </div>
@@ -21,12 +21,14 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.name'"> Name</span> </th>
         <td mat-cell *matCellDef="let fixedDepositProduct"> {{ fixedDepositProduct.name }} </td>
       </ng-container>
 
       <ng-container matColumnDef="shortName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Short Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.shortname'">Short Name</span> </th>
         <td mat-cell *matCellDef="let fixedDepositProduct"> {{ fixedDepositProduct.shortName }} </td>
       </ng-container>
 
@@ -42,29 +44,40 @@
 </div>
 
 <ng-template #templateButtonCreateFixedProduct let-popover="popover">
-  <h2>Create fixed deposit product</h2>
-  <p class="mw300">This option allows you to create new fixed deposit product.</p>
+  <h2><span [translate]="'modulo.labels.createfixeddepositproduct'">Create fixed deposit product</span></h2>
+  <p class="mw300"><span [innerHTML]="'modulo.description.createfixeddepositproduct' | translate">
+    This option allows you to create new fixed deposit product.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateFilter let-popover="popover">
-  <h4>Search bar to filter fixed deposit products.</h4>
+  <h4><span [translate]="'modulo.labels.searchbarfilterfixeddeposit'">Search bar to filter fixed deposit products.</span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateFixedProduct,buttonCreateFixedProduct , 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFixedProductsTable,fixedProductsTable, 'top', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateFixedProduct,buttonCreateFixedProduct , 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFixedProductsTable,fixedProductsTable, 'top', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateFixedProductsTable let-popover="popover">
-  <h4 class="mw300">List of fixed deposit products in the organization. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/102629544/Fixed+Deposit+Products" target="_blank">Fixed Deposit Products</a></h4>
+  <h4 class="mw300"><span [innerHTML]="'modulo.description.listfixeddepositproduct' | translate">
+    List of fixed deposit products in the organization. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/102629544/Fixed+Deposit+Products" target="_blank">Fixed Deposit Products</a></span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

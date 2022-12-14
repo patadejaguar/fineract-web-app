@@ -1,13 +1,20 @@
-<h2 mat-dialog-title>Configuration Wizard</h2>
+<h2 mat-dialog-title>
+    <span [translate]="'modulo.configurationwizard.titlewizard'">Configuration Wizard</span></h2>
 
 <mat-dialog-content>
 
-<h3 class="mw600"> You have created {{stepName}} successfully. Please select from the options below to proceed furthur.</h3>
+<h3 class="mw600"> 
+    <span [translate]="'modulo.configurationwizard.descriptioncreatedsuccessfull'" [translateParams]="{ step: stepName }">
+        You have created {{stepName}} successfully. Please select from the options below to proceed furthur.
+    </span></h3>
 
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-raised-button color="warn"  [mat-dialog-close]="{ step: 1 }">Close Configuration Wizard</button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="{ step: 2 }">Create more {{stepName}}</button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="{ step: 3 }">Go to next step</button>
+    <button mat-raised-button color="warn"  [mat-dialog-close]="{ step: 1 }">
+        <span [translate]="'labels.buttons.close'">Close Configuration Wizard</span></button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="{ step: 2 }">
+        <span [translate]="'labels.buttons.createmore'" [translateParams]="{ step: stepName }">Create more {{stepName}}</span></button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="{ step: 3 }">
+        <span [translate]="'labels.buttons.gotonext'">Go to next step</span></button>
 </mat-dialog-actions>

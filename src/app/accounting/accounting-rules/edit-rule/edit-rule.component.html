@@ -9,35 +9,39 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Accounting Rule Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accoutingrulename'">Accounting Rule Name</span></mat-label>
             <input matInput required formControlName="name">
             <mat-error *ngIf="accountingRuleForm.controls.name.hasError('required')">
-              Accounting Rule Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.accountrulerequired' | translate">
+                Accounting Rule Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <mat-select required formControlName="officeId">
               <mat-option *ngFor="let office of officeData" [value]="office.id">
                 {{ office.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="accountingRuleForm.controls.officeId.hasError('required')">
-              Office is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.officerequired' | translate">Office is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <div fxFlex="48%" fxLayout="row" fxLayout.lt-md="column" class="rule-wrapper">
-            <mat-label fxFlex="50%">Affected GL Entry (Debit) Rule Type *</mat-label>
+            <mat-label fxFlex="50%">
+              <span [translate]="'modulo.labels.affectedgldebitruletype'">Affected GL Entry (Debit) Rule Type *</span></mat-label>
             <mat-radio-group fxFlex="50%" fxLayout="row" fxLayoutGap="5%" formControlName="debitRuleType">
-              <mat-radio-button value="fixedAccount">Fixed Account</mat-radio-button>
-              <mat-radio-button value="listOfAccounts">List of Accounts</mat-radio-button>
+              <mat-radio-button value="fixedAccount">
+                <span [translate]="'modulo.labels.fixedaccount'">Fixed Account</span></mat-radio-button>
+              <mat-radio-button value="listOfAccounts">
+                <span [translate]="'modulo.labels.listaccount'">List of Accounts</span></mat-radio-button>
             </mat-radio-group>
           </div>
 
           <mat-form-field fxFlex="48%" *ngIf="accountingRuleForm.controls.debitRuleType.value === 'fixedAccount'">
-            <mat-label>Account to Debit</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accountdebit'">Account to Debit</span></mat-label>
             <mat-select formControlName="accountToDebit">
               <mat-option *ngFor="let glAccount of glAccountData" [value]="glAccount.id">
                 {{ glAccount.name }}
@@ -47,7 +51,7 @@
 
           <div fxFlex="48%" fxLayout="row" fxLayoutGap="2%" fxLayout.lt-md="column" *ngIf="accountingRuleForm.controls.debitRuleType.value === 'listOfAccounts'">
             <mat-form-field fxFlex="50%">
-              <mat-label>Debit Tags</mat-label>
+              <mat-label><span [translate]="'modulo.labels.debittag'">Debit Tags</span></mat-label>
               <mat-select formControlName="debitTags" multiple>
                 <mat-option *ngFor="let debitTag of debitTagData" [value]="debitTag.id">
                   {{ debitTag.name }}
@@ -57,21 +61,24 @@
 
             <div fxFlex="50%" ngClass.gt-md="entries-wrapper">
               <mat-checkbox labelPosition="before" formControlName="allowMultipleDebitEntries" class="entries">
-                Multiple Debit Entries Allowed
+                <span [translate]="'modulo.labels.multipledebitallowed'">Multiple Debit Entries Allowed</span>
               </mat-checkbox>
             </div>
           </div>
 
           <div fxFlex="48%" fxLayout="row" fxLayout.lt-md="column" class="rule-wrapper">
-            <mat-label fxFlex="50%">Affected GL Entry (Credit) Rule Type *</mat-label>
+            <mat-label fxFlex="50%">
+              <span [translate]="'modulo.labels.affectedglcreditruletype'">Affected GL Entry (Credit) Rule Type *</span></mat-label>
             <mat-radio-group fxFlex="50%" fxLayout="row" fxLayoutGap="5%" formControlName="creditRuleType">
-              <mat-radio-button value="fixedAccount">Fixed Account</mat-radio-button>
-              <mat-radio-button value="listOfAccounts">List of Accounts</mat-radio-button>
+              <mat-radio-button value="fixedAccount">
+                <span [translate]="'modulo.labels.fixedaccount'">Fixed Account</span></mat-radio-button>
+              <mat-radio-button value="listOfAccounts">
+                <span [translate]="'modulo.labels.listaccount'">List of Accounts</span></mat-radio-button>
             </mat-radio-group>
           </div>
 
           <mat-form-field fxFlex="48%" *ngIf="accountingRuleForm.controls.creditRuleType.value === 'fixedAccount'">
-            <mat-label>Account to Credit</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accountcredit'">Account to Credit</span></mat-label>
             <mat-select formControlName="accountToCredit">
               <mat-option *ngFor="let glAccount of glAccountData" [value]="glAccount.id">
                 {{ glAccount.name }}
@@ -81,7 +88,7 @@
 
           <div fxFlex="48%" fxLayout="row" fxLayoutGap="2%" fxLayout.lt-md="column" *ngIf="accountingRuleForm.controls.creditRuleType.value === 'listOfAccounts'">
             <mat-form-field fxFlex="50%">
-              <mat-label>Credit Tags</mat-label>
+              <mat-label><span [translate]="'modulo.labels.credittag'">Credit Tags</span></mat-label>
               <mat-select formControlName="creditTags" multiple>
                 <mat-option *ngFor="let creditTag of creditTagData" [value]="creditTag.id">
                   {{ creditTag.name }}
@@ -91,13 +98,13 @@
 
             <div fxFlex="50%" ngClass.gt-md="entries-wrapper">
               <mat-checkbox labelPosition="before" formControlName="allowMultipleCreditEntries" class="entries">
-                Multiple Credit Entries Allowed
+                <span [translate]="'modulo.labels.multiplecreditallowed'">Multiple Credit Entries Allowed</span>
               </mat-checkbox>
             </div>
           </div>
 
           <mat-form-field fxFlex="98%">
-            <mat-label>Description</mat-label>
+            <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
             <textarea matInput formControlName="description"></textarea>
           </mat-form-field>
 
@@ -106,8 +113,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="accountingRuleForm.pristine || !accountingRuleForm.valid" *mifosxHasPermission="'UPDATE_ACCOUNTINGRULE'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="accountingRuleForm.pristine || !accountingRuleForm.valid" *mifosxHasPermission="'UPDATE_ACCOUNTINGRULE'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

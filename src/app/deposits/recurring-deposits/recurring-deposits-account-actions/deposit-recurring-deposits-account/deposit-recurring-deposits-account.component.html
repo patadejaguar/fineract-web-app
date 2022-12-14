@@ -9,38 +9,41 @@
         <div fxLayout="column">
 
           <mat-form-field (click)="transactionDatePicker.open()">
-            <mat-label>Transaction Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.transactiondate'">Transaction Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="transactionDatePicker" required
               formControlName="transactionDate">
             <mat-datepicker-toggle matSuffix [for]="transactionDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #transactionDatePicker></mat-datepicker>
             <mat-error *ngIf="depositRecurringDepositForm.controls.transactionDate.hasError('required')">
-              Transaction Date <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.transactiondaterequired' | translate">
+                Transaction Date <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Transaction Amount</mat-label>
+            <mat-label><span [translate]="'modulo.labels.transactionamount'">Transaction Amount</span></mat-label>
             <input matInput required formControlName="transactionAmount">
             <mat-error *ngIf="depositRecurringDepositForm.controls.transactionAmount.hasError('required')">
-              Transaction Amount <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.transactionamountrequired' | translate">
+                Transaction Amount <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Payment Type Id</mat-label>
+            <mat-label><span [translate]="'modulo.labels.paymenttype'">Payment Type Id</span></mat-label>
             <mat-select formControlName="paymentTypeId" required>
               <mat-option *ngFor="let paymentType of paymentTypes" [value]="paymentType.id">
                 {{ paymentType.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="depositRecurringDepositForm.controls.paymentTypeId.hasError('required')">
-              Payment Type <strong>is required</strong>
+              <span [innerHTML]="'modulo.validations.paymenttyperequired' | translate">
+                Payment Type <strong>is required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <div fxFlexFill>
-            <span fxFlex="25%">Show Payment Details</span>
+            <span fxFlex="25%"><span [translate]="'modulo.labels.showpaymentdetails'">Show Payment Details</span></span>
             <span fxFlex="75%" class="expandcollapsebutton" (click)="toggleDisplay()">
               <button mat-raised-button color="primary" *ngIf="showPaymentDetails">
                 <i class="fa fa-minus"></i>
@@ -53,33 +56,33 @@
 
           <ng-container *ngIf="showPaymentDetails">
             <mat-form-field>
-              <mat-label> Account #</mat-label>
+              <mat-label> <span [translate]="'modulo.labels.account'">Account</span> #</mat-label>
               <input matInput formControlName="accountNumber">
             </mat-form-field>
 
             <mat-form-field>
-              <mat-label>Cheque #</mat-label>
+              <mat-label><span [translate]="'modulo.labels.cheque'">Cheque</span> #</mat-label>
               <input matInput formControlName="chequeNumber">
             </mat-form-field>
 
             <mat-form-field>
-              <mat-label>Routing Code</mat-label>
+              <mat-label><span [translate]="'modulo.labels.routingcode'">Routing Code</span></mat-label>
               <input matInput formControlName="routingCode">
             </mat-form-field>
 
             <mat-form-field>
-              <mat-label>Reciept #</mat-label>
+              <mat-label><span [translate]="'modulo.labels.reciept'">Reciept</span> #</mat-label>
               <input matInput formControlName="receiptNumber">
             </mat-form-field>
 
             <mat-form-field>
-              <mat-label>Bank #</mat-label>
+              <mat-label><span [translate]="'modulo.labels.bank'">Bank</span> #</mat-label>
               <input matInput formControlName="bankNumber">
             </mat-form-field>
           </ng-container>
 
           <mat-form-field>
-            <mat-label>Note</mat-label>
+            <mat-label><span [translate]="'modulo.labels.note'">Note</span></mat-label>
             <textarea matInput formControlName="note"></textarea>
           </mat-form-field>
 
@@ -88,8 +91,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../general']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!depositRecurringDepositForm.valid">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../general']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!depositRecurringDepositForm.valid">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

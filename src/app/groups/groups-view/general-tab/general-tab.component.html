@@ -1,55 +1,56 @@
 <div class="tab-container mat-typography">
 
-  <h3>Group Details</h3>
+  <h3><span [translate]="'modulo.labels.groupdetails'">Group Details</span></h3>
 
   <div fxLayout="row" fxLayoutGap="32px" class="group-details-container m-b-30">
     <p>
-      Active Client Loans: {{groupSummary?.activeClientLoans}}<br/>
-      Active Client Borrowers: {{groupSummary?.activeClientBorrowers}}<br/>
-      Active Overdue Client Loans: {{groupSummary?.overdueClientLoans}}<br/>
+      <span [translate]="'modulo.labels.activeclientloans'">Active Client Loans</span>: {{groupSummary?.activeClientLoans}}<br/>
+      <span [translate]="'modulo.labels.activeclientborrowers'">Active Client Borrowers</span>: {{groupSummary?.activeClientBorrowers}}<br/>
+      <span [translate]="'modulo.labels.activeoverdueclientloans'">Active Overdue Client Loans</span>: {{groupSummary?.overdueClientLoans}}<br/>
     </p>
     <p>
-      Active Group Loans: {{groupSummary?.activeGroupLoans}}<br/>
-      Active Group Borrowers: {{groupSummary?.activeGroupBorrowers}}<br/>
-      Active Overdue Group Loans: {{groupSummary?.overdueGroupLoans}}<br/>
+      <span [translate]="'modulo.labels.activegrouploans'">Active Group Loans</span>: {{groupSummary?.activeGroupLoans}}<br/>
+      <span [translate]="'modulo.labels.activegroupborrowers'">Active Group Borrowers</span>: {{groupSummary?.activeGroupBorrowers}}<br/>
+      <span [translate]="'modulo.labels.activeoverduegrouploans'">Active Overdue Group Loans</span>: {{groupSummary?.overdueGroupLoans}}<br/>
     </p>
     <p>
-      Active Clients: {{groupSummary?.activeClients}}<br/>
+      <span [translate]="'modulo.labels.activeclients'">Active Clients</span>: {{groupSummary?.activeClients}}<br/>
     </p>
   </div>
 
   <!-- Client Members Table -->
   <div *ngIf="groupClientMembers">
 
-    <h3>Client Members</h3>
+    <h3><span [translate]="'modulo.labels.clientmembers'">Client Members</span></h3>
 
     <table mat-table [dataSource]="groupClientMembers"
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="Name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.name'"> Name </span></th>
         <td mat-cell *matCellDef="let element">
-          <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" [matTooltip]="element.status.value"></i>
+          <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" [matTooltip]="element.status.value | translate"></i>
           {{element.displayName}}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="Account No">
-        <th mat-header-cell *matHeaderCellDef> Account No. </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountno'"> Account No.</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.accountNo}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Office">
-        <th mat-header-cell *matHeaderCellDef> Office </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.office'"> Office</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.officeName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="JLG Loan Application">
-        <th mat-header-cell *matHeaderCellDef> JLG Loan Application </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.labels.jlgloanapplication'"> JLG Loan Application </span></th>
         <td mat-cell *matCellDef="let element">
           <div class="m-l-30" *ngIf="element.status.code !== 'clientStatusType.closed'">
             <button class="account-action-button" mat-raised-button color="primary">
-              <i class="fa fa-plus" matTooltip="New Loan Application"></i>
+              <i class="fa fa-plus" matTooltip="{{'modulo.labels.newloanappliaction' | translate}}"></i>
             </button>
           </div>
         </td>
@@ -66,11 +67,12 @@
 
     <div fxLayout="row" fxLayoutAlign="start" class="table-header">
       <div class="m-b-10">
-        <h3>Loan Accounts</h3>
+        <h3><span [translate]="'modulo.labels.loanaccounts'">Loan Accounts</span></h3>
       </div>
       <div *ngIf="(loanAccounts|accountsFilter:'loan':'closed').length" class="action-button m-b-10">
         <button mat-raised-button class="f-right" color="primary"
-      (click)="toggleLoanAccountsOverview()">{{showClosedLoanAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+      (click)="toggleLoanAccountsOverview()">
+      {{(showClosedLoanAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
 
@@ -79,7 +81,7 @@
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="Account No">
-        <th mat-header-cell *matHeaderCellDef> Account No. </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountno'"> Account No.</span> </th>
         <td mat-cell *matCellDef="let element"> <i class="fa fa-stop"
             [ngClass]="element.inArrears?'status-active-overdue':(element.status.code|statusLookup)"
             [matTooltip]="element.inArrears?'Active Overdue':element.status.value"></i>
@@ -88,49 +90,50 @@
       </ng-container>
 
       <ng-container matColumnDef="Loan Account">
-        <th mat-header-cell *matHeaderCellDef> Loan Account </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.loanaccount'"> Loan Account</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Original Loan">
-        <th mat-header-cell *matHeaderCellDef> Original Loan </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.originalloan'"> Original Loan</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.originalLoan}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Loan Balance">
-        <th mat-header-cell *matHeaderCellDef> Loan Balance </th>
+        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.loanbalance'">Loan Balance</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.loanBalance}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Amount Paid">
-        <th mat-header-cell *matHeaderCellDef> Amount Paid </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.amountpaid'"> Amount Paid</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.amountPaid}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Type">
-        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.type'"> Type </span></th>
         <td mat-cell *matCellDef="let element">
           <i class="fa fa-large" [ngClass]="(element.loanType.value==='Individual')?'fa-user':'fa-group'"
-          [matTooltip]="(element.loanType.value==='Individual')?'Individual':'Group'"></i>
+          matTooltip="{{((element.loanType.value==='Individual')?'modulo.labels.individual':'modulo.labels.group') | translate}}"></i>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="Actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <th mat-header-cell *matHeaderCellDef> 
+          <span [translate]="'header.actions'">Actions</span> </th>
         <td mat-cell *matCellDef="let element">
           <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-dollar" matTooltip="Make Repayment"></i>
+            <i class="fa fa-dollar" matTooltip="{{'modulo.labels.makerepayment' | translate}}"></i>
           </button>
           <button *ngIf="element.status.pendingApproval" class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-check" matTooltip="Approve"></i>
+            <i class="fa fa-check" matTooltip="{{'modulo.labels.approve' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.pendingApproval && !element.status.active && !element.status.overpaid"
             class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-flag" matTooltip="Disburse"></i>
+            <i class="fa fa-flag" matTooltip="{{'modulo.labels.disburse' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.pendingApproval && !element.status.active && element.status.overpaid"
             class="account-action-button" mat-raised-button color="primary">
-            <i class="fa fa-exchange" matTooltip="Transfer Funds"></i>
+            <i class="fa fa-exchange" matTooltip="{{'modulo.labels.transferfunds' | translate}}"></i>
           </button>
         </td>
       </ng-container>
@@ -145,7 +148,7 @@
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="Account No">
-        <th mat-header-cell *matHeaderCellDef> Account No. </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountno'"> Account No.</span> </th>
         <td mat-cell *matCellDef="let element"> <i class="fa fa-stop"
             [ngClass]="element.inArrears?'status-active-overdue':(element.status.code|statusLookup)"
             [matTooltip]="element.inArrears?'Active Overdue':element.status.value"></i>
@@ -154,35 +157,35 @@
       </ng-container>
 
       <ng-container matColumnDef="Loan Account">
-        <th mat-header-cell *matHeaderCellDef> Loan Account </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.loanaccount'"> Loan Account</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Original Loan">
-        <th mat-header-cell *matHeaderCellDef> Original Loan </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.originalloan'"> Original Loan</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.lastActiveTransactionDate  | dateFormat}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Loan Balance">
-        <th mat-header-cell *matHeaderCellDef>Loan Balance </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.loanbalance'">Loan Balance </span></th>
         <td mat-cell *matCellDef="let element"> {{element.loanBalance}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Amount Paid">
-        <th mat-header-cell *matHeaderCellDef> Amount Paid </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.amountpaid'"> Amount Paid</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.accountBalance}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Type">
-        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.type'"> Type</span> </th>
         <td mat-cell *matCellDef="let element">
           <i class="fa fa-large" [ngClass]="(element.loanType.value=== 'Individual')?'fa-user':'fa-group'"
-          [matTooltip]="(element.loanType.value==='Individual')?'Individual':'Group'"></i>
+          matTooltip="{{((element.loanType.value==='Individual')?'modulo.labels.individual':'modulo.labels.group') | translate}}"></i>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="Closed Date">
-        <th mat-header-cell *matHeaderCellDef> Closed Date </th>
+        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.closeddate'">Closed Date</span> </th>
         <td mat-cell *matCellDef="let element">{{element.timeline.closedOnDate  | dateFormat}}</td>
       </ng-container>
 
@@ -197,7 +200,7 @@
 
     <div fxLayout="row" fxLayoutAlign="start" class="table-header">
       <div class="m-b-10">
-        <h3>GSIM Account Overview</h3>
+        <h3><span [translate]="'modulo.labels.gsimaccountoverview'">GSIM Account Overview</span></h3>
       </div>
     </div>
 
@@ -206,28 +209,28 @@
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="GSIM Id">
-        <th mat-header-cell *matHeaderCellDef> GSIM Id </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.gsimid'"> GSIM Id</span> </th>
         <td mat-cell *matCellDef="let element">
           {{element.gsimId}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Account Number">
-        <th mat-header-cell *matHeaderCellDef> Account Number </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountnumber'"> Account Number</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.accountNumber}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Product">
-        <th mat-header-cell *matHeaderCellDef> Product </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.product'"> Product</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.childGSIMAccounts[0].productName}}</td>
       </ng-container>
 
       <ng-container matColumnDef="Balance">
-        <th mat-header-cell *matHeaderCellDef> Balance </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.balance'"> Balance</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.parentBalance}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.savingsStatus}} </td>
       </ng-container>
 
@@ -242,7 +245,7 @@
 
     <div fxLayout="row" fxLayoutAlign="start" class="table-header">
       <div class="m-b-10">
-        <h3>GLIM Loans Account Overview</h3>
+        <h3><span [translate]="'modulo.labels.glimloansaccountoverview'">GLIM Loans Account Overview</span></h3>
       </div>
     </div>
 
@@ -251,28 +254,28 @@
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="GLIM Id">
-        <th mat-header-cell *matHeaderCellDef> GLIM Id </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.glimid'"> GLIM Id</span> </th>
         <td mat-cell *matCellDef="let element"> 
           {{element.glimId}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Account Number">
-        <th mat-header-cell *matHeaderCellDef> Account Number </th>
+        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.accountnumber'">Account Number</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.accountNumber}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Product">
-        <th mat-header-cell *matHeaderCellDef> Product </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.product'"> Product</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.childGLIMAccounts[0].productName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Original Loan">
-        <th mat-header-cell *matHeaderCellDef> Original Loan </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.originalloan'"> Original Loan</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.parentPrincipalAmount}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let element">{{element.loanStatus}} </td>
       </ng-container>
 
@@ -287,11 +290,12 @@
 
     <div fxLayout="row" fxLayoutAlign="start" class="table-header">
       <div class="m-b-10">
-        <h3>Saving Accounts</h3>
+        <h3><span [translate]="'modulo.labels.savingaccounts'">Saving Accounts</span></h3>
       </div>
       <div class="action-button m-b-10">
         <button *ngIf="(savingAccounts|accountsFilter:'saving':'closed').length" mat-raised-button class="f-right" color="primary"
-        (click)="toggleSavingAccountsOverview()">{{showClosedSavingAccounts?'View Active Accounts':'View Closed Accounts'}}</button>
+        (click)="toggleSavingAccountsOverview()">
+        {{(showClosedSavingAccounts?'modulo.labels.viewactiveaccounts':'modulo.labels.viewclosedaccounts') | translate}}</button>
       </div>
     </div>
 
@@ -300,50 +304,52 @@
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="Account No">
-        <th mat-header-cell *matHeaderCellDef> Account No. </th>
-        <td mat-cell *matCellDef="let element"> <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" [matTooltip]="element.status.value"></i>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountno'"> Account No.</span> </th>
+        <td mat-cell *matCellDef="let element"> <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" 
+          [matTooltip]="element.status.value"></i>
           {{element.accountNo}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Saving Account">
-        <th mat-header-cell *matHeaderCellDef> Saving Account </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.savingaccount'"> Saving Account</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Last Active">
-        <th mat-header-cell *matHeaderCellDef> Last Active </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.lastactive'"> Last Active</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.lastActiveTransactionDate  | dateFormat}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Balance">
-        <th mat-header-cell *matHeaderCellDef> Balance </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.balance'"> Balance </span></th>
         <td mat-cell *matCellDef="let element"> {{element.accountBalance}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'header.actions'"> Actions </span></th>
         <td mat-cell *matCellDef="let element">
           <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Deposit']">
-            <i class="fa fa-arrow-up" matTooltip="Deposit"></i>
+            <i class="fa fa-arrow-up" matTooltip="{{'modulo.labels.deposit' | translate}}"></i>
           </button>
           <button *ngIf="element.status.active" class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Withdrawal']">
-            <i class="fa fa-arrow-down" matTooltip="Withdraw"></i>
+            <i class="fa fa-arrow-down" matTooltip="{{'modulo.labels.withdraw' | translate}}"></i>
           </button>
           <button *ngIf="element.status.submittedAndPendingApproval" class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Approve']">
-            <i class="fa fa-check" matTooltip="Approve"></i>
+            <i class="fa fa-check" matTooltip="{{'modulo.labels.approve' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.submittedAndPendingApproval && !element.status.active"
             class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Undo Approval']">
-            <i class="fa fa-undo" matTooltip="Undo Approval"></i>
+            <i class="fa fa-undo" matTooltip="{{'modulo.labels.undoapproval' | translate}}"></i>
           </button>
           <button *ngIf="!element.status.submittedAndPendingApproval && !element.status.active"
             class="account-action-button" mat-raised-button color="primary"
             (click)="routeEdit($event)" [routerLink]="['../','savings-accounts', element.id, 'actions', 'Activate']">
-            <i class="fa fa-check-circle" matTooltip="Activate"></i>
+            <i class="fa fa-check-circle" matTooltip="{{'modulo.labels.activate' | translate}}"></i>
           </button>
         </td>
       </ng-container>
@@ -358,18 +364,18 @@
       class="mat-elevation-z1 m-b-30">
 
       <ng-container matColumnDef="Account No">
-        <th mat-header-cell *matHeaderCellDef> Account No. </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.accountno'"> Account No.</span> </th>
         <td mat-cell *matCellDef="let element"> <i class="fa fa-stop" [ngClass]="element.status.code|statusLookup" [matTooltip]="element.status.value"></i>
           {{element.accountNo}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Saving Account">
-        <th mat-header-cell *matHeaderCellDef> Saving Account </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.savingaccount'"> Saving Account</span> </th>
         <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Closed Date">
-        <th mat-header-cell *matHeaderCellDef> Closed Date </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.closeddate'"> Closed Date</span> </th>
         <td mat-cell *matCellDef="let element">{{element.timeline.closedOnDate  | dateFormat}}</td>
       </ng-container>
 

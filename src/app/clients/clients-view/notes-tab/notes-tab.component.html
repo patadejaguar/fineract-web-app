@@ -1,6 +1,6 @@
 <div class="tab-container mat-typography">
 
-  <h3>Notes</h3>
+  <h3><span [translate]="'modulo.labels.notes'">Notes</span></h3>
 
   <div>
     
@@ -8,11 +8,12 @@
       (ngSubmit)="submit()">
 
       <mat-form-field fxFlex="calc(90%-20px)">
-        <textarea formControlName="note" matInput placeholder="Write a note ...."></textarea>
+        <textarea formControlName="note" matInput placeholder="{{'modulo.labels.writenote' | translate}}"></textarea>
       </mat-form-field>
 
       <button mat-raised-button fxFlex color="primary" [disabled]="!noteForm.valid" *mifosxHasPermission="'CREATE_CLIENTNOTE'">
-        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp; Add
+        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Cancel'"> Add</span>
       </button>
 
     </form>
@@ -25,8 +26,8 @@
       <fa-icon icon="sticky-note" matListIcon></fa-icon>
       <h3 matLine>{{clientNote.note}} </h3>
       <p matLine>
-        <span>Created by: {{clientNote.createdByUsername}}</span><br />
-        <span>Date: {{clientNote.createdOn  | dateFormat}}</span>
+        <span><span [translate]="'modulo.labels.createdby'">Created by</span>: {{clientNote.createdByUsername}}</span><br />
+        <span><span [translate]="'modulo.labels.date'">Date</span>: {{clientNote.createdOn  | dateFormat}}</span>
       </p>
       <div fxLayout="row" fxLayoutAlign="flex-start">
         <button mat-button color="primary" (click)="editNote(clientNote.id,clientNote.note,i)" *mifosxHasPermission="'CREATE_CLIENTNOTE'">

@@ -9,10 +9,10 @@
           <div fxLayout="column">
 
             <mat-form-field>
-              <mat-label>Code Name</mat-label>
+              <mat-label><span [translate]="'modulo.labels.codename'">Code Name</span></mat-label>
               <input matInput required formControlName="name">
               <mat-error *ngIf="codeForm.controls.name.hasError('required')">
-                Code Name is <strong>required</strong>
+                <span [innerHTML]="'modulo.validations.codenamerequired' | translate">Code Name is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
 
@@ -21,8 +21,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!codeForm.valid || codeForm.pristine" *mifosxHasPermission="'UPDATE_CODE'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!codeForm.valid || codeForm.pristine" *mifosxHasPermission="'UPDATE_CODE'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

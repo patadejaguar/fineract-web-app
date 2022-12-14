@@ -2,20 +2,23 @@
   <div fxLayout="row" fxLayoutAlign="start center">
     <div class="search-box">
       <mat-form-field>
-        <input matInput placeholder="Search by Name" [formControl]="name">
+        <input matInput placeholder="{{'modulo.labels.searchbyname' | translate}}" [formControl]="name">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Search by ExternalID" [formControl]="externalId">
+        <input matInput placeholder="{{'modulo.labels.searchbyexternalid' | translate}}" [formControl]="externalId">
       </mat-form-field>
-      <mat-checkbox #showClosedCenters labelPosition="after" (change)="changeShowClosedCenters()">Show Closed Centers
+      <mat-checkbox #showClosedCenters labelPosition="after" (change)="changeShowClosedCenters()">
+        <span [translate]="'modulo.labels.showclosecenter'">Show Closed Centers</span>
       </mat-checkbox>
     </div>
     <div class="action-button" fxLayoutGap="25px">
       <button mat-raised-button color="primary" [routerLink]="['../', 'organization', 'bulk-import', 'Centers']" *mifosxHasPermission="'CREATE_CENTER'">
-        <fa-icon icon="download"></fa-icon>&nbsp;&nbsp;Import Center
+        <fa-icon icon="download"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.importcenter'">Import Center</span>
       </button>
       <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_CENTER'">
-        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;Create Center
+        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.createcenter'">Create Center</span>
       </button>
     </div>
   </div>
@@ -23,22 +26,23 @@
   <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <span [translate]="'modulo.labels.name'"> Name </span></th>
       <td mat-cell *matCellDef="let center"> {{ center.name }} </td>
     </ng-container>
 
     <ng-container matColumnDef="accountNo">
-      <th mat-header-cell *matHeaderCellDef> Account # </th>
+      <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.account'"> Account</span> # </th>
       <td mat-cell *matCellDef="let center"> {{ center.accountNo }} </td>
     </ng-container>
 
     <ng-container matColumnDef="externalId">
-      <th mat-header-cell *matHeaderCellDef> ExternalID </th>
+      <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.externalid'"> ExternalID</span> </th>
       <td mat-cell *matCellDef="let center"> {{ center.externalId }} </td>
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.status'"> Status</span> </th>
       <td mat-cell *matCellDef="let row">
         <div [ngClass]="row.status.code|statusLookup">
           <fa-icon icon="stop"></fa-icon>
@@ -47,7 +51,8 @@
     </ng-container>
 
     <ng-container matColumnDef="officeName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Office Name </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+        <span [translate]="'modulo.labels.officename'">Office Name </span></th>
       <td mat-cell *matCellDef="let center"> {{ center.officeName }} </td>
     </ng-container>
 
