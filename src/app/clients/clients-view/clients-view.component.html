@@ -32,7 +32,8 @@
 
         <mat-card-title>
           <h3>
-            <i class="fa fa-stop" [ngClass]="clientViewData.status.code|statusLookup" [matTooltip]="clientViewData.status.value"></i>
+            <i class="fa fa-stop" [ngClass]="clientViewData.status.code|statusLookup" 
+            [matTooltip]="clientViewData.status.value | translate"></i>
             <span [translate]="'modulo.labels.clientname'">Client Name</span> : {{clientViewData.displayName}}
           </h3>
         </mat-card-title>

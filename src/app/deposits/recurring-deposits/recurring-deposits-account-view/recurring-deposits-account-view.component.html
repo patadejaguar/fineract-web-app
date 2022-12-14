@@ -16,7 +16,7 @@
         <mat-card-title>
           <h3>
             <i class="fa fa-stop" [ngClass]="recurringDepositsAccountData.status.code | statusLookup"
-              [matTooltip]="recurringDepositsAccountData.status.value"></i>
+              [matTooltip]="recurringDepositsAccountData.status.value | translate"></i>
             <span [translate]="'modulo.labels.accountname'">Account Name </span>: {{recurringDepositsAccountData.depositProductName}}
           </h3>
         </mat-card-title>

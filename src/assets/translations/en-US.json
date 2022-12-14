@@ -2498,5 +2498,7 @@
   "Profile": "Profile",
   "Roles and Permissions": "Roles and Permissions",
   "Add": "Add",
-  "Centers": "Centers"
+  "Centers": "Centers",
+  "Active": "Active",
+  "Inactive": "Inactive"
 }

@@ -14,7 +14,8 @@
       <div class="mat-typography group-card-title">
         <mat-card-title>
           <h3>
-            <i class="fa fa-stop" [ngClass]="groupViewData.status.code|statusLookup" [matTooltip]="groupViewData.status.value"></i>
+            <i class="fa fa-stop" [ngClass]="groupViewData.status.code|statusLookup" 
+            [matTooltip]="groupViewData.status.value | translate"></i>
             <span [translate]="'modulo.labels.groupname'">Group Name</span> : {{groupViewData.name}}
           </h3>
         </mat-card-title>

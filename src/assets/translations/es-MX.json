@@ -272,7 +272,7 @@
       "Theme Picker": "Seleccionador de Tema",
       "Application Menu": "Menú de Aplicación",
       "User Panel": "Panel de Usuario",
-      "Frequently Accessed": "Accessos Frecuentes",
+      "Frequently Accessed": "Accesos Frecuentes",
       "Dashboard": "Gráficos",
       "Navigation": "Navegación",
       "Frequent Postings": "Publicaciones Frecuentes",
@@ -2498,5 +2498,7 @@
   "Profile": "Perfil",
   "Roles and Permissions": "Roles y Permisos",
   "Add": "Agregar",
-  "Centers": "Centros"
+  "Centers": "Centros",
+  "Active": "Activo",
+  "Inactive": "Inactivo"
 }
