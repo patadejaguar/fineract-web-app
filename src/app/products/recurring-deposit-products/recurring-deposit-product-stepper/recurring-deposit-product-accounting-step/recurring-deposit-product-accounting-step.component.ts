@@ -171,7 +171,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
   }
 
   edit(formType: string, formArray: FormArray, index: number) {
-    const data = { ...this.getData(formType, formArray.at(index).value), layout: { addButtonText: 'Edit' } };
+    const data = { ...this.getData(formType, formArray.at(index).value), layout: { addButtonText: 'labels.buttons.Edit' } };
     const dialogRef = this.dialog.open(FormDialogComponent, { data });
     dialogRef.afterClosed().subscribe((response: any) => {
       if (response.data) {
@@ -203,7 +203,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'paymentTypeId',
-        label: 'Payment Type',
+        label: 'modulo.labels.paymenttype',
         value: values ? values.paymentTypeId : this.paymentTypeData[0].id,
         options: { label: 'name', value: 'id', data: this.paymentTypeData },
         required: true,
@@ -211,7 +211,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
       }),
       new SelectBase({
         controlName: 'fundSourceAccountId',
-        label: 'Fund Source',
+        label: 'modulo.labels.fundsource',
         value: values ? values.fundSourceAccountId : this.assetAccountData[0].id,
         options: { label: 'name', value: 'id', data: this.assetAccountData },
         required: true,
@@ -225,7 +225,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'chargeId',
-        label: 'Fees',
+        label: 'modulo.labels.fees',
         value: values ? values.chargeId : this.chargeData[0].id,
         options: { label: 'name', value: 'id', data: this.chargeData },
         required: true,
@@ -233,7 +233,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
       }),
       new SelectBase({
         controlName: 'incomeAccountId',
-        label: 'Income Account',
+        label: 'modulo.labels.incomeaccount',
         value: values ? values.incomeAccountId : this.incomeAccountData[0].id,
         options: { label: 'name', value: 'id', data: this.incomeAccountData },
         required: true,
@@ -247,7 +247,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'chargeId',
-        label: 'Penalty',
+        label: 'modulo.labels.penalty',
         value: values ? values.chargeId : this.penaltyData[0].id,
         options: { label: 'name', value: 'id', data: this.penaltyData },
         required: true,
@@ -255,7 +255,7 @@ export class RecurringDepositProductAccountingStepComponent implements OnInit {
       }),
       new SelectBase({
         controlName: 'incomeAccountId',
-        label: 'Income Account',
+        label: 'modulo.labels.incomeaccount',
         value: values ? values.incomeAccountId : this.incomeAccountData[0].id,
         options: { label: 'name', value: 'id', data: this.incomeAccountData },
         required: true,

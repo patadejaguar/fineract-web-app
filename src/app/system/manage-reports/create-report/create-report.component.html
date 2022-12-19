@@ -22,7 +22,7 @@
             <mat-select required formControlName="reportType">
               <mat-option *ngFor="let allowedReportType of reportTemplateData.allowedReportTypes"
                 [value]="allowedReportType">
-                {{ allowedReportType }}
+                {{ allowedReportType |translate }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="reportForm.controls.reportType.hasError('required')">
@@ -36,7 +36,7 @@
             <mat-select formControlName="reportSubType">
               <mat-option *ngFor="let allowedReportSubType of reportTemplateData.allowedReportSubTypes"
                 [value]="allowedReportSubType">
-                {{ allowedReportSubType }}
+                {{ allowedReportSubType |translate }}
               </mat-option>
             </mat-select>
           </mat-form-field>

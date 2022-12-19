@@ -227,20 +227,20 @@ export class EntityToEntityMappingComponent implements OnInit {
       }),
       new DatepickerBase({
         controlName: 'startDate',
-        label: 'Start Date',
+        label: 'modulo.labels.startdate',
         type: 'date',
         required: false
       }),
       new DatepickerBase({
         controlName: 'endDate',
-        label: 'End Date',
+        label: 'modulo.labels.enddate',
         type: 'date',
         required: false
       })
     ];
     const data = {
-      title: 'Add Entity to Entity Mapping',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.addentitymapping',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const addEntitytoEntityMappingDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -278,20 +278,20 @@ export class EntityToEntityMappingComponent implements OnInit {
       }),
       new DatepickerBase({
         controlName: 'startDate',
-        label: 'Start Date',
+        label: 'modulo.labels.startdate',
         type: 'date',
         required: false
       }),
       new DatepickerBase({
         controlName: 'endDate',
-        label: 'End Date',
+        label: 'modulo.labels.enddate',
         type: 'date',
         required: false
       })
     ];
     const data = {
-      title: 'Edit Entity to Entity Mapping',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editentitymapping',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editEntitytoEntityMappingDialogRef = this.dialog.open(FormDialogComponent, { data });

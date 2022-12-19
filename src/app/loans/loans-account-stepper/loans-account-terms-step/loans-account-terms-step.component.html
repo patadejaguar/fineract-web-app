@@ -230,7 +230,7 @@
 
     <div fxFlexFill>
       <span fxFlex="40%"><span [translate]="'modulo.loans.title.recalculateinterest'">Recalculate Interest</span></span>
-      <span fxFlex="60%">{{ loansAccountTemplate?.isInterestRecalculationEnabled? 'Yes' : 'No' }}</span>
+      <span fxFlex="60%">{{ (loansAccountTemplate?.isInterestRecalculationEnabled? 'Yes' : 'No') | translate  }}</span>
     </div>
 
     <div fxFlexFill *ngIf="loansAccountTemplate?.isInterestRecalculationEnabled">

@@ -114,7 +114,7 @@
 
         <div fxFlexFill>
 		  <span fxFlex="40%"><span [translate]="'modulo.labels.applypenalinterest'">Apply Penal Interest (less)</span>:</span>
-		  <span fxFlex="60%">{{ fixedDepositProductData.preClosurePenalApplicable ? 'Yes' : 'No' }}</span>
+		  <span fxFlex="60%">{{ (fixedDepositProductData.preClosurePenalApplicable ? 'Yes' : 'No') | translate  }}</span>
   		</div>
 
         <div fxFlexFill *ngIf="fixedDepositProductData.preClosurePenalApplicable">
@@ -132,7 +132,7 @@
 
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.iswithholdtax'">Is withhold tax Applicable</span>:</span>
-          <span fxFlex="60%">{{ fixedDepositProductData.withHoldTax ? 'Yes' : 'No' }}</span>
+          <span fxFlex="60%">{{ (fixedDepositProductData.withHoldTax ? 'Yes' : 'No') | translate  }}</span>
         </div>
 
         <div fxFlexFill *ngIf="fixedDepositProductData.withHoldTax">
@@ -170,7 +170,7 @@
 
             <div fxFlexFill>
               <span fxFlex="40%"><span [translate]="'modulo.labels.primarygroupingamount'">Primary Grouping by Amount</span>:</span>
-              <span fxFlex="60%">{{ fixedDepositProductData.activeChart.isPrimaryGroupingByAmount ? 'Yes' : 'No' }}</span>
+              <span fxFlex="60%">{{ (fixedDepositProductData.activeChart.isPrimaryGroupingByAmount ? 'Yes' : 'No') | translate  }}</span>
             </div>
 
             <table fxFlexFill class="mat-elevation-z1" mat-table [dataSource]="fixedDepositProductData.activeChart.chartSlabs" multiTemplateDataRows>

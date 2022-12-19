@@ -26,8 +26,8 @@ export class FormDialogComponent implements OnInit {
     columns: 1,
     columnWidth: 400,
     flex: 100,
-    cancelButtonText: 'Cancel',
-    addButtonText: 'Add'
+    cancelButtonText: 'labels.buttons.Cancel',
+    addButtonText: 'labels.buttons.Add'
   };
 
   form: FormGroup;

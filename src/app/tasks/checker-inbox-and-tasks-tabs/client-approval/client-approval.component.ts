@@ -90,15 +90,15 @@ export class ClientApprovalComponent {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'actDate',
-        label: 'Date',
+        label: 'modulo.labels.date',
         value: new Date(),
         type: 'datetime-local',
         required: true
       }),
     ];
     const data = {
-      title: 'Enter Clients Activation Date',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.enterclientsactivationdate',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const clientApprovalDialogRef = this.dialog.open(FormDialogComponent, { data });

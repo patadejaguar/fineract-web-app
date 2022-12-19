@@ -67,13 +67,13 @@ export class NotesTabComponent implements OnInit {
                 required: true,
                 value: noteContent,
                 controlType: 'input',
-                label: 'Note'
+                label: 'modulo.labels.note'
               }],
               layout: {
                 columns: 1,
-                addButtonText: 'Confirm'
+                addButtonText: 'labels.buttons.Confirm'
               },
-              title: 'Edit Note'
+              title: 'modulo.labels.editnote'
             }
     });
     editNoteDialogRef.afterClosed().subscribe((response: any) => {

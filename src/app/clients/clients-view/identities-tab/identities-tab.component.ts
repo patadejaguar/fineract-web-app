@@ -73,7 +73,7 @@ export class IdentitiesTabComponent {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'documentTypeId',
-        label: 'Document Type',
+        label: 'modulo.labels.documenttype',
         value: '',
         options: { label: 'name', value: 'id', data: this.clientIdentifierTemplate.allowedDocumentTypes },
         required: true,
@@ -81,7 +81,7 @@ export class IdentitiesTabComponent {
       }),
       new SelectBase({
         controlName: 'status',
-        label: 'Status',
+        label: 'modulo.labels.status',
         value: '2',
         options: { label: 'value', value: 'value', data: [{ value: 'Active' }, { value: 'Inactive' }] },
         required: true,
@@ -89,7 +89,7 @@ export class IdentitiesTabComponent {
       }),
       new InputBase({
         controlName: 'documentKey',
-        label: 'Unique Id',
+        label: 'modulo.labels.uniqueid',
         value: '',
         type: 'text',
         required: true,
@@ -97,14 +97,14 @@ export class IdentitiesTabComponent {
       }),
       new InputBase({
         controlName: 'description',
-        label: 'Description',
+        label: 'modulo.labels.description',
         value: '',
         type: 'text',
         order: 4
       })
     ];
     const data = {
-      title: 'Add Client Identifier',
+      title: 'modulo.labels.addclientidentifier',
       formfields: formfields
     };
     const addIdentifierDialogRef = this.dialog.open(FormDialogComponent, { data });

@@ -18,7 +18,7 @@
       <mat-label><span [translate]="'modulo.labels.legalform'">Legal Form</span></mat-label>
       <mat-select formControlName="legalFormId">
         <mat-option *ngFor="let legalForm of legalFormOptions" [value]="legalForm.id">
-          {{ legalForm.value }}
+          {{ legalForm.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>

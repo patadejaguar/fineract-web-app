@@ -61,22 +61,22 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.interestcompoundingperiod'">Interest Compounding Period</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.interestCompoundingPeriodType.value }}</span>
+          <span fxFlex="60%">{{ savingProduct.interestCompoundingPeriodType.value | translate }}</span>
         </div>
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.interestpostingperiod'">Interest Posting Period</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.interestPostingPeriodType.value }}</span>
+          <span fxFlex="60%">{{ savingProduct.interestPostingPeriodType.value | translate }}</span>
         </div>
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.interestcalculatedusing'">Interest Calculated using</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.interestCalculationType.value }}</span>
+          <span fxFlex="60%">{{ savingProduct.interestCalculationType.value | translate }}</span>
         </div>
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.daysinyear'">Days in Year</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.interestCalculationDaysInYearType.value }}</span>
+          <span fxFlex="60%">{{ savingProduct.interestCalculationDaysInYearType.value | translate }}</span>
         </div>
       
         <h3 class="mat-h3" fxFlexFill><span [translate]="'modulo.labels.settings'">Settings</span></h3>
@@ -95,7 +95,7 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.applywithdrawlfeetransfer'">Apply Withdrawal Fee for Transfers</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.withdrawalFeeForTransfers ? 'Yes' : 'No' }}</span>
+          <span fxFlex="60%">{{ (savingProduct.withdrawalFeeForTransfers ? 'Yes' : 'No') | translate  }}</span>
         </div>
       
         <div fxFlexFill *ngIf="savingProduct.minBalanceForInterestCalculation">
@@ -106,7 +106,7 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.enforceminbalance'">Enforce Minimum Balance</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.enforceMinRequiredBalance ? 'Yes' : 'No' }}</span>
+          <span fxFlex="60%">{{ (savingProduct.enforceMinRequiredBalance ? 'Yes' : 'No') | translate  }}</span>
         </div>
       
         <div fxFlexFill *ngIf="savingProduct.minRequiredBalance">
@@ -116,7 +116,7 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.withholdtax'">Withhold Tax is Applicable</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.withHoldTax ? 'Yes' : 'No' }}</span>
+          <span fxFlex="60%">{{ (savingProduct.withHoldTax ? 'Yes' : 'No') | translate  }}</span>
         </div>
       
         <div fxFlexFill *ngIf="savingProduct.withHoldTax">
@@ -126,7 +126,7 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.isoverdraftallowed'">Is Overdraft Allowed</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.allowOverdraft ? 'Yes' : 'No' }}</span>
+          <span fxFlex="60%">{{ (savingProduct.allowOverdraft ? 'Yes' : 'No') | translate  }}</span>
         </div>
       
         <div fxFlexFill *ngIf="savingProduct.minOverdraftForInterestCalculation">
@@ -148,7 +148,7 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.enabledormancytracking'">Enable Dormancy Tracking</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.isDormancyTrackingActive ? 'Yes' : 'No' }}</span>
+          <span fxFlex="60%">{{ (savingProduct.isDormancyTrackingActive ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
         </div>
       
         <div fxFlexFill *ngIf="savingProduct.isDormancyTrackingActive" fxLayout="row wrap" fxLayout.lt-md="column">
@@ -213,7 +213,7 @@
       
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.type'">Type</span>:</span>
-          <span fxFlex="60%">{{ savingProduct.accountingRule.value }}</span>
+          <span fxFlex="60%">{{ savingProduct.accountingRule.value | translate }}</span>
         </div>
       
         <div fxFlexFill *ngIf="savingProduct.accountingRule.id === 2" fxLayout="row wrap" fxLayout.lt-md="column">

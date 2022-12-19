@@ -109,14 +109,14 @@ export class WorkflowJobsComponent implements OnInit {
           const frmFields: FormfieldBase[] = [
             new SelectBase({
               controlName: 'stepName',
-              label: 'Step',
+              label: 'modulo.labels.step',
               options: { label: 'stepDescription', value: 'stepName', data: this.jobAvailableStepsData },
               order: 1
             })
           ];
           const data = {
-            title: 'Add Job Step to Workflow',
-            layout: { addButtonText: 'Add' },
+            title: 'modulo.labels.addjobstepworkflow',
+            layout: { addButtonText: 'labels.buttons.Add' },
             formfields: frmFields
           };
           const stepDialogRef = this.dialog.open(FormDialogComponent, { data });

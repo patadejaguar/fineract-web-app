@@ -104,15 +104,15 @@ export class ManageFundsComponent implements OnInit, AfterViewInit {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'name',
-        label: 'Fund Content',
+        label: 'modulo.labels.fundcontent',
         value: fundContent,
         type: 'text',
         required: true
       }),
     ];
     const data = {
-      title: 'Edit Fund',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editdund',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editFundDialogRef = this.dialog.open(FormDialogComponent, { data });
