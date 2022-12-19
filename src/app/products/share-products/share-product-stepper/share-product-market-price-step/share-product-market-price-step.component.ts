@@ -75,7 +75,7 @@ export class ShareProductMarketPriceStepComponent implements OnInit {
   }
 
   editMarketPricePeriod(index: number) {
-    const data = { ...this.getData(this.marketPricePeriods.at(index).value), layout: { addButtonText: 'Edit' } };
+    const data = { ...this.getData(this.marketPricePeriods.at(index).value), layout: { addButtonText: 'labels.buttons.Edit' } };
     const addMarketPricePeriodDialogRef = this.dialog.open(FormDialogComponent, { data });
     addMarketPricePeriodDialogRef.afterClosed().subscribe((response: any) => {
       if (response.data) {
@@ -97,15 +97,15 @@ export class ShareProductMarketPriceStepComponent implements OnInit {
     });
   }
 
-  getData(values?: any) {
-    return { title: 'Market Price Period', formfields: this.getFormfields(values) };
+  getData(values?: any) { 
+    return { title: 'modulo.labels.marketpriceperiod', formfields: this.getFormfields(values) };
   }
 
   getFormfields(values?: any) {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'fromDate',
-        label: 'From Date',
+        label: 'modulo.labels.fromdate',
         value: values ? values.fromDate : undefined,
         maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 10)),
         required: true,
@@ -113,7 +113,7 @@ export class ShareProductMarketPriceStepComponent implements OnInit {
       }),
       new InputBase({
         controlName: 'shareValue',
-        label: 'Nominal/Unit Price',
+        label: 'modulo.labels.nominalunitprice',
         value: values ? values.shareValue : undefined,
         type: 'number',
         required: true,

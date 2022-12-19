@@ -1,7 +1,7 @@
 <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
   <mat-form-field fxFlex="48%">
-    <mat-label>Charge</mat-label>
+    <mat-label><span [translate]="'modulo.labels.charge'">Charge</span></mat-label>
     <mat-select #charge>
       <mat-option *ngFor="let charge of chargeData | chargesFilter:chargesDataSource:currencyCode.value" [value]="charge">
         {{ charge.name }}

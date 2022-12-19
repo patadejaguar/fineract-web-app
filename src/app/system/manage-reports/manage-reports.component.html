@@ -29,13 +29,13 @@
             <ng-container matColumnDef="reportType">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   <span [translate]="'modulo.labels.reporttype'"> Report Type</span> </th>
-                <td mat-cell *matCellDef="let report"> {{ report.reportType }} </td>
+                <td mat-cell *matCellDef="let report"> {{ report.reportType | translate }} </td>
             </ng-container>
 
             <ng-container matColumnDef="reportSubType">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   <span [translate]="'modulo.labels.reportsubtype'"> Report Sub Type</span> </th>
-                <td mat-cell *matCellDef="let report"> {{ report.reportSubType }} </td>
+                <td mat-cell *matCellDef="let report"> {{ report.reportSubType | translate }} </td>
             </ng-container>
 
             <ng-container matColumnDef="reportCategory">

@@ -35,7 +35,7 @@
       <ng-container matColumnDef="isFullDay">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> 
           <span [translate]="'modulo.labels.fulldaytime'">Full Day/Time</span> </th>
-        <td mat-cell *matCellDef="let cashier"> {{ cashier.isFullDay ? 'Yes' : 'No' }} </td>
+        <td mat-cell *matCellDef="let cashier"> {{ (cashier.isFullDay ? 'Yes' : 'No') | translate  }} </td>
       </ng-container>
 
       <ng-container matColumnDef="vaultActions">

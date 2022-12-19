@@ -5,7 +5,7 @@
     <mat-card-header class="m-b-20">
       <mat-radio-group fxLayout="row" fxLayoutGap="20px" [formControl]="userType">
         <mat-radio-button *ngFor="let type of userTypes" [value]="type">
-          {{ type }}
+          {{ type | translate }}
         </mat-radio-button>
       </mat-radio-group>
     </mat-card-header>

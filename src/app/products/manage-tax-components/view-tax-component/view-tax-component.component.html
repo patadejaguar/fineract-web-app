@@ -34,7 +34,7 @@
         </div>
 
         <div fxFlex="50%" *ngIf="taxComponentData.debitAccountType">
-          {{ taxComponentData.debitAccountType.value }}
+          {{ taxComponentData.debitAccountType.value | translate}}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="taxComponentData.debitAccount">
@@ -50,7 +50,7 @@
         </div>
 
         <div fxFlex="50%" *ngIf="taxComponentData.creditAccountType">
-          {{ taxComponentData.creditAccountType.value }}
+          {{ taxComponentData.creditAccountType.value | translate}}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="taxComponentData.creditAccount">

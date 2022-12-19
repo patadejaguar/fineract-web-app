@@ -108,7 +108,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.applypenalinterest'">Apply Penal Interest (less)</span>:</span>
-    <span fxFlex="60%">{{ fixedDepositsAccountProductTemplate.preClosurePenalApplicable ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (fixedDepositsAccountProductTemplate.preClosurePenalApplicable ? 'Yes' : 'No') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="fixedDepositsAccountProductTemplate.preClosurePenalApplicable">
@@ -118,7 +118,7 @@
 
   <div fxFlexFill *ngIf="fixedDepositsAccountProductTemplate.withHoldTax">
     <span fxFlex="40%"><span [translate]="'modulo.labels.withholdtax'">Withhold Tax is Applicable</span>:</span>
-    <span fxFlex="60%">{{ fixedDepositAccountData.withHoldTax ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (fixedDepositAccountData.withHoldTax ? 'Yes' : 'No') | translate  }}</span>
   </div>
 
   <h3 class="mat-h3" fxFlexFill><span [translate]="'modulo.labels.interestratechart'">Interest Rate Chart</span></h3>

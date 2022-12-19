@@ -12,7 +12,7 @@
             <mat-label><span [translate]="'modulo.labels.chargeappliesto'">Charge Applies To</span></mat-label>
             <mat-select required formControlName="chargeAppliesTo">
               <mat-option *ngFor="let chargeAppliesTo of chargesTemplateData.chargeAppliesToOptions" [value]="chargeAppliesTo.id">
-                {{ chargeAppliesTo.value }}
+                {{ chargeAppliesTo.value | translate }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="chargeForm.controls.chargeAppliesTo.hasError('required')">
@@ -45,12 +45,12 @@
                   Currency is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
-
+            
             <mat-form-field fxFlex="48%">
               <mat-label><span [translate]="'modulo.labels.chargetimetype'">Charge Time Type</span></mat-label>
               <mat-select required formControlName="chargeTimeType">
                 <mat-option *ngFor="let chargeTimeType of chargeTimeTypeData" [value]="chargeTimeType.id">
-                  {{ chargeTimeType.value }}
+                  {{ chargeTimeType.value | translate}}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="chargeForm.controls.chargeTimeType.hasError('required')">
@@ -63,7 +63,7 @@
               <mat-label><span [translate]="'modulo.labels.chargecalculationtype'">Charge Calculation Type</span></mat-label>
               <mat-select required formControlName="chargeCalculationType">
                 <mat-option *ngFor="let chargeCalculationType of filteredChargeCalculationType()" [value]="chargeCalculationType.id">
-                  {{ chargeCalculationType.value }}
+                  {{ chargeCalculationType.value | translate }}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="chargeForm.controls.chargeCalculationType.hasError('required')">
@@ -76,7 +76,7 @@
               <mat-label><span [translate]="'modulo.labels.chargepaymentmode'">Charge Payment Mode</span></mat-label>
               <mat-select required formControlName="chargePaymentMode">
                 <mat-option *ngFor="let chargePaymentMode of chargesTemplateData.chargePaymetModeOptions" [value]="chargePaymentMode.id">
-                  {{ chargePaymentMode.value }}
+                  {{ chargePaymentMode.value | translate }}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="chargeForm.controls.chargePaymentMode.hasError('required')">

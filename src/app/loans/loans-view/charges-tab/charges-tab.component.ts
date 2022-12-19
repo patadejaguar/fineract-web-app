@@ -86,14 +86,14 @@ export class ChargesTabComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'amount',
-        label: 'Amount',
+        label: 'modulo.labels.amount',
         value: '',
         type: 'number',
         required: true
       }),
       new DatepickerBase({
         controlName: 'dueDate',
-        label: 'Payment Date',
+        label: 'modulo.labels.paymentdate',
         value: '',
         type: 'date',
         required: true
@@ -101,7 +101,7 @@ export class ChargesTabComponent implements OnInit {
     ];
     const data = {
       title: `Pay Charge ${chargeId}`,
-      layout: { addButtonText: 'Confirm' },
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const payChargeDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -147,7 +147,7 @@ export class ChargesTabComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'amount',
-        label: 'Amount',
+        label: 'modulo.labels.amount',
         value: charge.amount || charge.amountOrPercentage,
         type: 'number',
         required: true
@@ -155,7 +155,7 @@ export class ChargesTabComponent implements OnInit {
     ];
     const data = {
       title: `Edit Charge ${charge.id}`,
-      layout: { addButtonText: 'Confirm' },
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editChargeDialogRef = this.dialog.open(FormDialogComponent, { data });

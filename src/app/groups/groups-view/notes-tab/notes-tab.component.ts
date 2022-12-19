@@ -97,15 +97,15 @@ export class NotesTabComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'note',
-        label: 'Note',
+        label: 'modulo.labels.note',
         value: noteContent,
         type: 'text',
         required: true,
       }),
     ];
     const data = {
-      title: 'Edit Note',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editnote',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editNoteDialogRef = this.dialog.open(FormDialogComponent, { data });

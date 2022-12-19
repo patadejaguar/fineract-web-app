@@ -4,7 +4,7 @@
 
     <mat-radio-group fxFlex="98%" fxLayout="row" fxLayoutGap="5%" fxLayout.lt-md="column" formControlName="accountingRule">
       <mat-radio-button *ngFor="let accountingRule of accountingRuleData; let i =  index" [value]="i+1">
-        {{ accountingRule }}
+        {{ accountingRule | translate}}
       </mat-radio-button>
     </mat-radio-group>
 

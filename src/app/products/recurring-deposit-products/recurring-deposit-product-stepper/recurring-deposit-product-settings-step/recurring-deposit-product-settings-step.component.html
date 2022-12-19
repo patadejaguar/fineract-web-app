@@ -7,11 +7,11 @@
     </mat-checkbox>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="adjustAdvanceTowardsFuturePayments" class="margin-v">
-      <span [translate]="'modulo.labels.adjustadvpaymentinstallmentsq'">Adjust advance payments toward future installments?</span>
+      <span [translate]="'modulo.labels.adjustadvancepaymentsq'">Adjust advance payments toward future installments?</span>
     </mat-checkbox>
 
     <mat-checkbox fxFlex="48%" labelPosition="before" formControlName="allowWithdrawal" class="margin-v">
-      <span [translate]="'modulo.labels.allowwithdrawalsq'">Allow Withdrawals?</span>
+      <span [translate]="'modulo.labels.allowwithdrawalq'">Allow Withdrawals?</span>
     </mat-checkbox>
 
     <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.lockinperiod'">Lock-in Period</span></h4>
@@ -26,13 +26,13 @@
       <mat-select formControlName="lockinPeriodFrequencyType">
         <mat-option *ngFor="let lockinPeriodFrequencyType of lockinPeriodFrequencyTypeData"
           [value]="lockinPeriodFrequencyType.id">
-          {{ lockinPeriodFrequencyType.value }}
+          {{ lockinPeriodFrequencyType.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <h4 fxFlex="98%" class="mat-h4">
-      <span [translate]="'modulo.labels.minumumdepositterm'">Minimum Deposit Term</span></h4>
+      <span [translate]="'modulo.labels.mindepositterm'">Minimum Deposit Term</span></h4>
 
     <mat-form-field fxFlex="48%">
       <mat-label><span [translate]="'modulo.labels.frequency'">Frequency</span></mat-label>
@@ -47,7 +47,7 @@
       <mat-label><span [translate]="'modulo.labels.frequencytype'">Frequency Type</span></mat-label>
       <mat-select formControlName="minDepositTermTypeId" required>
         <mat-option *ngFor="let periodFrequencyType of periodFrequencyTypeData" [value]="periodFrequencyType.id">
-          {{ periodFrequencyType.value }}
+          {{ periodFrequencyType.value | translate }}
         </mat-option>
       </mat-select>
       <mat-error>
@@ -68,7 +68,7 @@
       <mat-label><span [translate]="'modulo.labels.type'">Type</span></mat-label>
       <mat-select formControlName="inMultiplesOfDepositTermTypeId">
         <mat-option *ngFor="let periodFrequencyType of periodFrequencyTypeData" [value]="periodFrequencyType.id">
-          {{ periodFrequencyType.value }}
+          {{ periodFrequencyType.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -85,7 +85,7 @@
       <mat-label><span [translate]="'modulo.labels.type'">Type</span></mat-label>
       <mat-select formControlName="maxDepositTermTypeId">
         <mat-option *ngFor="let periodFrequencyType of periodFrequencyTypeData" [value]="periodFrequencyType.id">
-          {{ periodFrequencyType.value }}
+          {{ periodFrequencyType.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -100,7 +100,7 @@
     </mat-checkbox>
 
     <mat-form-field fxFlex="48%">
-      <mat-label><span [translate]="'modulo.labels.penalinterest'">Penal Interest </span>(%)</mat-label>
+      <mat-label><span [translate]="'modulo.labels.penalinterest'">Penal Interest </span></mat-label>
       <input type="number" matInput formControlName="preClosurePenalInterest">
     </mat-form-field>
 
@@ -109,7 +109,7 @@
       <mat-select formControlName="preClosurePenalInterestOnTypeId">
         <mat-option *ngFor="let preClosurePenalInterestOnType of preClosurePenalInterestOnTypeData"
           [value]="preClosurePenalInterestOnType.id">
-          {{ preClosurePenalInterestOnType.value }}
+          {{ preClosurePenalInterestOnType.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>

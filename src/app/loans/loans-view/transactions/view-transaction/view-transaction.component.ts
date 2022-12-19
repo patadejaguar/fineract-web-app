@@ -133,7 +133,7 @@ export class ViewTransactionComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'paymentTypeId',
-        label: 'Payment Type',
+        label: 'modulo.labels.paymenttype',
         value: '',
         options: { label: 'name', value: 'id', data: this.paymentTypeOptions },
         required: true,
@@ -141,7 +141,7 @@ export class ViewTransactionComponent implements OnInit {
       }),
       new InputBase({
         controlName: 'amount',
-        label: 'Amount',
+        label: 'modulo.labels.amount',
         value: this.amountRelationsAllowed,
         type: 'number',
         required: true,
@@ -150,8 +150,8 @@ export class ViewTransactionComponent implements OnInit {
       })
     ];
     const data = {
-      title: 'Chargeback Repayment Transaction',
-      layout: { addButtonText: 'Chargeback' },
+      title: 'modulo.labels.chargebackrepaymenttransaction',
+      layout: { addButtonText: 'modulo.labels.chargeback' },
       formfields: formfields
     };
     const chargebackDialogRef = this.dialog.open(FormDialogComponent, { data });

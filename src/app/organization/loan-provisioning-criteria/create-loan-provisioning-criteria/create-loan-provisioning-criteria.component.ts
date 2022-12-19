@@ -94,9 +94,9 @@ export class CreateLoanProvisioningCriteriaComponent implements OnInit {
    */
   editDefinition(definition: any) {
     const data = {
-      title: 'Edit Criteria Definition',
+      title: 'modulo.labels.editcriteriadefinition',
       formfields: this.getDefinitionFormFields(definition),
-      layout: { addButtonText: 'Confirm' }
+      layout: { addButtonText: 'labels.buttons.Confirm' }
     };
     const editDefinitionDialogRef = this.dialog.open(FormDialogComponent, { data });
     editDefinitionDialogRef.afterClosed().subscribe((response: any) => {
@@ -121,7 +121,7 @@ export class CreateLoanProvisioningCriteriaComponent implements OnInit {
     const formfields: FormfieldBase[] = [];
     formfields.push(new InputBase({
       controlName: 'minAge',
-      label: 'Min Age',
+      label: 'modulo.labels.minage',
       value: definition ? definition.minAge : '',
       type: 'number',
       required: true,
@@ -129,7 +129,7 @@ export class CreateLoanProvisioningCriteriaComponent implements OnInit {
     }));
     formfields.push(new InputBase({
       controlName: 'maxAge',
-      label: 'Max Age',
+      label: 'modulo.labels.maxage',
       value: definition ? definition.maxAge : '',
       type: 'number',
       required: true,
@@ -137,7 +137,7 @@ export class CreateLoanProvisioningCriteriaComponent implements OnInit {
     }));
     formfields.push(new InputBase({
       controlName: 'provisioningPercentage',
-      label: 'Percentage (%)',
+      label: 'modulo.labels.percentagespecial',
       value: definition ? definition.provisioningPercentage : '',
       type: 'number',
       required: true,
@@ -145,7 +145,7 @@ export class CreateLoanProvisioningCriteriaComponent implements OnInit {
     }));
     formfields.push(new SelectBase({
       controlName: 'liabilityAccount',
-      label: 'Liability Account',
+      label: 'modulo.labels.liabilityaccount',
       value: definition ? definition.liabilityAccount : '',
       options: { label: 'name', value: 'id', data: this.liabilityAccounts },
       required: true,
@@ -153,7 +153,7 @@ export class CreateLoanProvisioningCriteriaComponent implements OnInit {
     }));
     formfields.push(new SelectBase({
       controlName: 'expenseAccount',
-      label: 'Expense Account',
+      label: 'modulo.labels.expenseaccount',
       value: definition ? definition.expenseAccount : '',
       options: { label: 'name', value: 'id', data: this.expenseAccounts },
       required: true,

@@ -5,7 +5,7 @@
     <mat-radio-group fxFlex="98%" fxLayout="row" fxLayoutGap="5%" fxLayout.lt-md="column"
       formControlName="accountingRule">
       <mat-radio-button *ngFor="let accountingRule of accountingRuleData; let i =  index" [value]="i+1">
-        {{ accountingRule }}
+        {{ accountingRule | translate }}
       </mat-radio-button>
     </mat-radio-group>
 
@@ -167,7 +167,7 @@
           <button type="button" mat-raised-button color="primary"
             (click)="add('FeesIncome', feeToIncomeAccountMappings)">
             <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-           <span [translate]="'labels.buttons.Cancel'"> Add</span>
+           <span [translate]="'labels.buttons.Add'"> Add</span>
           </button>
         </div>
 
