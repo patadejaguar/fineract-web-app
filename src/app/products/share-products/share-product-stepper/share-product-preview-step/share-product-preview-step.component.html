@@ -82,7 +82,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.allowdividendsinactiveclients'">Allow dividends for inactive clients</span>:</span>
-    <span fxFlex="60%">{{ shareProduct.allowDividendCalculationForInactiveClients ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (shareProduct.allowDividendCalculationForInactiveClients ? 'Yes' : 'No') | translate  }}</span>
   </div>
 
   <div fxFlexFill *ngIf="shareProduct.marketPricePeriods.length" fxLayout="row wrap" fxLayout.lt-md="column">

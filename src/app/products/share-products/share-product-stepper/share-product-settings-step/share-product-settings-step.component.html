@@ -2,7 +2,7 @@
 
   <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-    <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.sharesperclient'">Shares per Client</span></h4>
+    <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.shareperclient'">Shares per Client</span></h4>
 
     <mat-form-field fxFlex="31%">
       <mat-label><span [translate]="'modulo.labels.minimum'">Minimum</span></mat-label>
@@ -34,7 +34,7 @@
       <mat-label><span [translate]="'modulo.labels.type'">Type</span></mat-label>
       <mat-select formControlName="minimumactiveperiodFrequencyType">
         <mat-option *ngFor="let minimumActivePeriodFrequencyType of minimumActivePeriodFrequencyTypeData" [value]="minimumActivePeriodFrequencyType.id">
-          {{ minimumActivePeriodFrequencyType.value }}
+          {{ minimumActivePeriodFrequencyType.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -50,7 +50,7 @@
       <mat-label><span [translate]="'modulo.labels.type'">Type</span></mat-label>
       <mat-select formControlName="lockinPeriodFrequencyType">
         <mat-option *ngFor="let lockinPeriodFrequencyType of lockinPeriodFrequencyTypeData" [value]="lockinPeriodFrequencyType.id">
-          {{ lockinPeriodFrequencyType.value }}
+          {{ lockinPeriodFrequencyType.value | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>

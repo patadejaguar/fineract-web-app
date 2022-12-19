@@ -61,22 +61,22 @@
 
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.interestcompoundingperiod'">Interest Compounding Period</span>:</span>
-          <span fxFlex="60%">{{ recurringDepositProduct.interestCompoundingPeriodType.value }}</span>
+          <span fxFlex="60%">{{ recurringDepositProduct.interestCompoundingPeriodType.value | translate }}</span>
         </div>
 
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.interestpostingperiod'">Interest Posting Period</span>:</span>
-          <span fxFlex="60%">{{ recurringDepositProduct.interestPostingPeriodType.value }}</span>
+          <span fxFlex="60%">{{ recurringDepositProduct.interestPostingPeriodType.value | translate }}</span>
         </div>
 
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.interestcalculatedusing'">Interested Calculated Using</span>:</span>
-          <span fxFlex="60%">{{ recurringDepositProduct.interestCalculationType.value }}</span>
+          <span fxFlex="60%">{{ recurringDepositProduct.interestCalculationType.value | translate }}</span>
         </div>
 
         <div fxFlexFill>
           <span fxFlex="40%"><span [translate]="'modulo.labels.daysinyears'">Days in Years</span>:</span>
-          <span fxFlex="60%">{{ recurringDepositProduct.interestCalculationDaysInYearType.value }}</span>
+          <span fxFlex="60%">{{ recurringDepositProduct.interestCalculationDaysInYearType.value | translate }}</span>
         </div>
 
         <h3 class="mat-h3" fxFlexFill><span [translate]="'modulo.labels.settings'">Settings</span></h3>
@@ -169,7 +169,7 @@
 
             <div fxFlexFill>
               <span fxFlex="40%"><span [translate]="'modulo.labels.primarygroupingamount'">Primary Grouping by Amount</span>:</span>
-              <span fxFlex="60%">{{ recurringDepositProduct.activeChart.isPrimaryGroupingByAmount ? 'Yes' : 'No' }}</span>
+              <span fxFlex="60%">{{ (recurringDepositProduct.activeChart.isPrimaryGroupingByAmount ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
             </div>
 
             <table fxFlexFill class="mat-elevation-z1" mat-table [dataSource]="recurringDepositProduct.activeChart.chartSlabs" multiTemplateDataRows>

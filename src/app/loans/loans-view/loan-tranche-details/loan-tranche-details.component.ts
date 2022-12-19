@@ -108,7 +108,7 @@ export class LoanTrancheDetailsComponent implements OnInit {
     const formBase: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'expectedDisbursementDate',
-        label: 'Expected Disbursement Date',
+        label: 'modulo.labels.expecteddisbursementdate',
         value: expectedDisbursementDate || '',
         type: 'datetime-local',
         minDate: this.minDate,
@@ -118,7 +118,7 @@ export class LoanTrancheDetailsComponent implements OnInit {
       }),
       new InputBase({
         controlName: 'principal',
-        label: 'Principal',
+        label: 'modulo.labels.principal',
         value: principal,
         type: 'number',
         required: true,
@@ -135,8 +135,8 @@ export class LoanTrancheDetailsComponent implements OnInit {
     this.calculateTotalDisbursedAmount();
 
     const data = {
-      title: 'Add Disbursement Details',
-      layout: { addButtonText: 'Add' },
+      title: 'modulo.labels.adddisbursementdetails',
+      layout: { addButtonText: 'labels.buttons.Add' },
       formfields: this.buildForm(new Date(), (this.currentPrincipalAmount - this.totalMultiDisbursed))
     };
     const disbursementDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -159,8 +159,8 @@ export class LoanTrancheDetailsComponent implements OnInit {
     const expectedDisbursementDate: Date = this.dateUtils.parseDate(this.disbursementDataSource[index]['expectedDisbursementDate']);
 
     const data = {
-      title: 'Edit Disbursement Details',
-      layout: { addButtonText: 'Save' },
+      title: 'modulo.labels.editdisbursementdetails',
+      layout: { addButtonText: 'labels.buttons.Save' },
       formfields: this.buildForm(expectedDisbursementDate, principal)
     };
     const disbursementDialogRef = this.dialog.open(FormDialogComponent, { data });

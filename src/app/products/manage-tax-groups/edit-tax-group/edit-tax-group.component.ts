@@ -87,21 +87,21 @@ export class EditTaxGroupComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'taxComponentId',
-        label: 'Tax Component',
+        label: 'modulo.labels.taxcomponent',
         options: { label: 'name', value: 'id', data: this.taxComponentOptions },
         order: 1
       }),
       new DatepickerBase({
         controlName: 'startDate',
-        label: 'Start Date',
+        label: 'modulo.labels.startdate',
         minDate: this.minDate,
         maxDate: this.maxDate,
         order: 2
       })
     ];
     const data = {
-      title: 'Add Tax Component',
-      layout: { addButtonText: 'Add' },
+      title: 'modulo.labels.addtaxcomponent',
+      layout: { addButtonText: 'labels.buttons.Add' },
       formfields: formfields
     };
     const taxComponentDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -124,14 +124,14 @@ export class EditTaxGroupComponent implements OnInit {
       new SelectBase({
         controlName: 'taxComponentId',
         value: taxComponent.taxComponentId ? taxComponent.taxComponentId : '',
-        label: 'Tax Component',
+        label: 'modulo.labels.taxcomponent',
         options: { label: 'name', value: 'id', data: this.taxComponentOptions },
         order: 1
       }),
       new DatepickerBase({
         controlName: 'startDate',
         value: taxComponent.startDate ? new Date(taxComponent.startDate) : new Date(),
-        label: 'Start Date',
+        label: 'modulo.labels.startdate',
         minDate: this.minDate,
         maxDate: this.maxDate,
         order: 2
@@ -140,15 +140,15 @@ export class EditTaxGroupComponent implements OnInit {
     if (!taxComponent.isNew) {
       formfields.push(new DatepickerBase({
         controlName: 'endDate',
-        label: 'End Date',
+        label: 'modulo.labels.enddate',
         minDate: this.minDate,
         maxDate: this.maxDate,
         order: 3
       }));
     }
     const data = {
-      title: 'Edit Tax Component',
-      layout: { addButtonText: 'Submit' },
+      title: 'modulo.labels.edittaxcomponent',
+      layout: { addButtonText: 'labels.buttons.Submit' },
       formfields: formfields
     };
     const taxComponentDialogRef = this.dialog.open(FormDialogComponent, { data });

@@ -65,15 +65,16 @@ export class ViewChargeComponent {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'transactionDate',
-        label: 'Payment Date',
+        label: 'modulo.labels.paymentdate',
         value: '',
         type: 'date',
         required: true
       })
     ];
+    //modulo.labels.paycharge <<--title
     const data = {
       title: `Pay Charge ${this.chargeData.id}`,
-      layout: { addButtonText: 'Confirm' },
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const payChargeDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -117,7 +118,7 @@ export class ViewChargeComponent {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'amount',
-        label: 'Amount',
+        label: 'modulo.labels.amount',
         value: this.chargeData.amount || this.chargeData.amountOrPercentage,
         type: 'number',
         required: true
@@ -132,8 +133,8 @@ export class ViewChargeComponent {
       })
     ];
     const data = {
-      title: 'Edit Charge',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editcharge',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editChargeDialogRef = this.dialog.open(FormDialogComponent, { data });

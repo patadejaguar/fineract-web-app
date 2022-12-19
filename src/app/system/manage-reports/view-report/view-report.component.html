@@ -29,7 +29,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ reportData.reportType }}
+          {{ reportData.reportType | translate}}
         </div>
 
         <div *ngIf="reportData.reportSubType" fxFlex="50%" class="mat-body-strong">
@@ -37,11 +37,11 @@
         </div>
 
         <div *ngIf="reportData.reportSubType" fxFlex="50%">
-          {{ reportData.reportSubType }}
+          {{ reportData.reportSubType | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          <span [translate]="'modulo.labels.reportcatergory'">Report Category</span>:
+          <span [translate]="'modulo.labels.reportcategory'">Report Category</span>:
         </div>
 
         <div fxFlex="50%">
@@ -53,7 +53,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ reportData.coreReport ? 'Yes' : 'No' }}
+          {{ (reportData.coreReport ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -61,7 +61,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ reportData.useReport ? 'Yes' : 'No' }}
+          {{ (reportData.useReport ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}
         </div>
 
       </div>

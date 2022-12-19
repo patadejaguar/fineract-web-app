@@ -68,14 +68,14 @@ export class CreateBucketComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'rangeId',
-        label: 'Delinquency Range',
+        label: 'modulo.labels.delinquencyrange',
         options: { label: 'classification', value: 'id', data: delinquencyRanges },
         order: 1
       })
     ];
     const data = {
-      title: 'Add Delinquency Range',
-      layout: { addButtonText: 'Add' },
+      title: 'modulo.labels.adddelinquencyrange',
+      layout: { addButtonText: 'labels.buttons.Add' },
       formfields: formfields
     };
     const rangeDialogRef = this.dialog.open(FormDialogComponent, { data });

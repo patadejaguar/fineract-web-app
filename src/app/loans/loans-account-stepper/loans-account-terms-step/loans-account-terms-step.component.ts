@@ -290,7 +290,7 @@ export class LoansAccountTermsStepComponent implements OnInit, OnChanges {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'expectedDisbursementDate',
-        label: 'Expected Disbursement Date',
+        label: 'modulo.labels.expecteddisbursementdate',
         value: new Date() || '',
         type: 'datetime-local',
         minDate: this.minDate,
@@ -300,7 +300,7 @@ export class LoansAccountTermsStepComponent implements OnInit, OnChanges {
       }),
       new InputBase({
         controlName: 'principal',
-        label: 'Principal',
+        label: 'modulo.labels.principal',
         value: (currentPrincipalAmount - this.totalMultiDisbursed),
         type: 'number',
         required: true,
@@ -308,8 +308,8 @@ export class LoansAccountTermsStepComponent implements OnInit, OnChanges {
       })
     ];
     const data = {
-      title: 'Add Disbursement Details',
-      layout: { addButtonText: 'Add' },
+      title: 'modulo.labels.adddisbursementdetails',
+      layout: { addButtonText: 'labels.buttons.Add' },
       formfields: formfields
     };
     const disbursementDialogRef = this.dialog.open(FormDialogComponent, { data });

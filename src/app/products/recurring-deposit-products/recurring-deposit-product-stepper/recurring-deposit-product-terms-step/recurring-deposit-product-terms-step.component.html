@@ -29,7 +29,7 @@
       <mat-label><span [translate]="'modulo.labels.interestcompoundingperiod'">Interest Compounding Period</span></mat-label>
       <mat-select formControlName="interestCompoundingPeriodType" required>
         <mat-option *ngFor="let interestCompoundingPeriodType of interestCompoundingPeriodTypeData" [value]="interestCompoundingPeriodType.id">
-          {{ interestCompoundingPeriodType.value }}
+          {{ interestCompoundingPeriodType.value | translate }}
         </mat-option>
       </mat-select>
       <mat-error>
@@ -42,7 +42,7 @@
       <mat-label><span [translate]="'modulo.labels.interestpostingperiod'">Interest Posting Period</span></mat-label>
       <mat-select formControlName="interestPostingPeriodType" required>
         <mat-option *ngFor="let interestPostingPeriodType of interestPostingPeriodTypeData" [value]="interestPostingPeriodType.id">
-          {{ interestPostingPeriodType.value }}
+          {{ interestPostingPeriodType.value | translate }}
         </mat-option>
       </mat-select>
       <mat-error>
@@ -55,7 +55,7 @@
       <mat-label><span [translate]="'modulo.labels.interestcalculatedusing'">Interest Calculated using</span></mat-label>
       <mat-select formControlName="interestCalculationType" required>
         <mat-option *ngFor="let interestCalculationType of interestCalculationTypeData" [value]="interestCalculationType.id">
-          {{ interestCalculationType.value }}
+          {{ interestCalculationType.value | translate }}
         </mat-option>
       </mat-select>
       <mat-error>
@@ -68,7 +68,7 @@
       <mat-label><span [translate]="'modulo.labels.daysinyear'">Days in Year</span></mat-label>
       <mat-select formControlName="interestCalculationDaysInYearType" required>
         <mat-option *ngFor="let interestCalculationDaysInYearType of interestCalculationDaysInYearTypeData" [value]="interestCalculationDaysInYearType.id">
-          {{ interestCalculationDaysInYearType.value }}
+          {{ interestCalculationDaysInYearType.value | translate }}
         </mat-option>
       </mat-select>
       <mat-error>
