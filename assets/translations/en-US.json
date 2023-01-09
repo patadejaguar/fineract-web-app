@@ -17,12 +17,14 @@
       "Back": "Back",
       "Close": "Close",
       "Next": "Next",
-      "Login": "Login"
+      "Login": "Login",
+      "Create User": "Create User"
     },
     "commons": {
       "is required": "is required"
     },
     "inputs": {
+      "Tenant": "Tenant",
       "Language": "Language",
       "Server": "Server",
       "Url": "Url",
@@ -30,7 +32,18 @@
       "Logout": "Logout",
       "Username": "Username",
       "Password": "Password",
-      "Remember me": "Remember me"
+      "Remember me": "Remember me",
+      "Filter": "Filter",
+      "products": {
+        "loan": {
+          "Amortization": "Amortization",
+          "amortizationType": {
+            "Equal installments": "Equal installments",
+            "Equal principal payments": "Equal principal payments"
+          },
+          "Is Equal Amortization?": "Is Equal Amortization?"
+        }
+      }
     },
     "links": {
       "Contribute": "Contribute",
@@ -99,7 +112,8 @@
     "texts": {
       "Welcome": "Welcome",
       "Version": "Version",
-      "by": "by"
+      "by": "by",
+      "Login into Tenant": "Login into Tenant"
     }
   },
   "errors": {
