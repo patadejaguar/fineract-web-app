@@ -9,17 +9,18 @@
         <div fxLayout="column">
 
           <mat-form-field (click)="approvedDatePicker.open()">
-            <mat-label>Approved On Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.approvedondate'">Approved On Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="approvedDatePicker" required formControlName="approvedDate">
             <mat-datepicker-toggle matSuffix [for]="approvedDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #approvedDatePicker></mat-datepicker>
             <mat-error *ngIf="approveSharesAccountForm.controls.approvedDate.hasError('required')">
-              Approved On Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.approvedondaterequired' | translate">
+                Approved On Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Note</mat-label>
+            <mat-label><span [translate]="'modulo.labels.note'">Note</span></mat-label>
             <textarea matInput formControlName="note" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>
 
@@ -28,8 +29,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-        <button mat-raised-button color="accent" [disabled]="!approveSharesAccountForm.valid">Confirm</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="accent" [disabled]="!approveSharesAccountForm.valid">
+          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>

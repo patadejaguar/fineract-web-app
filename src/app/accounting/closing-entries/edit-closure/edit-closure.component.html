@@ -9,7 +9,7 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <mat-select required formControlName="officeId">
               <mat-option *ngFor="let office of officeData" [value]="office.id">
                 {{ office.name }}
@@ -18,14 +18,14 @@
           </mat-form-field>
 
           <mat-form-field (click)="closingDatePicker.open()">
-            <mat-label>Closing Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.closingdate'">Closing Date</span></mat-label>
             <input matInput [matDatepicker]="closingDatePicker" required formControlName="closingDate">
             <mat-datepicker-toggle matSuffix [for]="closingDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #closingDatePicker></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Comments</mat-label>
+            <mat-label><span [translate]="'modulo.labels.comments'">Comments</span></mat-label>
             <textarea matInput formControlName="comments" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>
 
@@ -34,8 +34,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="accountingClosureForm.pristine">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="accountingClosureForm.pristine">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

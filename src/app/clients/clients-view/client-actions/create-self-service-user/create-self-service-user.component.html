@@ -9,48 +9,53 @@
                 <div div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
                     <mat-form-field fxFlex="48%">
-                        <mat-label> User Name </mat-label>
+                        <mat-label><span [translate]="'modulo.labels.username'"> User Name </span></mat-label>
                         <input matInput required formControlName="username">
                         <mat-error *ngIf="createSelfServiceForm.controls.username.hasError('required')">
-                            User Name is <strong>required</strong>
+                            <span [innerHTML]="'modulo.validations.usernamerequired' | translate">
+                                User Name is <strong>required</strong></span>
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field fxFlex="48%">
-                        <mat-label> First Name </mat-label>
+                        <mat-label><span [translate]="'modulo.labels.firstname'"> First Name</span> </mat-label>
                         <input matInput required formControlName="firstname">
                         <mat-error *ngIf="createSelfServiceForm.controls.firstname.hasError('required')">
-                            First Name is <strong>required</strong>
+                           <span [innerHTML]="'modulo.validations.firstnamerequired' | translate">
+                             First Name is <strong>required</strong></span>
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field fxFlex="48%">
-                        <mat-label> Last Name </mat-label>
+                        <mat-label> <span [translate]="'modulo.labels.lastname'">Last Name</span> </mat-label>
                         <input matInput required formControlName="lastname">
                         <mat-error *ngIf="createSelfServiceForm.controls.lastname.hasError('required')">
-                            Last Name is <strong>required</strong>
+                            <span [innerHTML]="'modulo.validations.lastnamerequired' | translate">
+                                Last Name is <strong>required</strong></span>
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field fxFlex="48%">
-                        <mat-label> Email </mat-label>
+                        <mat-label><span [translate]="'modulo.labels.emaill'"> Email </span></mat-label>
                         <input matInput required formControlName="email">
                         <mat-error *ngIf="createSelfServiceForm.controls.email.hasError('required')">
-                            Email is <strong>required</strong>
+                            <span [innerHTML]="'modulo.validations.emailrequired' | translate">
+                                Email is <strong>required</strong></span>
                         </mat-error>
                         <mat-error *ngIf="createSelfServiceForm.controls.email.hasError('email')">
-                            Email should be a  <strong>valid</strong> email.
+                            <span [innerHTML]="'modulo.validations.emailnovalid' | translate">
+                                Email should be a  <strong>valid</strong> email.</span>
                         </mat-error>
                     </mat-form-field>
 
                     <mat-checkbox labelPosition="before" formControlName="sendPasswordToEmail" fxFlex="48%">
-                        Auto Generate Password
+                        <span [translate]="'modulo.labels.autogeneratepass'">Auto Generate Password</span>
                     </mat-checkbox>
 
                     <div fxFlex="48%" fxLayoutGap="5px" fxLayout="row">
 
                         <mat-checkbox labelPosition="before" formControlName="passwordNeverExpires">
-                            Override Password Expire Policy ?
+                            <span [translate]="'modulo.labels.overridepasswordexpireq'">Override Password Expire Policy ?</span>
                         </mat-checkbox>
     
                         <i class="fa fa-question-circle fa fa-align-left" title="Determines if passwords do not expire for this user even if global configuration for password expiry is enabled"></i>
@@ -58,34 +63,39 @@
                     </div>
 
                     <mat-form-field fxFlex="48%" *ngIf="!hidePasswordField">
-                        <mat-label> Password </mat-label>
+                        <mat-label><span [translate]="'modulo.labels.password'"> Password</span> </mat-label>
                         <input matInput required formControlName="password" type="password">
                         <mat-error *ngIf="createSelfServiceForm.controls.password.hasError('required')">
-                            Password is <strong>required</strong>
+                            <span [innerHTML]="'modulo.validations.passwordrequired' | translate">
+                                Password is <strong>required</strong></span>
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field fxFlex="48%" *ngIf="!hidePasswordField">
-                        <mat-label> Repeat Password </mat-label>
+                        <mat-label> <span [translate]="'modulo.labels.repeatpassword'">Repeat Password </span></mat-label>
                         <input matInput required formControlName="repeatPassword" type="password">
                         <mat-error *ngIf="createSelfServiceForm.controls.repeatPassword.hasError('required')">
-                            Repeat password is <strong>required</strong>
+                            <span [innerHTML]="'modulo.validations.repeatpassrequired' | translate">
+                                Repeat password is <strong>required</strong></span>
                         </mat-error>
                         <mat-error *ngIf="createSelfServiceForm.controls.repeatPassword.hasError('notequal')">
-                            Passwords should be <strong>matched</strong>
+                            <span [innerHTML]="'modulo.validations.passwordnomatch' | translate">
+                                Passwords should be <strong>matched</strong></span>
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field fxFlex="48%">
-                        <mat-label> Status </mat-label>
+                        <mat-label><span [translate]="'modulo.labels.status'"> Status</span> </mat-label>
                         <input matInput formControlName="status">
                     </mat-form-field>
 
                 </div>
         
                 <mat-card-actions fxLayoutGap="5px" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
-                  <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-                  <button mat-raised-button color="primary" [disabled]="!createSelfServiceForm.valid">Activate Self Service User</button>
+                  <button type="button" mat-raised-button [routerLink]="['../../']">
+                    <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+                  <button mat-raised-button color="primary" [disabled]="!createSelfServiceForm.valid">
+                    <span [translate]="'labels.buttons.ActivateSelfService'">Activate Self Service User</span></button>
                   <i class="fa fa-question-circle fa-2x" title="Activate Self Service User Help"></i>
                 </mat-card-actions>
         

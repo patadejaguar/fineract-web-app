@@ -2,15 +2,15 @@
   <!-- TODO: Update to show only Activate/Inactivate button at a time according to selection in table. -->
   <button mat-raised-button color="accent">
     <fa-icon icon="lock-open"></fa-icon>&nbsp;&nbsp;
-    Activate
+    <span [translate]="'labels.buttons.Activate'">Activate</span>
   </button>
   <button mat-raised-button color="warn">
     <fa-icon icon="lock"></fa-icon>&nbsp;&nbsp;
-    Deactivate
+    <span [translate]="'labels.buttons.Deactivate'">Deactivate</span>
   </button>
   <button mat-raised-button color="primary" [routerLink]="['create']">
     <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-    Create User
+    <span [translate]="'labels.buttons.CreateUser'">Create User</span>
   </button>
 </div>
 
@@ -43,36 +43,43 @@
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.name'">Name</span> </th>
         <td mat-cell *matCellDef="let user"> {{ user.name }} </td>
       </ng-container>
 
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.userid'"> User ID</span> </th>
         <td mat-cell *matCellDef="let user"> {{ user.id }} </td>
       </ng-container>
 
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email ID </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.emailid'">Email ID </span></th>
         <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="isSelfServiceUser"> Status </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="isSelfServiceUser">
+          <span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let user">
           <div [className]="user.isSelfServiceUser === true ? 'active' : 'inactive'">
-            <fa-icon matTooltip="{{ user.isSelfServiceUser === true ? 'Active' : 'Inactive' }}" matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
+            <fa-icon matTooltip="{{ (user.isSelfServiceUser === true ? 'modulo.labels.active' : 'modulo.labels.inactive') | translate }}" 
+            matTooltipPosition="right" icon="circle" size="lg"></fa-icon>
           </div>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="officeName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Office </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.office'"> Office</span> </th>
         <td mat-cell *matCellDef="let user"> {{ user.officeName }} </td>
       </ng-container>
 
       <ng-container matColumnDef="staff">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Staff </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.staff'"> Staff </span></th>
         <td mat-cell *matCellDef="let user"> {{ user.staff }} </td>
       </ng-container>
 

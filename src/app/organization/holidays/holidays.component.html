@@ -3,7 +3,7 @@
   <div #buttonCreateHoliday class="in-block">
   <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_HOLIDAY'">
     <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-    Create Holiday
+    <span [translate]="'labels.buttons.CreateHoliday'">Create Holiday</span>
   </button>
   </div>
 
@@ -18,7 +18,7 @@
       <input matInput (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
     <mat-form-field>
-      <mat-label> Select Office </mat-label>
+      <mat-label> <span [translate]="'modulo.labels.selectoffice'">Select Office</span> </mat-label>
       <mat-select [formControl]="officeSelector">
         <mat-option *ngFor="let office of officeData" [value]="office.id">
           {{ office.name }}
@@ -33,27 +33,32 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Holiday Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.holidayname'"> Holiday Name</span> </th>
         <td mat-cell *matCellDef="let holidays"> {{ holidays.name }} </td>
       </ng-container>
 
       <ng-container matColumnDef="fromDate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.startdate'">Start Date</span></th>
         <td mat-cell *matCellDef="let holidays"> {{ holidays.fromDate  | dateFormat }} </td>
       </ng-container>
 
       <ng-container matColumnDef="toDate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.enddate'">End Date</span></th>
         <td mat-cell *matCellDef="let holidays"> {{ holidays.toDate  | dateFormat }} </td>
       </ng-container>
 
       <ng-container matColumnDef="repaymentsRescheduledTo">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Repayments Scheduled To </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.repaymentscheduledto'">Repayments Scheduled To</span> </th>
         <td mat-cell *matCellDef="let holidays"> {{ holidays.reschedulingType === 1 ? 'Next Repayment Date' : holidays.repaymentsRescheduledTo  | dateFormat }} </td>
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <span [translate]="'modulo.labels.status'"> Status</span> </th>
         <td mat-cell *matCellDef="let holidays"> {{ holidays.status.value }} </td>
       </ng-container>
 
@@ -69,20 +74,28 @@
 </div>
 
 <ng-template #templateButtonCreateHoliday let-popover="popover">
-  <h2>Create Holiday</h2>
-  <p class="mw300">This option allows you to create holidays for different offices in your organization.</p>
+  <h2><span [translate]="'modulo.labels.createholiday'">Create Holiday</span></h2>
+  <p class="mw300"><span [translate]="'modulo.labels.optionallowcreateholidays'">
+    This option allows you to create holidays for different offices in your organization.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep();">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilterRef,filterRef,'bottom', true);">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep();">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilterRef,filterRef,'bottom', true);">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateFilterRef let-popover="popover">
-  <h4>Search bar to filter holidays based on different offices.</h4>
+  <h4><span [translate]="'modulo.labels.searchfilterholiday'">
+    Search bar to filter holidays based on different offices.</span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateHoliday,buttonCreateHoliday,'bottom', true);">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep();">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateHoliday,buttonCreateHoliday,'bottom', true);">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep();">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

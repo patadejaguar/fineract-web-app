@@ -7,12 +7,12 @@
     <div class="action-button m-b-5" fxLayoutGap="10px">
       <span>
         <button mat-raised-button color="primary" (click)="add()">
-          <fa-icon icon="plus" class="m-r-10"></fa-icon>Add
+          <fa-icon icon="plus" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Add'">Add</span>
         </button>
       </span>
       <span>
         <button class="delete-button" mat-raised-button color="warn" (click)="delete()" *ngIf="showDeleteBotton">
-          <fa-icon icon="trash" class="m-r-10"></fa-icon>Delete All
+          <fa-icon icon="trash" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.DeleteAll'">Delete All</span>
         </button>
       </span>
     </div>

@@ -273,7 +273,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
   }
 
   editChartSlab(chartSlabs: FormArray, chartSlabIndex: number) {
-    const data = { ...this.getData('Slab', chartSlabs.at(chartSlabIndex).value), layout: { addButtonText: 'Edit' } };
+    const data = { ...this.getData('Slab', chartSlabs.at(chartSlabIndex).value), layout: { addButtonText: 'labels.buttons.Edit' } };
     const dialogRef = this.dialog.open(FormDialogComponent, { data });
     dialogRef.afterClosed().subscribe((response: any) => {
       if (response.data) {
@@ -283,7 +283,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
   }
 
   editIncentive(incentives: FormArray, incentiveIndex: number) {
-    const data = { ...this.getData('Incentive', incentives.at(incentiveIndex).value), layout: { addButtonText: 'Edit' } };
+    const data = { ...this.getData('Incentive', incentives.at(incentiveIndex).value), layout: { addButtonText: 'labels.buttons.Edit' } };
     const dialogRef = this.dialog.open(DepositProductIncentiveFormDialogComponent, { data });
     dialogRef.afterClosed().subscribe((response: any) => {
       if (response.data) {
@@ -314,7 +314,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'periodType',
-        label: 'Period Type',
+        label: 'modulo.labels.periodtype',
         value: values ? values.periodType : this.periodTypeData[0].id,
         options: { label: 'value', value: 'id', data: this.periodTypeData },
         required: true,
@@ -322,7 +322,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
       }),
       new InputBase({
         controlName: 'fromPeriod',
-        label: 'Period From',
+        label: 'modulo.labels.periodfrom',
         value: values ? values.fromPeriod : undefined,
         type: 'number',
         required: true,
@@ -330,28 +330,28 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
       }),
       new InputBase({
         controlName: 'toPeriod',
-        label: 'Period To',
+        label: 'modulo.labels.periodto',
         value: values ? values.toPeriod : undefined,
         type: 'number',
         order: 3
       }),
       new InputBase({
         controlName: 'amountRangeFrom',
-        label: 'Amount Range From',
+        label: 'modulo.labels.amountrangefrom',
         value: values ? values.amountRangeFrom : undefined,
         type: 'number',
         order: 4
       }),
       new InputBase({
         controlName: 'amountRangeTo',
-        label: 'Amount Range To',
+        label: 'modulo.labels.amountrangeto',
         value: values ? values.amountRangeTo : undefined,
         type: 'number',
         order: 5
       }),
       new InputBase({
         controlName: 'annualInterestRate',
-        label: 'Interest',
+        label: 'modulo.labels.interest',
         value: values ? values.annualInterestRate : undefined,
         type: 'number',
         required: true,
@@ -359,7 +359,7 @@ export class RecurringDepositProductInterestRateChartStepComponent implements On
       }),
       new InputBase({
         controlName: 'description',
-        label: 'Description',
+        label: 'modulo.labels.description',
         value: values ? values.description : undefined,
         required: true,
         order: 7

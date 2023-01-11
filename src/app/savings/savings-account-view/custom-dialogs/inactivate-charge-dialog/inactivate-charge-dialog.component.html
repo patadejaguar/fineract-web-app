@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>Inactivate Charge</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.inactivatecharge'">Inactivate Charge</span></h1>
 <div mat-dialog-content>
-  <p>Are you sure you want to inactivate charge with id: {{ data.id }} ?</p>
+  <p><span [translate]="'modulo.labels.arewantinactivatecharge'" [translateParams]="{ id: data.id }">
+    Are you sure you want to inactivate charge with id: {{ data.id }} ?</span></p>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="{ confirm: true }">Confirm</button>
+  <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="{ confirm: true }">
+    <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
 </mat-dialog-actions>

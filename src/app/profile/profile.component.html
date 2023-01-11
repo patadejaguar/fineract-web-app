@@ -1,14 +1,14 @@
 <div class="container m-b-20" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="end" fxLayoutGap="2%">
   <button mat-raised-button color="primary" [routerLink]="['/system', 'roles-and-permissions']">
     <fa-icon icon="check"></fa-icon>&nbsp;&nbsp;
-    Permissions
+    <span [translate]="'labels.buttons.Permissions'">Permissions</span>
   </button>
   <button mat-raised-button color="primary" (click)="changeUserPassword()">
     <fa-icon icon="cog"></fa-icon>&nbsp;&nbsp;
-    Change Password
+    <span [translate]="'labels.buttons.ChangePassword'">Change Password</span>
   </button>
 </div>
-
+ 
 
 <div class="container" fxLayout="column" fxLayoutGap="2%">
 
@@ -17,7 +17,7 @@
     <div fxLayout="row wrap" class="content">
 
       <div fxFlex="50%" class="header">
-        Tenant Id
+        <span [translate]="'modulo.labels.tenantid'">Tenant Id</span>
       </div>
 
       <div fxFlex="50%">
@@ -25,7 +25,7 @@
       </div>
 
       <div fxFlex="50%" class="header">
-        User Id
+        <span [translate]="'modulo.labels.userid'">User Id</span>
       </div>
 
       <div fxFlex="50%">
@@ -33,7 +33,7 @@
       </div>
 
       <div fxFlex="50%" class="header">
-        User Name
+        <span [translate]="'modulo.labels.username'">User Name</span>
       </div>
 
       <div fxFlex="50%">
@@ -41,7 +41,7 @@
       </div>
 
       <div fxFlex="50%" class="header">
-        Office
+        <span [translate]="'modulo.labels.office'">Office</span>
       </div>
 
       <div fxFlex="50%">
@@ -49,7 +49,7 @@
       </div>
 
       <div fxFlex="50%" class="header">
-        Status
+        <span [translate]="'modulo.labels.status'">Status</span>
       </div>
 
       <div fxFlex="50%">
@@ -57,7 +57,7 @@
       </div>
 
       <div fxFlex="50%" class="header">
-        Language
+        <span [translate]="'modulo.labels.language'">Language</span>
       </div>
 
       <div fxFlex="50%">
@@ -73,12 +73,12 @@
     <table class="mat-elevation-z1" mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="role">
-        <th mat-header-cell *matHeaderCellDef> Role </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.role'"> Role</span> </th>
         <td mat-cell *matCellDef="let role"> {{ role.name }} </td>
       </ng-container>
 
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.description'"> Description</span> </th>
         <td mat-cell *matCellDef="let role">{{ role.description }}</td>
       </ng-container>
 

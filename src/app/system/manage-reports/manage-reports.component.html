@@ -2,7 +2,7 @@
   <div #buttonCreateReport class="in-block">
     <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_REPORT'">
         <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-        Create Report
+        <span [translate]="'labels.buttons.CreateReport'">Create Report</span>
     </button>
   </div>
 </div>
@@ -21,41 +21,51 @@
         <table mat-table [dataSource]="dataSource" matSort>
 
             <ng-container matColumnDef="reportName">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Report Name </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+                  <span [translate]="'modulo.labels.reportname'">Report Name</span> </th>
                 <td mat-cell *matCellDef="let report"> {{ report.reportName }} </td>
             </ng-container>
 
             <ng-container matColumnDef="reportType">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Report Type </th>
-                <td mat-cell *matCellDef="let report"> {{ report.reportType }} </td>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <span [translate]="'modulo.labels.reporttype'"> Report Type</span> </th>
+                <td mat-cell *matCellDef="let report"> {{ report.reportType | translate }} </td>
             </ng-container>
 
             <ng-container matColumnDef="reportSubType">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Report Sub Type </th>
-                <td mat-cell *matCellDef="let report"> {{ report.reportSubType }} </td>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <span [translate]="'modulo.labels.reportsubtype'"> Report Sub Type</span> </th>
+                <td mat-cell *matCellDef="let report"> {{ report.reportSubType | translate }} </td>
             </ng-container>
 
             <ng-container matColumnDef="reportCategory">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Report Category </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <span [translate]="'modulo.labels.reportcategory'"> Report Category </span></th>
                 <td mat-cell *matCellDef="let report"> {{ report.reportCategory }} </td>
             </ng-container>
 
             <ng-container matColumnDef="coreReport">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Core Report </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <span [translate]="'modulo.labels.corereport'"> Core Report</span> </th>
                 <td mat-cell *matCellDef="let report">
-                    <fa-icon *ngIf="report.coreReport" icon="check-circle" size="lg" class="true" matTooltip="Yes"
+                    <fa-icon *ngIf="report.coreReport" icon="check-circle" size="lg" class="true" 
+                    matTooltip="{{'modulo.labels.yes' | translate}}"
                         matTooltipPosition="right"></fa-icon>
-                    <fa-icon *ngIf="!report.coreReport" icon="times-circle" size="lg" class="false" matTooltip="No"
+                    <fa-icon *ngIf="!report.coreReport" icon="times-circle" size="lg" class="false" 
+                    matTooltip="{{'modulo.labels.no' | translate}}"
                         matTooltipPosition="right"></fa-icon>
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="userReport">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> User Report </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+                  <span [translate]="'modulo.labels.userreport'">User Report </span></th>
                 <td mat-cell *matCellDef="let report">
-                    <fa-icon *ngIf="report.useReport" icon="check-circle" size="lg" class="true" matTooltip="Yes"
+                    <fa-icon *ngIf="report.useReport" icon="check-circle" size="lg" class="true" 
+                    matTooltip="{{'modulo.labels.yes' | translate}}"
                         matTooltipPosition="right"></fa-icon>
-                    <fa-icon *ngIf="!report.useReport" icon="times-circle" size="lg" class="false" matTooltip="No"
+                    <fa-icon *ngIf="!report.useReport" icon="times-circle" size="lg" class="false" 
+                    matTooltip="{{'modulo.labels.no' | translate}}"
                         matTooltipPosition="right"></fa-icon>
                 </td>
             </ng-container>
@@ -71,29 +81,40 @@
 </div>
 
 <ng-template #templateButtonCreateReport let-popover="popover">
-  <h2>Create Report</h2>
-  <p class="mw300">This option allows you to create new report.</p>
+  <h2><span [translate]="'modulo.labels.createreport'">Create Report</span></h2>
+  <p class="mw300"><span [translate]="'modulo.description.createreport'">
+    This option allows you to create new report.</span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateFilter let-popover="popover">
-  <h4>Search bar to filter reports by name.</h4>
+  <h4><span [translate]="'modulo.description.searchfilterreportsname'">Search bar to filter reports by name.</span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateReport, buttonCreateReport, 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateReportsTable,reportsTable, 'top', true)">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateButtonCreateReport, buttonCreateReport, 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateReportsTable,reportsTable, 'top', true)">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>
 
 <ng-template #templateReportsTable let-popover="popover">
-  <h4 class="mw300">List of all currently available reports. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895354/Manage+Reports" target="_blank">Manage Reports</a></h4>
+  <h4 class="mw300"><span [innerHTML]="'modulo.description.listcurrentlyavaiablereports' | translate">
+    List of all currently available reports. For more details click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895354/Manage+Reports" target="_blank">Manage Reports</a></span></h4>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFilter,filter, 'bottom', true)">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

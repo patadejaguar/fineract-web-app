@@ -1,5 +1,6 @@
 <mat-card class="container">
   <div fxLayout="row" fxLayoutAlign="start center">
+    <!--placeholder="{{'modulo.labels.searchbyclientname' | translate}}"-->
     <div class="search-box m-r-30">
       <mat-form-field class="search-box">
         <input matInput placeholder="Search by client name, external Id, mobile" class="search-box" (keydown.enter)="search($event.target.value)">
@@ -9,15 +10,16 @@
       <mat-form-field class="filter-box m-r-30">
         <input matInput placeholder="Filter by client name or external Id" class="filter-box" (keyup)="applyFilter($event.target.value)">
       </mat-form-field>
-      <mat-checkbox #showClosedAccounts labelPosition="after" class="m-r-10">Show Closed Accounts
+      <mat-checkbox #showClosedAccounts labelPosition="after" class="m-r-10"><span [translate]="'modulo.labels.showclosedaccounts'">Show Closed Accounts</span>
       </mat-checkbox>
     </div>
     <div class="action-button" fxLayoutGap="25px">
       <button mat-raised-button color="primary" [routerLink]="['../', 'organization', 'bulk-import', 'Clients']" *mifosxHasPermission="'CREATE_CLIENT'">
-        <fa-icon icon="download" class="m-r-10"></fa-icon>Import Client
+
+        <fa-icon icon="download" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.ImportClient'">Import Client</span>
       </button>
       <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_CLIENT'">
-        <fa-icon icon="plus" class="m-r-10"></fa-icon>Create Client
+        <fa-icon icon="plus" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.CreateClient'">Create Client</span>
       </button>
     </div>
   </div>
@@ -27,19 +29,19 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="entityName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.name'"> Name</span> </th>
         <td mat-cell *matCellDef="let row"> {{row.entityName}} </td>
       </ng-container>
 
       <!-- Account no Column -->
       <ng-container matColumnDef="entityAccountNo">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Account No. </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.accountno'"> Account</span></th>
         <td mat-cell *matCellDef="let row"> {{row.entityAccountNo}} </td>
       </ng-container>
 
       <!-- External ID Column -->
       <ng-container matColumnDef="entityExternalId">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> External Id </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.externalid'"> ExternalID</span> </th>
         <td mat-cell *matCellDef="let row">
           <mifosx-external-identifier externalId="{{row.entityExternalId}}"></mifosx-external-identifier>
         </td>
@@ -47,7 +49,8 @@
 
       <!-- Status Column -->
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <th mat-header-cell *matHeaderCellDef> 
+          <span [translate]="'modulo.labels.status'">Status</span> </th>
         <td mat-cell *matCellDef="let row">
           <div [ngClass]="row.entityStatus.code | statusLookup">
             <fa-icon icon="stop"></fa-icon>
@@ -60,13 +63,13 @@
 
       <!-- Color Column -->
       <ng-container matColumnDef="parentName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Office Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.officename'"> OfficeName </span> </th>
         <td mat-cell *matCellDef="let row"> {{row.parentName}} </td>
       </ng-container>
 
       <!-- ID Column -->
       <ng-container matColumnDef="staffName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Staff Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.staffname'"> StaffName </span> </th>
         <td mat-cell *matCellDef="let row"> {{row.staffName}} </td>
       </ng-container>
 

@@ -1,12 +1,13 @@
-<h1 mat-dialog-title>Upload Client Image</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.uploadclientimage'">Upload Client Image</span></h1>
 
 <div>
 
   <mifosx-file-upload flex="60%" (change)="onFileSelect($event)" acceptFilter=".png,.jpeg,.jpg"></mifosx-file-upload>
 
   <mat-dialog-actions align="end">
-      <button mat-raised-button mat-dialog-close>Cancel</button>
-      <button mat-raised-button color="primary" [disabled]="!image" [mat-dialog-close]="image">Confirm</button>
+      <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+      <button mat-raised-button color="primary" [disabled]="!image" [mat-dialog-close]="image">
+        <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
   </mat-dialog-actions>
 
 </div>

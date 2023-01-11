@@ -2,12 +2,12 @@
 
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_TEMPLATE'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 
   <button mat-raised-button color="warn" (click)="delete()" *mifosxHasPermission="'DELETE_TEMPLATE'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 
 </div>
@@ -21,7 +21,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Name
+          <span [translate]="'modulo.labels.name'">Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -29,23 +29,23 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Entity
+          <span [translate]="'modulo.labels.entity'">Entity</span>
         </div>
 
         <div fxFlex="50%">
-          {{ templateData.entity }}
+          {{ templateData.entity | translate}}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Type
+          <span [translate]="'modulo.labels.type'">Type</span>
         </div>
 
         <div fxFlex="50%">
-          {{ templateData.type }}
+          {{ templateData.type | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Text
+          <span [translate]="'modulo.labels.text'">Text</span>
         </div>
 
         <div fxFlex="50%" [innerHTML]="templateData.text"></div>

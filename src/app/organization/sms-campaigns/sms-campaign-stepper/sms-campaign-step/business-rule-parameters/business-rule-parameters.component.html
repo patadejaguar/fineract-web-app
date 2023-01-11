@@ -2,7 +2,7 @@
 
   <mat-divider fxFlex="98%"></mat-divider>
 
-  <h3 fxFlex="98%" class="mat-h3">Business Rule Parameters</h3>
+  <h3 fxFlex="98%" class="mat-h3"><span [translate]="'modulo.labels.businessruleparameters'">Business Rule Parameters</span></h3>
 
   <form [formGroup]="ReportForm">
 
@@ -56,6 +56,6 @@
 <div class="margin-t" fxLayoutAlign="center">
   <button mat-raised-button matStepperNext color="primary" (click)="getResponseHeaders()"
     [disabled]="!this.ReportForm.valid">
-      Get Parameters
+      <span [translate]="'labels.buttons.GetParameters'">Get Parameters</span>
   </button>
 </div>

@@ -129,15 +129,15 @@ export class ViewCampaignComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'closureDate',
-        label: 'Closure Date',
+        label: 'modulo.labels.closuredate',
         value: '',
         type: 'date',
         required: true
       })
     ];
     const data = {
-      title: 'Close SMS Campaign',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.closesmscampaign',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const closeCampaignDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -164,15 +164,15 @@ export class ViewCampaignComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'activationDate',
-        label: 'Activation Date',
+        label: 'modulo.labels.activationdate',
         value: '',
         type: 'date',
         required: true
       })
     ];
     const data = {
-      title: 'Activate SMS Campaign',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.activatesmscampaign',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const activateCampaignDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -199,15 +199,15 @@ export class ViewCampaignComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'activationDate',
-        label: 'Reactivation Date',
+        label: 'modulo.labels.reactivationdate',
         value: '',
         type: 'date',
         required: true
       })
     ];
     const data = {
-      title: 'Reactivate SMS Campaign',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.reactivatesmscampaign',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const reactivateCampaignDialogRef = this.dialog.open(FormDialogComponent, { data });

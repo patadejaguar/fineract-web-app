@@ -12,7 +12,7 @@
       </mat-card-title>
       <mat-card-subtitle>
         <p>
-          Account No: {{ centerData.accountNo }} | {{ centerData.externalId ? '| External ID: ' + centerData.externalId : '' }}
+          <span [translate]="'modulo.labels.accountno'">Account No</span>: {{ centerData.accountNo }} | {{ centerData.externalId ? '| External ID: ' + centerData.externalId : '' }}
         </p>
       </mat-card-subtitle>
     </div>
@@ -22,11 +22,11 @@
 <mat-card-content>
 
   <mat-tab-group>
-    <mat-tab label="Details">
+    <mat-tab label="{{'modulo.labels.details' | translate}}">
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Activation Date
+          <span [translate]="'modulo.labels.activationdate'">Activation Date</span>
         </div>
 
         <div fxFlex="50%">
@@ -34,7 +34,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Associated Officer
+          <span [translate]="'modulo.labels.associatedofficer'">Associated Officer</span>
         </div>
 
         <div fxFlex="50%">
@@ -42,7 +42,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerSummaryData">
-          Number of Active Clients
+          <span [translate]="'modulo.labels.numberactiveclients'">Number of Active Clients</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerSummaryData">
@@ -50,7 +50,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerSummaryData">
-          Number of Active Client Loans
+          <span [translate]="'modulo.labels.numberactiveclientloans'">Number of Active Client Loans</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerSummaryData">
@@ -58,7 +58,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerSummaryData">
-          Number of Active Client Borrowers
+          <span [translate]="'modulo.labels.numberactiveclientborrowers'">Number of Active Client Borrowers</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerSummaryData">
@@ -66,7 +66,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerSummaryData">
-          Number of Active Overdue Group Loans
+          <span [translate]="'modulo.labels.numberactiveoverduegroup'">Number of Active Overdue Group Loans</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerSummaryData">
@@ -74,7 +74,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerSummaryData">
-          Number of Active Overdue Client Loans
+          <span [translate]="'modulo.labels.numberactiveoverdueclient'">Number of Active Overdue Client Loans</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerSummaryData">
@@ -82,7 +82,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerData.collectionMeetingCalendar && centerData.collectionMeetingCalendar.nextTenRecurringDates[0]">
-          Next Meeting Date
+         <span [translate]="'modulo.labels.nextmeetingdate'"> Next Meeting Date</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerData.collectionMeetingCalendar && centerData.collectionMeetingCalendar.nextTenRecurringDates[0]">
@@ -90,7 +90,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="centerData.collectionMeetingCalendar && centerData.collectionMeetingCalendar.humanReadable">
-          Meeting Frequency
+          <span [translate]="'modulo.labels.meetingfrequency'">Meeting Frequency</span>
         </div>
 
         <div fxFlex="50%" *ngIf="centerData.collectionMeetingCalendar && centerData.collectionMeetingCalendar.humanReadable">
@@ -98,7 +98,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Number of Groups
+          <span [translate]="'modulo.labels.numbergroups'">Number of Groups</span>
         </div>
 
         <div fxFlex="50%">
@@ -108,11 +108,11 @@
       </div>    
     </mat-tab>
 
-    <mat-tab label="Loan Accounts" *ngIf="centerAccountsData && centerAccountsData.loanAccounts">
+    <mat-tab label="{{'modulo.labels.loanaccounts' | translate}}" *ngIf="centerAccountsData && centerAccountsData.loanAccounts">
       <mifosx-loan-account-table [loanAccountData]="centerAccountsData.loanAccounts"></mifosx-loan-account-table>
     </mat-tab>
 
-    <mat-tab label="Savings Accounts" *ngIf="centerAccountsData && centerAccountsData.savingsAccounts">
+    <mat-tab label="{{'modulo.labels.savingsaccounts' | translate}}" *ngIf="centerAccountsData && centerAccountsData.savingsAccounts">
       <mifosx-savings-account-table [savingsAccountData]="centerAccountsData.savingsAccounts"></mifosx-savings-account-table>
     </mat-tab>
     

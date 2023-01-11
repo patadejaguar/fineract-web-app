@@ -1,16 +1,16 @@
 <mat-card class="container">
 
   <div *ngIf="XBRLSuccess">
-     <h1><strong>Saved Successfully</strong></h1>
+     <h1><strong><span [translate]="'modulo.labels.savedsuccessfully'">Saved Successfully</span></strong></h1>
   </div>
 
   <div *ngIf="!XBRLSuccess">
 
       <mat-tab-group (selectedTabChange)="filterTaxonomiesBy($event.index)">
-         <mat-tab label="Portfolio"></mat-tab>
-         <mat-tab label="BalanceSheet"></mat-tab>
-         <mat-tab label="Incomes"></mat-tab>
-         <mat-tab label="Expenses"></mat-tab>
+         <mat-tab label="{{'modulo.labels.portfolio' | translate}}"></mat-tab>
+         <mat-tab label="{{'modulo.labels.balancesheet' | translate}}"></mat-tab>
+         <mat-tab label="{{'modulo.labels.incomes' | translate}}"></mat-tab>
+         <mat-tab label="{{'modulo.labels.expenses' | translate}}"></mat-tab>
       </mat-tab-group>
 
       <table mat-table [dataSource]="dataSource">
@@ -40,11 +40,11 @@
       <div class="container m-t-20" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
          <button mat-raised-button color="primary" [routerLink]="['./report']">
             <fa-icon icon="cog"></fa-icon>
-            &nbsp;&nbsp; Generate Report
+            &nbsp;&nbsp; <span [translate]="'labels.buttons.GenerateReport'">Generate Report</span>
          </button>
          <button mat-raised-button color="accent" (click)="submit()">
             <fa-icon icon="download"></fa-icon>
-            &nbsp;&nbsp; Save Changes 
+            &nbsp;&nbsp; <span [translate]="'labels.buttons.SaveChanges'">Save Changes </span>
          </button>
       </div>
 

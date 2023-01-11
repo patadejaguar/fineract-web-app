@@ -1,8 +1,11 @@
-<h1 mat-dialog-title>Delete</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.delete'">Delete</span></h1>
 <div mat-dialog-content>
-  <p>Are you sure you want to delete {{ data.deleteContext }} ?</p>
+  <p><span [translate]="'modulo.description.deletegenericq'" [translateParams]="{ deleteContext: data.deleteContext }">
+    <!--Are you sure you want to delete {{ data.deleteContext }} ?--></span></p>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="{ delete: true }">Confirm</button>
+  <button mat-raised-button mat-dialog-close>
+    <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="{ delete: true }">
+    <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
 </mat-dialog-actions>

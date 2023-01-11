@@ -9,25 +9,25 @@
         <div fxLayout="column">
 
           <mat-form-field (click)="requestedDatePicker.open()">
-            <mat-label>Request Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.requestdate'">Request Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="requestedDatePicker" required formControlName="requestedDate">
             <mat-datepicker-toggle matSuffix [for]="requestedDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #requestedDatePicker></mat-datepicker>
             <mat-error *ngIf="applySharesForm.controls.requestedDate.hasError('required')">
-              Request Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.requestdaterequired' | translate">Request Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Total No. of Shares</mat-label>
+            <mat-label><span [translate]="'modulo.labels.totalnoshares'">Total No. of Shares</span></mat-label>
             <input matInput required formControlName="requestedShares">
             <mat-error *ngIf="applySharesForm.controls.requestedShares.hasError('required')">
-              Requested Shares is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.requestsharesrequired' | translate">Requested Shares is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Today's Price</mat-label>
+            <mat-label><span [translate]="'modulo.labels.todayprice'">Today's Price</span></mat-label>
             <input matInput required formControlName="unitPrice">
           </mat-form-field>
 
@@ -36,8 +36,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-        <button mat-raised-button color="accent" [disabled]="!applySharesForm.valid">Confirm</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="accent" [disabled]="!applySharesForm.valid">
+          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>

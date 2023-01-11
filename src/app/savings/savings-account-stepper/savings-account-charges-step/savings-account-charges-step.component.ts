@@ -95,15 +95,15 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'amount',
-        label: 'Amount',
+        label: 'modulo.labels.amount',
         value: charge.amount,
         type: 'number',
         required: false
       }),
     ];
     const data = {
-      title: 'Edit Charge Amount',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editchargeamount',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editNoteDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -125,15 +125,15 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
     const formfields: FormfieldBase[] = [
       new DatepickerBase({
         controlName: 'date',
-        label: 'Date',
+        label: 'modulo.labels.date',
         value: charge.dueDate || charge.feeOnMonthDay || '',
         type: 'datetime-local',
         required: false
       }),
     ];
     const data = {
-      title: 'Edit Charge Date',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editchargedate',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editNoteDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -166,15 +166,15 @@ export class SavingsAccountChargesStepComponent implements OnInit, OnChanges {
     const formfields: FormfieldBase[] = [
       new InputBase({
         controlName: 'feeInterval',
-        label: 'Fee Interval',
+        label: 'modulo.labels.feeinterval',
         value: charge.feeInterval,
         type: 'text',
         required: false
       }),
     ];
     const data = {
-      title: 'Edit Charge Fee Interval',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.editchargefeeinterval',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const editNoteDialogRef = this.dialog.open(FormDialogComponent, { data });

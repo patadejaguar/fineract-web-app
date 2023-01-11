@@ -56,7 +56,7 @@ export class AddressTabComponent {
    */
   addAddress() {
     const data = {
-      title: 'Add Client Address',
+      title: 'modulo.labels.addclientaddress',
       formfields: this.getAddressFormFields('add')
     };
     const addAddressDialogRef = this.dialog.open(FormDialogComponent, { data });
@@ -82,9 +82,9 @@ export class AddressTabComponent {
    */
   editAddress(address: any, index: number) {
     const data = {
-      title: 'Edit Client Address',
+      title: 'modulo.labels.editclientaddress',
       formfields: this.getAddressFormFields('edit', address),
-      layout: { addButtonText: 'Edit' }
+      layout: { addButtonText: 'labels.buttons.Edit' }
     };
     const editAddressDialogRef = this.dialog.open(FormDialogComponent, { data });
     editAddressDialogRef.afterClosed().subscribe((response: any) => {
@@ -143,7 +143,7 @@ export class AddressTabComponent {
     if (formType === 'add') {
       formfields.push(this.isFieldEnabled('addressType') ? new SelectBase({
         controlName: 'addressType',
-        label: 'Address Type',
+        label: 'modulo.labels.addresstype',
         value: address ? address.addressType : '',
         options: { label: 'name', value: 'id', data: this.clientAddressTemplate.addressTypeIdOptions },
         order: 1
@@ -151,7 +151,7 @@ export class AddressTabComponent {
     }
     formfields.push(this.isFieldEnabled('street') ? new InputBase({
       controlName: 'street',
-      label: 'Street',
+      label: 'modulo.labels.street',
       value: address ? address.street : '',
       type: 'text',
       required: false,
@@ -159,63 +159,63 @@ export class AddressTabComponent {
     }) : null);
     formfields.push(this.isFieldEnabled('addressLine1') ? new InputBase({
       controlName: 'addressLine1',
-      label: 'Address Line 1',
+      label: 'modulo.labels.address1',
       value: address ? address.addressLine1 : '',
       type: 'text',
       order: 3
     }) : null);
     formfields.push(this.isFieldEnabled('addressLine2') ? new InputBase({
       controlName: 'addressLine2',
-      label: 'Address Line 2',
+      label: 'modulo.labels.address2',
       value: address ? address.addressLine2 : '',
       type: 'text',
       order: 4
     }) : null);
     formfields.push(this.isFieldEnabled('addressLine3') ? new InputBase({
       controlName: 'addressLine3',
-      label: 'Address Line 3',
+      label: 'modulo.labels.address3',
       value: address ? address.addressLine3 : '',
       type: 'text',
       order: 5
     }) : null);
     formfields.push(this.isFieldEnabled('townVillage') ? new InputBase({
       controlName: 'townVillage',
-      label: 'Town / Village',
+      label: 'modulo.labels.townvillage',
       value: address ? address.townVillage : '',
       type: 'text',
       order: 6
     }) : null);
     formfields.push(this.isFieldEnabled('city') ? new InputBase({
       controlName: 'city',
-      label: 'City',
+      label: 'modulo.labels.city',
       value: address ? address.city : '',
       type: 'text',
       order: 7
     }) : null);
     formfields.push(this.isFieldEnabled('stateProvinceId') ? new SelectBase({
       controlName: 'stateProvinceId',
-      label: 'State / Province',
+      label: 'modulo.labels.stateprovince',
       value: address ? address.stateProvinceId : '',
       options: { label: 'name', value: 'id', data: this.clientAddressTemplate.stateProvinceIdOptions },
       order: 8
     }) : null);
     formfields.push(this.isFieldEnabled('countyDistrict') ? new InputBase({
       controlName: 'countryDistrict',
-      label: 'Country District',
+      label: 'modulo.labels.countrydistrict',
       value: address ? address.countyDistrict : '',
       type: 'text',
       order: 11
     }) : null);
     formfields.push(this.isFieldEnabled('countryId') ? new SelectBase({
       controlName: 'countryId',
-      label: 'Country',
+      label: 'modulo.labels.country',
       value: address ? address.countryId : '',
       options: { label: 'name', value: 'id', data: this.clientAddressTemplate.countryIdOptions },
       order: 10
     }) : null);
     formfields.push(this.isFieldEnabled('postalCode') ? new InputBase({
       controlName: 'postalCode',
-      label: 'Postal Code',
+      label: 'modulo.labels.postalcode',
       value: address ? address.postalCode : '',
       type: 'text',
       order: 11

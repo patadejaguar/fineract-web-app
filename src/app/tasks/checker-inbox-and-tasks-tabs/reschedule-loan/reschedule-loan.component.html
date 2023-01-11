@@ -3,13 +3,14 @@
   <div fxLayout="row" fxLayoutAlign="start center">
     <div class="search-box" fxFlex="40%">
       <mat-form-field fxFlex="90%">
-        <input matInput placeholder="Filter by name" (keyup)="applyFilter($event.target.value)">
+        <input matInput placeholder="{{'modulo.labels.filterbyname' | translate}}" (keyup)="applyFilter($event.target.value)">
       </mat-form-field>
     </div>
     <div fxFlex="60%">
       <button mat-raised-button color="success" *mifosxHasPermission="'APPROVE_LOANRESCHEDULE'"
         (click)="approveBulkLoanReschedule()">
-        <fa-icon icon="check"></fa-icon>&nbsp;&nbsp;Approve
+        <fa-icon icon="check"></fa-icon>&nbsp;&nbsp;
+        <span [translate]="'labels.buttons.Approve'">Approve</span>
       </button>
     </div>
   </div>
@@ -30,27 +31,32 @@
     </ng-container>
 
     <ng-container matColumnDef="client">
-      <th mat-header-cell *matHeaderCellDef> Client </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.labels.client'"> Client</span> </th>
       <td mat-cell *matCellDef="let loan" class="view-details" [routerLink]="['../../clients', loan.clientId , 'general']"> {{loan.clientName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="rescheduleRequestNo">
-      <th mat-header-cell *matHeaderCellDef> Reschedule Request# </th>
+      <th mat-header-cell *matHeaderCellDef> 
+        <span [translate]="'modulo.labels.reschedulerequest'">Reschedule Request</span># </th>
       <td mat-cell *matCellDef="let loan"> {{loan.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="loanAccountNo">
-      <th mat-header-cell *matHeaderCellDef> Loan Account# </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.labels.loanaccount'"> Loan Account</span># </th>
       <td mat-cell *matCellDef="let loan" class="view-details" [routerLink]="['../../clients', loan.clientId , 'loans', loan.loanId, 'general']"> {{loan.loanAccountNumber}} </td>
     </ng-container>
 
     <ng-container matColumnDef="rescheduleForm">
-      <th mat-header-cell *matHeaderCellDef> Reschedule Form </th>
+      <th mat-header-cell *matHeaderCellDef> 
+        <span [translate]="'modulo.labels.rescheduleform'">Reschedule Form</span> </th>
       <td mat-cell *matCellDef="let loan"> {{loan.rescheduleFromDate  | dateFormat}} </td>
     </ng-container>
 
     <ng-container matColumnDef="rescheduleReason">
-      <th mat-header-cell *matHeaderCellDef> Reschedule Reason </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <span [translate]="'modulo.labels.reschedulereason'"> Reschedule Reason</span> </th>
       <td mat-cell *matCellDef="let loan"> {{loan.rescheduleReasonCodeValue.name}} </td>
     </ng-container>
 
@@ -65,7 +71,7 @@
 
   <div class="message">
     <i class="fa fa-exclamation-circle alert-check"></i>
-    No pending rescheduled loan available for this account.
+    <span [translate]="'modulo.labels.nopendingrescheduledloan'">No pending rescheduled loan available for this account.</span>
   </div>
 
 </div>

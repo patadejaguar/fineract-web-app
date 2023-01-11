@@ -3,34 +3,34 @@
   <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Total Number of Shares</mat-label>
+      <mat-label><span [translate]="'modulo.labels.totalnumbershares'">Total Number of Shares</span></mat-label>
       <input type="number" matInput formControlName="totalShares" required>
       <mat-error>
-        Total Number of Shares is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.totalnumbersharesrequired' | translate">Total Number of Shares is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Shares to be Issued</mat-label>
+      <mat-label><span [translate]="'modulo.labels.sharesissued'">Shares to be Issued</span></mat-label>
       <input type="number" matInput formControlName="sharesIssued" required>
       <mat-error>
-        Shares to be Issued is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.sharesissuedrequired' | translate">Shares to be Issued is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Nominal/Unit Price</mat-label>
+      <mat-label><span [translate]="'modulo.labels.nominalunitprice'">Nominal/Unit Price</span></mat-label>
       <input type="number" matInput formControlName="unitPrice" required>
       <mat-error>
-        Nominal Price is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.nominalunitpricerequired' | translate">Nominal Price is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="48%">
-      <mat-label>Capital Value</mat-label>
+      <mat-label><span [translate]="'modulo.labels.capitalvalue'">Capital Value</span></mat-label>
       <input type="number" matInput formControlName="shareCapital" readonly>
       <mat-hint>
-        Shares to be Issued * Nominal Price (Auto calculated)
+        <span [translate]="'modulo.description.sharesissuednominalprice'">Shares to be Issued * Nominal Price (Auto calculated)</span>
       </mat-hint>
     </mat-form-field>
 
@@ -39,10 +39,10 @@
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-      Previous
+      <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext>
-      Next&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
       <fa-icon icon="arrow-right"></fa-icon>
     </button>
   </div>

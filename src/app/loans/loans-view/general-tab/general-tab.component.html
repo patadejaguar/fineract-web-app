@@ -1,20 +1,20 @@
 <div class="tab-container mat-typography">
 
   <ng-container *ngIf="loanDetails.summary">
-    <h3>Performance History</h3>
+    <h3><span [translate]="'modulo.loans.title.perfomancehistory'">Performance History</span></h3>
     <div fxLayout="row" fxLayoutGap="32px" class="performance-history-container">
       <p>
-        # of Repayments :{{loanDetails?.numberOfRepayments}}
+        <span [translate]="'modulo.loans.labels.numpayments'"># of Repayments </span>:{{loanDetails?.numberOfRepayments}}
       </p>
       <p>
-        Maturity Date :{{loanDetails?.timeline.expectedMaturityDate  | dateFormat}}
+        <span [translate]="'modulo.loans.labels.maturitydate'">Maturity Date </span>:{{loanDetails?.timeline.expectedMaturityDate  | dateFormat}}
       </p>
     </div>
   </ng-container>
 
   <div *ngIf="loanDetails.summary">
 
-    <h3> Loan Summary </h3>
+    <h3><span [translate]="'modulo.loans.title.loansummary'"> Loan Summary</span> </h3>
 
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="Empty">
@@ -23,37 +23,44 @@
       </ng-container>
 
       <ng-container matColumnDef="Original">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Original </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.originals'"> Original </span></th>
         <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.original | currency }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Paid">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Paid </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef> 
+          <span [translate]="'modulo.loans.header.paid'">Paid </span></th>
         <td mat-cell class="r-amount amount-minus" *matCellDef="let ele"> {{ ele.paid | currency }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Adjustments">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Credit Adjustments </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.creditadjust'"> Credit Adjustments </span></th>
         <td mat-cell class="r-amount amount-plus" *matCellDef="let ele"> {{ ele.adjustment | currency }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Waived">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Waived </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.waived'"> Waived </span></th>
         <td mat-cell class="r-amount amount-minus" *matCellDef="let ele"> {{ ele.waived | currency }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Written Off">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Written Off </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.writtenoff'"> Written Off</span> </th>
         <td mat-cell class="r-amount amount-minus" *matCellDef="let ele"> {{ ele.writtenOff | currency }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Outstanding">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Outstanding </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef> 
+          <span [translate]="'modulo.loans.header.outstanding'">Outstanding </span></th>
         <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.outstanding | currency }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Over Due">
-        <th mat-header-cell class="r-amount" *matHeaderCellDef> Over Due </th>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.overdue'"> Over Due </span></th>
         <td mat-cell class="r-amount" *matCellDef="let ele"> {{ ele.overdue | currency }} </td>
       </ng-container>
 
@@ -65,29 +72,34 @@
 
   <div *ngIf="loanDetails.summary">
 
-    <h3> Loan Details</h3>
+    <h3> <span [translate]="'modulo.loans.title.loandetail'">Loan Details</span></h3>
     <table mat-table [dataSource]="detailsDataSource">
 
       <ng-container matColumnDef="Key">
-        <th mat-header-cell *matHeaderCellDef> Key </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.key'"> Key </span></th>
         <td mat-cell *matCellDef="let ele"> {{ ele.key }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Value">
-        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.value'"> Value </span></th>
         <td mat-cell *matCellDef="let ele">
           <ng-container *ngIf="ele.key === 'Disbursement Date'" >
             <span *ngIf="loanDetails.timeline.actualDisbursementDate"> {{loanDetails.timeline.actualDisbursementDate  | dateFormat}} </span>
-            <span *ngIf="!loanDetails.timeline.actualDisbursementDate"> Not Available </span>
+            <span *ngIf="!loanDetails.timeline.actualDisbursementDate">
+              <span [translate]="'modulo.validations.notavailable'"> Not Available </span></span>
           </ng-container>
 
           <ng-container *ngIf="ele.key === 'Loan Purpose'">
             <span *ngIf="loanDetails.loanPurchaseName"> {{loanDetails.loanPurchaseName}} </span>
-            <span *ngIf="!loanDetails.loanPurchaseName"> Not Available </span>
+            <span *ngIf="!loanDetails.loanPurchaseName"> 
+              <span [translate]="'modulo.validations.notavailable'"> Not Available </span> </span>
           </ng-container>
 
           <ng-container *ngIf="ele.key === 'Loan Officer'">
-            <span *ngIf="!loanDetails.loanOfficerName"> Unassigned </span>
+            <span *ngIf="!loanDetails.loanOfficerName">
+              <span [translate]="'modulo.validations.unassigned'">Unassigned </span> </span>
             <span *ngIf="loanDetails.loanOfficerName"> {{loanDetails.loanOfficerName}} &nbsp;
               <span *ngIf="loanDetails.loanOfficerName">
                     <!-- <a ng-click="clickEvent('unassignloanofficer', loanDetails.id)" *mifosxHasPermission = "'REMOVELOANOFFICER_LOAN'"><i
@@ -102,7 +114,9 @@
 
           <ng-container *ngIf="ele.key === 'External Id'">
             <span *ngIf="loanDetails.externalId"> {{loanDetails.externalId}} </span>
-            <span *ngIf="!loanDetails.externalId"> Not Available </span>
+            <span *ngIf="!loanDetails.externalId"> 
+              <span [translate]="'modulo.validations.notavailable'"> Not Available </span>
+            </span>
           </ng-container>
 
           <ng-container *ngIf="ele.key === 'Proposed Amount' || ele.key === 'Approved Amount' || ele.key === 'Disburse Amount'">
@@ -120,24 +134,28 @@
 
   <div *ngIf="!loanDetails.summary">
 
-    <h3> Loan Details </h3>
+    <h3><span [translate]="'modulo.loans.title.loandetail'"> Loan Details </span></h3>
     <table mat-table [dataSource]="detailsDataSource">
 
       <ng-container matColumnDef="Key">
-        <th mat-header-cell *matHeaderCellDef> Key </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.key'">Key </span> </th>
         <td mat-cell *matCellDef="let ele"> {{ ele.key }} </td>
       </ng-container>
 
       <ng-container matColumnDef="Value">
-        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.loans.header.value'"> Value </span></th>
         <td mat-cell *matCellDef="let ele">
           <ng-container *ngIf="ele.key === 'Disbursement Date'" >
             <span *ngIf="loanDetails.timeline.actualDisbursementDate"> {{loanDetails.timeline.actualDisbursementDate  | dateFormat}} </span>
-            <span *ngIf="!loanDetails.timeline.actualDisbursementDate"> Not Available </span>
+            <span *ngIf="!loanDetails.timeline.actualDisbursementDate">
+              <span [translate]="'modulo.validations.notavailable'"> Not Available </span></span>
           </ng-container>
 
           <ng-container *ngIf="ele.key === 'Loan Officer'">
-            <span *ngIf="!loanDetails.loanOfficerName"> Unassigned </span>
+            <span *ngIf="!loanDetails.loanOfficerName"> 
+              <span [translate]="'modulo.validations.unassigned'">Unassigned</span> </span>
             <span *ngIf="loanDetails.loanOfficerName"> {{loanDetails.loanOfficerName}} &nbsp;
               <span *ngIf="loanDetails.loanOfficerName">
                     <!-- <a ng-click="clickEvent('unassignloanofficer', loanDetails.id)" *mifosxHasPermission = "'REMOVELOANOFFICER_LOAN'"><i
@@ -152,7 +170,8 @@
 
           <ng-container *ngIf="ele.key === 'External Id'">
             <span *ngIf="loanDetails.externalId"> {{loanDetails.externalId}} </span>
-            <span *ngIf="!loanDetails.externalId"> Not Available </span>
+            <span *ngIf="!loanDetails.externalId"> 
+              <span [translate]="'modulo.validations.notavailable'">Not Available</span> </span>
           </ng-container>
 
         </td>
@@ -165,12 +184,12 @@
   </div>
 
   <div *ngIf="!loanDetails.summary">
-    <h3> Loan Purpose </h3>
+    <h3><span [translate]="'modulo.loans.title.loanpurpose'"> Loan Purpose</span> </h3>
     <div class="container">
       <div fxLayout="row wrap" fxLayout.lt-md="column">
 
         <div fxFlexFill>
-            <span fxFlex="50%">Loan Purpose:</span>
+            <span fxFlex="50%"><span [translate]="'modulo.loans.title.loanpurpose'">Loan Purpose</span>:</span>
             <span fxFlex="50%" *ngIf="loanDetails.loanPurposeName">
               {{ loanDetails.loanPurposeName }}
             </span>
@@ -180,23 +199,26 @@
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="50%">Proposed Amount:</span>
+          <span fxFlex="50%">
+            <span [translate]="'modulo.loans.labels.proposedamount'">Proposed Amount</span>:</span>
           <span fxFlex="50%">{{ loanDetails.proposedPrincipal | currency}}</span>
         </div>
 
         <div fxFlexFill *ngIf="showApprovedAmountBasedOnStatus()">
-          <span fxFlex="50%">Approved Amount:</span>
+          <span fxFlex="50%">
+            <span [translate]="'modulo.loans.labels.approvedamount'">Approved Amount</span>:</span>
           <span fxFlex="50%">{{ loanDetails.approvedPrincipal | currency }}</span>
         </div>
 
         <div fxFlexFill *ngIf="showDisbursedAmountBasedOnStatus()">
-          <span fxFlex="50%">Disburse Amount:</span>
+          <span fxFlex="50%">
+            <span [translate]="'modulo.loans.labels.disburseamount'">Disburse Amount</span>:</span>
           <span fxFlex="50%">{{ loanDetails.principal | currency }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="50%">Arrears By:</span>
-          <span fxFlex="50%"> Not Provided</span>
+          <span fxFlex="50%"><span [translate]="'modulo.loans.labels.arrearby'">Arrears By</span>:</span>
+          <span fxFlex="50%"><span [translate]="'modulo.validations.notprovided'"> Not Provided</span></span>
         </div>
 
       </div>

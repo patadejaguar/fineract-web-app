@@ -1,7 +1,7 @@
 <div class="container m-b-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_STAFF'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 </div>
 
@@ -14,7 +14,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          First Name
+          <span [translate]="'modulo.labels.firstname'">First Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -22,7 +22,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Last Name
+          <span [translate]="'modulo.labels.lastname'">Last Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -30,7 +30,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Office
+          <span [translate]="'modulo.labels.office'">Office</span>
         </div>
 
         <div fxFlex="50%">
@@ -38,15 +38,15 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Is Loan Officer
+          <span [translate]="'modulo.labels.isloanofficer'">Is Loan Officer</span>
         </div>
 
         <div fxFlex="50%">
-          {{ employeeData.isLoanOfficer === true ? 'Yes' : 'No' }}
+          {{ (employeeData.isLoanOfficer === true ? 'Yes' : 'No') | translate  }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="employeeData.mobileNo">
-          Mobile Number for SMS
+          <span [translate]="'modulo.labels.mobilenumbersms'">Mobile Number for SMS</span>
         </div>
 
         <div fxFlex="50%" *ngIf="employeeData.mobileNo">
@@ -54,7 +54,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Status
+          <span [translate]="'modulo.labels.status'">Status</span>
         </div>
 
         <div fxFlex="50%">
@@ -62,7 +62,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Joining Date
+          <span [translate]="'modulo.labels.joiningdate'">Joining Date</span>
         </div>
 
         <div fxFlex="50%">

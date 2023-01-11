@@ -9,26 +9,26 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Financial Activity</mat-label>
+            <mat-label><span [translate]="'modulo.labels.financialactivity'">Financial Activity</span></mat-label>
             <mat-select required formControlName="financialActivityId">
               <mat-option *ngFor="let financialActivity of financialActivityData" [value]="financialActivity.id">
                 {{ financialActivity.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="financialActivityMappingForm.controls.financialActivityId.hasError('required')">
-              Financial Activity is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.financialactivityrequired' | translate">Financial Activity is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Account</mat-label>
+            <mat-label><span [translate]="'modulo.labels.account'">Account</span></mat-label>
             <mat-select required formControlName="glAccountId">
               <mat-option *ngFor="let glAccount of glAccountData" [value]="glAccount.id">
                 {{ glAccount.name + ' (' + glAccount.glCode + ')' }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="financialActivityMappingForm.controls.glAccountId.hasError('required')">
-              Account is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.accountrequired' | translate">Account is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -37,8 +37,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!financialActivityMappingForm.valid" *mifosxHasPermission="'CREATE_FINANCIALACTIVITYACCOUNT'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../']">
+          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!financialActivityMappingForm.valid" *mifosxHasPermission="'CREATE_FINANCIALACTIVITYACCOUNT'">
+          <span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>

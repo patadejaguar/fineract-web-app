@@ -1,7 +1,7 @@
 <div class="tab-container mat-typography">
 
   <div class="m-b-10">
-    <h3>All Standing Instructions</h3>
+    <h3><span [translate]="'modulo.labels.allstandinginstructions'">All Standing Instructions</span></h3>
   </div>
 
   <div class="mat-elevation-z1 m-b-25">
@@ -9,51 +9,61 @@
     <table mat-table #instructionsTable [dataSource]="dataSource">
 
       <ng-container matColumnDef="client">
-        <th mat-header-cell *matHeaderCellDef> Client </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.labels.client'"> Client </span></th>
         <td mat-cell *matCellDef="let instruction">{{instruction.fromClient.displayName}}-{{instruction.fromClient.id}}</td>
       </ng-container>
 
       <ng-container matColumnDef="fromAccount">
-        <th mat-header-cell *matHeaderCellDef> From Account </th>
+        <th mat-header-cell *matHeaderCellDef> 
+          <span [translate]="'modulo.labels.fromaccount'">From Account </span></th>
         <td mat-cell *matCellDef="let instruction">{{instruction.fromAccount.accountNo}} ({{instruction.fromAccountType.value}})</td>
       </ng-container>
 
       <ng-container matColumnDef="beneficiary">
-        <th mat-header-cell *matHeaderCellDef> Beneficiary </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.labels.beneficiary'"> Beneficiary </span></th>
         <td mat-cell *matCellDef="let instruction">{{instruction.toClient.displayName}}</td>
       </ng-container>
 
       <ng-container matColumnDef="toAccount">
-        <th mat-header-cell *matHeaderCellDef> To Account </th>
+        <th mat-header-cell *matHeaderCellDef> 
+          <span [translate]="'modulo.labels.toaccount'">To Account</span> </th>
         <td mat-cell *matCellDef="let instruction">{{instruction.toAccount.accountNo}} ({{instruction.toAccountType.value}})</td>
       </ng-container>
 
       <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef> Amount </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.labels.amount'"> Amount</span> </th>
         <td mat-cell *matCellDef="let instruction">{{instruction.instructionType.value}}/{{instruction.amount}}</td>
       </ng-container>
 
       <ng-container matColumnDef="validity">
-        <th mat-header-cell *matHeaderCellDef> Validity </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <span [translate]="'modulo.labels.validity'"> Validity</span> </th>
         <td mat-cell *matCellDef="let instruction">{{instruction.validFrom  | dateFormat}} to {{instruction.validTill  | dateFormat}}</td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <th mat-header-cell *matHeaderCellDef>  
+          <span [translate]="'header.actions'">Actions</span> </th>
         <td mat-cell *matCellDef="let instruction">
           <span *ngIf="instruction.status.value!=='Deleted'">
-            <button class="account-action-button" mat-raised-button color="primary" matTooltip="Edit Standing Instruction"
+            <button class="account-action-button" mat-raised-button color="primary" 
+            matTooltip="{{'modulo.labels.editstandinginstruction' | translate}}"
               *mifosxHasPermission="'UPDATE_STANDINGINSTRUCTION'">
               <i class="fa fa-edit"></i>
             </button>
           </span>
           <span *ngIf="instruction.status.value!=='Deleted'">
-            <button class="account-action-button" mat-raised-button color="warn" matTooltip="Delete Standing Instruction"
+            <button class="account-action-button" mat-raised-button color="warn" 
+            matTooltip="{{'modulo.labels.deletestandinginstruction' | translate}}"
               *mifosxHasPermission="'DELETE_STANDINGINSTRUCTION'" (click)="deleteStandingInstruction(instruction.id)">
               <i class="fa fa-times"></i>
             </button>
           </span>
-          <button class="account-action-button" mat-raised-button color="primary" matTooltip="View Standing Instruction"
+          <button class="account-action-button" mat-raised-button color="primary" 
+          matTooltip="{{'modulo.labels.viewstandinginstruction' | translate}}"
             *mifosxHasPermission="'READ_STANDINGINSTRUCTION'">
             <i class="fa fa-eye"></i>
           </button>

@@ -9,7 +9,7 @@
         <div fxLayout="row wrap" class="content">
 
           <div fxFlex="50%" class="mat-body-strong">
-            ID
+            <span [translate]="'modulo.labels.id'">ID</span>
           </div>
 
           <div fxFlex="50%">
@@ -17,15 +17,15 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong">
-            Status
+            <span [translate]="'modulo.labels.status'">Status</span>
           </div>
 
           <div fxFlex="50%">
-            {{ auditTrailData.processingResult }}
+            {{ auditTrailData.processingResult | translate }}
           </div>
 
           <div fxFlex="50%" class="mat-body-strong">
-            User
+           <span [translate]="'modulo.labels.user'"> User</span>
           </div>
 
           <div fxFlex="50%">
@@ -33,15 +33,15 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong">
-            Action
+            <span [translate]="'modulo.labels.action'">Action</span>
           </div>
 
           <div fxFlex="50%">
-            {{ auditTrailData.actionName }}
+            {{ auditTrailData.actionName | translate }}
           </div>
 
           <div fxFlex="50%" class="mat-body-strong">
-            Entity
+            <span [translate]="'modulo.labels.entity'">Entity</span>
           </div>
 
           <div fxFlex="50%">
@@ -49,7 +49,7 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong">
-            Resource ID
+            <span [translate]="'modulo.labels.resourceid'">Resource ID</span>
           </div>
 
           <div fxFlex="50%">
@@ -57,7 +57,7 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong">
-            Date
+           <span [translate]="'modulo.labels.date'"> Date</span>
           </div>
 
           <div fxFlex="50%">
@@ -65,7 +65,7 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong" *ngIf="auditTrailData.officeName">
-            Office
+            <span [translate]="'modulo.labels.office'">Office</span>
           </div>
 
           <div fxFlex="50%" *ngIf="auditTrailData.officeName">
@@ -73,7 +73,7 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong" *ngIf="auditTrailData.savingsAccountNo">
-            Savings Account No
+            <span [translate]="'modulo.labels.savingsaccountno'">Savings Account No</span>
           </div>
 
           <div fxFlex="50%" *ngIf="auditTrailData.savingsAccountNo">
@@ -81,7 +81,7 @@
           </div>
 
           <div fxFlex="50%" class="mat-body-strong" *ngIf="auditTrailData.groupLevelName">
-            Group Level
+            <span [translate]="'modulo.labels.grouplevel'">Group Level</span>
           </div>
 
           <div fxFlex="50%" *ngIf="auditTrailData.groupLevelName">
@@ -101,12 +101,14 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="command">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Command </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+          <span [translate]="'modulo.labels.command'">Command </span></th>
         <td mat-cell *matCellDef="let auditTrailCommand"> {{ auditTrailCommand.command }} </td>
       </ng-container>
 
       <ng-container matColumnDef="commandValue">
-        <th mat-header-cell *matHeaderCellDef> Command Value </th>
+        <th mat-header-cell *matHeaderCellDef> 
+          <span [translate]="'modulo.labels.commandvalue'">Command Value </span></th>
         <td mat-cell *matCellDef="let auditTrailCommand" class="column-value-wrapper"> {{ auditTrailCommand.commandValue }} </td>
       </ng-container>
 

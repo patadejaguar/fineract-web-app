@@ -1,11 +1,11 @@
 <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_ADHOC'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
   <button mat-raised-button color="warn" (click)="deleteAdhocQuery()" *mifosxHasPermission="'DELETE_ADHOC'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+    <span [translate]="'labels.buttons.Delete'">Delete</span>
   </button>
 </div>
 
@@ -18,7 +18,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Name
+          <span [translate]="'modulo.labels.name'">Name</span>
         </div>
 
         <div fxFlex="50%">
@@ -26,7 +26,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Query
+          <span [translate]="'modulo.labels.query'">Query</span>
         </div>
 
         <div fxFlex="50%">
@@ -34,7 +34,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Table Affected
+          <span [translate]="'modulo.labels.tableaffected'">Table Affected</span>
         </div>
 
         <div fxFlex="50%">
@@ -42,7 +42,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="adhocQueryData.reportRunFrequency">
-          Report Run Frequency
+         <span [translate]="'modulo.labels.reportrunfrequency'"> Report Run Frequency</span>
         </div>
 
         <div fxFlex="50%" *ngIf="adhocQueryData.reportRunFrequency">
@@ -50,7 +50,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Status
+         <span [translate]="'modulo.labels.status'"> Status</span>
         </div>
 
         <div fxFlex="50%">
@@ -58,7 +58,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Created By
+          <span [translate]="'modulo.labels.createdby'">Created By</span>
         </div>
 
         <div fxFlex="50%">

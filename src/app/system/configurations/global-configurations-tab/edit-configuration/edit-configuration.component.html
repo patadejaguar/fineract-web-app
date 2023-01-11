@@ -9,15 +9,16 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Configuration Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.configurationname'">Configuration Name</span></mat-label>
             <input matInput required formControlName="name">
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Configuration Value</mat-label>
+            <mat-label><span [translate]="'modulo.labels.configurationvalue'">Configuration Value</span></mat-label>
             <input matInput required type="number" formControlName="value">
             <mat-error *ngIf="configurationForm.controls.value.hasError('required')">
-              Configuration Value is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.configurationvaluerequired' | translate">
+                Configuration Value is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -26,9 +27,10 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../..']"> Cancel </button>
+        <button type="button" mat-raised-button [routerLink]="['../..']">
+          <span [translate]="'labels.buttons.Cancel'"> Cancel </span></button>
         <button mat-raised-button color="primary" [disabled]="configurationForm.pristine || !configurationForm.valid">
-          Submit </button>
+          <span [translate]="'labels.buttons.Submit'">Submit </span></button>
       </mat-card-actions>
 
     </form>

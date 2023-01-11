@@ -2,12 +2,12 @@
 
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_ACCOUNTNUMBERFORMAT'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 
   <button mat-raised-button color="warn" (click)="delete()" *mifosxHasPermission="'DELETE_ACCOUNTNUMBERFORMAT'">
     <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-    Delete
+   <span [translate]="'labels.buttons.Delete'"> Delete</span>
   </button>
 
 </div>
@@ -21,7 +21,7 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Account Type
+          <span [translate]="'modulo.labels.accounttype'">Account Type</span>
         </div>
 
         <div fxFlex="50%">
@@ -29,7 +29,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="accountNumberPreferenceData.prefixType">
-          Prefix Type
+          <span [translate]="'modulo.labels.prefixtype'">Prefix Type</span>
         </div>
 
         <div fxFlex="50%" *ngIf="accountNumberPreferenceData.prefixType">

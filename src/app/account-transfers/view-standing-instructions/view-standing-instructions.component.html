@@ -1,10 +1,10 @@
 <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column" class="container m-b-20">
   <button mat-raised-button color="primary" [routerLink]="['../', 'edit']">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'"> Edit</span>
   </button>
   <button mat-raised-button color="primary" [routerLink]="['../', 'list-account-transactions']" *mifosxHasPermission="'READ_ACCOUNTTRANSFER'">
-    View Transactions History
+    <span [translate]="'labels.buttons.Viewtransactionhistory'">View Transactions History</span>
   </button>
 </div>
 
@@ -21,95 +21,95 @@
         <mat-divider [inset]="true"></mat-divider>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Applicant:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.applicant'">Applicant</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.fromClient.displayName }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Type:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.type'">Type</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.transferType.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Priority:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.priority'">Priority</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.priority.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Status:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.status'">Status</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.status.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">From Account Type:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.fromaccounttype'">From Account Type</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.fromAccountType.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">From Account:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.fromaccount'">From Account</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.fromAccount.productName }} - {{ standingInstructionsData.fromAccount.accountNo }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Destination:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.destination'">Destination</span>:</span>
           <span fxFlex="60%">
-            <span *ngIf="allowclientedit"> Within Bank </span>
-            <span *ngIf="!allowclientedit"> Own Account </span>
+            <span *ngIf="allowclientedit"> <span [translate]="'modulo.type.withinbank'">Within Bank</span> </span>
+            <span *ngIf="!allowclientedit"> <span [translate]="'modulo.type.ownaccount'">Own Account</span> </span>
           </span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">To Office:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.tooffice'">To Office</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.toOffice.name }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Beneficiary:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.beneficiary'">Beneficiary</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.toClient.displayName }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">To Account Type:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.toaccounttype'">To Account Type</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.toAccountType.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">To Account:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.toaccount'">To Account</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.toAccount.productName }} - {{standingInstructionsData.toAccount.accountNo}}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Standing Instruction Type:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.standinginsttype'">Standing Instruction Type</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.instructionType.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Amount:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.amount'">Amount</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.amount }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Validity:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.validity'">Validity</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.validFrom  | dateFormat }} - {{ standingInstructionsData.validTill  | dateFormat }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Recurrence type:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.recurrencetype'">Recurrence type</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.recurrenceType.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Interval:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.interval'">Interval</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.recurrenceInterval }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">Recurrence Frequency:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.recurrencefrecuency'">Recurrence Frequency</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.recurrenceFrequency.value }}</span>
         </div>
 
         <div fxFlexFill>
-          <span fxFlex="40%">On Month Day:</span>
+          <span fxFlex="40%"><span [translate]="'modulo.labels.onmonthday'">On Month Day</span>:</span>
           <span fxFlex="60%">{{ standingInstructionsData.recurrenceOnMonthDay  | dateFormat }}</span>
         </div>
 

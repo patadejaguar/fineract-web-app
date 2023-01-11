@@ -3,31 +3,32 @@
   <div fxLayout="row" fxLayoutGap="3%" fxLayoutAlign="center">
 
     <mat-form-field fxFlex="30%" (click)="fromDatePicker.open()">
-      <mat-label>From Date</mat-label>
+      <mat-label><span [translate]="'modulo.labels.fromdate'">From Date</span></mat-label>
       <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="fromDatePicker" required formControlName="fromDate">
       <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #fromDatePicker></mat-datepicker>
       <mat-error>
-        From date is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.fromdaterequired' | translate">From date is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFlex="30%" (click)="toDatePicker.open()">
-      <mat-label>To Date</mat-label>
+      <mat-label><span [translate]="'modulo.labels.todate'">To Date</span></mat-label>
       <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="toDatePicker" required formControlName="toDate">
       <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #toDatePicker></mat-datepicker>
       <mat-error>
-        To date is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.todaterequired' | translate">To date is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
   </div>
 
   <div class="generate-button" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5%">
-    <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
+    <button type="button" mat-raised-button [routerLink]="['../']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
     <button mat-raised-button color="primary" [disabled]="!transactionsReportForm.valid">
-    <fa-icon icon="cogs"></fa-icon>&nbsp;&nbsp;Generate Report &nbsp;</button>
+    <fa-icon icon="cogs"></fa-icon>&nbsp;&nbsp;
+    <span [translate]="'labels.buttons.GenerateReport'">Generate Report</span> &nbsp;</button>
   </div>
 
 </form>

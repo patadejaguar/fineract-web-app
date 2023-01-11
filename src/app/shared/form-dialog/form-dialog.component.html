@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ data.title }}</h1>
+<h1 mat-dialog-title>{{ data.title | translate }}</h1>
 
 <div mat-dialog-content [formGroup]="form" [fxLayout]="layout.columns > 1 ? 'row wrap' : 'column'" fxLayout.lt-md="column" [fxLayoutGap]="(layout.columns > 1 ? layout.gap : 0) + '%'" fxLayoutGap.lt-md="0%">
 
@@ -9,6 +9,6 @@
 </div>
 
 <mat-dialog-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
-  <button mat-raised-button mat-dialog-close>{{ layout.cancelButtonText }}</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="{ data: form }" [disabled]="!form.valid || form.pristine">{{ layout.addButtonText }}</button>
+  <button mat-raised-button mat-dialog-close>{{ layout.cancelButtonText | translate }}</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="{ data: form }" [disabled]="!form.valid || form.pristine">{{ layout.addButtonText | translate }}</button>
 </mat-dialog-actions>

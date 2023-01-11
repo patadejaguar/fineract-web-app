@@ -193,44 +193,44 @@ export class IndividualCollectionSheetComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'paymentTypeId',
-        label: 'Payment Type',
+        label: 'modulo.labels.paymenttype',
         options: { label: 'name', value: 'id', data: this.collectionSheetData.paymentTypeOptions },
         required: false
       }),
       new InputBase({
         controlName: 'accountNumber',
-        label: 'Account #',
+        label: 'modulo.labels.accountnumber',
         type: 'number',
         required: false
       }),
       new InputBase({
         controlName: 'checkNumber',
-        label: 'Cheque #',
+        label: 'modulo.labels.chequenumber',
         type: 'number',
         required: false
       }),
       new InputBase({
         controlName: 'routingCode',
-        label: 'Routing Code',
+        label: 'modulo.labels.routingcode',
         type: 'text',
         required: false
       }),
       new InputBase({
         controlName: 'receiptNumber',
-        label: 'Receipt #',
+        label: 'modulo.labels.receiptnumber',
         type: 'number',
         required: false
       }),
       new InputBase({
         controlName: 'bankNumber',
-        label: 'Bank #',
+        label: 'modulo.labels.banknumber',
         type: 'number',
         required: false
       }),
     ];
     const data = {
       title: `Payment for ${type === 'loans' ? 'Loan' : 'Saving'} Id ${type === 'loans' ? selectedData.loanId : selectedData.savingsId}`,
-      layout: { addButtonText: 'Confirm' },
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const showPaymentDetailsDialogRef = this.dialog.open(FormDialogComponent, { data });

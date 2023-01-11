@@ -4,7 +4,7 @@
 
     <mat-radio-group fxFlex="98%" fxLayout="row" fxLayoutGap="5%" fxLayout.lt-md="column" formControlName="accountingRule">
       <mat-radio-button *ngFor="let accountingRule of accountingRuleData; let i =  index" [value]="i+1">
-        {{ accountingRule }}
+        {{ accountingRule | translate }}
       </mat-radio-button>
     </mat-radio-group>
 
@@ -12,217 +12,226 @@
 
     <div *ngIf="loanProductAccountingForm.value.accountingRule >= 2 && loanProductAccountingForm.value.accountingRule <= 4" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-      <h4 fxFlex="98%" class="mat-h4">Assets / Liability</h4>
+      <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.assetsliability'">Assets / Liability</span></h4>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Fund source</mat-label>
+        <mat-label><span [translate]="'modulo.labels.fundsource'">Fund source</span></mat-label>
         <mat-select formControlName="fundSourceAccountId" required>
           <mat-option *ngFor="let assetAndLiabilityAccount of assetAndLiabilityAccountData" [value]="assetAndLiabilityAccount.id">
             ({{ assetAndLiabilityAccount.glCode }}) {{ assetAndLiabilityAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Fund source is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.fundsourcerequired' | translate">Fund source is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
-      <h4 fxFlex="98%" class="mat-h4">Assets</h4>
+      <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.assets'">Assets</span></h4>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Loan portfolio</mat-label>
+        <mat-label><span [translate]="'modulo.labels.loanportfolio'">Loan portfolio</span></mat-label>
         <mat-select formControlName="loanPortfolioAccountId" required>
           <mat-option *ngFor="let assetAccount of assetAccountData" [value]="assetAccount.id">
             ({{ assetAccount.glCode }}) {{ assetAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Loan portfolio is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.loanportfoliorequired' | translate">Loan portfolio is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <div *ngIf="loanProductAccountingForm.value.accountingRule === 3 || loanProductAccountingForm.value.accountingRule === 4" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
         <mat-form-field fxFlex="48%">
-          <mat-label>Interest Receivable</mat-label>
+          <mat-label><span [translate]="'modulo.labels.interestreceivable'">Interest Receivable</span></mat-label>
           <mat-select formControlName="receivableInterestAccountId" required>
             <mat-option *ngFor="let assetAccount of assetAccountData" [value]="assetAccount.id">
               ({{ assetAccount.glCode }}) {{ assetAccount.name }}
             </mat-option>
           </mat-select>
           <mat-error>
-            Interest Receivable is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.interestreceivablerequired' | translate">
+              Interest Receivable is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="48%">
-          <mat-label>Fees Receivable</mat-label>
+          <mat-label><span [translate]="'modulo.labels.feesreceivable'">Fees Receivable</span></mat-label>
           <mat-select formControlName="receivableFeeAccountId" required>
             <mat-option *ngFor="let assetAccount of assetAccountData" [value]="assetAccount.id">
               ({{ assetAccount.glCode }}) {{ assetAccount.name }}
             </mat-option>
           </mat-select>
           <mat-error>
-            Fees Receivable is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.feesreceivablerequired' | translate">Fees Receivable is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="48%">
-          <mat-label>Penalties Receivable</mat-label>
+          <mat-label><span [translate]="'modulo.labels.penalitiesreceivable'">Penalties Receivable</span></mat-label>
           <mat-select formControlName="receivablePenaltyAccountId" required>
             <mat-option *ngFor="let assetAccount of assetAccountData" [value]="assetAccount.id">
               ({{ assetAccount.glCode }}) {{ assetAccount.name }}
             </mat-option>
           </mat-select>
           <mat-error>
-            Penalties Receivable is <strong>required</strong>
+            <span [innerHTML]="'modulo.validations.penalitiesreceivablerequired' | translate">Penalties Receivable is <strong>required</strong></span>
           </mat-error>
         </mat-form-field>
 
       </div>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Transfer in suspense</mat-label>
+        <mat-label><span [translate]="'modulo.labels.transfersuspense'">Transfer in suspense</span></mat-label>
         <mat-select formControlName="transfersInSuspenseAccountId" required>
           <mat-option *ngFor="let assetAccount of assetAccountData" [value]="assetAccount.id">
             ({{ assetAccount.glCode }}) {{ assetAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Transfer in suspense is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.transfersuspenserequired' | translate">Transfer in suspense is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-divider fxFlex="98%"></mat-divider>
 
-      <h4 fxFlex="98%" class="mat-h4">Income</h4>
+      <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.income'">Income</span></h4>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Income from Interest</mat-label>
+        <mat-label><span [translate]="'modulo.labels.incomefrominterest'">Income from Interest</span></mat-label>
         <mat-select formControlName="interestOnLoanAccountId" required>
           <mat-option *ngFor="let incomeAccount of incomeAccountData" [value]="incomeAccount.id">
             ({{ incomeAccount.glCode }}) {{ incomeAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Income from Interest is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.incomefrominterestrequired' | translate">
+            Income from Interest is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Income from fees</mat-label>
+        <mat-label><span [translate]="'modulo.labels.incomefromfees'">Income from fees</span></mat-label>
         <mat-select formControlName="incomeFromFeeAccountId" required>
           <mat-option *ngFor="let incomeAccount of incomeAccountData" [value]="incomeAccount.id">
             ({{ incomeAccount.glCode }}) {{ incomeAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Income from fees is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.incomefromfeesrequired' | translate">Income from fees is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Income from penalties</mat-label>
+        <mat-label><span [translate]="'modulo.labels.incomefrompenalties'">Income from penalties</span></mat-label>
         <mat-select formControlName="incomeFromPenaltyAccountId" required>
           <mat-option *ngFor="let incomeAccount of incomeAccountData" [value]="incomeAccount.id">
             ({{ incomeAccount.glCode }}) {{ incomeAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Income from penalties is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.incomefrompenaltiesrequired' | translate">Income from penalties is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Income from Recovery Repayments</mat-label>
+        <mat-label><span [translate]="'modulo.labels.incomefromrecoveryrepay'">Income from Recovery Repayments</span></mat-label>
         <mat-select formControlName="incomeFromRecoveryAccountId" required>
           <mat-option *ngFor="let incomeAccount of incomeAccountData" [value]="incomeAccount.id">
             ({{ incomeAccount.glCode }}) {{ incomeAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Income from Recovery Repayments is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.incomefromrecoveryrepayrequired' | translate">
+            Income from Recovery Repayments is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-divider fxFlex="98%"></mat-divider>
 
-      <h4 fxFlex="98%" class="mat-h4">Expenses</h4>
+      <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.expenses'">Expenses</span></h4>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Losses written off</mat-label>
+        <mat-label><span [translate]="'modulo.labels.losseswrittenoff'">Losses written off</span></mat-label>
         <mat-select formControlName="writeOffAccountId" required>
           <mat-option *ngFor="let expenseAccount of expenseAccountData" [value]="expenseAccount.id">
             ({{ expenseAccount.glCode }}) {{ expenseAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Losses written off is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.losseswrittenoffrequired' | translate">
+            Losses written off is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Goodwill credit</mat-label>
+        <mat-label><span [translate]="'modulo.labels.goodwillcredit'">Goodwill credit</span></mat-label>
         <mat-select formControlName="goodwillCreditAccountId" required>
           <mat-option *ngFor="let expenseAccount of expenseAccountData" [value]="expenseAccount.id">
             ({{ expenseAccount.glCode }}) {{ expenseAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Goodwill credit is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.goodwillcreditrequired' | translate">Goodwill credit is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-divider fxFlex="98%"></mat-divider>
 
-      <h4 fxFlex="98%" class="mat-h4">Liabilities</h4>
+      <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.liabilities'">Liabilities</span></h4>
 
       <mat-form-field fxFlex="48%">
-        <mat-label>Over payment liability</mat-label>
+        <mat-label><span [translate]="'modulo.labels.overpaymentliability'">Over payment liability</span></mat-label>
         <mat-select formControlName="overpaymentLiabilityAccountId" required>
           <mat-option *ngFor="let liabilityAccount of liabilityAccountData" [value]="liabilityAccount.id">
             ({{ liabilityAccount.glCode }}) {{ liabilityAccount.name }}
           </mat-option>
         </mat-select>
         <mat-error>
-          Over payment liability is <strong>required</strong>
+          <span [innerHTML]="'modulo.validations.overpaymentliabilityrequired' | translate">
+            Over payment liability is <strong>required</strong></span>
         </mat-error>
       </mat-form-field>
 
       <mat-divider fxFlex="98%"></mat-divider>
 
-      <h3 fxFlex="23%" class="mat-h3">Advanced Accounting Rules</h3>
+      <h3 fxFlex="23%" class="mat-h3"><span [translate]="'modulo.labels.advancedaccountingrules'">Advanced Accounting Rules</span></h3>
 
       <mat-checkbox fxFlex="73%" formControlName="advancedAccountingRules"></mat-checkbox>
 
       <div *ngIf="loanProductAccountingForm.value.advancedAccountingRules" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-        <h4 fxFlex="33%" class="mat-h4">Configure Fund Sources for Payment Channels</h4>
+        <h4 fxFlex="33%" class="mat-h4">
+          <span [translate]="'modulo.labels.configfundsourcepaymentschannels'">Configure Fund Sources for Payment Channels</span></h4>
 
         <div fxFlex="63%">
           <button type="button" mat-raised-button color="primary" (click)="add('PaymentFundSource', paymentChannelToFundSourceMappings)">
             <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-            Add
+            <span [translate]="'labels.buttons.Add'">Add</span>
           </button>
         </div>
 
         <table fxFlex="98%" class="mat-elevation-z1" mat-table [dataSource]="paymentChannelToFundSourceMappings.value" *ngIf="paymentChannelToFundSourceMappings.value.length !== 0">
 
           <ng-container matColumnDef="paymentTypeId">
-            <th mat-header-cell *matHeaderCellDef> Payment Type </th>
+            <th mat-header-cell *matHeaderCellDef>
+              <span [translate]="'modulo.labels.paymenttype'"> Payment Type</span> </th>
             <td mat-cell *matCellDef="let paymentFundSource">
               {{ paymentFundSource.paymentTypeId | find:paymentTypeData:'id':'name' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="fundSourceAccountId">
-            <th mat-header-cell *matHeaderCellDef> Fund Source </th>
+            <th mat-header-cell *matHeaderCellDef>
+              <span [translate]="'modulo.labels.fundsource'"> Fund Source</span> </th>
             <td mat-cell *matCellDef="let paymentFundSource">
               {{ paymentFundSource.fundSourceAccountId | find:assetAccountData:'id':'name' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <th mat-header-cell *matHeaderCellDef> 
+              <span [translate]="'header.actions'">Actions</span> </th>
             <td mat-cell *matCellDef="let paymentFundSource; let i = index">
               <button mat-icon-button color="primary" (click)="edit('PaymentFundSource', paymentChannelToFundSourceMappings, i)">
                 <fa-icon icon="edit"></fa-icon>
@@ -238,33 +247,37 @@
 
         </table>
 
-        <h4 fxFlex="33%" class="mat-h4">Map Fees to Specific Income Accounts</h4>
+        <h4 fxFlex="33%" class="mat-h4">
+          <span [translate]="'modulo.labels.mapfeesspecincomeaccounts'">Map Fees to Specific Income Accounts</span></h4>
 
         <div fxFlex="63%">
           <button type="button" mat-raised-button color="primary" (click)="add('FeesIncome', feeToIncomeAccountMappings)">
             <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-            Add
+           <span [translate]="'labels.buttons.Add'"> Add</span>
           </button>
         </div>
 
         <table fxFlex="98%" class="mat-elevation-z1" mat-table [dataSource]="feeToIncomeAccountMappings.value" *ngIf="feeToIncomeAccountMappings.value.length !== 0">
 
           <ng-container matColumnDef="chargeId">
-            <th mat-header-cell *matHeaderCellDef> Fees </th>
+            <th mat-header-cell *matHeaderCellDef>
+              <span [translate]="'modulo.labels.fees'"> Fees</span> </th>
             <td mat-cell *matCellDef="let feesIncome">
               {{ feesIncome.chargeId | find:chargeData:'id':'name' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="incomeAccountId">
-            <th mat-header-cell *matHeaderCellDef> Income Account </th>
+            <th mat-header-cell *matHeaderCellDef>
+              <span [translate]="'modulo.labels.incomeaccount'"> Income Account</span> </th>
             <td mat-cell *matCellDef="let feesIncome">
               {{ feesIncome.incomeAccountId | find:incomeAndLiabilityAccountData:'id':'name' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <th mat-header-cell *matHeaderCellDef>
+              <span [translate]="'header.actions'"> Actions</span> </th>
             <td mat-cell *matCellDef="let feesIncome; let i = index">
               <button mat-icon-button color="primary" (click)="edit('FeesIncome', feeToIncomeAccountMappings, i)">
                 <fa-icon icon="edit"></fa-icon>
@@ -280,12 +293,13 @@
 
         </table>
 
-        <h4 fxFlex="33%" class="mat-h4">Map Penalties to Specific Income Accounts</h4>
+        <h4 fxFlex="33%" class="mat-h4">
+          <span [translate]="'modulo.labels.mappenaltiesspecincomeaccount'">Map Penalties to Specific Income Accounts</span></h4>
 
         <div fxFlex="63%">
           <button type="button" mat-raised-button color="primary" (click)="add('PenaltyIncome', penaltyToIncomeAccountMappings)">
             <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-            Add
+            <span [translate]="'labels.buttons.Add'">Add</span>
           </button>
         </div>
 
@@ -293,21 +307,24 @@
         <table fxFlex="98%" class="mat-elevation-z1" mat-table [dataSource]="penaltyToIncomeAccountMappings.value" *ngIf="penaltyToIncomeAccountMappings.value.length !== 0">
 
           <ng-container matColumnDef="chargeId">
-            <th mat-header-cell *matHeaderCellDef> Penalty </th>
+            <th mat-header-cell *matHeaderCellDef> 
+              <span [translate]="'modulo.labels.penalty'">Penalty </span></th>
             <td mat-cell *matCellDef="let penaltyIncome">
               {{ penaltyIncome.chargeId | find:penaltyData:'id':'name' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="incomeAccountId">
-            <th mat-header-cell *matHeaderCellDef> Income Account </th>
+            <th mat-header-cell *matHeaderCellDef>
+              <span [translate]="'modulo.labels.incomeaccount'"> Income Account </span></th>
             <td mat-cell *matCellDef="let penaltyIncome">
               {{ penaltyIncome.incomeAccountId | find:incomeAccountData:'id':'name' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <th mat-header-cell *matHeaderCellDef> 
+              <span [translate]="'header.actions'">Actions </span></th>
             <td mat-cell *matCellDef="let penaltyIncome; let i = index">
               <button mat-icon-button color="primary" (click)="edit('PenaltyIncome', penaltyToIncomeAccountMappings, i)">
                 <fa-icon icon="edit"></fa-icon>
@@ -332,10 +349,10 @@
   <div fxLayout="row" class="margin-t" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="2%">
     <button mat-raised-button matStepperPrevious>
       <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
-      Previous
+      <span [translate]="'labels.buttons.Previous'">Previous</span>
     </button>
     <button mat-raised-button matStepperNext [disabled]="!loanProductFormValid">
-      Next&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Next'">Next</span>&nbsp;&nbsp;
       <fa-icon icon="arrow-right"></fa-icon>
     </button>
   </div>

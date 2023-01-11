@@ -188,7 +188,7 @@ export class LoanProductTermsStepComponent implements OnInit {
   }
 
   editVariationsForBorrowerCycle(formType: string, variationsForBorrowerCycleFormArray: FormArray, index: number) {
-    const data = { ...this.getData(formType, variationsForBorrowerCycleFormArray.at(index).value), layout: { addButtonText: 'Edit' } };
+    const data = { ...this.getData(formType, variationsForBorrowerCycleFormArray.at(index).value), layout: { addButtonText: 'labels.buttons.Edit' } };
     const addVariationsForBorrowerCycleDialogRef = this.dialog.open(FormDialogComponent, { data });
     addVariationsForBorrowerCycleDialogRef.afterClosed().subscribe((response: any) => {
       if (response.data) {
@@ -212,9 +212,9 @@ export class LoanProductTermsStepComponent implements OnInit {
 
   getData(formType: string, values?: any) {
     switch (formType) {
-      case 'Principal': return { title: 'Principal by loan cycle', formfields: this.getFormfields(values) };
-      case 'NumberOfRepayments': return { title: 'Number of repayments by loan cycle', formfields: this.getFormfields(values) };
-      case 'NominalInterestRate': return { title: 'Nominal interest rate by loan cycle', formfields: this.getFormfields(values) };
+      case 'Principal': return { title: 'modulo.labels.principalloancycle', formfields: this.getFormfields(values) };
+      case 'NumberOfRepayments': return { title: 'modulo.labels.numberrepaymentloancycles', formfields: this.getFormfields(values) };
+      case 'NominalInterestRate': return { title: 'modulo.labels.nominalinterestrateloancycle', formfields: this.getFormfields(values) };
     }
   }
 
@@ -222,7 +222,7 @@ export class LoanProductTermsStepComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'valueConditionType',
-        label: 'Condition',
+        label: 'modulo.labels.condition',
         value: values ? values.valueConditionType : this.valueConditionTypeData[0].id,
         options: { label: 'value', value: 'id', data: this.valueConditionTypeData },
         required: true,
@@ -230,7 +230,7 @@ export class LoanProductTermsStepComponent implements OnInit {
       }),
       new InputBase({
         controlName: 'borrowerCycleNumber',
-        label: 'Loan Cycle',
+        label: 'modulo.labels.loancycle',
         value: values ? values.borrowerCycleNumber : undefined,
         type: 'number',
         required: true,
@@ -238,14 +238,14 @@ export class LoanProductTermsStepComponent implements OnInit {
       }),
       new InputBase({
         controlName: 'minValue',
-        label: 'Minimum',
+        label: 'modulo.labels.minimum',
         value: values ? values.minValue : undefined,
         type: 'number',
         order: 3
       }),
       new InputBase({
         controlName: 'defaultValue',
-        label: 'Default',
+        label: 'modulo.labels.default',
         value: values ? values.defaultValue : undefined,
         type: 'number',
         required: true,
@@ -253,7 +253,7 @@ export class LoanProductTermsStepComponent implements OnInit {
       }),
       new InputBase({
         controlName: 'maxValue',
-        label: 'Maximum',
+        label: 'modulo.labels.maximum',
         value: values ? values.maxValue : undefined,
         type: 'number',
         order: 5

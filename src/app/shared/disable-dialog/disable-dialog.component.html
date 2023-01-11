@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>Disable</h1>
+<h1 mat-dialog-title><span [translate]="'modulo.labels.disable'">Disable</span></h1>
 <div mat-dialog-content>
-  <p>Are you sure you want to disable {{ data.disableContext }} ?</p>
+  <p><span [translate]="'modulo.description.disablegenericq'" [translateParams]="{ disableContext: data.disableContext }">
+    <!--Are you sure you want to disable {{ data.disableContext }} ?--></span></p>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="{ disable: true }">Confirm</button>
+  <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="{ disable: true }">
+    <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
 </mat-dialog-actions>

@@ -97,15 +97,15 @@ export class CenterAttendanceComponent implements OnInit {
     const formfields: FormfieldBase[] = [
       new SelectBase({
         controlName: 'attendanceType',
-        label: 'Attendance',
+        label: 'modulo.labels.attendance',
         value: member.attendanceType,
         options: { label: 'value', value: 'id', data: this.attendanceTypeOptions },
         required: false
       }),
     ];
     const data = {
-      title: 'Assign Member Attendance',
-      layout: { addButtonText: 'Confirm' },
+      title: 'modulo.labels.assignmemberattendance',
+      layout: { addButtonText: 'labels.buttons.Confirm' },
       formfields: formfields
     };
     const memberAttendanceDialogRef = this.dialog.open(FormDialogComponent, { data });

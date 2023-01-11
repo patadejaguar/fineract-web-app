@@ -9,30 +9,33 @@
         <div fxLayout="column">
 
           <mat-form-field>
-            <mat-label>Job Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.jobname'">Job Name</span></mat-label>
             <input matInput required formControlName="displayName">
             <mat-error *ngIf="jobForm.controls.displayName.hasError('required')">
-              Job Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.jobnamerequired' | translate">Job Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Cron Expression</mat-label>
+            <mat-label><span [translate]="'modulo.labels.cronexpression'">Cron Expression</span></mat-label>
             <input matInput required formControlName="cronExpression">
             <mat-error *ngIf="jobForm.controls.cronExpression.hasError('required')">
-              Cron Expression is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.cronexpressionrequired' | translate">
+                Cron Expression is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-checkbox labelPosition="before" formControlName="active">
-            Is job active?
+            <span [translate]="'modulo.labels.isjobactiveq'">Is job active?</span>
           </mat-checkbox>
   
         </div>
 
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-          <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
-          <button mat-raised-button color="primary" [disabled]="!jobForm.valid" *mifosxHasPermission="'UPDATE_SCHEDULER'">Submit</button>
+          <button type="button" mat-raised-button [routerLink]="['../']">
+            <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+          <button mat-raised-button color="primary" [disabled]="!jobForm.valid" *mifosxHasPermission="'UPDATE_SCHEDULER'">
+            <span [translate]="'labels.buttons.Submit'">Submit</span></button>
         </mat-card-actions>
   
       </mat-card-content>

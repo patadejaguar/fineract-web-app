@@ -6,7 +6,7 @@
 
       <div class="profile-image-container">
         <div>
-          <img mat-card-md-image class="profile-image" matTooltip="Savings Account"
+          <img mat-card-md-image class="profile-image" matTooltip="{{'modulo.labels.savingsaccount' | translate}}"
             [src]="'assets/images/savings_account_placeholder.png'">
         </div>
       </div>
@@ -18,7 +18,7 @@
               [matTooltip]="savingsAccountData.status.value" *ngIf="!savingsAccountData.subStatus.block"></i>
             <i class="fa fa-stop" [ngClass]="savingsAccountData.subStatus.value | statusLookup"
               [matTooltip]="savingsAccountData.subStatus.value" *ngIf="savingsAccountData.subStatus.block"></i>
-            Savings Product : {{savingsAccountData.savingsProductName}}<span class="m-l-10">({{savingsAccountData.accountNo}})</span>
+              <span [translate]="'modulo.labels.savingsproduct'">Savings Product </span> : {{savingsAccountData.savingsProductName}}<span class="m-l-10">({{savingsAccountData.accountNo}})</span>
           </h3>
           <div fxFlex="5%">
             <button mat-icon-button [matMenuTriggerFor]="accountMenu" aria-label="Loan account actions"
@@ -31,13 +31,13 @@
         </mat-card-title>
         <mat-card-subtitle>
           <p>
-            {{entityType}} Name: {{savingsAccountData.clientName || savingsAccountData.groupName}}
+            {{entityType}} <span [translate]="'modulo.labels.name'"> Name</span>: {{savingsAccountData.clientName || savingsAccountData.groupName}}
             <span class="m-l-10" *ngIf="savingsAccountData.clientAccountNo">({{savingsAccountData.clientAccountNo}})</span><br />
             <span *ngIf="!savingsAccountData.status.rejected && !savingsAccountData.status.submittedAndPendingApproval">
-              Current Balances  :
+              <span [translate]="'modulo.labels.currentbalance'">Current Balance</span>  :
               {{savingsAccountData.currency.displaySymbol}}<span class="m-l-10">{{savingsAccountData.summary.accountBalance |
               number}}</span><br />
-              Available Balance :
+              <span [translate]="'modulo.labels.availablebalance'">Available Balance</span> :
               {{savingsAccountData.currency.displaySymbol}}<span class="m-l-10">{{savingsAccountData.summary.availableBalance |
               number}}</span>
             </span>
@@ -76,130 +76,132 @@
 
       <div fxFlex="49%"
         *ngIf="!savingsAccountData.status.rejected && !savingsAccountData.status.submittedAndPendingApproval; else alternateSummary">
-        <h4 class="table-headers">Account Summary</h4>
+        <h4 class="table-headers"><span [translate]="'modulo.labels.accountsummary'">Account Summary</span></h4>
         <table>
           <tbody>
             <tr *ngIf="savingsAccountData.summary.totalWithdrawals">
-              <td>Total Withdrawls</td>
+              <td><span [translate]="'modulo.labels.totalwithdrawls'">Total Withdrawls</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalWithdrawals |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.totalWithdrawalFees">
-              <td>Withdrawals Fees</td>
+              <td><span [translate]="'modulo.labels.withdrawlsfees'">Withdrawals Fees</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalWithdrawalFees |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.totalAnnualFees">
-              <td>Annual Fees</td>
+              <td><span [translate]="'modulo.labels.annualfees'">Annual Fees</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalAnnualFees |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.totalInterestEarned >= 0">
-              <td>Interest Earned</td>
+              <td><span [translate]="'modulo.labels.interestearned'">Interest Earned</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalInterestEarned |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.totalInterestPosted">
-              <td>Interest Posted</td>
+              <td><span [translate]="'modulo.labels.interestposted'">Interest Posted</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalInterestPosted |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.interestNotPosted >= 0">
-              <td>Interest Earned Not Posted</td>
+              <td><span [translate]="'modulo.labels.interestearnednotposted'">Interest Earned Not Posted</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.interestNotPosted |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.totalOverdraftInterestDerived">
-              <td>Interest On Overdraft</td>
+              <td><span [translate]="'modulo.labels.interestonoverdraft'">Interest On Overdraft</span></td>
               <td>
                 {{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalOverdraftInterestDerived
                 | number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.interestNotPosted < 0">
-              <td>Overdraft Interest Not Posted</td>
+              <td><span [translate]="'modulo.labels.overdraftinterestnotposted'">Overdraft Interest Not Posted</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.interestNotPosted |
                 number}}</td>
             </tr>
             <tr>
-              <td>Nominal Interest Rate</td>
+              <td><span [translate]="'modulo.labels.nominalinterestrate'">Nominal Interest Rate</span></td>
               <td>{{savingsAccountData.nominalAnnualInterestRate | number}} %</td>
             </tr>
             <tr>
-              <td>Interest Compounding Period</td>
+              <td><span [translate]="'modulo.labels.interestcompoundingperiod'">Interest Compounding Period</span></td>
               <td>{{savingsAccountData.interestCompoundingPeriodType.value}}</td>
             </tr>
             <tr>
-              <td>Interest Posting Period</td>
+              <td><span [translate]="'modulo.labels.interestpostingperiod'">Interest Posting Period</span></td>
               <td>{{savingsAccountData.interestPostingPeriodType.value}}</td>
             </tr>
             <tr>
-              <td>Interest Calculated Using</td>
+              <td><span [translate]="'modulo.labels.interestcalculatedusing'">Interest Calculated Using</span></td>
               <td>{{savingsAccountData.interestCalculationType.value}}</td>
             </tr>
             <tr>
-              <td># Days in Year</td>
+              <td># <span [translate]="'modulo.labels.daysinyear'">Days in Year</span></td>
               <td>{{savingsAccountData.interestCalculationDaysInYearType.value}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.withdrawalFee">
-              <td>Withdrawal Fee</td>
+              <td><span [translate]="'modulo.labels.withdrawalfee'">Withdrawal Fee</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.withdrawalFee.amount |
                 number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.lastActiveTransactionDate">
-              <td>Last Active Transaction Date</td>
+              <td><span [translate]="'modulo.labels.lastactivetransactiondate'">Last Active Transaction Date</span></td>
               <td>{{savingsAccountData.lastActiveTransactionDate | dateFormat}}</td>
             </tr>
             <tr *ngIf="!(savingsAccountData.subStatus.id === 0)">
-              <td>Substatus</td>
+              <td><span [translate]="'modulo.labels.substatus'">Substatus</span></td>
               <td>{{savingsAccountData.subStatus.value}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.daysToInactive">
-              <td>Days to Inactive</td>
+              <td><span [translate]="'modulo.labels.daystoinactive'">Days to Inactive</span></td>
               <td>{{savingsAccountData.daysToInactive}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.daysToDormancy">
-              <td>Days to Dormancy</td>
+              <td><span [translate]="'modulo.labels.daystodormancy'">Days to Dormancy</span></td>
               <td>{{savingsAccountData.daysToDormancy}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.daysToEscheat">
-              <td>Days to Escheat</td>
+              <td><span [translate]="'modulo.labels.daystoescheat'">Days to Escheat</span></td>
               <td>{{savingsAccountData.daysToEscheat}}</td>
-            </tr>
+            </tr> 
             <tr *ngIf="savingsAccountData.annualFee">
-              <td>Annual Fee</td>
+              <td><span [translate]="'modulo.labels.annualfee'">Annual Fee</span></td>
               <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.annualFee.amount | number}}
               </td>
             </tr>
             <tr *ngIf="savingsAccountData.allowOverdraft">
-              <td>Over Draft Limit</td>
+              <td><span [translate]="'modulo.labels.overdraftlimit'">Over Draft Limit</span></td>
               <td>{{savingsAccountData.overdraftLimit | number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.allowOverdraft">
-              <td>Min Overdraft Required for Interest Calculation</td>
+              <td><span [translate]="'modulo.labels.minoverdraftrequiredinterestcalculation'">
+                Min Overdraft Required for Interest Calculation</span></td>
               <td>{{savingsAccountData.minOverdraftForInterestCalculation | number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.minBalanceForInterestCalculation">
-              <td>Min Balance Required for Interest Calculation</td>
+              <td><span [translate]="'modulo.labels.minbalancerequiredinterestcalculation'">
+                Min Balance Required for Interest Calculation</span></td>
               <td>{{savingsAccountData.minBalanceForInterestCalculation | number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.minRequiredBalance">
-              <td>Minimum Required Balance</td>
+              <td><span [translate]="'modulo.labels.minrequiredbalance'">Minimum Required Balance</span></td>
               <td>{{savingsAccountData.minRequiredBalance | number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.enforceMinRequiredBalance">
-              <td>Enforce Minimum Required Balance</td>
+              <td><span [translate]="'modulo.labels.enforceminrequiredbalance'">Enforce Minimum Required Balance</span></td>
               <td>{{savingsAccountData.enforceMinRequiredBalance | number}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.summary.lastInterestCalculationDate">
-              <td>Interest Recalculation Date</td>
+              <td><span [translate]="'modulo.labels.interestrecalculationdate'">Interest Recalculation Date</span></td>
               <td>{{savingsAccountData.summary.lastInterestCalculationDate | dateFormat}}</td>
             </tr>
             <tr *ngIf="savingsAccountData.onHoldFunds">
-              <td>On Hold Funds</td>
+              <td><span [translate]="'modulo.labels.onholdfunds'">On Hold Funds</span></td>
               <td><a *mifosxHasPermission="'READ_SAVINGSACCOUNT'">{{savingsAccountData.onHoldFunds | number}}</a></td>
             </tr>
             <tr *ngIf="savingsAccountData.withHoldTax">
-              <td>Withhold Tax Group</td>
+              <td><span [translate]="'modulo.labels.withholdtaxgroup'">Withhold Tax Group</span></td>
               <td>{{savingsAccountData.taxGroup.name}}</td>
             </tr>
           </tbody>
@@ -208,20 +210,20 @@
 
       <ng-template #alternateSummary>
         <div fxFlex="49%">
-          <h4 class="table-headers">Account Summary</h4>
+          <h4 class="table-headers"><span [translate]="'modulo.labels.accountsummary'">Account Summary</span></h4>
           <table>
             <tbody>
               <tr>
-                <td>Activated On</td>
+                <td><span [translate]="'modulo.labels.activatedon'">Activated On</span></td>
                 <td>{{savingsAccountData.timeline.activatedOnDate ? (savingsAccountData.timeline.activatedOnDate |
                   dateFormat) : 'Not Activated'}}</td>
               </tr>
               <tr>
-                <td>Currency</td>
+                <td><span [translate]="'modulo.labels.currency'">Currency</span></td>
                 <td>{{savingsAccountData.currency.name}} [{{savingsAccountData.currency.code}}]</td>
               </tr>
               <tr>
-                <td>External Id</td>
+                <td><span [translate]="'modulo.labels.externalid'">External Id</span></td>
                 <td>{{savingsAccountData.externalId ? savingsAccountData.externalId : 'Not Provided'}}</td>
               </tr>
             </tbody>
@@ -233,28 +235,28 @@
 
         <div
           *ngIf="!savingsAccountData.status.rejected && !savingsAccountData.status.submittedAndPendingApproval; else alternateDetails">
-          <h4 class="table-headers">Savings Details</h4>
+          <h4 class="table-headers"><span [translate]="'modulo.labels.savingsdetails'">Savings Details</span></h4>
           <table>
             <tbody>
               <tr>
-                <td>Activated On</td>
+                <td><span [translate]="'modulo.labels.activatedon'">Activated On</span></td>
                 <td>{{savingsAccountData.timeline.activatedOnDate ? (savingsAccountData.timeline.activatedOnDate |
                   dateFormat) : 'Not Activated'}}</td>
               </tr>
               <tr>
-                <td>Field Officer</td>
+                <td><span [translate]="'modulo.labels.fieldofficer'">Field Officer</span></td>
                 <td>{{savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : 'Unassigned'}}</td>
               </tr>
               <tr>
-                <td>External Id</td>
+                <td><span [translate]="'modulo.labels.externalid'">External Id</span></td>
                 <td>{{savingsAccountData.externalId ? savingsAccountData.externalId : 'Not Provided'}}</td>
               </tr>
               <tr>
-                <td>Currency</td>
+                <td><span [translate]="'modulo.labels.currency'">Currency</span></td>
                 <td>{{savingsAccountData.currency.name}} [{{savingsAccountData.currency.code}}]</td>
               </tr>
               <tr>
-                <td>Nominal Interest Rate</td>
+                <td><span [translate]="'modulo.labels.nominalinterestrate'">Nominal Interest Rate</span></td>
                 <td>{{savingsAccountData.nominalAnnualInterestRate | number}} %</td>
               </tr>
             </tbody>
@@ -263,15 +265,15 @@
 
         <ng-template #alternateDetails>
           <div>
-            <h4 class="table-headers">Savings Details</h4>
+            <h4 class="table-headers"><span [translate]="'modulo.labels.savingsdetails'">Savings Details</span></h4>
             <table>
               <tbody>
                 <tr>
-                  <td>Field Officer</td>
+                  <td><span [translate]="'modulo.labels.fieldofficer'">Field Officer</span></td>
                   <td>{{savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : 'Unassigned'}}</td>
                 </tr>
                 <tr>
-                  <td>Balance</td>
+                  <td><span [translate]="'modulo.labels.balance'">Balance</span></td>
                   <td>{{savingsAccountData.summary.accountBalance}}</td>
                 </tr>
               </tbody>
@@ -280,16 +282,16 @@
         </ng-template>
 
         <div *ngIf="!savingsAccountData.status.rejected && !savingsAccountData.status.submittedAndPendingApproval">
-          <h4 class="table-headers">Performance History</h4>
+          <h4 class="table-headers"><span [translate]="'modulo.labels.performancehistory'">Performance History</span></h4>
           <table>
             <tbody>
               <tr *ngIf="savingsAccountData.summary.totalDeposits">
-                <td>Total Deposits</td>
+                <td><span [translate]="'modulo.labels.totaldeposits'">Total Deposits</span></td>
                 <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalDeposits |
                   number}}</td>
               </tr>
               <tr *ngIf="savingsAccountData.summary.totalInterestEarned >= 0">
-                <td>Total Interest Earned</td>
+                <td><span [translate]="'modulo.labels.totalinterestearned'">Total Interest Earned</span></td>
                 <td>{{savingsAccountData.currency.displaySymbol}}&nbsp;{{savingsAccountData.summary.totalInterestEarned
                   | number}}</td>
               </tr>
@@ -304,25 +306,25 @@
     <nav mat-tab-nav-bar class="navigation-tabs">
       <a mat-tab-link [routerLink]="['./transactions']" routerLinkActive #transactions="routerLinkActive"
         [active]="transactions.isActive">
-        Transactions
+        <span [translate]="'modulo.labels.transactions'">Transactions</span>
       </a>
       <a mat-tab-link [routerLink]="['./charges']" routerLinkActive #charges="routerLinkActive"
         [active]="charges.isActive">
-        Charges
+        <span [translate]="'modulo.labels.charges'">Charges</span>
       </a>
       <a mat-tab-link [routerLink]="['./documents']" routerLinkActive #savingsDocuments="routerLinkActive"
         [active]="savingsDocuments.isActive">
-        Savings Documents
+        <span [translate]="'modulo.labels.savingsdocuments'">Savings Documents</span>
       </a>
       <a mat-tab-link *mifosxHasPermission="'READ_SAVINGSNOTE'" [routerLink]="['./notes']" routerLinkActive #notes="routerLinkActive"
         [active]="notes.isActive">
-        Notes
+        <span [translate]="'modulo.labels.notes'">Notes</span>
       </a>
       <ng-container *mifosxHasPermission="'READ_SAVINGSACCOUNTCHARGE'">
         <a mat-tab-link [routerLink]="['./standing-instructions']" routerLinkActive
           #standingInstructions="routerLinkActive" [active]="standingInstructions.isActive"
           *ngIf="savingsAccountData.clientId">
-          Standing Instructions
+          <span [translate]="'modulo.labels.standingintructions'">Standing Instructions</span>
         </a>
       </ng-container>
       <ng-container *ngFor="let savingsDatatable of savingsDatatables">

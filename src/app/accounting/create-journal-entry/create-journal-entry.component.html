@@ -9,26 +9,26 @@
         <div #createJournalFormRef fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Office</mat-label>
+            <mat-label><span [translate]="'modulo.labels.office'">Office</span></mat-label>
             <mat-select required formControlName="officeId">
               <mat-option *ngFor="let office of officeData" [value]="office.id">
                 {{ office.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="journalEntryForm.controls.officeId.hasError('required')">
-              Office is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.officerequired' | translate">Office is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Currency</mat-label>
+            <mat-label><span [translate]="'modulo.labels.currency'">Currency</span></mat-label>
             <mat-select required formControlName="currencyCode">
               <mat-option *ngFor="let currency of currencyData" [value]="currency.code">
                 {{ currency.displayLabel }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="journalEntryForm.controls.currencyCode.hasError('required')">
-              Currency is <strong>required</strong>
+             <span [innerHTML]="'modulo.validations.currencyrequired' | translate"> Currency is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -38,22 +38,22 @@
             <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" [formGroupName]="i">
 
               <mat-form-field fxFlex="48%">
-                <mat-label>Affected GL Entry (Debit)</mat-label>
+                <mat-label><span [translate]="'modulo.labels.affectedgldebit'">Affected GL Entry (Debit)</span></mat-label>
                 <mat-select required formControlName="glAccountId">
                   <mat-option *ngFor="let affectedGLEntryDebit of glAccountData" [value]="affectedGLEntryDebit.id">
                     {{ affectedGLEntryDebit.name + ' (' + affectedGLEntryDebit.glCode + ')' }}
                   </mat-option>
                 </mat-select>
                 <mat-error *ngIf="debits.at(i).controls.glAccountId.hasError('required')">
-                  Affected GL Entry (Debit) is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.affectedgldebitrequired' | translate">Affected GL Entry (Debit) is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
 
               <mat-form-field fxFlex="43%">
-                <mat-label>Debit Amount</mat-label>
+                <mat-label><span [translate]="'modulo.labels.debitamount'">Debit Amount</span></mat-label>
                 <input type="number" matInput required formControlName="amount">
                 <mat-error *ngIf="debits.at(i).controls.amount.hasError('required')">
-                  Debit Amount is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.debitamountrequired' | translate">Debit Amount is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
 
@@ -76,22 +76,22 @@
             <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column" [formGroupName]="i">
 
               <mat-form-field fxFlex="48%">
-                <mat-label>Affected GL Entry (Credit)</mat-label>
+                <mat-label><span [translate]="'modulo.labels.affectedglcredit'">Affected GL Entry (Credit)</span></mat-label>
                 <mat-select required formControlName="glAccountId">
                   <mat-option *ngFor="let affectedGLEntryCredit of glAccountData" [value]="affectedGLEntryCredit.id">
                     {{ affectedGLEntryCredit.name + ' (' + affectedGLEntryCredit.glCode + ')' }}
                   </mat-option>
                 </mat-select>
                 <mat-error *ngIf="credits.at(i).controls.glAccountId.hasError('required')">
-                  Affected GL Entry (Credit) is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.affectedglcreditrequired' | translate">Affected GL Entry (Credit) is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
 
               <mat-form-field fxFlex="43%">
-                <mat-label>Credit Amount</mat-label>
+                <mat-label><span [translate]="'modulo.labels.creditamount'">Credit Amount</span></mat-label>
                 <input type="number" matInput required formControlName="amount">
                 <mat-error *ngIf="credits.at(i).controls.amount.hasError('required')">
-                  Credit Amount is <strong>required</strong>
+                  <span [innerHTML]="'modulo.validations.creditamountrequired' | translate">Credit Amount is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
 
@@ -109,22 +109,22 @@
           </div>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Reference Number</mat-label>
+            <mat-label><span [translate]="'modulo.labels.referencenumber'">Reference Number</span></mat-label>
             <input matInput formControlName="referenceNumber">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" (click)="transactionDatePicker.open()">
-            <mat-label>Transaction Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.transactiondate'">Transaction Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="transactionDatePicker" required formControlName="transactionDate">
             <mat-datepicker-toggle matSuffix [for]="transactionDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #transactionDatePicker></mat-datepicker>
             <mat-error *ngIf="journalEntryForm.controls.transactionDate.hasError('required')">
-              Transaction Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.transactiondaterequired' | translate">Transaction Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Payment Type</mat-label>
+            <mat-label><span [translate]="'modulo.labels.paymenttype'">Payment Type</span></mat-label>
             <mat-select formControlName="paymentTypeId">
               <mat-option *ngFor="let paymentType of paymentTypeData" [value]="paymentType.id">
                 {{ paymentType.name }}
@@ -133,32 +133,32 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Account Number</mat-label>
+            <mat-label><span [translate]="'modulo.labels.accountnumber'">Account Number</span></mat-label>
             <input matInput formControlName="accountNumber">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Cheque Number</mat-label>
+            <mat-label><span [translate]="'modulo.labels.chequenumber'">Cheque Number</span></mat-label>
             <input matInput formControlName="checkNumber">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Routing Code</mat-label>
+            <mat-label><span [translate]="'modulo.labels.routingcode'">Routing Code</span></mat-label>
             <input matInput formControlName="routingCode">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Receipt Number</mat-label>
+            <mat-label><span [translate]="'modulo.labels.receiptnumber'">Receipt Number</span></mat-label>
             <input matInput formControlName="receiptNumber">
           </mat-form-field>
 
           <mat-form-field fxFlex="48%">
-            <mat-label>Bank Number</mat-label>
+            <mat-label><span [translate]="'modulo.labels.banknumber'">Bank Number</span></mat-label>
             <input matInput formControlName="bankNumber">
           </mat-form-field>
 
           <mat-form-field fxFlex="98%">
-            <mat-label>Comments</mat-label>
+            <mat-label><span [translate]="'modulo.labels.comments'">Comments</span></mat-label>
             <textarea matInput formControlName="comments" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>
 
@@ -167,8 +167,8 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!journalEntryForm.valid" *mifosxHasPermission="'CREATE_JOURNALENTRY'">Submit</button>
+        <button type="button" mat-raised-button [routerLink]="['../../']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!journalEntryForm.valid" *mifosxHasPermission="'CREATE_JOURNALENTRY'"><span [translate]="'labels.buttons.Submit'">Submit</span></button>
       </mat-card-actions>
 
     </form>
@@ -178,11 +178,15 @@
 </div>
 
 <ng-template #templateCreateJournalFormRef let-popover="popover">
-  <h2>Add Journal Entry Form</h2>
-  <p class="mw300">Fields with a red asterisk (*) are required. To know more click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895310/Add+Journal+Entries" target="_blank">Add Journal Entries</a></p>
+  <h2><span [translate]="'modulo.labels.addjournalform'">Add Journal Entry Form</span></h2>
+  <p class="mw300">
+    <span [translate]="'modulo.description.fieldredasterisk'">Fields with a red asterisk (*) are required. To know more click: <a href="https://mifosforge.jira.com/wiki/spaces/docs/pages/67895310/Add+Journal+Entries" target="_blank">Add Journal Entries</a></span></p>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">Close</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">Back</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">Next</button>
+    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">
+      <span [translate]="'labels.buttons.Close'">Close</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">
+      <span [translate]="'labels.buttons.Back'">Back</span></button>
+    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">
+      <span [translate]="'labels.buttons.Next'">Next</span></button>
   </div>
 </ng-template>

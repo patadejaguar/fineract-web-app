@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutGap="2%">
 
-  <h1 mat-dialog-title align="center">Capture Client Image</h1>
+  <h1 mat-dialog-title align="center"><span [translate]="'modulo.labels.captureclientimage'">Capture Client Image</span></h1>
 
   <video #video width="540" height="480" autoplay></video>
 
@@ -15,13 +15,15 @@
       Capture
     </button>
     <button *ngIf="isCaptured" mat-stroked-button color="primary" (click)="recapture()">
-      <fa-icon icon="undo" size="sm"></fa-icon>&nbsp;&nbsp;Recapture
+      <fa-icon icon="undo" size="sm"></fa-icon>&nbsp;&nbsp;
+      <span [translate]="'labels.buttons.Recapture'">Recapture</span>
     </button>
   </div>
 
   <mat-dialog-actions align="end">
-    <button mat-raised-button mat-dialog-close>Cancel</button>
-    <button [disabled]="!isCaptured" mat-raised-button color="primary" [mat-dialog-close]="clientImageDataURL">Upload</button>
+    <button mat-raised-button mat-dialog-close><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+    <button [disabled]="!isCaptured" mat-raised-button color="primary" [mat-dialog-close]="clientImageDataURL">
+      <span [translate]="'labels.buttons.Upload'">Upload</span></button>
   </mat-dialog-actions>
 
 </div>

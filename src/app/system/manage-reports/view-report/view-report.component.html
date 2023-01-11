@@ -2,13 +2,13 @@
 
   <button mat-raised-button color="primary" [routerLink]="['edit']" *mifosxHasPermission="'UPDATE_REPORT'">
     <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-    Edit
+    <span [translate]="'labels.buttons.Edit'">Edit</span>
   </button>
 
   <span *ngIf="!reportData.coreReport">
     <button mat-raised-button color="warn" (click)="delete()" *mifosxHasPermission="'DELETE_REPORT'">
       <fa-icon icon="trash"></fa-icon>&nbsp;&nbsp;
-      Delete
+      <span [translate]="'labels.buttons.Delete'">Delete</span>
     </button>
   </span>
 
@@ -25,23 +25,23 @@
       <div fxLayout="row wrap" class="content">
 
         <div fxFlex="50%" class="mat-body-strong">
-          Report Type:
+          <span [translate]="'modulo.labels.reporttype'">Report Type</span>:
         </div>
 
         <div fxFlex="50%">
-          {{ reportData.reportType }}
+          {{ reportData.reportType | translate}}
         </div>
 
         <div *ngIf="reportData.reportSubType" fxFlex="50%" class="mat-body-strong">
-          Report Subtype:
+          <span [translate]="'modulo.labels.reportsubtype'">Report Subtype</span>:
         </div>
 
         <div *ngIf="reportData.reportSubType" fxFlex="50%">
-          {{ reportData.reportSubType }}
+          {{ reportData.reportSubType | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Report Category:
+          <span [translate]="'modulo.labels.reportcategory'">Report Category</span>:
         </div>
 
         <div fxFlex="50%">
@@ -49,19 +49,19 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          Core Report:
+          <span [translate]="'modulo.labels.corereport'">Core Report</span>:
         </div>
 
         <div fxFlex="50%">
-          {{ reportData.coreReport ? 'Yes' : 'No' }}
+          {{ (reportData.coreReport ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
-          User Report:
+          <span [translate]="'modulo.labels.userreport'">User Report</span>:
         </div>
 
         <div fxFlex="50%">
-          {{ reportData.useReport ? 'Yes' : 'No' }}
+          {{ (reportData.useReport ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}
         </div>
 
       </div>

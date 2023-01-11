@@ -6,7 +6,8 @@
 
       <div class="profile-image-container">
         <div>
-          <img mat-card-md-image class="profile-image" matTooltip="Loans Account"
+          <img mat-card-md-image class="profile-image" 
+          matTooltip="{{'modulo.labels.loansaccount' | translate}}"
             [src]="'assets/images/loans_account_placeholder.png'">
         </div>
       </div>
@@ -19,7 +20,7 @@
               <h3>
                 <i class="fa fa-stop" matTooltip="{{ loanDetailsData.status.value }}"
                   [ngClass]="loanDetailsData.inArrears?'status-active-overdue':(loanDetailsData.status.code|statusLookup)"></i>
-                  Loan Product: {{loanDetailsData.loanProductName}}<span class="m-l-10">({{loanDetailsData.accountNo}})</span>
+                <span [translate]="'modulo.loans.labels.loanproduct'">Loan Product</span>: {{loanDetailsData.loanProductName}}<span class="m-l-10">({{loanDetailsData.accountNo}})</span>
               </h3>
               <span class="loans-overview">
                 {{entityType}} Name: {{loanDetailsData.clientName ||
@@ -39,11 +40,11 @@
             </div>
 
             <div *ngIf="loanDetailsData.summary" class="loans-overview mat-typography" fxFlex="40%">
-              <h3> Loan Account OverView </h3>
-              <span>Current Balance: {{loanDetailsData.currency.displaySymbol}}
+              <h3><span [translate]="'modulo.loans.title.loanoverview'"> Loan Account OverView </span></h3>
+              <span><span [translate]="'modulo.loans.labels.currentbalance'">Current Balance</span>: {{loanDetailsData.currency.displaySymbol}}
                 {{loanDetailsData.summary.totalOutstanding | number}}</span><br>
-              <span *ngIf="loanDetailsData.inArrears">Arrears By: {{loanDetailsData.summary.totalOverdue | number}}
-                <span *ngIf="!(loanDetailsData.summary.totalOverdue>=0)">Not Provided</span>
+              <span *ngIf="loanDetailsData.inArrears"><span [translate]="'modulo.loans.labels.arrearby'">Arrears By</span>: {{loanDetailsData.summary.totalOverdue | number}}
+                <span *ngIf="!(loanDetailsData.summary.totalOverdue>=0)"><span [translate]="'modulo.validation.noprovided'">Not Provided</span></span>
               </span><br>
               <span *ngIf="loanDetailsData.inArrears">Arrears Since: {{loanDetailsData.summary.overdueSinceDate |
                 dateFormat}}
@@ -87,9 +88,8 @@
             </span>
           </mat-menu>
         </ng-container>
-
         <ng-container *ngIf="buttonConfig.options.length" class="loan-span">
-          <button mat-menu-item [matMenuTriggerFor]="More">More</button>
+          <button mat-menu-item [matMenuTriggerFor]="More"><span [translate]="'labels.buttons.More'">More</span></button>
           <mat-menu #More="matMenu">
             <span *ngFor="let item of buttonConfig.options">
               <button mat-menu-item *mifosxHasPermission="item.taskPermissionName"
@@ -107,76 +107,76 @@
     <nav mat-tab-nav-bar class="navigation-tabs">
       <a mat-tab-link [routerLink]="['./general']" routerLinkActive #general="routerLinkActive"
         [active]="general.isActive">
-        General
+        <span [translate]="'modulo.links.general'">General</span>
       </a>
       <a mat-tab-link [routerLink]="['./accountdetail']" routerLinkActive #accountdetail="routerLinkActive"
         [active]="accountdetail.isActive">
-        Account Details
+        <span [translate]="'modulo.links.accountdetail'">Account Details</span>
       </a>
       <ng-container *ngIf="loanDetailsData.originalSchedule">
         <a mat-tab-link [routerLink]="['./original-schedule']" routerLinkActive #originalSchedule="routerLinkActive"
           [active]="originalSchedule.isActive">
-          Original Schedule
+          <span [translate]="'modulo.links.originalschedule'">Original Schedule</span>
         </a>
       </ng-container>
       <a mat-tab-link [routerLink]="['./repayment-schedule']" routerLinkActive #repaymentSchedule="routerLinkActive"
         [active]="repaymentSchedule.isActive">
-        Repayment Schedule
+        <span [translate]="'modulo.links.repayschedule'">Repayment Schedule</span>
       </a>
       <ng-container *ngIf="loanDetailsData.transactions">
         <a mat-tab-link [routerLink]="['./transactions']" routerLinkActive #transactions="routerLinkActive"
           [active]="transactions.isActive">
-          Transactions
+          <span [translate]="'modulo.links.transactions'">Transactions</span>
         </a>
       </ng-container>
       <ng-container>
         <a mat-tab-link [routerLink]="['./delinquencytags']" routerLinkActive #delinquencytags="routerLinkActive"
           [active]="delinquencytags.isActive">
-          Delinquency Tags
+          <span [translate]="'modulo.links.delinquency'">Delinquency Tags</span>
         </a>
       </ng-container>
       <ng-container *ngIf="loanDetailsData.collateral">
         <a mat-tab-link [routerLink]="['./loan-collateral']" routerLinkActive #loanCollateralDetails="routerLinkActive"
           [active]="loanCollateralDetails.isActive">
-          Loan Collateral Details
+          <span [translate]="'modulo.links.loancollateral'">Loan Collateral Details</span>
         </a>
       </ng-container>
       <ng-container *ngIf="loanDetailsData.multiDisburseLoan">
         <a mat-tab-link [routerLink]="['./loan-tranche-details']" routerLinkActive
           #loanTrancheDetails="routerLinkActive" [active]="loanTrancheDetails.isActive">
-          Loan Tranche Details
+          <span [translate]="'modulo.links.loantranche'">Loan Tranche Details</span>
         </a>
       </ng-container>
       <ng-container *ngIf="loanDetailsData.overdueCharges.length > 0">
         <a mat-tab-link [routerLink]="['./overdue-charges']" routerLinkActive #overduecharges="routerLinkActive"
           [active]="overduecharges.isActive">
-          Overdue Charges
+          <span [translate]="'modulo.links.overduecharg'">Overdue Charges</span>
         </a>
       </ng-container>
       <ng-container *ngIf="loanDetailsData.isLoanProductLinkedToFloatingRate">
         <a mat-tab-link [routerLink]="['./floating-interest-rates']" routerLinkActive
           #floatingInterestRates="routerLinkActive" [active]="floatingInterestRates.isActive">
-          Floating Interest Rates
+          <span [translate]="'modulo.links.floatinterest'">Floating Interest Rates</span>
         </a>
       </ng-container>
       <ng-container *ngIf="loanDetailsData.charges">
         <a mat-tab-link [routerLink]="['./charges']" routerLinkActive #charges="routerLinkActive"
           [active]="charges.isActive">
-          Charges
+          <span [translate]="'modulo.links.charges'">Charges</span>
         </a>
       </ng-container>
       <a mat-tab-link [routerLink]="['./loan-documents']" routerLinkActive #loanDocuments="routerLinkActive"
         [active]="loanDocuments.isActive">
-        Loan Documents
+        <span [translate]="'modulo.links.loandocument'">Loan Documents</span>
       </a>
       <a mat-tab-link *mifosxHasPermission="'READ_LOANNOTE'" [routerLink]="['./notes']" routerLinkActive
         #notes="routerLinkActive" [active]="notes.isActive">
-        Notes
+        <span [translate]="'modulo.links.notes'">Notes</span>
       </a>
       <ng-container *ngIf="loanDetailsData.clientId">
         <a mat-tab-link [routerLink]="['./standing-instruction']" routerLinkActive
           #standingInstruction="routerLinkActive" [active]="standingInstruction.isActive">
-          Standing Instruction
+          <span [translate]="'modulo.links.standingintruction'">Standing Instruction</span>
         </a>
       </ng-container>
       <ng-container *ngFor="let loanDatatable of loanDatatables">
