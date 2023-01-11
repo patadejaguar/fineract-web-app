@@ -143,29 +143,16 @@
 
     <nav mat-tab-nav-bar class="navigation-tabs">
       <a mat-tab-link [routerLink]="['./general']" routerLinkActive #general="routerLinkActive"
-<<<<<<< HEAD
         [active]="general.isActive">
-        General
+        <span [translate]="'modulo.labels.general'">General</span>
       </a>
       <a mat-tab-link [routerLink]="['./notes']" *mifosxHasPermission="'READ_GROUPNOTE'" routerLinkActive
         #notes="routerLinkActive" [active]="notes.isActive">
-        Notes
-      </a>
-      <a mat-tab-link [routerLink]="['./committee']" routerLinkActive #committee="routerLinkActive"
-        [active]="committee.isActive">
-        Committee
-=======
-      [active]="general.isActive">
-        <span [translate]="'modulo.labels.general'">General</span>
-      </a>
-      <a mat-tab-link [routerLink]="['./notes']" *mifosxHasPermission="'READ_GROUPNOTE'" routerLinkActive #notes="routerLinkActive"
-      [active]="notes.isActive">
         <span [translate]="'modulo.labels.notes'">Notes</span>
       </a>
       <a mat-tab-link [routerLink]="['./committee']" routerLinkActive #committee="routerLinkActive"
-      [active]="committee.isActive">
+        [active]="committee.isActive">
         <span [translate]="'modulo.labels.committee'">Committee</span>
->>>>>>> ace6a788 (se termina de traducir los modulos: groups,navigations,notifications,organizations)
       </a>
       <span *ngFor="let groupDatatable of groupDatatables">
         <a mat-tab-link *mifosxHasPermission="'READ_' + groupDatatable.registeredTableName"
