@@ -15,8 +15,8 @@
     </ng-container>
 
     <ng-container matColumnDef="value">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><span [translate]="'modulo.labels.value'"> Value</span> </th>
-      <td mat-cell *matCellDef="let configuration"> {{ configuration.value }} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.value'"> Value</span> </th>
+      <td mat-cell *matCellDef="let configuration"> {{ getConfigurationValue(configuration) }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

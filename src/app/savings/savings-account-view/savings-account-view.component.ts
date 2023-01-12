@@ -12,6 +12,7 @@ import { ToggleWithholdTaxDialogComponent } from './custom-dialogs/toggle-withho
 /** Custom Buttons Configuration */
 import { SavingsButtonsConfiguration } from './savings-buttons.config';
 import { SavingsService } from '../savings.service';
+import { ConfirmationDialogComponent } from 'app/shared/confirmation-dialog/confirmation-dialog.component';
 
 /**
  * Savings Account View Component
@@ -64,7 +65,8 @@ export class SavingsAccountViewComponent implements OnInit {
    */
   setConditionalButtons() {
     const status = this.savingsAccountData.status.value;
-    this.buttonConfig = new SavingsButtonsConfiguration(status);
+    const subStatus = this.savingsAccountData.subStatus;
+    this.buttonConfig = new SavingsButtonsConfiguration(status, subStatus);
     if (this.savingsAccountData.clientId) {
       this.buttonConfig.addOption({
         name: 'Transfer Funds',
@@ -108,7 +110,6 @@ export class SavingsAccountViewComponent implements OnInit {
     }
   }
 
-
   /**
    * Refetches data foe the component
    * TODO: Replace by a custom reload component instead of hard-coded back-routing.
@@ -135,12 +136,14 @@ export class SavingsAccountViewComponent implements OnInit {
       case 'Post Interest As On':
       case 'Assign Staff':
       case 'Add Charge':
+      case 'Hold Amount':
+      case 'Block Account':
       case 'Unassign Staff':
       case 'Withdraw By Client':
       case 'Apply Annual Fees':
         this.router.navigate([`actions/${name}`], { relativeTo: this.route });
         break;
-      case 'Withdraw':
+      case 'Withdrawal':
         this.router.navigate([`actions/Withdrawal`], { relativeTo: this.route });
         break;
       case 'Modify Application':
@@ -164,6 +167,9 @@ export class SavingsAccountViewComponent implements OnInit {
       case 'Transfer Funds':
         const queryParams: any = { savingsId: this.savingsAccountData.id, accountType: 'fromsavings' };
         this.router.navigate(['transfer-funds/make-account-transfer'], { relativeTo: this.route, queryParams: queryParams });
+        break;
+      case 'Unblock Account':
+        this.unblockSavingsAccount();
         break;
     }
   }
@@ -246,4 +252,20 @@ export class SavingsAccountViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Unblock Savings Account.
+   */
+  private unblockSavingsAccount() {
+    const unblockSavingsAccountDialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: { heading: 'Unblock Savings Account', dialogContext: 'Are you sure you want Unblock this Savings Account' }
+    });
+    unblockSavingsAccountDialogRef.afterClosed().subscribe((response: { confirm: any }) => {
+      if (response.confirm) {
+        this.savingsService.executeSavingsAccountCommand(this.savingsAccountData.id, 'unblock', { })
+          .subscribe(() => {
+            this.reload();
+          });
+      }
+    });
+  }
 }

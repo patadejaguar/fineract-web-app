@@ -1,6 +1,6 @@
 /** Angular Imports */
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
@@ -15,6 +15,8 @@ import { LoansService } from '../../../loans.service';
   styleUrls: ['./undo-disbursal.component.scss']
 })
 export class UndoDisbursalComponent implements OnInit {
+
+  @Input() actionName: string;
 
   /** Loan ID. */
   loanId: any;
@@ -38,14 +40,18 @@ export class UndoDisbursalComponent implements OnInit {
    * Creates the undo disbursal form.
    */
   ngOnInit() {
-    this.note = this.formBuilder.control('');
+    this.note = this.formBuilder.control('', Validators.required);
   }
 
   /**
    * Submits the undo disbursal form.
    */
   submit() {
-    this.loansService.loanActionButtons(this.loanId, 'undodisbursal', {'note': this.note.value}).subscribe((response: any) => {
+    let command = 'undodisbursal';
+    if (this.actionName === 'Undo Last Disbursal') {
+      command = 'undolastdisbursal';
+    }
+    this.loansService.loanActionButtons(this.loanId, command, {'note': this.note.value}).subscribe((response: any) => {
       this.router.navigate(['../../general'], { relativeTo: this.route });
     });
   }

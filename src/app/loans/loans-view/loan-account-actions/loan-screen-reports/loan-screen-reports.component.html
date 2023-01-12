@@ -1,59 +1,57 @@
 <div class="container m-b-20">
 
-    <mat-card>
+  <mat-card>
 
-        <form [formGroup]="loanScreenReportForm" (ngSubmit)="generate()">
+    <form [formGroup]="loanScreenReportForm" (ngSubmit)="generate()">
 
-            <mat-card-content>
+      <mat-card-content>
 
-                <div>
+        <div>
 
-                    <mat-form-field fxFlex>
-                        <mat-label><span [translate]="'modulo.loans.labels.loanscreenreport'">Loan Screen Reports</span></mat-label>
-                        <mat-select formControlName="templateId">
-                            <mat-option *ngFor="let template of templatesData" [value]="template.id">
-                                {{ template.name }}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="loanScreenReportForm.controls.templateId.hasError('required')">
-                            <span [innerHTML]="'modulo.validations.screenreportrequired' | translate">Screen Report is <strong>required</strong></span>
-                        </mat-error>
-                    </mat-form-field>
+          <mat-form-field fxFlex>
+              <mat-label><span [translate]="'modulo.loans.labels.loanscreenreport'">Loan Screen Reports</span></mat-label>
+              <mat-select formControlName="templateId">
+                  <mat-option *ngFor="let template of templatesData" [value]="template.id">
+                      {{ template.name }}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="loanScreenReportForm.controls.templateId.hasError('required')">
+                  <span [innerHTML]="'modulo.validations.screenreportrequired' | translate">Screen Report is <strong>required</strong></span>
+              </mat-error>
+          </mat-form-field>
 
-                </div>
+        </div>
 
-            </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
+          <button type="button" mat-raised-button [routerLink]="['../../general']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+          <button mat-raised-button color="primary" [disabled]="!loanScreenReportForm.valid">
+            <fa-icon icon="cogs" size="sm"></fa-icon>&nbsp;&nbsp;<span [translate]="'labels.buttons.Generatereport'">Generate Report</span>
+          </button>
+        </mat-card-actions>
 
-            <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-                <button type="button" mat-raised-button [routerLink]="['../../general']">
-                    <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
-                <button mat-raised-button color="primary" [disabled]="!loanScreenReportForm.valid">
-                    <fa-icon icon="cogs" size="sm"></fa-icon>&nbsp;&nbsp;
-                    <span [translate]="'labels.buttons.Generatereport'">Generate Report</span>
-                </button>
-            </mat-card-actions>
+      </mat-card-content>
 
-        </form>
+    </form>
 
-    </mat-card>
+  </mat-card>
 
 </div>
 
 <div #output class="container">
 
-    <mat-card fxLayout="column" fxLayoutGap="3%">
+  <mat-card fxLayout="column" fxLayoutGap="3%">
 
-        <div fxLayoutAlign="end">
-            <button mat-stroked-button color="primary" [disabled]="!template" (click)="print()">
-                <fa-icon icon="file"></fa-icon>&nbsp;&nbsp;
-                <span [translate]="'labels.buttons.Print'">Print</span>
-            </button>
-        </div>
+    <div fxLayoutAlign="end">
+        <button mat-stroked-button color="primary" [disabled]="!template" (click)="print()">
+            <fa-icon icon="file"></fa-icon>&nbsp;&nbsp;
+            <span [translate]="'labels.buttons.Print'">Print</span>
+        </button>
+    </div>
 
-        <div #screenReport class="screen-report">
-            <p><span [translate]="'modulo.loans.labels.pleaseselectreport'">Please select a screen report.</span></p>
-        </div>
+    <div #screenReport class="screen-report">
+        <p><span [translate]="'modulo.loans.labels.pleaseselectreport'">Please select a screen report.</span></p>
+    </div>
 
-    </mat-card>
+  </mat-card>
 
 </div>

@@ -1,23 +1,26 @@
-<div class="container">
+<div class="container mat-elevation-z8">
 
   <mat-card>
 
     <mat-card-content>
 
-      <mat-form-field fxFlex>
-        <mat-label><span [translate]="'modulo.loans.labels.note'">Note</span></mat-label>
-        <textarea matInput [formControl]="note"></textarea>
-      </mat-form-field>
+      <div fxLayout="column">
+
+        <mat-form-field fxFlex>
+          <mat-label><span [translate]="'modulo.loans.labels.note'">Note</span></mat-label>
+          <textarea matInput required [formControl]="note" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
+        </mat-form-field>
+
+      </div>
+
+
+      <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
+        <button type="button" mat-raised-button [routerLink]="['../../general']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" (click)="submit()"
+          *mifosxHasPermission="'DISBURSALUNDO_LOAN'"><span [translate]="'labels.buttons.Submit'">Submit</span></button>
+      </mat-card-actions>
 
     </mat-card-content>
-
-    <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-      <button type="button" mat-raised-button [routerLink]="['../../general']">
-        <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
-      <button mat-raised-button color="primary" (click)="submit()"
-        *mifosxHasPermission="'DISBURSALUNDO_LOAN'">
-        <span [translate]="'labels.buttons.Submit'">Submit</span></button>
-    </mat-card-actions>
 
   </mat-card>
 

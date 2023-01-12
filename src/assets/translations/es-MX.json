@@ -209,12 +209,14 @@
       "Deactivate":"Desactivar",
       "Browse":"Examinar",
       "ViewJournalEntries":"Ver entradas de diario",
-      "ChargesOverview":"Resumen de cargos"
+      "ChargesOverview":"Resumen de cargos",
+      "Create User": "Crear Usuario"
     },
     "commons": {
       "is required": "es requerido"
     },
     "inputs": {
+      "Tenant": "Entidad",
       "Language": "Lenguaje",
       "Server": "Servidor",
       "Url": "Url",
@@ -222,7 +224,18 @@
       "Logout": "Salir",
       "Username": "Nombre de Usuario",
       "Password": "Contraseña",
-      "Remember me": "Recordarme"
+      "Remember me": "Recordarme",
+      "Filter": "Filtrar",
+      "products": {
+        "loan": {
+          "Amortization": "Amortización",
+          "amortizationType": {
+            "Equal installments": "Cuotas Iguales",
+            "Equal principal payments": "Pagos de Capital Iguales"
+          }
+        },
+        "Is Equal Amortization?": "¿Es Amortización Igual?"
+      }
     },
     "links": {
       "Contribute": "Contribuir",
@@ -298,7 +311,8 @@
       "home": {
         "navigate": "Esto llevará al usuario al componente del tablero.",
         "search": "Esto llevará al usuario a la actividad buscada."
-      }
+      },
+      "Login into Tenant": "Iniciar sesión en"
     }
   },
   "errors": {

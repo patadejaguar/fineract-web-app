@@ -22,35 +22,33 @@
       </ng-container>
 
       <ng-container matColumnDef="transactionDate">
-        <th mat-header-cell *matHeaderCellDef>
-          <span [translate]="'modulo.labels.transactiondate'"> Transaction Date</span> </th>
+        <th mat-header-cell class="center" *matHeaderCellDef> <span [translate]="'modulo.labels.transactiondate'"> Transaction Date</span> </th>
         <td mat-cell *matCellDef="let transaction"> {{ transaction.date  | dateFormat }} </td>
       </ng-container>
 
       <ng-container matColumnDef="transactionType">
-        <th mat-header-cell *matHeaderCellDef>
-          <span [translate]="'modulo.labels.transactiontype'"> Transaction Type</span> </th>
+        <th mat-header-cell class="center" *matHeaderCellDef> <span [translate]="'modulo.labels.transactiontype'">Transaction Type</span></th>
         <td mat-cell *matCellDef="let transaction"> {{ transaction.transactionType.value  }} </td>
       </ng-container>
 
       <ng-container matColumnDef="debit">
-        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.debit'">Debit</span> </th>
-        <td mat-cell *matCellDef="let transaction"> {{ isDebit(transaction.transactionType) ? transaction.amount : 'N/A'}} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef> <span [translate]="'modulo.labels.debit'">Debit</span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let transaction"> {{ isDebit(transaction.transactionType) ? (transaction.amount | number) : 'N/A'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="credit">
-        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.credit'">Credit</span> </th>
-        <td mat-cell *matCellDef="let transaction"> {{ !isDebit(transaction.transactionType) ? transaction.amount : 'N/A' }} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef> <span [translate]="'modulo.labels.credit'">Credit</span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let transaction"> {{ !isDebit(transaction.transactionType) ? (transaction.amount | number) : 'N/A' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="balance">
-        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.balance'">Balance</span></th>
-        <td mat-cell *matCellDef="let transaction"> {{ transaction.runningBalance }} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef> <span [translate]="'modulo.labels.balance'">Balance</span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let transaction"> {{ transaction.runningBalance | number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="viewReciept">
-        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.viewreciept'">View Reciept </span></th>
-        <td mat-cell *matCellDef="let transaction"> 
+        <th mat-header-cell class="center" *matHeaderCellDef> <span [translate]="'modulo.labels.viewreciept'">View Reciept </span> </th>
+        <td mat-cell class="center" *matCellDef="let transaction">
           <button class="account-action-button" mat-raised-button color="primary" (click)="routeEdit($event)" [routerLink]="[transaction.id, 'reciept']">
             <i class="fa fa-file" matTooltip="{{'modulo.labels.viewreceipt' | translate}}"></i>
           </button>

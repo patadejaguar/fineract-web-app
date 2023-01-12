@@ -1,15 +1,15 @@
 <div class="container">
 
     <form [formGroup]="surveyForm" (ngSubmit)="submit()">
-  
+
       <div fxLayout="column" fxLayoutGap="4%">
-  
+
         <mat-card>
-  
+
           <mat-card-content>
-  
+
             <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
-  
+
               <mat-form-field fxFlex="48%">
                 <mat-label><span [translate]="'modulo.labels.key'">Key</span></mat-label>
                 <input matInput maxlength="32" required formControlName="key">
@@ -17,7 +17,7 @@
                   <span [innerHTML]="'modulo.validations.keyrequired' | translate">Key is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
-  
+
               <mat-form-field fxFlex="48%">
                 <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
                 <input matInput maxlength="255" required formControlName="name">
@@ -25,7 +25,7 @@
                   <span [innerHTML]="'modulo.validations.namerequired' | translate">Name is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
-  
+
               <mat-form-field fxFlex="48%">
                 <mat-label><span [translate]="'modulo.labels.countrycode'">Country Code</span></mat-label>
                 <input matInput maxlength="2" required formControlName="countryCode">
@@ -37,26 +37,26 @@
                     Country Code <strong>must consist of 2 alphabetic characters</strong></span>
                 </mat-error>
               </mat-form-field>
-  
+
               <mat-form-field fxFlex="98%">
                 <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
-                <textarea matInput formControlName="description"></textarea>
+                <textarea matInput formControlName="description" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
               </mat-form-field>
-  
+
             </div>
-  
+
           </mat-card-content>
-  
+
         </mat-card>
-  
+
         <div cdkDropList (cdkDropListDropped)="dropQuestion($event)" fxLayout="column" fxLayoutGap="4%">
-  
+
           <mat-card cdkDrag cdkDragLockAxis="y" formArrayName="questionDatas" *ngFor="let question of questionDatas.controls; let questionIndex = index; last as isLast">
-  
+
             <mat-card-content>
-  
+
               <div fxFlexFill fxLayoutGap="2%" fxLayout.lt-md="column" fxLayout="row wrap" [formGroupName]="questionIndex">
-  
+
                 <div fxFlex="98%" fxLayout="row wrap" fxLayoutGap="2%" fxLayoutAlign="space-between center">
                   <h2 class="mat-h2"><span [translate]="'modulo.labels.question'">Question</span> {{ questionIndex + 1 }}</h2>
                   <button mat-raised-button color="warn" (click)="removeQuestion(questionIndex)" [disabled]="questionDatas.controls.length === 1">
@@ -64,7 +64,7 @@
                     <span [translate]="'labels.buttons.DeleteQuestion'">Delete Question</span>
                   </button>
                 </div>
-  
+
                 <mat-form-field fxFlex="48%">
                   <mat-label><span [translate]="'modulo.labels.key'">Key</span></mat-label>
                   <input matInput maxlength="32" required formControlName="key">
@@ -72,7 +72,7 @@
                    <span [innerHTML]="'modulo.validations.keyrequired' | translate"> Key is <strong>required</strong></span>
                   </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field fxFlex="48">
                   <mat-label><span [translate]="'modulo.labels.text'">Text</span></mat-label>
                   <input matInput maxlength="255" required formControlName="text">
@@ -80,14 +80,14 @@
                     <span [innerHTML]="'modulo.validations.textrequired' | translate">Text is <strong>required</strong></span>
                   </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field fxFlex="98%">
                   <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
-                  <textarea matInput formControlName="description"></textarea>
+                  <textarea matInput formControlName="description" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
                 </mat-form-field>
-  
+
                 <mat-divider [inset]="true"></mat-divider>
-  
+
                 <div fxFlex="98%" fxLayout="row" fxLayoutAlign="space-between center">
                   <h4 class="mat-h4"><span [translate]="'modulo.labels.options'">Options</span></h4>
                   <button type="button" mat-raised-button color="primary" (click)="addResponse(questionIndex)">
@@ -95,13 +95,13 @@
                     <span [translate]="'labels.buttons.AddOption'">Add Option</span>
                   </button>
                 </div>
-  
+
                 <div cdkDropList (cdkDropListDropped)="dropResponse($event, questionIndex)" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%">
-  
+
                   <div cdkDrag cdkDragLockAxis="y" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" formArrayName="responseDatas" *ngFor="let response of getResponseDatas(questionIndex).controls; let responseIndex = index;">
-  
+
                     <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" [formGroupName]="responseIndex">
-  
+
                       <mat-form-field fxFlex="43%">
                         <mat-label><span [translate]="'modulo.labels.text'">Text</span></mat-label>
                         <input matInput required formControlName="text">
@@ -109,7 +109,7 @@
                           <span [innerHTML]="'modulo.validations.textrequired' | translate">Text is <strong>required</strong></span>
                         </mat-error>
                       </mat-form-field>
-  
+
                       <mat-form-field fxFlex="43%">
                         <mat-label><span [translate]="'modulo.labels.value'">Value</span></mat-label>
                         <input matInput required formControlName="value">
@@ -121,28 +121,28 @@
                             Value <strong>must be an integer between -9999 and 9999</strong></span>
                         </mat-error>
                       </mat-form-field>
-  
+
                       <div fxFlex="8%">
                         <div class="delete-wrapper">
                           <button type="button" color="warn" mat-icon-button 
                           matTooltip="{{'modulo.labels.delete' | translate}}" matTooltipPosition="above" (click)="removeResponse(getResponseDatas(questionIndex), responseIndex)" [disabled]="getResponseDatas(questionIndex).controls.length === 1">
                             <fa-icon icon="trash" size="lg"></fa-icon>
-                          </button>  
+                          </button>
                         </div>
                       </div>
-  
+
                     </div>
-  
+
                   </div>
-  
+
                 </div>
-  
+
               </div>
-  
+
             </mat-card-content>
-  
+
             <div>
-  
+
               <mat-card-actions *ngIf="isLast" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
                 <button type="button" mat-raised-button (click)="cancelSurvey()">
                   <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
@@ -155,13 +155,13 @@
               </mat-card-actions>    
   
             </div>
-  
-          </mat-card>  
-  
+
+          </mat-card>
+
         </div>
-  
+
       </div>
-  
+
     </form>
-  
+
   </div>

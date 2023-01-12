@@ -6,7 +6,7 @@
       <mat-label><span [translate]="'modulo.labels.amortization'">Amortization</span></mat-label>
       <mat-select formControlName="amortizationType" required>
         <mat-option *ngFor="let amortizationType of amortizationTypeData" [value]="amortizationType.id">
-          {{ amortizationType.value }}
+          {{ 'labels.inputs.products.loan.amortizationType.' + amortizationType.value | translate }}
         </mat-option>
       </mat-select>
       <mat-error>
@@ -75,7 +75,7 @@
 
     <mat-form-field fxFlex="48%">
       <mat-label><span [translate]="'modulo.labels.delinquencybucket'">Delinquency Bucket</span></mat-label>
-      <mat-select formControlName="delinquencyBucketId">
+      <mat-select formControlName="delinquencyBucketId" required>
         <mat-option *ngFor="let delinquencyBucket of delinquencyBucketData" [value]="delinquencyBucket.id">
           {{ delinquencyBucket.name }}
         </mat-option>
@@ -167,7 +167,10 @@
 
       <mat-form-field fxFlex="48%">
         <mat-label><span [translate]="'modulo.labels.maxgabbetweeninstallments'">Maximum gap between Installments</span></mat-label>
-        <input type="number" matInput formControlName="maximumGap">
+        <input type="number" matInput formControlName="maximumGap" required>
+        <mat-error>
+          Maximum gap between Installments is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
     </div>
