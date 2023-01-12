@@ -1,19 +1,20 @@
 <div fxLayoutAlign="end" class="container m-b-20" fxLayoutGap="2%"
   *ngIf="!(transactionData.interestedPostedAsOn === false && (transactionData.transactionType.id === 17 || transactionData.transactionType.id === 3))">
   <span *mifosxHasPermission="'ADJUSTTRANSACTION_SAVINGSACCOUNT'">
-    <button mat-raised-button color="primary" 
-      *ngIf="transactionData.transactionType.value == 'Transfer' || transactionData.reversed == 'true' 
-        || transactionData.transactionType.id==3 || transactionData.transactionType.id==17"
-      [routerLink]="'edit'">
-      <fa-icon icon="edit"></fa-icon>&nbsp;&nbsp;
-      <span [translate]="'labels.buttons.Edit'">Edit</span>
+    <button mat-raised-button color="primary" *ngIf="transactionData.transactionType.value == 'Transfer' || transactionData.reversed == 'true'
+        || transactionData.transactionType.id==3 || transactionData.transactionType.id==17" [routerLink]="'edit'">
+      <fa-icon icon="edit" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Edit'">Edit</span>
     </button>
   </span>
-  <button mat-raised-button color="warn"
-    *mifosxHasPermission="'UNDOTRANSACTION_SAVINGSACCOUNT'"
-    (click)="undoTransaction()">
-    <fa-icon icon="undo"></fa-icon>&nbsp;&nbsp;
-    <span [translate]="'labels.buttons.Undo'">Undo</span>
+  <span *ngIf="!transactionData.reversed && transactionData.transactionType.amountHold">
+    <button mat-raised-button color="primary" *mifosxHasPermission="'RELEASEAMOUNT_SAVINGSACCOUNT'"
+      (click)="releaseAmount()">
+      <fa-icon icon="lock-open" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.ReleaseAmount'">Release Amount</span>
+    </button>
+  </span>
+  <button mat-raised-button color="warn" *mifosxHasPermission="'UNDOTRANSACTION_SAVINGSACCOUNT'"
+    (click)="undoTransaction()" [disabled]="transactionData.reversed">
+    <fa-icon icon="undo" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.Undo'">Undo</span>
   </button>
 </div>
 
@@ -32,7 +33,7 @@
         <div fxFlex="50%">
           {{ transactionData.id }}
         </div>
-        
+
         <div fxFlex="50%" class="mat-body-strong">
           <span [translate]="'modulo.labels.type'">Type</span>
         </div>
@@ -46,7 +47,15 @@
         </div>
 
         <div fxFlex="50%">
-          {{ transactionData.date  | dateFormat }}
+          {{ transactionData.date | dateFormat }}
+        </div>
+
+        <div fxFlex="50%" class="mat-body-strong">
+           <span [translate]="'modulo.labels.amount'">Amount</span>
+        </div>
+
+        <div fxFlex="50%">
+          {{ transactionData.currency.displaySymbol }} {{ transactionData.amount | number }} ({{ transactionData.currency.code }})
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -54,15 +63,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ transactionData.currency.displayLabel }}
-        </div>
-
-        <div fxFlex="50%" class="mat-body-strong">
-          <span [translate]="'modulo.labels.amount'">Amount</span>
-        </div>
-
-        <div fxFlex="50%">
-          {{ transactionData.amount }}
+          {{ transactionData.currency.name }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">
@@ -78,47 +79,47 @@
           <div *ngIf="transactionData.paymentDetailData.paymentType" fxFlex="50%" class="mat-body-strong">
             <span [translate]="'modulo.labels.paymenttype'">Payment Type</span>
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.paymentType" fxFlex="50%">
             {{ transactionData.paymentDetailData.paymentType.name }}
           </div>
-          
+
           <div *ngIf="transactionData.paymentDetailData.accountNumber" fxFlex="50%" class="mat-body-strong">
             <span [translate]="'modulo.labels.accountno'">Account No.</span>
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.accountNumber" fxFlex="50%">
             {{ transactionData.paymentDetailData.accountNumber }}
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.checkNumber" fxFlex="50%" class="mat-body-strong">
             <span [translate]="'modulo.labels.chequenumber'">Cheque Number</span>
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.checkNumber" fxFlex="50%">
             {{ transactionData.paymentDetailData.checkNumber }}
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.routingCode" fxFlex="50%" class="mat-body-strong">
             <span [translate]="'modulo.labels.routingcode'">Routing Code</span>
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.routingCode" fxFlex="50%">
             {{ transactionData.paymentDetailData.routingCode }}
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.receiptNumber" fxFlex="50%" class="mat-body-strong">
             <span [translate]="'modulo.labels.receiptno'">Receipt No.</span>
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.receiptNumber" fxFlex="50%">
             {{ transactionData.paymentDetailData.receiptNumber }}
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.bankNumber" fxFlex="50%" class="mat-body-strong">
             <span [translate]="'modulo.labels.bankno'">Bank No.</span>
           </div>
-  
+
           <div *ngIf="transactionData.paymentDetailData.bankNumber" fxFlex="50%">
             {{ transactionData.paymentDetailData.bankNumber }}
           </div>
@@ -127,6 +128,9 @@
 
       </div>
 
+      <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="2%" fxLayout.lt-md="column">
+        <button type="button" mat-raised-button color="primary" [routerLink]="['../']">{{ 'Back' | translate }}</button>
+      </div>
     </mat-card-content>
 
   </mat-card>

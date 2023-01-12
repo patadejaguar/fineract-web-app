@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mat-elevation-z8">
 
   <mat-card>
 
@@ -40,55 +40,55 @@
           </mat-select>
         </mat-form-field>
 
-        <div fxLayoutGap="5px" fxLayout="row" fxLayout.xs="column">
-          <mat-label fxFlexAlign="center"><span [translate]="'modulo.labels.showpaymentdetails'">Show Payment Details</span></mat-label>
-          <button type="button" mat-mini-fab color="primary" (click)="addPaymentDetails()">
-            <fa-icon [icon]="!addPaymentDetailsFlag ? 'plus-circle' : 'minus-circle'" size="lg"></fa-icon>
-          </button>
+        <div fxFlexFill>
+          <span fxFlex="75%" class="expandcollapsebutton m-l-10 m-t-40" (click)="addPaymentDetails()">
+            <mat-slide-toggle [(ngModel)]="addPaymentDetailsFlag" [ngModelOptions]="{standalone: true}">
+              <div [className]="addPaymentDetailsFlag ? 'enabled' : 'disabled'">
+                <span class="m-l-10"><span [translate]="'modulo.labels.showpaymentdetails'">Show Payment Details</span></span>
+              </div>
+            </mat-slide-toggle>
+          </span>
         </div>
 
-        <mat-form-field *ngIf="savingAccountTransactionForm.controls['accountNumber']">
+        <mat-form-field *ngIf="addPaymentDetailsFlag">
           <mat-label><span [translate]="'modulo.labels.accountnumber'">Account Number</span></mat-label>
           <input type="number" formControlName="accountNumber" matInput />
         </mat-form-field>
 
-        <mat-form-field *ngIf="savingAccountTransactionForm.controls['checkNumber']">
+        <mat-form-field *ngIf="addPaymentDetailsFlag">
           <mat-label><span [translate]="'modulo.labels.cheque'">Cheque</span></mat-label>
           <input type="number" formControlName="checkNumber" matInput />
         </mat-form-field>
 
-        <mat-form-field *ngIf="savingAccountTransactionForm.controls['routingCode']">
+        <mat-form-field *ngIf="addPaymentDetailsFlag">
           <mat-label><span [translate]="'modulo.labels.routingcode'">Routing Code</span></mat-label>
           <input formControlName="routingCode" matInput />
         </mat-form-field>
 
-        <mat-form-field *ngIf="savingAccountTransactionForm.controls['receiptNumber']">
+        <mat-form-field *ngIf="addPaymentDetailsFlag">
           <mat-label><span [translate]="'modulo.labels.receiptnumber'">Receipt Number</span></mat-label>
           <input formControlName="receiptNumber" matInput />
         </mat-form-field>
 
-        <mat-form-field *ngIf="savingAccountTransactionForm.controls['bankNumber']">
+        <mat-form-field *ngIf="addPaymentDetailsFlag">
           <mat-label><span [translate]="'modulo.labels.bank'">Bank</span></mat-label>
           <input formControlName="bankNumber" matInput />
         </mat-form-field>
 
         <mat-form-field>
           <mat-label><span [translate]="'modulo.labels.notes'">Notes</span></mat-label>
-          <textarea formControlName="note" matInput></textarea>
+          <textarea formControlName="note" matInput cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
         </mat-form-field>
 
         <mat-card-actions fxLayoutGap="5px" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
-          <button type="button" mat-raised-button [routerLink]="['../../']">
-            <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
-          <button mat-raised-button color="primary" [disabled]="!savingAccountTransactionForm.valid">
-            <span [translate]="'labels.buttons.Submit'">Submit</span></button>
+          <button type="button" mat-raised-button [routerLink]="['../../transactions']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+          <button mat-raised-button color="primary" [disabled]="!savingAccountTransactionForm.valid"><span [translate]="'labels.buttons.Submit'">Submit</span></button>
         </mat-card-actions>
 
       </mat-card-content>
-      
+
     </form>
 
   </mat-card>
 
 </div>
-  

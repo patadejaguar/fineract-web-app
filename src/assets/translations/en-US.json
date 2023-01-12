@@ -209,12 +209,14 @@
       "Deactivate":"Deactivate",
       "Browse":"Browse",
       "ViewJournalEntries":"View Journal Entries",
-      "ChargesOverview":"Charges Overview"
+      "ChargesOverview":"Charges Overview",
+      "Create User": "Create User"
     },
     "commons": {
       "is required": "is required"
     },
     "inputs": {
+      "Tenant": "Tenant",
       "Language": "Language",
       "Server": "Server",
       "Url": "Url",
@@ -222,7 +224,18 @@
       "Logout": "Logout",
       "Username": "Username",
       "Password": "Password",
-      "Remember me": "Remember me"
+      "Remember me": "Remember me",
+      "Filter": "Filter",
+      "products": {
+        "loan": {
+          "Amortization": "Amortization",
+          "amortizationType": {
+            "Equal installments": "Equal installments",
+            "Equal principal payments": "Equal principal payments"
+          },
+          "Is Equal Amortization?": "Is Equal Amortization?"
+        }
+      }
     },
     "links": {
       "Contribute": "Contribute",
@@ -298,7 +311,8 @@
       "home": {
         "navigate": "This will navigate the user to the dashboard component.",
         "search": "This will navigate the user to the searched activity."
-      }
+      },
+      "Login into Tenant": "Login into Tenant"
     }
   },
   "errors": {

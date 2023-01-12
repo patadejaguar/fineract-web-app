@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mat-elevation-z8">
 
   <mat-card>
 
@@ -19,10 +19,8 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">
-          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
-        <button mat-raised-button color="accent" [disabled]="!activateSavingsAccountForm.valid">
-          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
+        <button type="button" mat-raised-button [routerLink]="['../../transactions']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!activateSavingsAccountForm.valid"><span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>

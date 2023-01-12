@@ -47,11 +47,16 @@
 
           <mat-form-field fxFlex="40%">
             <mat-label><span [translate]="'modulo.labels.reportcategory'">Report Category</span></mat-label>
-            <input matInput formControlName="reportCategory">
+            <mat-select formControlName="reportCategory">
+              <mat-option *ngFor="let reportCategoryType of reportCategoryTypeOptions"
+                [value]="reportCategoryType">
+                {{ reportCategoryType }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
 
           <div fxFlex="10%" class="user-report-wrapper">
-            <mat-checkbox class="user-report" labelPosition="before" formControlName="useReport">
+            <mat-checkbox class="user-report" labelPosition="after" formControlName="useReport">
               <span [translate]="'modulo.labels.userreportui'">User Report (UI)</span>
             </mat-checkbox>
           </div>
@@ -61,13 +66,13 @@
         <div fxLayout="column">
 
           <mat-form-field fxFlex="98%">
-            <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
-            <textarea matInput formControlName="description"></textarea>
+          <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
+            <textarea matInput formControlName="description" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>
 
           <mat-form-field fxFlex="98%">
             <mat-label><span [translate]="'modulo.labels.sql'">SQL</span></mat-label>
-            <textarea matInput required formControlName="reportSql"></textarea>
+            <textarea matInput required formControlName="reportSql" cdkTextareaAutosize cdkAutosizeMinRows="6"></textarea>
             <mat-error *ngIf="reportForm.controls.reportSql.hasError('required')">
               <span [innerHTML]="'modulo.validations.sqlrequired' | translate">SQL is <strong>required</strong></span>
             </mat-error>
@@ -83,8 +88,7 @@
             <span [translate]="'modulo.labels.reportparameters'">Report Parameters</span></p>
 
           <button mat-raised-button fxFlex="20%" type="button" color="primary" (click)="addReportParameter()">
-            <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-            <span [translate]="'labels.buttons.AddReportParameter'">Add Report Parameter</span>
+            <fa-icon icon="plus" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.AddReportParameter'">Add Report Parameter</span>
           </button>
 
         </div>

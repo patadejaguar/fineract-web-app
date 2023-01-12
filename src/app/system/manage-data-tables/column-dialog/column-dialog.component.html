@@ -23,17 +23,19 @@
         </mat-select>
       </mat-form-field>
 
+<!--
       <div>
         <mat-checkbox labelPosition="before" formControlName="mandatory">
           <span [translate]="'modulo.labels.mandatory'">Mandatory</span></mat-checkbox>
       </div>
 
-      <mat-form-field>
+    -->
+      <mat-form-field *ngIf="columnForm.value.type === 'String'">
         <mat-label><span [translate]="'modulo.labels.columnlength'">Column Length</span></mat-label>
         <input matInput required type="number" formControlName="length">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field *ngIf="columnForm.value.type === 'Dropdown'">
         <mat-label><span [translate]="'modulo.labels.columncode'">Column Code</span></mat-label>
         <mat-select required formControlName="code">
           <mat-option *ngFor="let columnCode of data.columnCodes" [value]="columnCode.name">
@@ -41,6 +43,18 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
+      <div>
+        <mat-checkbox labelPosition="after" formControlName="mandatory">Mandatory</mat-checkbox>
+      </div>
+
+      <div>
+        <mat-checkbox labelPosition="after" formControlName="unique">Unique</mat-checkbox>
+      </div>
+
+      <div>
+        <mat-checkbox labelPosition="after" formControlName="indexed">Indexed</mat-checkbox>
+      </div>
 
     </div>
 

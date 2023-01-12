@@ -19,7 +19,7 @@
         <div fxFlex="50%" class="mat-body-strong">
           <span [translate]="'modulo.labels.jobname'">Job Name</span>
         </div>
-          
+
         <div fxFlex="50%">
           {{ jobData.displayName }}
         </div>
@@ -52,6 +52,12 @@
       </div>
 
     </mat-card-content>
+
+    <mat-card-actions>
+      <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="2%" fxLayout.lt-md="column">
+        <button type="button" color="primary" mat-raised-button [routerLink]="['../']">Back</button>
+      </div>
+    </mat-card-actions>
 
   </mat-card>
 

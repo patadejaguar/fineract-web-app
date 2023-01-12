@@ -36,33 +36,28 @@
       </ng-container>
 
       <ng-container matColumnDef="due">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <span [translate]="'modulo.loans.header.due'"> Due </span></th>
-        <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amount| number }} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.loans.header.due'"> Due </span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amount| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="paid">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <span [translate]="'modulo.loans.header.paid'"> Paid </span></th>
-        <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountPaid| number }} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.loans.header.paid'"> Paid </span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountPaid| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="waived">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <span [translate]="'modulo.loans.header.waived'"> Waived </span></th>
-        <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountWaived| number }} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.loans.header.waived'"> Waived </span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountWaived| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="outstanding">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <span [translate]="'modulo.loans.header.outstandig'"> Outstanding </span></th>
-        <td mat-cell *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountOutstanding| number }} </td>
+        <th mat-header-cell class="r-amount" *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.loans.header.outstandig'"> Outstanding </span> </th>
+        <td mat-cell class="r-amount" *matCellDef="let charge"> {{ charge.currency.displaySymbol }}{{ charge.amountOutstanding| number }} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <span [translate]="'header.actions'"> Actions </span></th>
-        <td mat-cell *matCellDef="let charge">
+        <th mat-header-cell class="center" *matHeaderCellDef mat-sort-header> <span [translate]="'header.actions'"> Actions </span> </th>
+        <td mat-cell class="center" *matCellDef="let charge">
           <span *ngIf="status === 'Submitted and pending approval'">
             <button class="account-action-button" mat-raised-button color="primary" 
             matTooltip="{{'modulo.labels.editcharge' | translate}}"
@@ -75,8 +70,7 @@
               <i class="fa fa-trash"></i>
             </button>
           </span>
-            <button class="account-action-button" mat-raised-button color="primary" 
-            matTooltip="{{'modulo.labels.paycharge' | translate}}" *ngIf="charge.chargePayable && status=='Active'"
+            <button class="account-action-button" mat-raised-button color="primary" matTooltip="{{'modulo.labels.paycharge' | translate}}" *ngIf="charge.chargePayable && !charge.paid && status=='Active'"
                (click)="routeEdit($event); payCharge(charge.id)">
               <i class="fa fa-dollar"></i>
             </button>

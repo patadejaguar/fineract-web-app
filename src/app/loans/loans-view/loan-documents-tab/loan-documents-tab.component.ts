@@ -1,18 +1,10 @@
 /** Angular Imports */
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource, MatTable } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 /** Custom Services */
 import { environment } from 'environments/environment';
 import { LoansService } from 'app/loans/loans.service';
-
-/** Dialog Components */
-import { LoanAccountLoadDocumentsDialogComponent } from 'app/loans/custom-dialog/loan-account-load-documents-dialog/loan-account-load-documents-dialog.component';
-import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
 import { SettingsService } from 'app/settings/settings.service';
 
 /**
@@ -24,26 +16,12 @@ import { SettingsService } from 'app/settings/settings.service';
   styleUrls: ['./loan-documents-tab.component.scss']
 })
 export class LoanDocumentsTabComponent implements OnInit {
-  @ViewChild('documentsTable') documentsTable: MatTable<Element>;
 
   /** Stores the resolved loan documents data */
-  loanDocuments: any;
-  /** Stores the resolved loan details data */
-  loanDetailsData: any;
-  /** Status of the loan account */
-  status: any;
-  /** Choice */
-  choice: boolean;
-
-  /** Columns to be displayed in loan documents table. */
-  displayedColumns: string[] = ['name', 'description', 'filename', 'actions'];
-  /** Data source for loan documents table. */
-  dataSource: MatTableDataSource<any>;
-
-  /** Paginator for codes table. */
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  /** Sorter for codes table. */
-  @ViewChild(MatSort) sort: MatSort;
+  entityDocuments: any;
+  /** Loan account Id */
+  entityId: string;
+  entityType = 'loans';
 
   /**
    * Retrieves the loans data from `resolve`.
@@ -51,31 +29,19 @@ export class LoanDocumentsTabComponent implements OnInit {
    */
   constructor(private route: ActivatedRoute,
     private loansService: LoansService,
-    private settingsService: SettingsService,
-    public dialog: MatDialog) {
+    private settingsService: SettingsService) {
+      this.entityId = this.route.parent.snapshot.params['loanId'];
+
     this.route.data.subscribe((data: { loanDocuments: any }) => {
       this.getLoanDocumentsData(data.loanDocuments);
     });
-    this.route.parent.data.subscribe((data: { loanDetailsData: any }) => {
-      this.loanDetailsData = data.loanDetailsData;
-    });
   }
 
-  ngOnInit() {
-    this.status = this.loanDetailsData.status.value;
-    if (this.status === 'Submitted and pending approval' || this.status === 'Active' || this.status === 'Approved') {
-      this.choice = true;
-    }
-    this.dataSource = new MatTableDataSource(this.loanDocuments);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  ngOnInit() { }
 
   getLoanDocumentsData(data: any) {
     data.forEach((ele: any) => {
-      let loandocs = {};
-      loandocs = this.settingsService.serverUrl + '/loans/' + ele.parentEntityId + '/documents/' + ele.id + '/attachment?tenantIdentifier=' + environment.fineractPlatformTenantId;
-      ele.docUrl = loandocs;
+      ele.docUrl = this.settingsService.serverUrl + '/loans/' + ele.parentEntityId + '/documents/' + ele.id + '/attachment?tenantIdentifier=' + environment.fineractPlatformTenantId;
       if (ele.fileName) {
         if (ele.fileName.toLowerCase().indexOf('.jpg') !== -1 || ele.fileName.toLowerCase().indexOf('.jpeg') !== -1 || ele.fileName.toLowerCase().indexOf('.png') !== -1) {
           ele.fileIsImage = true;
@@ -87,31 +53,22 @@ export class LoanDocumentsTabComponent implements OnInit {
         }
       }
     });
-    this.loanDocuments = data;
+    this.entityDocuments = data;
   }
 
-  uploadDocument() {
-    const uploadLoanDocumentDialogRef = this.dialog.open(LoanAccountLoadDocumentsDialogComponent);
-    uploadLoanDocumentDialogRef.afterClosed().subscribe((data: any) => {
-      if (data) {
-        this.loansService.loadLoanDocument(this.loanDetailsData.id, data)
-          .subscribe(() => {});
-      }
+  downloadDocument(documentId: string) {
+    this.loansService.downloadLoanDocument(this.entityId, documentId).subscribe(res => {
+      const url = window.URL.createObjectURL(res);
+      window.open(url);
     });
   }
 
-  deleteDocument(documentId: any, index: any) {
-    const deleteDocumentDialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: { deleteContext: `document id:${documentId}` }
-    });
-    deleteDocumentDialogRef.afterClosed().subscribe((response: any) => {
-      if (response.delete) {
-        this.loansService.deleteLoanDocument(this.loanDetailsData.id, documentId).subscribe((res: any) => {
-          this.loanDocuments.splice(index, 1);
-          this.documentsTable.renderRows();
-        });
-      }
-    });
+  uploadDocument(formData: FormData): any {
+    return this.loansService.loadLoanDocument(this.entityId, formData);
+  }
+
+  deleteDocument(documentId: any) {
+    this.loansService.deleteLoanDocument(this.entityId, documentId).subscribe((res: any) => {});
   }
 
 }

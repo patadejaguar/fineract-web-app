@@ -1,46 +1,49 @@
 <mat-card class="container">
   <div fxLayout="row" fxLayoutAlign="start center">
-    <div class="search-box">
-      <mat-form-field>
-        <input matInput placeholder="{{'modulo.labels.searchbyclientname' | translate}}" (keyup)="applyFilter($event.target.value)">
+    <!--placeholder="{{'modulo.labels.searchbyclientname' | translate}}"-->
+    <div class="search-box m-r-30">
+      <mat-form-field class="search-box">
+        <input matInput placeholder="Search by client name, external Id, mobile" class="search-box" (keydown.enter)="search($event.target.value)">
       </mat-form-field>
-      <mat-checkbox #showClosedAccounts labelPosition="after">
-        <span [translate]="'modulo.labels.showclosedaccounts'">Show Closed Accounts</span>
+    </div>
+    <div class="filter-box" *ngIf="existsClientsToFilter">
+      <mat-form-field class="filter-box m-r-30">
+        <input matInput placeholder="Filter by client name or external Id" class="filter-box" (keyup)="applyFilter($event.target.value)">
+      </mat-form-field>
+      <mat-checkbox #showClosedAccounts labelPosition="after" class="m-r-10"><span [translate]="'modulo.labels.showclosedaccounts'">Show Closed Accounts</span>
       </mat-checkbox>
     </div>
     <div class="action-button" fxLayoutGap="25px">
       <button mat-raised-button color="primary" [routerLink]="['../', 'organization', 'bulk-import', 'Clients']" *mifosxHasPermission="'CREATE_CLIENT'">
-        <fa-icon icon="download"></fa-icon>&nbsp;&nbsp;
-        <span [translate]="'labels.buttons.ImportClient'">Import Client</span>
+        <fa-icon icon="download" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.ImportClient'">Import Client</span>
       </button>
       <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_CLIENT'">
-        <fa-icon icon="plus"></fa-icon>&nbsp;&nbsp;
-        <span [translate]="'labels.buttons.CreateClient'">Create Client</span>
+        <fa-icon icon="plus" class="m-r-10"></fa-icon><span [translate]="'labels.buttons.CreateClient'">Create Client</span>
       </button>
     </div>
   </div>
-  <div>
+
+  <div [hidden]="!existsClientsToFilter">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="displayName">
-          <span [translate]="'modulo.labels.name'"> Name</span> </th>
-        <td mat-cell *matCellDef="let row"> {{row.displayName}} </td>
+      <ng-container matColumnDef="entityName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.name'"> Name</span> </th>
+        <td mat-cell *matCellDef="let row"> {{row.entityName}} </td>
       </ng-container>
 
       <!-- Account no Column -->
-      <ng-container matColumnDef="clientno">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="accountNo">
-          <span [translate]="'modulo.labels.account'"> Account</span> # </th>
-        <td mat-cell *matCellDef="let row"> {{row.accountNo}} </td>
+      <ng-container matColumnDef="entityAccountNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.accountno'"> Account No.</span> No. </th>
+        <td mat-cell *matCellDef="let row"> {{row.entityAccountNo}} </td>
       </ng-container>
 
       <!-- External ID Column -->
-      <ng-container matColumnDef="externalid">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="externalId">
-          <span [translate]="'modulo.labels.externalid'"> ExternalID</span> </th>
-        <td mat-cell *matCellDef="let row"> {{row.externalId}} </td>
+      <ng-container matColumnDef="entityExternalId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.externalid'"> ExternalID</span> </th>
+        <td mat-cell *matCellDef="let row">
+          <mifosx-external-identifier externalId="{{row.entityExternalId}}"></mifosx-external-identifier>
+        </td>
       </ng-container>
 
       <!-- Status Column -->
@@ -48,47 +51,40 @@
         <th mat-header-cell *matHeaderCellDef> 
           <span [translate]="'modulo.labels.status'">Status</span> </th>
         <td mat-cell *matCellDef="let row">
-          <div [ngClass]="row.status.code | statusLookup">
+          <div [ngClass]="row.entityStatus.code | statusLookup">
             <fa-icon icon="stop"></fa-icon>
+            <span class="m-l-10 status">
+              {{ row.entityStatus.value | translate }}
+            </span>
           </div>
         </td>
       </ng-container>
 
-      <!-- Mobile Number Column-->
-      <ng-container matColumnDef="mobileNo">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <span [translate]="'modulo.labels.mobilenum'"> Mobile Number</span> </th>
-        <td mat-cell *matCellDef="let client"> {{ client.mobileNo }} </td>
-      </ng-container>
-
-      <!--Gender column-->
-      <ng-container matColumnDef="gender">
-        <th mat-header-cell *matHeaderCellDef>
-          <span [translate]="'modulo.labels.gender'"> Gender</span> </th>
-        <td mat-cell *matCellDef="let client"> {{ client.gender.name }} </td>
-      </ng-container>
-
       <!-- Color Column -->
-      <ng-container matColumnDef="office">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="officeName">
-          <span [translate]="'modulo.labels.officename'"> OfficeName </span></th>
-        <td mat-cell *matCellDef="let row"> {{row.officeName}} </td>
+      <ng-container matColumnDef="parentName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header><span [translate]="'modulo.labels.officename'"> OfficeName </span> </th>
+        <td mat-cell *matCellDef="let row"> {{row.parentName}} </td>
       </ng-container>
 
       <!-- ID Column -->
-      <ng-container matColumnDef="staff">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="staffName">
-          <span [translate]="'modulo.labels.staffname'"> StaffName </span></th>
+      <ng-container matColumnDef="staffName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <span [translate]="'modulo.labels.staffname'"> StaffName </span> </th>
         <td mat-cell *matCellDef="let row"> {{row.staffName}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.id,'general']" class="select-row">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.entityId,'general']" class="select-row">
       </tr>
     </table>
 
-    <mat-paginator [length]="dataSource?.records$ | async" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]"
+    <mat-paginator [hidden]="!moreClientsToFilter" [pageSize]="50" [pageSizeOptions]="[50, 100]"
       showFirstLastButtons></mat-paginator>
   </div>
 
+  <div class="alert" [hidden]="!notExistsClientsToFilter">
+    <div class="message">
+      <i class="fa fa-exclamation-circle alert-check"></i>
+      No client was found
+    </div>
+  </div>
 </mat-card>

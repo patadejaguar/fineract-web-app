@@ -17,6 +17,14 @@
     <div fxLayout="row wrap" class="content">
 
       <div fxFlex="50%" class="header">
+        <span [translate]="'modulo.labels.tenantid'">Tenant Id</span>
+      </div>
+
+      <div fxFlex="50%">
+        {{ tenantIdentifier }}
+      </div>
+
+      <div fxFlex="50%" class="header">
         <span [translate]="'modulo.labels.userid'">User Id</span>
       </div>
 

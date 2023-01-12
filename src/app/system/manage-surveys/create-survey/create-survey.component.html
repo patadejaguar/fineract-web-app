@@ -17,7 +17,7 @@
                 <span [innerHTML]="'modulo.validations.keyrequired' | translate">Key is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
-            
+
             <mat-form-field fxFlex="48%">
               <mat-label><span [translate]="'modulo.labels.name'">Name</span></mat-label>
               <input matInput maxlength="255" required formControlName="name">
@@ -41,7 +41,7 @@
 
             <mat-form-field fxFlex="98%">
               <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
-              <textarea matInput formControlName="description"></textarea>
+              <textarea matInput formControlName="description" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
             </mat-form-field>
 
             <div fxFlexFill fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px" *ngIf="!questionDatas.length">
@@ -81,7 +81,7 @@
                  <span [innerHTML]="'modulo.validations.keyrequired' | translate"> Key is <strong>required</strong></span>
                 </mat-error>
               </mat-form-field>
-              
+
               <mat-form-field fxFlex="48">
                 <mat-label><span [translate]="'modulo.labels.text'">Text</span></mat-label>
                 <input matInput maxlength="255" required formControlName="text">
@@ -92,7 +92,7 @@
 
               <mat-form-field fxFlex="98%">
                 <mat-label><span [translate]="'modulo.labels.description'">Description</span></mat-label>
-                <textarea matInput formControlName="description"></textarea>
+                <textarea matInput formControlName="description" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
               </mat-form-field>
 
               <mat-divider [inset]="true"></mat-divider>
@@ -104,11 +104,11 @@
                   <span [translate]="'labels.buttons.AddOption'">Add Option</span>
                 </button>
               </div>
-        
+
               <div cdkDropList (cdkDropListDropped)="dropResponse($event, questionIndex)" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%">
 
                 <div cdkDrag cdkDragLockAxis="y" fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" formArrayName="responseDatas" *ngFor="let response of getResponseDatas(questionIndex).controls; let responseIndex = index;">
-                  
+
                   <div fxFlexFill fxLayout="row wrap" fxLayoutGap="2%" [formGroupName]="responseIndex">
 
                     <mat-form-field fxFlex="43%">
@@ -138,10 +138,10 @@
                         <button type="button" color="warn" mat-icon-button 
                         matTooltip="{{'modulo.labels.delete' | translate}}" matTooltipPosition="above" (click)="removeResponse(getResponseDatas(questionIndex), responseIndex)" [disabled]="getResponseDatas(questionIndex).controls.length === 1">
                           <fa-icon icon="trash" size="lg"></fa-icon>
-                        </button>  
+                        </button>
                       </div>
                     </div>
-                          
+
                   </div>
 
                 </div>
@@ -167,7 +167,7 @@
 
           </div>
 
-        </mat-card>  
+        </mat-card>
 
       </div>
 

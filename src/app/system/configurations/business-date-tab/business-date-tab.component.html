@@ -43,16 +43,15 @@
 
               <div fxLayoutGap="2%" fxFlex="22%" class="options-wrapper">
                 <span *ngIf="isEditInProgress && (dateIndex == 0)">
-                  <button mat-stroked-button color="primary" [disabled]="businessDateForm.pristine" (click)="submit()"
+                  <button mat-raised-button color="primary" [disabled]="businessDateForm.pristine" (click)="submit()"
                     *mifosxHasPermission="'UPDATE_BUSINESSDATE'">
                     <span [translate]="'labels.buttons.Submit'">Submit</span>
                   </button>
+                  <button mat-raised-button (click)="editInProgressToggle(0)">
+                    <span [translate]="'labels.buttons.Cancel'">Cancel</span>
+                  </button>
                 </span>
-                <button mat-button *ngIf="isEditInProgress && (dateIndex == 0)" (click)="editInProgressToggle(0)">
-                  <span [translate]="'labels.buttons.Cancel'">Cancel</span>
-                </button>
-                <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button 
-                matTooltip="{{'modulo.labels.editbusinessdate' | translate}}"
+                <button type="button" color="primary" *ngIf="!isEditInProgress" mat-icon-button matTooltip="{{'modulo.labels.editbusinessdate' | translate}}"
                   matTooltipPosition="above" (click)="editInProgressToggle(0)">
                   <fa-icon icon="edit" size="lg"></fa-icon>
                 </button>

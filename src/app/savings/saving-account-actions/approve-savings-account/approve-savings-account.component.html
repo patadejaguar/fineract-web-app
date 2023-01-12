@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mat-elevation-z8">
 
   <mat-card>
 
@@ -20,7 +20,7 @@
 
           <mat-form-field>
             <mat-label><span [translate]="'modulo.labels.note'">Note</span></mat-label>
-            <textarea matInput formControlName="note"></textarea>
+            <textarea matInput formControlName="note" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>
 
         </div>
@@ -28,10 +28,8 @@
       </mat-card-content>
 
       <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
-        <button type="button" mat-raised-button [routerLink]="['../../']">
-          <span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
-        <button mat-raised-button color="accent" [disabled]="!approveSavingsAccountForm.valid">
-          <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
+        <button type="button" mat-raised-button [routerLink]="['../../']"><span [translate]="'labels.buttons.Cancel'">Cancel</span></button>
+        <button mat-raised-button color="primary" [disabled]="!approveSavingsAccountForm.valid"><span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
       </mat-card-actions>
 
     </form>
