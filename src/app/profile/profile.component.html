@@ -53,7 +53,7 @@
       </div>
 
       <div fxFlex="50%">
-        {{ profileData.authenticated ? 'Authenticated' : 'Not Authenticated' }}
+        {{ (profileData.authenticated ? 'modulo.labels.authenticated' : 'modulo.labels.notauthenticated') |translate }}
       </div>
 
       <div fxFlex="50%" class="header">

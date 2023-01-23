@@ -36,7 +36,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="transactionData.toLoanTransactionRelation">
-          {{ 'Repayment Transaction' | translate }}
+          <!--{{ 'Repayment Transaction' | translate }}-->
           <span [translate]="'modulo.loans.labels.repaytransaction'">Repayment Transaction</span>
         </div>
 
@@ -79,7 +79,7 @@
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="transactionData.externalId">
-          {{ 'External Id' | translate }}
+          <span [translate]="'modulo.labels.externalid'">{{ 'External Id' | translate }}</span>
         </div>
 
         <div fxFlex="50%" *ngIf="transactionData.externalId">
@@ -89,7 +89,7 @@
         <mat-divider *ngIf="existTransactionRelations" [inset]="true"></mat-divider>
 
         <div fxFlex="100%" class="mat-body-strong" *ngIf="existTransactionRelations">
-          {{ 'Linked Transactions' | translate }}
+          <!--{{ 'Linked Transactions' | translate }}-->
           <span [translate]="'modulo.loans.labels.linkedtransaction'">Linked Transactions</span>
           <br>
 

@@ -77,7 +77,7 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48%" (click)="dateOfBirthDatePicker.open()">
-            <mat-label>{{ editClientForm.value.legalFormId === 1 ? 'Date of Birth' : 'Incorporation Date' }}</mat-label>
+            <mat-label>{{ (editClientForm.value.legalFormId === 1 ? 'modulo.labels.datebirth' : 'modulo.labels.incorporationdate') | translate }}</mat-label>
             <input matInput [max]="maxDate" [matDatepicker]="dateOfBirthDatePicker" formControlName="dateOfBirth">
             <mat-datepicker-toggle matSuffix [for]="dateOfBirthDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #dateOfBirthDatePicker></mat-datepicker>

@@ -194,7 +194,7 @@
               {{ loanDetails.loanPurposeName }}
             </span>
             <span fxFlex="50%" *ngIf="!loanDetails.loanPurposeName">
-              Not Provided
+              <span [translate]="'modulo.labels.notprovided'">Not Provided</span>
             </span>
         </div>
 

@@ -123,7 +123,7 @@
                 <span [innerHTML]="'modulo.validations.duedaterequired' | translate">Due Date is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
-
+<!--DEUDA-->
             <mat-form-field fxFlex="48%" *ngIf="chargeForm.controls.chargeTimeType.value === 7 || chargeForm.controls.chargeTimeType.value === 11">
               <mat-label><span [translate]="'modulo.labels.repeatevery'">Repeat Every</span> ({{ repeatEveryLabel }})</mat-label>
               <input matInput required formControlName="feeInterval">

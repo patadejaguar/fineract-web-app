@@ -18,7 +18,7 @@
           </mat-form-field>
 
           <mat-form-field *ngIf="!(employeeData === undefined || employeeData === null)">
-            <mat-label>{{ employeeData.length ? 'Officer' : 'No Associated Officers' }}</mat-label>
+            <mat-label>{{ (employeeData.length ? 'modulo.labels.officer' : 'modulo.labels.noassociatedofficers') | translate }}</mat-label>
             <mat-select [formControl]="employeeSelector">
               <mat-option *ngFor="let employee of employeeData" [value]="employee.id">
                 {{ employee.displayName }}
@@ -27,7 +27,7 @@
           </mat-form-field>
 
           <mat-form-field *ngIf="!(centerData === undefined || centerData === null)">
-            <mat-label>{{ centerData.length ? 'Center' : 'No Associated Centers' }}</mat-label>
+            <mat-label>{{ (centerData.length ? 'Center' : 'noassociatedcenters') | translate }}</mat-label>
             <mat-select [formControl]="centerSelector">
               <mat-option *ngFor="let center of centerData" [value]="center.id">
                 {{ center.name }}
@@ -36,7 +36,7 @@
           </mat-form-field>
 
           <mat-form-field *ngIf="!(groupData === undefined || groupData === null)">
-            <mat-label>{{ groupData.length ? 'Group' : 'No Associated Groups' }}</mat-label>
+            <mat-label>{{ (groupData.length ? 'modulo.labels.group' : 'modulo.labels.noassociatedgroups') | translate }}</mat-label>
             <mat-select [formControl]="groupSelector">
               <mat-option *ngFor="let group of groupData" [value]="group.id">
                 {{ group.name }}
@@ -45,7 +45,7 @@
           </mat-form-field>
 
           <mat-form-field *ngIf="!(clientData === undefined || clientData === null)">
-            <mat-label>{{ clientData.length ? 'Client' : 'No Associated Clients' }}</mat-label>
+            <mat-label>{{ (clientData.length ? 'modulo.labels.client' : 'modulo.labels.noassociatedclients') | translate }}</mat-label>
             <mat-select [formControl]="clientSelector">
               <mat-option *ngFor="let client of clientData" [value]="client.id">
                 {{ client.displayName }}

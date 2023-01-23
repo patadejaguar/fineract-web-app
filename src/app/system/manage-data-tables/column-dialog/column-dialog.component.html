@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ data.columnName ? "Edit" : "Add" }} <span [translate]="'modulo.labels.column'">Column</span></h1>
+<h1 mat-dialog-title>{{ (data.columnName ? "labels.buttons.Edit" : "labels.buttons.Add") | translate }} <span [translate]="'modulo.labels.column'">Column</span></h1>
 
 <mat-dialog-content>
 
@@ -45,15 +45,15 @@
       </mat-form-field>
 
       <div>
-        <mat-checkbox labelPosition="after" formControlName="mandatory">Mandatory</mat-checkbox>
+        <mat-checkbox labelPosition="after" formControlName="mandatory"><span [translate]="'modulo.labels.mandatory'">Mandatory</span></mat-checkbox>
       </div>
 
       <div>
-        <mat-checkbox labelPosition="after" formControlName="unique">Unique</mat-checkbox>
+        <mat-checkbox labelPosition="after" formControlName="unique"><span [translate]="'modulo.labels.unique'">Unique</span></mat-checkbox>
       </div>
 
       <div>
-        <mat-checkbox labelPosition="after" formControlName="indexed">Indexed</mat-checkbox>
+        <mat-checkbox labelPosition="after" formControlName="indexed"><span [translate]="'modulo.labels.indexed'">Indexed</span></mat-checkbox>
       </div>
 
     </div>

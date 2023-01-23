@@ -43,7 +43,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="bulkLoanForm.controls.fromLoanOfficerId.hasError('required')">
-              From Loan Officer is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.fromloanofficerrequired' | translate">From Loan Officer is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
@@ -59,7 +59,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="bulkLoanForm.controls.toLoanOfficerId.hasError('required')">
-              To Loan Officer is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.toloanofficerrequired' | translate">To Loan Officer is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 

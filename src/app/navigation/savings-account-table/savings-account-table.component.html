@@ -4,7 +4,7 @@
     <input matInput (keyup)="applyFilter($event.target.value)">
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="toggleClosed()">
-    {{ showClosed ? 'View Active' : 'View Closed' }}
+    {{(showClosed ? 'labels.buttons.ViewActive' : 'labels.buttons.ViewClosed') | translate }}
   </button>  
 </div>
 

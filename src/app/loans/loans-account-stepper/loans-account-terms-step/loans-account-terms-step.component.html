@@ -48,7 +48,7 @@
       <mat-datepicker #repaymentsPicker></mat-datepicker>
     </mat-form-field>
 
-    <h4 fxFlex="98%" class="mat-h4">Repaid Every</h4>
+    <h4 fxFlex="98%" class="mat-h4"><span [translate]="'modulo.labels.repaidevery'">Repaid Every</span></h4>
 
     <mat-form-field fxFlex="48%">
       <mat-label><span [translate]="'modulo.loans.labels.repaid'">Repaid every</span></mat-label>
@@ -232,7 +232,7 @@
 
     <div fxFlexFill>
       <span fxFlex="40%"><span [translate]="'modulo.loans.title.recalculateinterest'">Recalculate Interest</span></span>
-      <span fxFlex="60%">{{ loansAccountTermsData?.isInterestRecalculationEnabled? 'Yes' : 'No' }}</span>
+      <span fxFlex="60%">{{ (loansAccountTermsData?.isInterestRecalculationEnabled? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
     </div>
 
     <div fxFlexFill *ngIf="loansAccountTermsData?.isInterestRecalculationEnabled">

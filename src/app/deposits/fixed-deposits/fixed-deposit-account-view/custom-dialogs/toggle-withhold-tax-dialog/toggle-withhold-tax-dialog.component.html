@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ data.isEnable ? 'Enable' : 'Disable' }} 
+<h1 mat-dialog-title>{{ (data.isEnable ? 'modulo.labels.enable' : 'modulo.labels.disable') | translate }} 
   <span [translate]="'modulo.labels.enablewithholdtax'">Withhold Tax</span></h1>
 <div mat-dialog-content>
   <p>
@@ -10,3 +10,4 @@
   <button mat-raised-button color="{{ data.isEnable ? 'accent' : 'warn' }}" [mat-dialog-close]="{ confirm: true }">
     <span [translate]="'labels.buttons.Confirm'">Confirm</span></button>
 </mat-dialog-actions>
+<!--DEUDA-->

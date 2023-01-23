@@ -85,7 +85,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.isoverdraftallowedq'">Is Overdraft Allowed</span>:</span>
-    <span fxFlex="60%">{{ savingsAccount.allowOverdraft ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (savingsAccount.allowOverdraft ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="savingsAccount.minOverdraftForInterestCalculation">
@@ -107,7 +107,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.enforceminbalance'">Enforce Minimum Balance</span>:</span>
-    <span fxFlex="60%">{{ savingsAccount.enforceMinRequiredBalance ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (savingsAccount.enforceMinRequiredBalance ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="savingsAccount.minRequiredBalance">

@@ -54,7 +54,7 @@
 
     <mat-step>
 
-      <ng-template matStepLabel>REPAYMENT SCHEDULE</ng-template>
+      <ng-template matStepLabel><span [translate]="'modulo.labels.repaymentschedule'">REPAYMENT SCHEDULE</span></ng-template>
 
       <mifosx-loans-account-schedule-step [loansAccountTemplate]="loansAccountAndTemplate"
         [loansAccountProductTemplate]="loansAccountProductTemplate" [loansAccount]="loansAccount">

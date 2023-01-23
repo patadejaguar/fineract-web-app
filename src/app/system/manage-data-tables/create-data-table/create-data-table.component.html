@@ -91,19 +91,19 @@
 
           <ng-container matColumnDef="length">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              <span [translate]="'modulo.labels.length'"> Length </span></th>
+              <span [translate]="'modulo.labels.length'"> <span [translate]="'modulo.labels.length'">Length</span> </span></th>
             <td mat-cell *matCellDef="let column"> {{ column.columnLength }} </td>
           </ng-container>
 
           <ng-container matColumnDef="code">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              <span [translate]="'modulo.labels.code'"> Code</span> </th>
+              <span [translate]="'modulo.labels.code'"><span [translate]="'modulo.labels.code'"> Code</span></span> </th>
             <td mat-cell *matCellDef="let column"> {{ column.columnCode }} </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> 
-              <span [translate]="'header.actions'">Actions</span> </th>
+              <span [translate]="'header.actions'"><span [translate]="'header.actions'">Actions</span></span> </th>
             <td mat-cell *matCellDef="let column" fxLayoutGap="15%">
               <button type="button" color="primary" mat-icon-button (click)="editColumn(column)">
                 <fa-icon icon="edit" size="lg"></fa-icon>

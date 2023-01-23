@@ -14,34 +14,34 @@
       </ng-container>
 
       <ng-container matColumnDef="entityName">
-        <th mat-header-cell *matHeaderCellDef> Entity Name </th>
+        <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.entityname'"> Entity Name</span> </th>
         <td mat-cell *matCellDef="let entity" class="view-details"> {{entity.entityName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="entityAccount">
-        <th mat-header-cell *matHeaderCellDef> Account No </th>
+        <th mat-header-cell *matHeaderCellDef>  <span [translate]="'modulo.labels.accountno'">Account No </span></th>
         <td mat-cell *matCellDef="let entity" class="view-details"> {{entity.entityAccountNo}} </td>
       </ng-container>
 
       <ng-container matColumnDef="externalId">
-        <th mat-header-cell *matHeaderCellDef> External Id </th>
+        <th mat-header-cell *matHeaderCellDef>  <span [translate]="'modulo.labels.externalid'">External Id </span></th>
         <td mat-cell *matCellDef="let entity" class="view-details">
           <mifosx-external-identifier externalId="{{entity.entityExternalId}}"></mifosx-external-identifier>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="parentType">
-        <th mat-header-cell *matHeaderCellDef> Parent Type </th>
+        <th mat-header-cell *matHeaderCellDef>  <span [translate]="'modulo.labels.parenttype'">Parent Type </span></th>
         <td mat-cell *matCellDef="let entity" class="view-details"> {{ ['CLIENT','GROUP', 'CENTER'].includes(entity.entityType) ? 'Office' : 'Client' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="parentName">
-        <th mat-header-cell *matHeaderCellDef> Parent Name </th>
+        <th mat-header-cell *matHeaderCellDef>  <span [translate]="'modulo.labels.parentname'">Parent Name</span> </th>
         <td mat-cell *matCellDef="let entity" class="view-details"> {{entity.parentName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="details">
-        <th mat-header-cell *matHeaderCellDef> Details </th>
+        <th mat-header-cell *matHeaderCellDef>  <span [translate]="'modulo.labels.details'">Details </span></th>
         <td mat-cell *matCellDef="let entity" class="view-details">
           <button mat-icon-button matTooltip="View Entity" (click)="navigate(entity)" matTooltipPosition="right">
             <fa-icon icon="eye" size="lg"></fa-icon>

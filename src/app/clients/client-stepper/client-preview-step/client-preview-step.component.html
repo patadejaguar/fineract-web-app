@@ -29,7 +29,7 @@
   </div>
 
   <div fxFlexFill *ngIf="client.dateOfBirth">
-    <span fxFlex="40%">{{ client.legalFormId === 1 ? 'Date of Birth' : 'Incorporation Date' }}</span>
+    <span fxFlex="40%">{{ (client.legalFormId === 1 ? 'modulo.labels.datebirth' : 'modulo.labels.incorporationdate') | translate }}</span>
     <span fxFlex="60%">{{ client.dateOfBirth  | dateFormat }}</span>
   </div>
 
@@ -70,7 +70,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.activeq'">Active?</span></span>
-    <span fxFlex="60%">{{ client.active ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (client.active ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="client.activationDate">
@@ -87,7 +87,7 @@
 
     <div fxFlexFill>
       <span fxFlex="40%"><span [translate]="'modulo.labels.isstaffq'">Is Staff?</span></span>
-      <span fxFlex="60%">{{ client.isStaff ? 'Yes' : 'No' }}</span>
+      <span fxFlex="60%">{{ (client.isStaff ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
     </div>
 
   </ng-container>

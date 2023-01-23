@@ -42,7 +42,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ employeeData.isLoanOfficer === true ? 'Yes' : 'No' }}
+          {{ (employeeData.isLoanOfficer === true ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="employeeData.mobileNo">
@@ -58,7 +58,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ employeeData.isActive === true ? 'Active' : 'Inactive' }}
+          {{ (employeeData.isActive === true ? 'modulo.labels.active' : 'modulo.labels.inactive') | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong">

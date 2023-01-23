@@ -33,7 +33,7 @@
     </mat-form-field>
 
     <mat-form-field *ngIf="createClientForm.contains('fullname')" fxFlex="48%">
-      <mat-label>{{ createClientForm.value.legalFormId === 1 ? 'Name' : 'Entity Name' }}</mat-label>
+      <mat-label>{{ (createClientForm.value.legalFormId === 1 ? 'modulo.labels.name' : 'modulo.labels.entityname') | translate }}</mat-label>
       <input matInput required formControlName="fullname">
       <mat-error *ngIf="createClientForm.controls.fullname.hasError('required')">
         <span [innerHTML]="'modulo.validations.clientnamerequired' | translate">
@@ -81,7 +81,7 @@
     </mat-form-field>
 
     <mat-form-field fxFlex="48%" (click)="dateOfBirthDatePicker.open()">
-      <mat-label>{{ createClientForm.value.legalFormId === 1 ? 'Date of Birth' : 'Incorporation Date' }}</mat-label>
+      <mat-label>{{ (createClientForm.value.legalFormId === 1 ? 'modulo.labels.datebirth' : 'modulo.labels.incorporationdate') | translate }}</mat-label>
       <input matInput [max]="maxDate" [matDatepicker]="dateOfBirthDatePicker" formControlName="dateOfBirth">
       <mat-datepicker-toggle matSuffix [for]="dateOfBirthDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #dateOfBirthDatePicker></mat-datepicker>

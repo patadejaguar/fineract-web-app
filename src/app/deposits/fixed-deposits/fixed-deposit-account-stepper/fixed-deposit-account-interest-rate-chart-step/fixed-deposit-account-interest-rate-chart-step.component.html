@@ -23,7 +23,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.primarygroupingamount'">Primary Grouping by Amount</span>:</span>
-    <span fxFlex="60%">{{ fixedDepositsAccountProductTemplate?.accountChart.isPrimaryGroupingByAmount ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (fixedDepositsAccountProductTemplate?.accountChart.isPrimaryGroupingByAmount ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <table class="mat-elevation-z1" mat-table [dataSource]="interestRateChartData" #chartsTable multiTemplateDataRows>

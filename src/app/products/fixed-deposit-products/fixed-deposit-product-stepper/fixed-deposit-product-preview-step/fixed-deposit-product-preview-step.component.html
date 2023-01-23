@@ -92,7 +92,7 @@
   <!-- For Pre-mature closure -->
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.applypenalinterest'">Apply Penal Interest (less)</span>:</span>
-    <span fxFlex="60%">{{ fixedDepositProduct.preClosurePenalApplicable ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (fixedDepositProduct.preClosurePenalApplicable ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="fixedDepositProduct.preClosurePenalApplicable">
@@ -102,7 +102,7 @@
   <!--  -->
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.withholdtax'">Withhold Tax is Applicable</span>:</span>
-    <span fxFlex="60%">{{ fixedDepositProduct.withHoldTax ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (fixedDepositProduct.withHoldTax ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="fixedDepositProduct.withHoldTax">
@@ -140,7 +140,7 @@
 
       <div fxFlexFill>
         <span fxFlex="40%"><span [translate]="'modulo.labels.primarygroupingamount'">Primary Grouping by Amount</span>:</span>
-        <span fxFlex="60%">{{ fixedDepositProduct.isPrimaryGroupingByAmount ? 'Yes' : 'No' }}</span>
+        <span fxFlex="60%">{{ (fixedDepositProduct.isPrimaryGroupingByAmount ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
       </div>
 
       <table fxFlexFill class="mat-elevation-z1" mat-table [dataSource]="chart.chartSlabs" *ngIf="chart.chartSlabs.length !== 0" multiTemplateDataRows>

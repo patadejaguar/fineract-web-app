@@ -47,13 +47,13 @@
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
           <mat-form-field fxFlex="98%" (click)="transferDatePicker.open()">
-            <mat-label>Transaction Date</mat-label>
+            <mat-label><span [translate]="'modulo.labels.transactiondate'">Transaction Date</span></mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="transferDatePicker" required
               formControlName="transferDate">
             <mat-datepicker-toggle matSuffix [for]="transferDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #transferDatePicker></mat-datepicker>
             <mat-error *ngIf="makeAccountTransferForm.controls.transferDate.hasError('required')">
-              Transactions Date is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.transactiondaterequired' | translate">Transactions Date is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 

@@ -1,7 +1,7 @@
 <div class="container m-b-20" fxLayout="row" fxLayoutGap="20px">
     <div #schedulerStatus>
     <h2 class="no-m"><span [translate]="'modulo.labels.schedulerstatus'">Scheduler Status</span>
-      : {{ schedulerActive ? 'Active' : 'Inactive' }}</h2>
+      : {{ (schedulerActive ? 'modulo.labels.active' : 'modulo.labels.inactive') | translate }}</h2>
     </div>
     <button mat-raised-button class="suspend">
       <fa-icon icon="times-circle"></fa-icon>&nbsp;&nbsp;

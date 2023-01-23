@@ -50,18 +50,18 @@
           </mat-checkbox>
 
           <mat-form-field>
-            <mat-label>From Email</mat-label>
+            <mat-label><span [translate]="'modulo.labels.fromemail'">From Email</span></mat-label>
             <input matInput type="email" required formControlName="fromEmail">
             <mat-error *ngIf="emailConfigurationForm.controls.fromEmail.hasError('required')">
-              From Email is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.fromemailrequired' | translate">From Email is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>From Name</mat-label>
+            <mat-label><span [translate]="'modulo.labels.fromname'">From Name</span></mat-label>
             <input matInput required formControlName="fromName">
             <mat-error *ngIf="emailConfigurationForm.controls.fromName.hasError('required')">
-              From Name is <strong>required</strong>
+              <span [innerHTML]="'modulo.validations.fromnamerequired' | translate">From Name is <strong>required</strong></span>
             </mat-error>
           </mat-form-field>
         </div>

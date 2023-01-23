@@ -16,7 +16,7 @@
       <mat-label><span [translate]="'modulo.labels.totalnumbershares'">Total Number of Shares</span></mat-label>
       <input type="number" matInput formControlName="requestedShares" required>
       <mat-error>
-        Total Number of Shares is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.totalnumbersharesrequired' | translate">Total Number of Shares is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
@@ -38,7 +38,7 @@
         </mat-option>
       </mat-select>
       <mat-error>
-        Default Savings Account is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.defaultsavingsaccountrequired' | translate">Default Savings Account is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
@@ -49,7 +49,7 @@
       <mat-datepicker-toggle matSuffix [for]="applicationDatePicker"></mat-datepicker-toggle>
       <mat-datepicker #applicationDatePicker></mat-datepicker>
       <mat-error>
-        Application Date is <strong>required</strong>
+        <span [innerHTML]="'modulo.validations.applicationdaterequired' | translate">Application Date is <strong>required</strong></span>
       </mat-error>
     </mat-form-field>
 
