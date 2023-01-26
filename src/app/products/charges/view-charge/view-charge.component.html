@@ -86,7 +86,7 @@
         </div>
 
         <div fxFlex="50%">
-          {{ (chargeData.active === true ? 'Yes' : 'No') | translate }}
+          {{ (chargeData.active === true ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}
         </div>
 
         <div fxFlex="50%" class="mat-body-strong" *ngIf="chargeData.chargeTimeType.id == 9 && chargeData.feeFrequency">

@@ -91,7 +91,7 @@
   <div fxFlexFill>
     <span fxFlex="40%">
       <span [translate]="'modulo.labels.depositfrequencymeeting'">Deposit Frequency Same as Group/Center meeting</span>:</span>
-    <span fxFlex="60%">{{ recurringDepositsAccountProductTemplate.isCalendarInherited === true ? 'Yes' : 'No'  }}</span>
+    <span fxFlex="60%">{{ (recurringDepositsAccountProductTemplate.isCalendarInherited === true ? 'modulo.labels.yes' : 'modulo.labels.no') | translate  }}</span>
   </div>
 
   <ng-container *ngIf="!recurringDepositsAccountProductTemplate.isCalendarInherited">
@@ -156,7 +156,7 @@
     <div fxFlexFill>
       <span fxFlex="40%"><span [translate]="'modulo.labels.primarygroupingamount'">Primary Grouping by Amount</span>:</span>
       <span
-        fxFlex="60%">{{ recurringDepositsAccountProductTemplate?.accountChart.isPrimaryGroupingByAmount ? 'Yes' : 'No' }}</span>
+        fxFlex="60%">{{ (recurringDepositsAccountProductTemplate?.accountChart.isPrimaryGroupingByAmount ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
     </div>
 
     <table class="mat-elevation-z1 irc-table" mat-table [dataSource]="interestRateChartData" multiTemplateDataRows>
@@ -310,10 +310,10 @@
         <td mat-cell *matCellDef="let charge">
           <span
             *ngIf="charge.chargeTimeType.value === 'Specified due date' || charge.chargeTimeType.value === 'Weekly Fee'">
-            {{(charge.dueDate  | dateFormat) || 'Unassigned'}}
+            {{(charge.dueDate  | dateFormat) || ('modulo.labels.unassigned' | translate)}}
           </span>
           <span *ngIf="charge.chargeTimeType.value === 'Monthly Fee' || charge.chargeTimeType.value === 'Annual Fee'">
-            {{(charge.feeOnMonthDay  | dateFormat) || 'Unassigned'}}
+            {{(charge.feeOnMonthDay  | dateFormat) || ('modulo.labels.unassigned' | translate)}}
           </span>
           <span
             *ngIf="!(charge.chargeTimeType.value === 'Monthly Fee' || charge.chargeTimeType.value === 'Annual Fee'
@@ -326,7 +326,7 @@
       <ng-container matColumnDef="repaymentsEvery">
         <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.repaymentsevery'"> Repayments Every</span> </th>
         <td mat-cell *matCellDef="let charge">
-          {{ charge.feeInterval || 'Not Provided' }}
+          {{ charge.feeInterval || ('modulo.labels.notprovided' | translate) }}
         </td>
       </ng-container>
 

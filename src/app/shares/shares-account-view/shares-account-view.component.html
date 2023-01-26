@@ -72,11 +72,11 @@
             </tr>
             <tr>
               <td><span [translate]="'modulo.labels.externalid'">External Id</span></td>
-              <td>{{sharesAccountData.externalId ? sharesAccountData.externalId : 'Not Provided'}}</td>
+              <td>{{sharesAccountData.externalId ? sharesAccountData.externalId : ('modulo.labels.notprovided' | translate)}}</td>
             </tr>
             <tr>
               <td><span [translate]="'modulo.labels.linkedsavingsaccountdividend'">Linked Savings Account(Dividend Posting)</span></td>
-              <td>{{sharesAccountData.savingsAccountNumber ? sharesAccountData.savingsAccountNumber : 'Unassigned'}}</td>
+              <td>{{sharesAccountData.savingsAccountNumber ? sharesAccountData.savingsAccountNumber : ('modulo.labels.unassigned' | translate)}}</td>
             </tr>
           </tbody>
         </table>

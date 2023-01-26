@@ -1611,6 +1611,7 @@
   "modulo.labels.standinginstructiontype": "Tipo de instrucción permanente",
   "modulo.labels.recurrencefrequency": "Frecuencia de Recurrencia",
   "modulo.labels.datebirth": "Fecha de Nacimiento",
+  "modulo.labels.notprovided": "No Proporcionado",
 
   "modulo.configurationwizard.buttons.account": "Config. Contabilidad",
 	"modulo.configurationwizard.buttons.close": "Cerrar <strong>Asistente</strong>",

@@ -101,7 +101,7 @@
 
     <div fxFlexFill>
       <span fxFlex="40%"><span [translate]="'modulo.labels.incorporationnum'">Incorportation Number</span></span>
-      <span fxFlex="60%">{{ client.clientNonPersonDetails.incorpNumber || 'Not Provided' }}</span>
+      <span fxFlex="60%">{{ client.clientNonPersonDetails.incorpNumber || ('modulo.labels.notprovided' | translate) }}</span>
     </div>
 
     <div fxFlexFill *ngIf="client.clientNonPersonDetails.mainBusinessLineId">
@@ -152,7 +152,7 @@
           <span [translate]="'modulo.labels.qualification'">Qualification </span>: {{ member.qualification }}<br />
           <span [translate]="'modulo.labels.relationship'">Relationship </span>: {{ member.relationshipId | find:clientTemplate.familyMemberOptions.relationshipIdOptions:'id':'name' }}<br />
           <span [translate]="'modulo.labels.age'">Age </span>: {{ member.age }}<br />
-          <span [translate]="'modulo.labels.isdependentq'">Is Dependent </span>: {{ member.isDependent ? 'Yes' : 'No' }}<br />
+          <span [translate]="'modulo.labels.isdependentq'">Is Dependent </span>: {{ (member.isDependent ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}<br />
           <span [translate]="'modulo.labels.maritalstatus'">Marital Status</span> : {{ member.maritalStatusId | find:clientTemplate.familyMemberOptions.maritalStatusIdOptions:'id':'name' }}<br />
           <span [translate]="'modulo.labels.gender'">Gender </span>: {{ member.genderId | find:clientTemplate.familyMemberOptions.genderIdOptions:'id':'name' }}<br />
           <span [translate]="'modulo.labels.profession'">Profession </span>: {{ member.professionId | find:clientTemplate.familyMemberOptions.professionIdOptions:'id':'name' }}<br />

@@ -106,7 +106,7 @@ export class WebAppComponent implements OnInit {
       .subscribe(event => {
         const title = event['title'];
         if (title) {
-          this.titleService.setTitle(`${this.translateService.instant(title)} | Mifos X`);
+          this.titleService.setTitle(`${this.translateService.instant(title)} | ${this.translateService.instant("APP_NAME")}`);
         }
       });
 

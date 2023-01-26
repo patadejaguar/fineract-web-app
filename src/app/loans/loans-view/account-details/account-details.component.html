@@ -113,7 +113,7 @@
 
         <div fxFlexFill>
             <span fxFlex="50%" [translate]="'modulo.loans.labels.recalculatenewterms'"> Recalculate Interest based on new terms</span>
-            <span fxFlex="50%">  {{loanDetails.isInterestRecalculationEnabled ? 'Yes' : 'No'  }} </span>
+            <span fxFlex="50%">  {{(loanDetails.isInterestRecalculationEnabled ? 'modulo.labels.yes' : 'modulo.labels.no') | translate  }} </span>
         </div>
 
         <div fxFlexFill>

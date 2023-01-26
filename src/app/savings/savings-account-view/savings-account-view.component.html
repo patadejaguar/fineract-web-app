@@ -222,7 +222,7 @@
               </tr>
               <tr>
                 <td><span [translate]="'modulo.labels.externalid'">External Id</span></td>
-                <td>{{savingsAccountData.externalId ? savingsAccountData.externalId : 'Not Provided'}}</td>
+                <td>{{savingsAccountData.externalId ? savingsAccountData.externalId : ('modulo.labels.notprovided' | translate)}}</td>
               </tr>
             </tbody>
           </table>
@@ -241,11 +241,11 @@
               </tr>
               <tr>
                 <td><span [translate]="'modulo.labels.fieldofficer'">Field Officer</span></td>
-                <td>{{savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : 'Unassigned'}}</td>
+                <td>{{savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : ('modulo.labels.unassigned' | translate)}}</td>
               </tr>
               <tr>
                 <td><span [translate]="'modulo.labels.externalid'">External Id</span></td>
-                <td>{{savingsAccountData.externalId ? savingsAccountData.externalId : 'Not Provided'}}</td>
+                <td>{{savingsAccountData.externalId ? savingsAccountData.externalId : ('modulo.labels.notprovided' | translate)}}</td>
               </tr>
               <tr>
                 <td><span [translate]="'modulo.labels.currency'">Currency</span></td>
@@ -266,7 +266,7 @@
               <tbody>
                 <tr>
                   <td><span [translate]="'modulo.labels.fieldofficer'">Field Officer</span></td>
-                  <td>{{savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : 'Unassigned'}}</td>
+                  <td>{{savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : ('modulo.labels.unassigned' | translate)}}</td>
                 </tr>
                 <tr>
                   <td><span [translate]="'modulo.labels.balance'">Balance</span></td>

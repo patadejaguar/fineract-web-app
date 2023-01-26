@@ -20,7 +20,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.includecustomerloancounter'">Include in Customer Loan Counter</span>:</span>
-    <span fxFlex="60%">{{ loanProduct.includeInBorrowerCycle ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (loanProduct.includeInBorrowerCycle ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="loanProduct.startDate">
@@ -73,7 +73,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.allowedapproveddisbursedamountsover'">Allow Approved / Disbursed Amounts Over Applied</span>:</span>
-    <span fxFlex="60%">{{ loanProduct.allowApprovedDisbursedAmountsOverApplied ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (loanProduct.allowApprovedDisbursedAmountsOverApplied ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="loanProduct.allowApprovedDisbursedAmountsOverApplied">

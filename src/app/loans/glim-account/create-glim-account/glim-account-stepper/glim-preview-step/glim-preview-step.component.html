@@ -204,10 +204,10 @@
           <td mat-cell *matCellDef="let charge">
             <span
               *ngIf="charge.chargeTimeType.value === 'Specified due date' || charge.chargeTimeType.value === 'Weekly Fee'">
-              {{(charge.dueDate  | dateFormat) || 'Unassigned'}}
+              {{(charge.dueDate  | dateFormat) || ('modulo.labels.unassigned' | translate)}}
             </span>
             <span *ngIf="charge.chargeTimeType.value === 'Monthly Fee' || charge.chargeTimeType.value === 'Annual Fee'">
-              {{(charge.feeOnMonthDay  | dateFormat) || 'Unassigned'}}
+              {{(charge.feeOnMonthDay  | dateFormat) || ('modulo.labels.unassigned' | translate)}}
             </span>
             <span
               *ngIf="!(charge.chargeTimeType.value === 'Monthly Fee' || charge.chargeTimeType.value === 'Annual Fee'

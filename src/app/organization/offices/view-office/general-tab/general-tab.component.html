@@ -7,15 +7,15 @@
     </mat-list-item>
 
     <mat-list-item>
-      <span [translate]="'modulo.labels.openedon'">Opened On</span> : {{ officeData.openingDate ? (officeData.openingDate  | dateFormat) : 'Unassigned' }}
+      <span [translate]="'modulo.labels.openedon'">Opened On</span> : {{ officeData.openingDate ? (officeData.openingDate  | dateFormat) : ('modulo.labels.unassigned' | translate) }}
     </mat-list-item>
 
     <mat-list-item>
-      <span [translate]="'modulo.labels.namedecorated'">Name Decorated</span> : {{ officeData.nameDecorated ? officeData.nameDecorated : 'Unassigned' }}
+      <span [translate]="'modulo.labels.namedecorated'">Name Decorated</span> : {{ officeData.nameDecorated ? officeData.nameDecorated : ('modulo.labels.unassigned' | translate) }}
     </mat-list-item>
 
     <mat-list-item>
-      <span [translate]="'modulo.labels.externalid'">External Id</span> : {{ officeData.externalId ? officeData.externalId : 'Unassigned' }}
+      <span [translate]="'modulo.labels.externalid'">External Id</span> : {{ officeData.externalId ? officeData.externalId : ('modulo.labels.unassigned' | translate) }}
     </mat-list-item>
     
   </mat-list>

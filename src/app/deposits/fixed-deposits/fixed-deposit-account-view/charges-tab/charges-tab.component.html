@@ -41,7 +41,7 @@
       <ng-container matColumnDef="repeatsOn">
         <th mat-header-cell *matHeaderCellDef>
           <span [translate]="'modulo.labels.repeatson'"> Repeats On</span> </th>
-        <td mat-cell *matCellDef="let charge"> {{charge.feeOnMonthDay ? ([2000].concat(charge.feeOnMonthDay)  | dateFormat: 'dd MMMM') : 'Unassigned'}} </td>
+        <td mat-cell *matCellDef="let charge"> {{charge.feeOnMonthDay ? ([2000].concat(charge.feeOnMonthDay)  | dateFormat: 'dd MMMM') : ('modulo.labels.unassigned' | translate)}} </td>
       </ng-container>
 
       <ng-container matColumnDef="calculationType">

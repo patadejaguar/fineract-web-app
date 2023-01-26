@@ -61,11 +61,11 @@
           </div>
           <div class="mat-row">
             <div class="mat-cell"><span [translate]="'modulo.labels.staff'">Staff</span></div>
-            <div class="mat-cell">{{transferClientsForm.get('destinationGroupId').value.staffName || 'Unassigned'}}</div>
+            <div class="mat-cell">{{transferClientsForm.get('destinationGroupId').value.staffName || ('modulo.labels.unassigned' | translate)}}</div>
           </div>
           <div class="mat-row">
             <div class="mat-cell"><span [translate]="'modulo.labels.externalid'">External Id</span></div>
-            <div class="mat-cell">{{transferClientsForm.get('destinationGroupId').value.externalId || 'Unassigned'}}</div>
+            <div class="mat-cell">{{transferClientsForm.get('destinationGroupId').value.externalId || ('modulo.labels.unassigned' | translate)}}</div>
           </div>
         </div>
 

@@ -51,7 +51,7 @@
             <b><span [translate]="'modulo.labels.client'">Client </span> :</b> {{clientViewData.accountNo}}<br />
             <b><span [translate]="'modulo.labels.externalid'">External Id</span>:</b> {{clientViewData.externalId}}<br />
             <span *ngIf="clientViewData.staffName"><b><span [translate]="'modulo.labels.staff'">Staff</span> :</b> {{clientViewData.staffName ||
-              'Unassigned'}}<br /></span>
+              ('modulo.labels.unassigned' | translate)}}<br /></span>
             <span *ngIf="clientViewData.activationDate"><b><span [translate]="'modulo.labels.activationdate'">Activation Date</span> :</b> {{clientViewData.activationDate |
               dateFormat}}<br /></span>
             <span *ngIf="clientViewData.groups.length > 0">

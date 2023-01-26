@@ -16,7 +16,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.externalid'">External Id</span></span>
-    <span fxFlex="60%">{{ sharesAccount.externalId || 'Unassigned' }}</span>
+    <span fxFlex="60%">{{ sharesAccount.externalId || ('modulo.labels.unassigned' | translate) }}</span>
   </div>
 
   <h3 class="mat-h3" fxFlexFill><span [translate]="'modulo.labels.terms'">Terms</span></h3>

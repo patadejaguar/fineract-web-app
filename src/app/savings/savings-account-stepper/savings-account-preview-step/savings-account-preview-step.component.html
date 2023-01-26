@@ -16,7 +16,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.externalid'">External Id</span></span>
-    <span fxFlex="60%">{{ savingsAccount.externalId || 'Unassigned' }}</span>
+    <span fxFlex="60%">{{ savingsAccount.externalId || ('modulo.labels.unassigned' | translate) }}</span>
   </div>
 
   <div fxFlexFill>
@@ -75,7 +75,7 @@
 
   <div fxFlexFill>
     <span fxFlex="40%"><span [translate]="'modulo.labels.applywithdrawlfeetransfer'">Apply Withdrawal Fee for Transfers</span>:</span>
-    <span fxFlex="60%">{{ savingsAccount.withdrawalFeeForTransfers ? 'Yes' : 'No' }}</span>
+    <span fxFlex="60%">{{ (savingsAccount.withdrawalFeeForTransfers ? 'modulo.labels.yes' : 'modulo.labels.no') | translate }}</span>
   </div>
 
   <div fxFlexFill *ngIf="savingsAccount.lockinPeriodFrequency">
@@ -149,10 +149,10 @@
         <th mat-header-cell *matHeaderCellDef><span [translate]="'modulo.labels.date'"> Date</span> </th>
         <td mat-cell *matCellDef="let charge">
           <span *ngIf="charge.chargeTimeType.value === 'Specified due date' || charge.chargeTimeType.value === 'Weekly Fee'">
-            {{(charge.dueDate  | dateFormat) || 'Unassigned'}}
+            {{(charge.dueDate  | dateFormat) || ('modulo.labels.unassigned' | translate)}}
           </span>
           <span *ngIf="charge.chargeTimeType.value === 'Monthly Fee' || charge.chargeTimeType.value === 'Annual Fee'">
-            {{(charge.feeOnMonthDay  | dateFormat) || 'Unassigned'}}
+            {{(charge.feeOnMonthDay  | dateFormat) || ('modulo.labels.unassigned' | translate)}}
           </span>
           <span 
             *ngIf="!(charge.chargeTimeType.value === 'Monthly Fee' || charge.chargeTimeType.value === 'Annual Fee'
@@ -165,7 +165,7 @@
       <ng-container matColumnDef="repaymentsEvery">
         <th mat-header-cell *matHeaderCellDef> <span [translate]="'modulo.labels.repaymentsevery'">Repayments Every</span> </th>
         <td mat-cell *matCellDef="let charge">
-          {{ charge.feeInterval || 'Not Provided' }} 
+          {{ charge.feeInterval || ('modulo.labels.notprovided' | translate) }} 
         </td>
       </ng-container>  
 

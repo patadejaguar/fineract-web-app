@@ -1611,6 +1611,7 @@
   "modulo.labels.standinginstructiontype": "Standing Instruction Type",
   "modulo.labels.recurrencefrequency": "Recurrence Frequency",
   "modulo.labels.datebirth": "Date of Birth",
+  "modulo.labels.notprovided":"Not Provided",
 
   "modulo.configurationwizard.buttons.account": "Setup Accounting",
 	"modulo.configurationwizard.buttons.close": "Close Config. Wizard",
