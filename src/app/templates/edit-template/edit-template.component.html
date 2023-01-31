@@ -12,7 +12,7 @@
             <mat-label><span [translate]="'modulo.labels.entity'">Entity</span></mat-label>
             <mat-select formControlName="entity">
               <mat-option *ngFor="let entity of editTemplateData.entities" [value]="entity.id">
-                {{ entity.name }}
+                {{ entity.name | translate }}
               </mat-option>
             </mat-select>
           </mat-form-field>		
@@ -21,7 +21,7 @@
             <mat-label><span [translate]="'modulo.labels.type'">Type</span></mat-label>
             <mat-select formControlName="type">
               <mat-option *ngFor="let type of editTemplateData.types" [value]="type.id">
-                {{ type.name }}
+                {{ type.name | translate}}
               </mat-option>
             </mat-select>
           </mat-form-field>

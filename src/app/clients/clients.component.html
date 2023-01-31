@@ -1,14 +1,14 @@
 <mat-card class="container">
   <div fxLayout="row" fxLayoutAlign="start center">
-    <!--placeholder="{{'modulo.labels.searchbyclientname' | translate}}"-->
+    <!--placeholder="{{'modulo.labels.placeholdersearchclient' | translate}}"-->
     <div class="search-box m-r-30">
       <mat-form-field class="search-box">
-        <input matInput placeholder="Search by client name, external Id, mobile" class="search-box" (keydown.enter)="search($event.target.value)">
+        <input matInput placeholder="{{'modulo.labels.placeholdersearchclient' | translate}}" class="search-box" (keydown.enter)="search($event.target.value)">
       </mat-form-field>
     </div>
     <div class="filter-box" *ngIf="existsClientsToFilter">
       <mat-form-field class="filter-box m-r-30">
-        <input matInput placeholder="Filter by client name or external Id" class="filter-box" (keyup)="applyFilter($event.target.value)">
+        <input matInput placeholder="{{'modulo.labels.placeholderfilterclient' | translate}}" class="filter-box" (keyup)="applyFilter($event.target.value)">
       </mat-form-field>
       <mat-checkbox #showClosedAccounts labelPosition="after" class="m-r-10"><span [translate]="'modulo.labels.showclosedaccounts'">Show Closed Accounts</span>
       </mat-checkbox>

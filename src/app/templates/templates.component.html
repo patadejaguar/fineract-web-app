@@ -21,13 +21,13 @@
       <ng-container matColumnDef="entity">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <span [translate]="'modulo.labels.entity'"> Entity</span> </th>
-        <td mat-cell *matCellDef="let template"> {{ template.entity }} </td>
+        <td mat-cell *matCellDef="let template"> {{ template.entity | translate }} </td>
       </ng-container>
 
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <span [translate]="'modulo.labels.type'"> Type</span> </th>
-        <td mat-cell *matCellDef="let template"> {{ template.type }} </td>
+        <td mat-cell *matCellDef="let template"> {{ template.type | translate}} </td>
       </ng-container>
 
       <ng-container matColumnDef="name">

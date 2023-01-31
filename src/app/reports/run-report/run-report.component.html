@@ -9,36 +9,36 @@
         <ng-container  *ngFor="let param of paramData" [ngSwitch]="param.displayType">
 
           <ng-container *ngIf="reportForm.contains(param.name)">
-
+ 
             <mat-form-field fxFlex *ngSwitchCase="'text'">
-              <mat-label>{{param.label}}</mat-label>
+              <mat-label>{{param.label | translate }}</mat-label>
               <input matInput required [formControlName]="param.name">
               <mat-error *ngIf="reportForm.controls[param.name].hasError('required')">
-                {{param.label}} <span [innerHTML]="'modulo.validations.genericrequired' | translate">
+                {{param.label | translate}} <span [innerHTML]="'modulo.validations.genericrequired' | translate">
                   is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
     
             <mat-form-field fxFlex *ngSwitchCase="'date'" (click)="runReportDatePicker.open()">
-              <mat-label>{{param.label}}</mat-label>
+              <mat-label>{{param.label | translate}}</mat-label>
               <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="runReportDatePicker" required
                 [formControlName]="param.name">
               <mat-datepicker-toggle matSuffix [for]="runReportDatePicker"></mat-datepicker-toggle>
               <mat-datepicker #runReportDatePicker></mat-datepicker>
               <mat-error *ngIf="reportForm.controls[param.name].hasError('required')">
-                {{param.label}}<span [innerHTML]="'modulo.validations.genericrequired' | translate"> is <strong>required</strong></span>
+                {{param.label | translate}}<span [innerHTML]="'modulo.validations.genericrequired' | translate"> is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
 
             <mat-form-field fxFlex *ngSwitchCase="'select'">
-              <mat-label>{{param.label}}</mat-label>
+              <mat-label>{{param.label | translate}}</mat-label>
               <mat-select required [formControlName]="param.name">
                 <mat-option *ngFor="let option of param.selectOptions" [value]="option">
                   {{option.name}}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="reportForm.controls[param.name].hasError('required')">
-                {{param.label}}<span [innerHTML]="'modulo.validations.genericrequired' | translate"> is <strong>required</strong></span>
+                {{param.label | translate}}<span [innerHTML]="'modulo.validations.genericrequired' | translate"> is <strong>required</strong></span>
               </mat-error>
             </mat-form-field>
 
