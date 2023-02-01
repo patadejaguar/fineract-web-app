@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 /** Keyboard Shortcuts Button Configuration */
 export class KeyboardShortcutsConfiguration {
 
@@ -11,7 +12,7 @@ export class KeyboardShortcutsConfiguration {
         id?: string
     }[];
 
-    constructor() {
+    constructor(private translateService: TranslateService) {
         this.makeCombination();
     }
 
@@ -19,7 +20,7 @@ export class KeyboardShortcutsConfiguration {
         this.buttonsArray = [
             // Navigation Page - alt + n
             {
-                title: 'Navigation Page',
+                title: this.translateService.instant('Navigation Page'),
                 ctrlKey: false,
                 shiftKey: false,
                 altKey: true,
@@ -28,7 +29,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Run Report - alt + r
             {
-                title: 'Run Report',
+                title: this.translateService.instant('Run Report'),
                 ctrlKey: false,
                 shiftKey: false,
                 altKey: true,
@@ -38,7 +39,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Checker Inbox & Pending Tasks - ctrl + alt + i
             {
-              title: 'Checker Inbox & Pending Tasks',
+              title: this.translateService.instant('Checker Inbox & Pending Tasks'),
               ctrlKey: true,
               shiftKey: false,
               altKey: true,
@@ -56,7 +57,7 @@ export class KeyboardShortcutsConfiguration {
             // },
             // Create Client - ctrl + alt + c
             {
-                title: 'Create Client',
+                title: this.translateService.instant('Create Client'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -65,7 +66,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Create Group - ctrl + alt + g
             {
-                title: 'Create Group',
+                title: this.translateService.instant('Create Group'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -74,7 +75,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Create Center - ctrl + alt + q
             {
-                title: 'Create Center',
+                title: this.translateService.instant('Create Center'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -83,7 +84,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Frequent Posting - ctrl + alt + f
             {
-                title: 'Frequent Posting',
+                title: this.translateService.instant('Frequent Posting'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -92,7 +93,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Closure Entries - ctrl + alt + e
             {
-                title: 'Closure Entries',
+                title: this.translateService.instant('Closure Entries'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -101,7 +102,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Journal Entry - ctrl + alt + j
             {
-                title: 'Journal Entry',
+                title: this.translateService.instant('Journal Entry'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -110,7 +111,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Reports - ctrl + alt + r
             {
-                title: 'Reports',
+                title: this.translateService.instant('Reports'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -119,7 +120,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Accounting - ctrl + alt + a
             {
-                title: 'Accounting',
+                title: this.translateService.instant('Accounting'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -128,7 +129,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Save/Submit Forms - ctrl + alt + s
             {
-                title: 'Save/Submit Forms',
+                title: this.translateService.instant('Save/Submit Forms'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -138,7 +139,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Cancel - ctrl + alt + x
             {
-                title: 'Cancel',
+                title: this.translateService.instant('Cancel'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -148,7 +149,7 @@ export class KeyboardShortcutsConfiguration {
             },
             // Help - ctrl + alt + h
             {
-                title: 'Help',
+                title: this.translateService.instant('Help'),
                 ctrlKey: true,
                 shiftKey: false,
                 altKey: true,
@@ -176,7 +177,7 @@ export class KeyboardShortcutsConfiguration {
             // },
             // Logout - ctrl + shift + l
             {
-                title: 'Logout',
+                title: this.translateService.instant('Logout'),
                 ctrlKey: true,
                 shiftKey: true,
                 altKey: false,

@@ -137,7 +137,7 @@ export class WebAppComponent implements OnInit {
         verticalPosition: 'top'
       });
     });
-    this.buttonConfig = new KeyboardShortcutsConfiguration();
+    this.buttonConfig = new KeyboardShortcutsConfiguration(this.translateService);
 
     // initialize language and date format if they are null.
     if (!localStorage.getItem('mifosXLanguage')) {

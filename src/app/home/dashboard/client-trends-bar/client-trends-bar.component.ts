@@ -13,6 +13,7 @@ import { HomeService } from '../../home.service';
 /** Charting Imports */
 import Chart from 'chart.js';
 import { Dates } from 'app/core/utils/dates';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Client Trends Bar Chart Component.
@@ -43,7 +44,8 @@ export class ClientTrendsBarComponent implements OnInit {
    */
   constructor(private homeService: HomeService,
               private route: ActivatedRoute,
-              private dateUtils: Dates) {
+              private dateUtils: Dates,
+              private translateService: TranslateService) {
     this.route.data.subscribe( (data: { offices: any }) => {
       this.officeData = data.offices;
     });
@@ -223,12 +225,12 @@ export class ClientTrendsBarComponent implements OnInit {
           labels: labels,
           datasets: [
             {
-              label: 'New Clients',
+              label: this.translateService.instant('New Clients'),
               backgroundColor: 'dodgerblue',
               data: clientCounts
             },
             {
-              label: 'Loans Disbursed',
+              label: this.translateService.instant('Loans Disbursed'),
               backgroundColor: 'green',
               data: loanCounts
             }

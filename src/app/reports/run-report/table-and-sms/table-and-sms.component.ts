@@ -3,6 +3,7 @@ import { Component, Input, ViewChild, OnChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DecimalPipe } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 /** Custom Servies */
 import { ReportsService } from '../../reports.service';
@@ -39,7 +40,8 @@ export class TableAndSmsComponent implements OnChanges {
    * @param {DecimalPipe} decimalPipe Decimal Pipe
    */
   constructor(private reportsService: ReportsService,
-              private decimalPipe: DecimalPipe ) { }
+              private decimalPipe: DecimalPipe,
+              private translateService: TranslateService ) { }
 
   /**
    * Fetches run report data post changes in run report form.
@@ -58,7 +60,8 @@ export class TableAndSmsComponent implements OnChanges {
       this.setOutputTable(res.data);
       res.columnHeaders.forEach((header: any) => {
         this.columnTypes.push(header.columnDisplayType);
-        this.displayedColumns.push(header.columnName);
+        let columnName = this.translateService.instant(header.columnName);
+        this.displayedColumns.push(columnName);
       });
       this.hideOutput = false;
     });
@@ -81,10 +84,10 @@ export class TableAndSmsComponent implements OnChanges {
   downloadCSV() {
     const headers = this.displayedColumns;
     let csv = this.csvData.map((object: any) => object.row.join());
-    csv.unshift(`data:text/csv;charset=utf-8,${headers.join()}`);
+    csv.unshift(`${headers.join()}`);
     csv = csv.join('\r\n');
     const link = document.createElement('a');
-    link.setAttribute('href', encodeURI(csv));
+    link.setAttribute('href',  "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(csv));
     link.setAttribute('download', `${this.dataObject.report.name}.csv`);
     document.body.appendChild(link);
     link.click();
