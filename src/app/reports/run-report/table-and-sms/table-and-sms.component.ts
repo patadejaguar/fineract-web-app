@@ -88,7 +88,7 @@ export class TableAndSmsComponent implements OnChanges {
     csv = csv.join('\r\n');
     const link = document.createElement('a');
     link.setAttribute('href',  "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(csv));
-    link.setAttribute('download', `${this.dataObject.report.name}.csv`);
+    link.setAttribute('download', `${this.translateService.instant(this.dataObject.report.name)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
