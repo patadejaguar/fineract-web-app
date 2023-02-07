@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Reports component.
@@ -36,10 +37,17 @@ export class ReportsComponent implements OnInit {
    * @param {Router} router: Router.
    */
   constructor(private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private translateService: TranslateService) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.route.data.subscribe(( data: { reports: any }) => {
       this.reportsData = data.reports;
+      this.reportsData.forEach((report:any) => {
+        report["nameTranslated"] = this.translateService.instant(report.reportName);
+        if(report.reportCategory)
+          report["categoryTranslated"] = this.translateService.instant(report.reportCategory);
+      });
+
     });
     this.filter = this.route.snapshot.params['filter'];
   }
